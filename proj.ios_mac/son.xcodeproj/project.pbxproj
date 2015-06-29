@@ -1163,7 +1163,7 @@
 		3E85DE6D1B3A4A2E0011215F /* UI_Arena_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Arena_Layer.h; sourceTree = "<group>"; };
 		3E85DE6F1B3A4A2E0011215F /* UI_Bag_Gem_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Bag_Gem_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE701B3A4A2E0011215F /* UI_Bag_Gem_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Bag_Gem_Layer.h; sourceTree = "<group>"; };
-		3E85DE711B3A4A2E0011215F /* UI_Bag_Info_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Bag_Info_Layer.cpp; sourceTree = "<group>"; };
+		3E85DE711B3A4A2E0011215F /* UI_Bag_Info_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Bag_Info_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE721B3A4A2E0011215F /* UI_Bag_Info_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Bag_Info_Layer.h; sourceTree = "<group>"; };
 		3E85DE731B3A4A2E0011215F /* UI_Banks_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Banks_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE741B3A4A2E0011215F /* UI_Banks_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Banks_Layer.h; sourceTree = "<group>"; };

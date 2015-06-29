@@ -699,8 +699,8 @@ void GameScene::enterGame()
     if (_sendType == suvival)
     {
         _limitTime = battle->getTime(); _firstTime = _currentTime = _lastTime = 0;
-        _showTimeRed   = TextAtlas::create("0123456789:;<", "red.png", 46, 48, "0");
-        _showTimeGreen = TextAtlas::create("0123456789:;<", "green.png", 46, 48, "0");
+        _showTimeRed   = TextAtlas::create("0123456789:/%", "red.png", 46, 48, "0");
+        _showTimeGreen = TextAtlas::create("0123456789:/%", "green.png", 46, 48, "0");
         _showTimeRed->setPosition( Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2 +150) );
         _showTimeRed->setAnchorPoint( Vec2(0.5f, 0.5f) );
         goalLayer->addChild(_showTimeRed,4999);
@@ -708,18 +708,18 @@ void GameScene::enterGame()
     }else if (_sendType == count)
     {
         _limitTime = battle->getTime(); _firstTime = _currentTime = _lastTime = 0;
-        _showTimeRed = TextAtlas::create("0123456789:;<", "red.png", 46, 48, "0");
-        _showTimeGreen = TextAtlas::create("0123456789:;<", "green.png", 46, 48, "0");
+        _showTimeRed = TextAtlas::create("0123456789:/%", "red.png", 46, 48, "0");
+        _showTimeGreen = TextAtlas::create("0123456789:/%", "green.png", 46, 48, "0");
         _showTimeRed->setPosition(Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2 + 150));
         _showTimeRed->setAnchorPoint(Vec2(0.5f, 0.5f));
         goalLayer->addChild(_showTimeRed, 4999);
         
         _limitCount = battle->getCount(); _currentCount = 0;
-        _showCountGreen = TextAtlas::create( "0123456789:;<", "green.png", 46, 48, "0"); _showCountGreen->setAnchorPoint(Vec2(1.f, 0.5f) );
+        _showCountGreen = TextAtlas::create( "0123456789:/%", "green.png", 46, 48, "0"); _showCountGreen->setAnchorPoint(Vec2(1.f, 0.5f) );
         _showCountGreen->setPosition( Vec2(Director::getInstance()->getWinSize().width - 200, Director::getInstance()->getWinSize().height - 150) );
         goalLayer->addChild(_showCountGreen, 4999);
         
-        _showCountRed = TextAtlas::create( "0123456789:;<", "red.png", 46, 48, "0"); _showCountRed->setAnchorPoint(Vec2(1.f, 0.5f) );
+        _showCountRed = TextAtlas::create( "0123456789:/%", "red.png", 46, 48, "0"); _showCountRed->setAnchorPoint(Vec2(1.f, 0.5f) );
         _showCountRed->setPosition( Vec2(Director::getInstance()->getWinSize().width - 50, Director::getInstance()->getWinSize().height - 150) );
         goalLayer->addChild(_showCountRed, 4999);
         
@@ -727,15 +727,18 @@ void GameScene::enterGame()
     {
         _limitHp = battle->getHp();
         _showPreRed = Text::create();
-        _showPreRed->setAnchorPoint(Vec2(1.f, 0.5f)); _showPreRed->setFontName("/fonts/ktwz.ttf"); _showPreRed->setFontSize(48); _showPreRed->setColor(Color3B::RED);
+        _showPreRed->setAnchorPoint(Vec2(1.f, 0.5f));
+        _showPreRed->setFontName("/fonts/ktwz.ttf");
+        _showPreRed->setFontSize(48);
+        _showPreRed->setColor(Color3B::RED);
         _showPreRed->setPosition( Vec2(Director::getInstance()->getWinSize().width - 290, Director::getInstance()->getWinSize().height - 150) );
         _showPreRed->setString(Little::helps[1].name);
         goalLayer->addChild(_showPreRed, 4999);
         
-        _showHpRed = TextAtlas::create( "0123456789:;<", "red.png", 46, 48, "0"); _showHpRed->setAnchorPoint(Vec2(1.f, 0.5f) );
+        _showHpRed = TextAtlas::create( "0123456789:/%", "red.png", 46, 48, "0"); _showHpRed->setAnchorPoint(Vec2(1.f, 0.5f) );
         _showHpRed->setPosition( Vec2(Director::getInstance()->getWinSize().width - 130, Director::getInstance()->getWinSize().height - 150) );
         Value midStr(_limitHp);
-        _showHpRed->setString(midStr.asString() + "<");
+        _showHpRed->setString(midStr.asString() + "%");
         goalLayer->addChild(_showHpRed, 4999);
         
         _showSuffRed = Text::create();
@@ -1619,7 +1622,7 @@ bool GameScene::updateSendByType(int type, float delta)
             Value limitCount(_limitCount);
             Value greenStr(_currentCount);
             _showCountGreen->setString( greenStr.asString() );
-            _showCountRed->setString(";" + limitCount.asString());
+            _showCountRed->setString("/" + limitCount.asString());
             
             if (_currentCount >= _limitCount)
             {
@@ -1647,7 +1650,7 @@ bool GameScene::updateSendByType(int type, float delta)
         case hp:
         {
             Value midStr(_limitHp);
-            _showHpRed->setString(midStr.asString()+"<");
+            _showHpRed->setString(midStr.asString()+"%");
             
             if (nPercent < _limitHp)
             {
