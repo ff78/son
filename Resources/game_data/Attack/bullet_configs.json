@@ -1,0 +1,255 @@
+{
+    "1": {
+    		"prototype_id": 2801,
+    		"duration": 1500,
+    		"v": {
+            "x": 600,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "1901",
+    		"end_effect_id": "1901",
+    		"skill_id": 1211,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 60
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "2": {
+    		"prototype_id": 2801,
+    		"duration": 1500,
+    		"v": {
+            "x": 600,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "1901",
+    		"end_effect_id": "1901",
+    		"skill_id": 1001,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 60
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 0
+    },
+    "3": {
+    		"prototype_id": 2601,
+    		"duration": 2000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 2001,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "4": {
+    		"prototype_id": 2602,
+    		"duration": 2000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 2001,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "5": {
+    		"prototype_id": 2603,
+    		"duration": 2500,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 2001,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "6": {
+    		"prototype_id": 2701,
+    		"duration": 1000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 2541,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "7": {
+    		"prototype_id": 2604,
+    		"duration": 1000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 2001,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "8": {
+    		"prototype_id": 2605,
+    		"duration": 1000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 1351,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "9": {
+    		"prototype_id": 2605,
+    		"duration": 1000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 1352,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "10": {
+    		"prototype_id": 2605,
+    		"duration": 1000,
+    		"v": {
+            "x": 1000,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 1353,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    },
+    "11": {
+    		"prototype_id": 2603,
+    		"duration": 2300,
+    		"v": {
+            "x": 200,
+            "y": 0,
+            "z": 0
+        },
+        "begin_effect_id": "",
+    		"end_effect_id": "",
+    		"skill_id": 1353,
+        "hit_box": {
+            "f_x": 40,
+            "b_x": -40,
+            "max_z": 40,
+            "min_z": -40,
+            "y": 30
+        },
+        "add_X": 20,
+        "add_Z": 20,
+        "center_blow": 1,
+        "hit_remove": 1
+    }                    
+}

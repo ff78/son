@@ -1,0 +1,10 @@
+[
+{"id":10001,"condition":"level(1,200)","trigger":"monster_die(100022)","function":"dropgold(2,200,30)dropitem(2,20004,30)dropbottle(2,1001,10)"},
+{"id":10002,"condition":"level(1,200)","trigger":"levelup(15)","function":"awardgold(100,30)awardmoney(1000,40)"},
+{"id":10003,"condition":"level(1,200)","trigger":"collided_something(2901)","function":"awardhp(100)awardgold(100)"},
+{"id":10004,"condition":"level(1,200)","trigger":"monster_die(10002)","function":"dropsomething(2901,50)"},
+{"id":10005,"condition":"level(1,200)","trigger":"monster_die(2002)","function":"dropsomething(2902,50)"},
+{"id":10006,"condition":"level(1,200)","trigger":"monster_die(10202)","function":"dropsomething(2903,50)"},
+{"id":10007,"condition":"level(1,200)","trigger":"useitem(10008)","function":"awarditem(10003,3,100)awarditem(10005,6,50)"},
+{"id":10008,"condition":"level(1,200)","trigger":"useitem(10030)","function":"randomawardone(10021,4,10022,3,10023,2,10022,1)"}
+]

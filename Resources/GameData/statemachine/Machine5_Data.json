@@ -1,0 +1,1 @@
+[{"ID":0,"nextstate":"WALK","nextaction":"WALK","flag":0},{"ID":1,"nextstate":"RUSH","nextaction":"RUN","flag":0},{"ID":2,"nextstate":"IDLE","nextaction":"STAND","flag":0},{"ID":3,"nextstate":"AUTOMOVE","nextaction":"WALK","flag":0}]

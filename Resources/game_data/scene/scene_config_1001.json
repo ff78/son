@@ -1,0 +1,130 @@
+{
+    "monster_waves": [
+        [
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 1000,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 800,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 900,
+                "born_point_y": 60
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 600,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 500,
+                "born_point_y": 60
+            }
+        ],
+        [
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 1800,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 2000,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 2000,
+                "born_point_y": 60
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 1500,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 1900,
+                "born_point_y": 60
+            }
+        ],
+        [
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 2800,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 3000,
+                "born_point_y": 60
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 3300,
+                "born_point_y": 160
+            },
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 3200,
+                "born_point_y": 60
+            },
+            {
+                "sprite_prototype_id": 1024,
+                "attribute_id": 3002,
+                "attribute_lv":1,
+                "ai_type_id": 10003,
+                "born_point_x": 3500,
+                "born_point_y": 100
+            }
+        ]
+    ]
+}

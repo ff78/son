@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="scene_26" tilewidth="1920" tileheight="640">
+  <image source="../../../../../Users/ff/Movies/sceneTiled/scene_26.png" width="1920" height="660"/>
+ </tileset>
+ <objectgroup name="doors">
+  <object name="born" type="born" x="130" y="524"/>
+ </objectgroup>
+ <objectgroup name="wave1">
+  <object x="1231" y="481">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="wave2">
+  <object x="705.989" y="415.024" width="24.4782" height="22.556" rotation="-1.34197">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="6"/>
+   </properties>
+  </object>
+  <object x="713" y="582">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="trap">
+     <object x="1556" y="581">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+     <object x="1410" y="390">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+     <object x="1483" y="492">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+ </objectgroup>
+</map>

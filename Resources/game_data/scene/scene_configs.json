@@ -1,0 +1,195 @@
+{
+    "scenes": {
+        "1": {
+            "distant_view": "scene_res/city-far.png",
+            "mid_view": "scene_res/city-Medium.png",
+            "close_view": "scene_res/city-nearly.png",
+            "foreground_view": "",
+            "background_music": "BGM-City.mp3",
+            "max_y":250,
+            "min_y":50,
+            "screen_numbers":4
+        },
+ 
+        "1000": {
+            "distant_view": "      /yj.png",
+            "mid_view": "scene_res/zj.png",
+            "close_view": "scene_res/dm.png",a
+            "foreground_view": "scene_res/qj.png",
+            "background_music": "BGM-Battle.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1001": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-mountain pass.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-1.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1002": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-mountain pass 1.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-2.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1003": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-Martial Arts Center.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-5.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1004": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-small mountain fastness.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-7.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1005": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-5.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1006": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-City wall.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-7.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1007": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/ancient tomb .jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-8.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1008": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-butterfly valleyBOSS.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-7.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1009": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-tumulus1.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-8.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1010": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-mountain fastness.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-5.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1011": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-Depths-of-the-forest.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-7.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1012": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-Forest-at-night.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-5.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1013": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-Outside-forests.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-2.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1014": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-River-at-dusk.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-7.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1015": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-River-at-morning.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-8.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1016": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/bg-River-at-night.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle-5.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        },
+        "1017": {
+            "distant_view": "",
+            "mid_view": "",
+            "close_view": "scene_res/LianWu-Market.jpg",
+            "foreground_view": "",
+            "background_music": "BGM-Battle.mp3",
+            "max_y":300,
+            "min_y":50,
+            "screen_numbers":4
+        }
+    }
+}

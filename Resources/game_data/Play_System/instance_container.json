@@ -1,0 +1,9 @@
+{
+      "1000": {
+        "container_key": "instance_attribute",
+        "container_id": 1001,
+        "container_json_file": "game_data/Play_System/instance_element_data_config.json",
+        "container_element_list": [1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010]
+    }
+}
+}

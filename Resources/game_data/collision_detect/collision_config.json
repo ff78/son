@@ -1,0 +1,20 @@
+{
+    "1000": {
+        "skeleton_id": 1000,
+        "attack_box_name": ["weapon", "weapon-F","weapon_B", "weapon2","l_hand", "r_hand"],
+        "attack_box_range": 150.0,
+        "hit_box_name_list":[
+       	"l_thigh","l_calf","l_foot","l_toe","r_thigh","r_calf","r_foot","r_toe","spine","spine1","l_shoulder","l_upperarm","l_forearm","l_hand","neck","head","r_shoulder","r_upperarm","r_forearm","r_hand","l_thigh_F2","l_calf_F2","l_foot_F2","l_toe_F2","r_thigh_F2","r_calf_F2","r_foot_F2","r_toe_F2","spine_F2","spine1_F2","l_shoulder_F2","l_upperarm_F2","l_forearm_F2","l_hand_F2","neck_F2","head_F2","r_shoulder_F2","r_upperarm_F2","r_forearm_F2","r_hand_F2"
+       	],
+        "hit_box_range": 35.0
+    },
+    "1001": {
+        "skeleton_id": 1001,
+        "attack_box_name": "wuqi",
+        "attack_box_range": 5.0,
+        "hit_box_name_list":[
+        "1", "2",""
+        ],
+        "hit_box_range": 15.0
+    }
+}

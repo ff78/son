@@ -1,0 +1,2062 @@
+{
+   "prototypes" : {
+			"1" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 210,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "heropic.atlas",
+            "scale" : 1,
+            "skeleton_data" : "heropic.json"
+         },
+         "id" : 1
+      },
+      "2" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "bf_girl.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_girl.json"
+         },
+         "id" : 2
+      },
+   		"3" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "bf_mm.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_mm.json"
+         },
+         "id" : 3
+      },
+			"4" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 230,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "strong_man.atlas",
+            "scale" : 1,
+            "skeleton_data" : "strong_man.json"
+         },
+         "id" : 4
+      },
+   		"5" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "bf_az.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_az.json"
+         },
+         "id" : 5
+      },
+   		"6" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "fj_xiaozhao.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fj_xiaozhao.json"
+         },
+         "id" : 6
+      }, 
+   		"7" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "fj_baimeiyingwang.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fj_baimeiyingwang.json"
+         },
+         "id" : 7
+      },
+   		"8" : {
+         "sounds" :{
+               "running_sound" : "runing10F.mp3",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 650,
+                  "y" : 400,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -45,
+          	"max_z": 205,
+          	"min_z": 0,
+          	"y": 15
+         },
+         "avatar" : {
+            "atlas" : "fj_longnv.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fj_longnv.json"
+         },
+         "id" : 8
+      },                           
+      "1001" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+         "actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -35,
+          	"max_z": 200,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "ElderBrother.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "ElderBrother.json"
+         },
+         "id" : 1001
+      },
+			"1002" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -35,
+          	"max_z": 200,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "ElderBrother.atlas",
+            "scale" : 1,
+            "skeleton_data" : "ElderBrother.json"
+         },
+         "id" : 1002
+      },
+			"1003" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 55,
+          	"b_x": -40,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "disciples.atlas",
+            "scale" : 0.9,
+            "skeleton_data" : "disciples.json"
+         },
+         "id" : 1003
+      },
+			"1004" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 55,
+          	"b_x": -40,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "discipletruth.atlas",
+            "scale" : 0.9,
+            "skeleton_data" : "discipletruth.json"
+         },
+         "id" : 1004
+      }, 
+			"1005" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -35,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "qz_girl.atlas",
+            "scale" : 1,
+            "skeleton_data" : "qz_girl.json"
+         },
+         "id" : 1005
+      }, 
+			"1006" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -35,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "qz_zlao.atlas",
+            "scale" : 1,
+            "skeleton_data" : "qz_zlao.json"
+         },
+         "id" : 1006
+      },                    
+			"1011" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 55,
+          	"b_x": -40,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pine.atlas",
+            "scale" : 0.9,
+            "skeleton_data" : "pine.json"
+         },
+         "id" : 1011
+      },
+			"1012" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -35,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "huashannv.atlas",
+            "scale" : 1,
+            "skeleton_data" : "huashannv.json"
+         },
+         "id" : 1012
+      },
+			"1013" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "huashangaojinan.atlas",
+            "scale" : 0.95,
+            "skeleton_data" : "huashangaojinan.json"
+         },
+         "id" : 1013
+      },
+			"1014" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "hs_zlao.atlas",
+            "scale" : 1,
+            "skeleton_data" : "hs_zlao.json"
+         },
+         "id" : 1014
+      },             
+			"1021" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "banditsword.atlas",
+            "scale" : 0.95,
+            "skeleton_data" : "banditsword.json"
+         },
+         "id" : 1021
+      },
+			"1022" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 60,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "bandits.atlas",
+            "scale" : 0.9,
+            "skeleton_data" : "bandits.json"
+         },
+         "id" : 1022
+      },
+			"1023" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 55,
+          	"b_x": -53,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "banditgun.atlas",
+            "scale" : 0.95,
+            "skeleton_data" : "banditgun.json"
+         },
+         "id" : 1023
+      },
+			"1024" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 450,
+                  "y" : 240,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 290,
+         "hit_box":{
+          	"f_x": 85,
+          	"b_x": -90,
+          	"max_z": 230,
+          	"min_z": 0,
+          	"y": 25
+         },
+         "avatar" : {
+            "atlas" : "brigandchieftain.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "brigandchieftain.json"
+         },
+         "id" : 1024
+      },
+			"1025" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 55,
+          	"b_x": -53,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "bandits_boss.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bandits_boss.json"
+         },
+         "id" : 1025
+      },            
+			"1031" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 200,
+         "hit_box":{
+          	"f_x": 120,
+          	"b_x": -100,
+          	"max_z": 140,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "wolf.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "wolf.json"
+         },
+         "id" : 1031
+      },
+			"1032" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 200,
+         "hit_box":{
+          	"f_x": 120,
+          	"b_x": -100,
+          	"max_z": 140,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "tiger.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "tiger.json"
+         },
+         "id" : 1032
+      },
+			"1033" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 200,
+         "hit_box":{
+          	"f_x": 120,
+          	"b_x": -100,
+          	"max_z": 140,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "wolf_tree.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "wolf_tree.json"
+         },
+         "id" : 1033
+      },
+			"1034" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 200,
+         "hit_box":{
+          	"f_x": 120,
+          	"b_x": -100,
+          	"max_z": 140,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "tiger_white.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "tiger_white.json"
+         },
+         "id" : 1034
+      },
+			"1041" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 47,
+          	"b_x": -45,
+          	"max_z": 216,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "swordsman.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "swordsman.json"
+         },
+         "id" : 1041
+      },
+			"1051" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "zdgs_one.atlas",
+            "scale" : 1,
+            "skeleton_data" : "zdgs_one.json"
+         },
+         "id" : 1051
+      },
+			"1052" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "zdgs_two.atlas",
+            "scale" : 1,
+            "skeleton_data" : "zdgs_two.json"
+         },
+         "id" : 1052
+      },
+			"1053" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "zdgs_three.atlas",
+            "scale" : 1,
+            "skeleton_data" : "zdgs_three.json"
+         },
+         "id" : 1053
+      },
+			"1054" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "zdgs_four.atlas",
+            "scale" : 1,
+            "skeleton_data" : "zdgs_four.json"
+         },
+         "id" : 1054
+      },      
+			"1061" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "chengkun.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "chengkun.json"
+         },
+         "id" : 1061
+      },
+			"1071" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 350,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 320,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "grandma_miejue.atlas",
+            "scale" : 1.2,
+            "skeleton_data" : "grandma_miejue.json"
+         },
+         "id" : 1071
+      },
+			"1081" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 400,
+                  "y" : 200,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "monkey.atlas",
+            "scale" : 1,
+            "skeleton_data" : "monkey.json"
+         },
+         "id" : 1081
+      },     
+      
+      "1082" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "whitemonkey.atlas",
+            "scale" : 1,
+            "skeleton_data" : "whitemonkey.json"
+         },
+         "id" : 1082
+      },
+      "1083" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "whitemonkey.atlas",
+            "scale" : 1.3,
+            "skeleton_data" : "whitemonkey.json"
+         },
+         "id" : 1083
+      },      
+      "1091" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "wholetruth.atlas",
+            "scale" : 1,
+            "skeleton_data" : "wholetruth.json"
+         },
+         "id" : 1091
+      },
+      "1092" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "em_zlao.atlas",
+            "scale" : 1,
+            "skeleton_data" : "em_zlao.json"
+         },
+         "id" : 1092
+      }, 
+      "1093" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "em_putong.atlas",
+            "scale" : 1,
+            "skeleton_data" : "em_putong.json"
+         },
+         "id" : 1093
+      },            
+      "1096" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "wgs_one.atlas",
+            "scale" : 1,
+            "skeleton_data" : "wgs_one.json"
+         },
+         "id" : 1096
+      },
+      "1097" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "wgs_two.atlas",
+            "scale" : 1,
+            "skeleton_data" : "wgs_two.json"
+         },
+         "id" : 1097
+      },
+      "1098" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 500,
+                  "y" : 250,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 280,
+         "hit_box":{
+          	"f_x": 40,
+          	"b_x": -50,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 30
+         },
+         "avatar" : {
+            "atlas" : "wgs_three.atlas",
+            "scale" : 1,
+            "skeleton_data" : "wgs_three.json"
+         },
+         "id" : 1098
+      },                              
+      "2601" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_bs.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_bs.json"
+         },
+         "id" : 2601
+      }, 
+      "2602" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_kw.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_kw.json"
+         },
+         "id" : 2602
+      }, 
+      "2603" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_zf.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_zf.json"
+         },
+         "id" : 2603
+      }, 
+      "2604" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_xj.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_xj.json"
+         },
+         "id" : 2604
+      }, 
+      "2605" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_bo.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_bo.json"
+         },
+         "id" : 2605
+      },             
+      "2701" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly_fz.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly_fz.json"
+         },
+         "id" : 2701
+      }, 
+      
+			"2801" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : ""
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 0,
+         "hit_box":{
+          	"f_x": 20,
+          	"b_x": -20,
+          	"max_z": 20,
+          	"min_z": -20,
+          	"y": 10
+         },
+         "avatar" : {
+            "atlas" : "fly.atlas",
+            "scale" : 1,
+            "skeleton_data" : "fly.json"
+         },
+         "id" : 2801
+      }, 
+      
+			"2901" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "jinxiangzi.atlas",
+            "scale" : 1,
+            "skeleton_data" : "jinxiangzi.json"
+         },
+         "id" : 2901
+      },
+			"2902" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "jiutanzi.atlas",
+            "scale" : 1,
+            "skeleton_data" : "jiutanzi.json"
+         },
+         "id" : 2902
+      },
+      "2903" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "cailanzi.atlas",
+            "scale" : 1,
+            "skeleton_data" : "cailanzi.json"
+         },
+         "id" : 2903
+      },
+      
+      "2951" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_tongqian_s.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_tongqian_s.json"
+         },
+         "id" : 2951
+      },
+      "2952" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_tongqian_m.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_tongqian_m.json"
+         },
+         "id" : 2952
+      },
+      "2953" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_tongqian_l.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_tongqian_l.json"
+         },
+         "id" : 2953
+      },
+			"2954" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_jiu_s.atlas",
+            "scale" : 2,
+            "skeleton_data" : "pic_jiu_s.json"
+         },
+         "id" : 2954
+      },
+			"2955" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_jiu_m.atlas",
+            "scale" : 2,
+            "skeleton_data" : "pic_jiu_m.json"
+         },
+         "id" : 2955
+      },
+			"2956" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_jiu_l.atlas",
+            "scale" : 2,
+            "skeleton_data" : "pic_jiu_l.json"
+         },
+         "id" : 2956
+      },
+      "2957" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_rouchuan_s.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_rouchuan_s.json"
+         },
+         "id" : 2957
+      },
+      "2958" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_rouchuan_m.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_rouchuan_m.json"
+         },
+         "id" : 2958
+      },
+      "2959" : {
+         "sounds" :{
+               "running_sound" : "",
+               "hurtting_sound" : "manhurt01.mp3"
+               },
+					"actions" : {
+            "run" : {
+               "id" : 1,
+               "velocity" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+               }
+            }
+         },
+         "name_height": 150,
+         "hit_box":{
+          	"f_x": 50,
+          	"b_x": -50,
+          	"max_z": 80,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pic_rouchuan_l.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pic_rouchuan_l.json"
+         },
+         "id" : 2959
+      },
+      
+   		"3001" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 90,
+          	"b_x": -90,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "businessman.atlas",
+            "scale" : 0.95,
+            "skeleton_data" : "businessman.json"
+         },
+         "id" : 3001
+      },
+   		"3002" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 60,
+          	"b_x": -60,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "lnnkeeper.atlas",
+            "scale" : 0.95,
+            "skeleton_data" : "lnnkeeper.json"
+         },
+         "id" : 3002
+      },
+   		"3003" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "villager.atlas",
+            "scale" : 1,
+            "skeleton_data" : "villager.json"
+         },
+         "id" : 3003
+      },
+   		"3004" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "zhangwuji.atlas",
+            "scale" : 1,
+            "skeleton_data" : "zhangwuji.json"
+         },
+         "id" : 3004
+      },
+   		"3005" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "hero_teacher.atlas",
+            "scale" : 1,
+            "skeleton_data" : "hero_teacher.json"
+         },
+         "id" : 3005
+      },
+   		"3006" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "baimeiyingwang.atlas",
+            "scale" : 1,
+            "skeleton_data" : "baimeiyingwang.json"
+         },
+         "id" : 3006
+      },
+   		"3007" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "bf_longnv.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_longnv.json"
+         },
+         "id" : 3007
+      },
+   		"3008" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "bf_xiaozhao.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_xiaozhao.json"
+         },
+         "id" : 3008
+      },
+   		"3009" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "yangguo.atlas",
+            "scale" : 1,
+            "skeleton_data" : "yangguo.json"
+         },
+         "id" : 3009
+      },
+   		"3010" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "bf_mm.atlas",
+            "scale" : 1,
+            "skeleton_data" : "bf_mm.json"
+         },
+         "id" : 3010
+      },
+   		"3011" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "pine.atlas",
+            "scale" : 1,
+            "skeleton_data" : "pine.json"
+         },
+         "id" : 3011
+      },
+   		"3012" : {
+         "name_height": 250,
+         "hit_box":{
+          	"f_x": 45,
+          	"b_x": -45,
+          	"max_z": 220,
+          	"min_z": 0,
+          	"y": 20
+         },
+         "avatar" : {
+            "atlas" : "yunyoubusiness.atlas",
+            "scale" : 1,
+            "skeleton_data" : "yunyoubusiness.json"
+         },
+         "id" : 3012
+      }                            
+   }
+}
+

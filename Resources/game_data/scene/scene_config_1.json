@@ -1,0 +1,52 @@
+{
+    "monster_waves":[
+	
+    ],
+    "npcs":[
+	{
+		"sprite_prototype_id":3001,
+		"x":500,
+		"y":300,
+		"id":1000,
+		"lv":1,
+		"name":"6003",
+		"title":"6005",
+		"info_path":"navigation ball.png",
+		"touch_width":50,
+		"touch_height":300
+
+	},
+	{
+		"sprite_prototype_id":3002,
+		"x":1000,
+		"y":300,
+		"id":1001,
+		"lv":1,
+		"name":"6000",
+		"title":"6002",
+		"info_path":"navigation ball.png",
+		"touch_width":50,
+		"touch_height":300
+	},
+	{
+		"sprite_prototype_id":3003,
+		"x":1500,
+		"y":300,
+		"id":1002,
+		"lv":1,
+		"name":"6006",
+		"title":"",
+		"info_path":"",
+		"touch_width":50,
+		"touch_height":300
+	}
+    ],
+    "portals":[
+	{
+		"x":2000,
+		"y":50,
+		"id":1000,
+		"radius":50
+	}
+    ]
+}

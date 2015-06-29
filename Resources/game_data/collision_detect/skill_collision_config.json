@@ -1,0 +1,68 @@
+{
+    "1001": {
+       "skill_id": 1001,      	
+       "skill_name": "gc1",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 200
+    },
+    "1002": {
+       "skill_id": 1002,      	
+       "skill_name": "gc2",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 100
+    },
+    "1003": {
+       "skill_id": 1003,      	
+       "skill_name": "gc3",
+       "skill_attack_slot_name":"H01_weapon", 
+       "skill_attack_addtion_range" : 250
+    },
+    "1004": {
+       "skill_id": 1004,      	
+       "skill_name": "gc4",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 300
+    },
+    "1005": {
+       "skill_id": 1005,      	
+       "skill_name": "gc5",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 320
+    },
+    "2001": {
+       "skill_id": 2001,      	
+       "skill_name": "g1",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 250
+    },
+    "2002": {
+       "skill_id": 2002,      	
+       "skill_name": "g2",
+       "skill_attack_slot_name":"H01_weapon",
+       "skill_attack_addtion_range" : 250
+    },
+    "2003": {
+       "skill_id": 2003,      	
+       "skill_name": "g3",
+       "skill_attack_slot_name":"H01_weapon", 
+       "skill_attack_addtion_range" : 250
+    },
+    "2004": {
+       "skill_id": 2004,      	
+       "skill_name": "g4",
+       "skill_attack_slot_name":"H01_weapon", 
+       "skill_attack_addtion_range" : 280
+    },
+    "2005": {
+       "skill_id": 2005,      	
+       "skill_name": "g5",
+       "skill_attack_slot_name":"H01_weapon", 
+       "skill_attack_addtion_range" : 300
+    },
+    "2006": {
+       "skill_id": 2006,        
+       "skill_name": "g5",
+       "skill_attack_slot_name":"H01_weapon", 
+       "skill_attack_addtion_range" : 220
+    }
+}

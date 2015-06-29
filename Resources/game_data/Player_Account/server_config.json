@@ -1,0 +1,69 @@
+{	 
+	 "server_list":
+	 {
+		 "1000": {
+		   "id": 1000, 
+		   "server_name": "内网linux",        
+		   "server_ip": "183.136.213.95",
+		   "server_port":8887,
+		   "next_ui":2004
+		}, 
+    "1001": {
+       "id": 1001, 
+       "server_name": "内网65",      	
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+    "1002": {
+       "id": 1002, 
+       "server_name": "qa用",      	
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+    "1003": {
+       "id": 1003, 
+       "server_name": "外网Linux",      	
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+    "1004": {
+       "id": 1004, 
+       "server_name": "内网180",        
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+    "1005": {
+       "id": 1005, 
+       "server_name": "外网测试",       
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+     "1006": {
+       "id": 1006,
+       "server_name": "内网60",        
+       "server_ip": "183.136.213.95",
+       "server_port":8897,
+       "next_ui":2004
+    },
+     "1008": {
+       "id": 1008,
+       "server_name": "内网62",        
+       "server_ip": "183.136.213.95",
+       "server_port":8887,
+       "next_ui":2004
+    },
+     "1009": {
+       "id": 1009,
+       "server_name": "内网log",        
+       "server_ip": "183.136.213.95",
+       "server_port":8889,
+       "next_ui":2004
+    }
+    }
+}
+

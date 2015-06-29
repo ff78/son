@@ -1,0 +1,62 @@
+{
+	"1022":{
+		"id": 1022,
+		"name":"tbn_back",
+		"type":"CocoTextButton",
+		"function":"next_layer_button(2004)"
+	},
+	"1023":{
+		"id": 1023,
+		"name":"tbn_register",
+		"type":"CocoTextButton",
+		"function":"button_register(2005)"
+	},
+	"1050": {
+        "id": 1050,
+		"name":"btn_NewerRegister",
+		"type":"CocoTextButton",
+		"function":""
+    },
+	"1051":{
+		"id":1051,
+		"name":"enter_btn",
+		"type":"CocotButton",
+		"function":"login_in(2006)"
+	},
+	"1052":{
+		"id": 1052,
+		"name":"Button_40",
+		"type":"CocotButton",
+		"function":"create_role(2006)"
+	},
+	"1053":{
+		"id":1053,
+		"name":"Button_40",
+		"type":"CocotButton",
+		"function":"enter_game(2001)"
+	},
+	"1054":{
+		"id": 1054,
+		"name":"Button_13_0",
+		"type":"CocotButton",
+		"function":"go_serverlist_scene(2003)"
+	},
+	"1055":{
+		"id":1055,
+		"name":"img_Role_1",
+		"type":"CocotButton",
+		"function":"select_role(0)"
+	},
+	"1056":{
+		"id": 1056,
+		"name":"img_Role_2",
+		"type":"CocotButton",
+		"function":"select_role(1)"
+	},
+	"1057":{
+		"id": 1057,
+		"name":"img_Role_3",
+		"type":"CocotButton",
+		"function":"select_role(2)"
+	}
+}

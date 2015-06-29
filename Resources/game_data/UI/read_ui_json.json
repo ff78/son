@@ -1,0 +1,47 @@
+{
+	"2001": {
+        "id": 2001,
+		"name":"ui/Register_UI/Register_UI.ExportJson",
+		"type":1,
+		"enableAdapt":true,
+		"scaleAdapt":true,
+		"equalProportions":true,
+		"widget_id":[1022,1023]
+    },
+	"2003": {
+        "id": 2003,
+		"name":"ui/login2/login2.ExportJson",
+		"type":1,
+		"enableAdapt":true,
+		"scaleAdapt":true,
+		"equalProportions":true,
+		"widget_id":[]
+    },
+	"2004": {
+        "id": 2004,
+		"name":"ui/password/password.ExportJson",
+		"type":1,
+		"enableAdapt":true,
+		"scaleAdapt":true,
+		"equalProportions":true,
+		"widget_id":[1051]
+    },
+	"2005": {
+        "id": 2005,
+		"name":"ui/Create_Role/Create_Role.ExportJson",
+		"type":1,
+		"enableAdapt":true,
+		"scaleAdapt":true,
+		"equalProportions":true,
+		"widget_id":[1052,1050]
+    },
+    "2006": {
+        "id": 2006,
+		"name":"ui/Select_Role/Select_Role.ExportJson",
+		"type":1,
+		"enableAdapt":true,
+		"scaleAdapt":true,
+		"equalProportions":true,
+		"widget_id":[1053,1054,1055,1056,1057]
+    }
+}

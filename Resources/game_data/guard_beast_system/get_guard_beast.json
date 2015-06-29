@@ -1,0 +1,6 @@
+[
+{"id":10001,"level_limit":20,"title_limit":30},
+{"id":10002,"level_limit":40,"title_limit":60},
+{"id":10003,"level_limit":60,"title_limit":90},
+{"id":10004,"level_limit":80,"title_limit":120}
+]

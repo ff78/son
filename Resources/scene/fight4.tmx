@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="scene_jjc" tilewidth="1923" tileheight="660">
+  <image source="scene_jjc.png" width="1923" height="660"/>
+ </tileset>
+ <tileset firstgid="2" name="scene_jjc_back" tilewidth="1728" tileheight="420">
+  <image source="scene_jjc_back.png" width="1728" height="420"/>
+ </tileset>
+ <tileset firstgid="3" name="dragon (1)" tilewidth="200" tileheight="100">
+  <image source="dragon (1).png" width="200" height="100"/>
+ </tileset>
+ <tileset firstgid="4" name="phoenix (1)" tilewidth="200" tileheight="100">
+  <image source="phoenix (1).png" width="200" height="100"/>
+ </tileset>
+ <tileset firstgid="5" name="fire1 (1)" tilewidth="80" tileheight="100">
+  <image source="fire1 (1).png" width="80" height="100"/>
+ </tileset>
+ <tileset firstgid="6" name="fire2 (1)" tilewidth="50" tileheight="65">
+  <image source="fire2 (1).png" width="50" height="65"/>
+ </tileset>
+ <objectgroup name="doors">
+  <object name="born" type="born" x="130" y="524"/>
+ </objectgroup>
+ <objectgroup name="wave4">
+  <object x="1231" y="481">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="16"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="midAnim">
+  <object name="sjjc_dragon" gid="3" x="795" y="193"/>
+  <object name="sjjc_phoenix" gid="4" x="1032" y="152"/>
+  <object name="sjjc_fire1" gid="5" x="413" y="358"/>
+  <object name="sjjc_fire1" gid="5" x="1366" y="356"/>
+  <object name="sjjc_fire2" gid="6" x="1183" y="385"/>
+  <object name="sjjc_fire2" gid="6" x="1636" y="472"/>
+  <object name="sjjc_fire2" gid="6" x="1873" y="507"/>
+  <object name="sjjc_fire2" gid="6" x="893" y="406"/>
+  <object name="sjjc_fire2" gid="6" x="698" y="389"/>
+  <object name="sjjc_fire2" gid="6" x="167" y="468"/>
+ </objectgroup>
+ <objectgroup name="trap">
+     <object x="1556" y="581">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+     <object x="1410" y="390">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+     <object x="1483" y="492">
+         <properties>
+             <property name="actorId" value="100001"/>
+             <property name="direct" value="1"/>
+         </properties>
+     </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,62 @@
+{
+    "1000": {
+        "element_id": 1000,
+        "element_key": "name",
+        "element_data_type": "string",
+        "db_save": 1
+    },
+    "1001": {
+        "element_id": 1001,
+        "element_key": "id",
+        "element_data_type": "value",
+        "db_save": 1
+    },
+     "1002": {
+        "element_id": 1002,
+        "element_key": "exp",
+        "element_data_type": "value",
+        "db_save": 1
+    }, 
+     "1003": {
+        "element_id": 1003,
+        "element_key": "max_exp",
+        "element_data_type": "value",
+        "db_save": 1
+    }, 
+     "1004": {
+        "element_id": 1004,
+        "element_key": "level",
+        "element_data_type": "value",
+        "db_save": 1
+    },  
+     "1005": {
+        "element_id": 1005,
+        "element_key": "hp",
+        "element_data_type": "value",
+        "db_save": 1
+    },  
+     "1006": {
+        "element_id": 1006,
+        "element_key": "max_hp",
+        "element_data_type": "value",
+        "db_save": 1
+    },  
+     "1007": {
+        "element_id": 1007,
+        "element_key": "mp",
+        "element_data_type": "value",
+        "db_save": 1
+    },  
+     "1008": {
+        "element_id": 1008,
+        "element_key": "max_mp",
+        "element_data_type": "value",
+        "db_save": 1
+    },  
+     "1009": {
+        "element_id": 1009,
+        "element_key": "strength",
+        "element_data_type": "value",
+        "db_save": 1
+    }
+}

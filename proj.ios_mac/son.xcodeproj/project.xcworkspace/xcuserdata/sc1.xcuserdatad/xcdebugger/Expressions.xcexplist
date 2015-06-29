@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SkillView::initScrollView():SkillView.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "CityLayer::initBackLayer():CityLayer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "blackCity">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FightActor::useSkill(int):FightActor.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "blackActor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CityLayer::initFrontLayer():CityLayer.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "blackCity">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CityLayer::initActorLayer():CityLayer.cpp">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,34 @@
+{
+    "monster_waves": [
+        [
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 500,
+                "born_point_y": 160
+            }
+        ],
+        [
+            {
+                "sprite_prototype_id": 1023,
+                "attribute_id": 1008,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 1800,
+                "born_point_y": 160
+            }
+        ],
+        [
+            {
+                "sprite_prototype_id": 1013,
+                "attribute_id": 1003,
+                "attribute_lv":1,
+                "ai_type_id": 10002,
+                "born_point_x": 2800,
+                "born_point_y": 160
+            }
+        ]
+    ]
+}

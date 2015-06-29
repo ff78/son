@@ -1,0 +1,26 @@
+{
+    "1000": {
+        "name": "初入江湖",
+        "id": "10000",
+        "condition": "level(1,10)quest_require(10000)pre_instance(10001)money_require(100)",
+        "began_content": "scene(100000)monster_wave(3)play(3)give_item(18888,1)",
+       	"proc_content": "plot(1000,1)monster_wave(10000,1)plot(10001,2)monster_wave(10001,2)plot(10002,3)monster_wave(10002,3)",
+        "complete_content": "active_instance(10001)",
+        "result_content": "award_money(100)award_item(10000,2)award_exp_compute(100,2)",
+        "fail_content": "remove_item(18888,1)",
+        "info": "初入江湖，干掉村外的江湖小混混",
+        "difficulty": "1"
+    },
+    "1001": {
+        "name": "江湖小虾",
+        "id": "10000",
+        "condition": "level(1,10)quest_require(10000)pre_instance(10001)money_require(100)",
+        "began_content": "scene(100000)monster_wave(3)play(3)give_item(18888,1)",
+       	"proc_content": "plot(1000,1)monster_wave(10000,1)plot(10001,2)monster_wave(10001,2)plot(10002,3)monster_wave(10002,3)",
+        "complete_content": "active_instance(10001)",
+        "result_content": "award_money(100)award_item(10000,2)award_exp_compute(100,2)",
+        "fail_content": "remove_item(18888,1)",
+        "info": "村外张三为非作歹很长一段时间了， 该收拾一下他了",
+        "difficulty": "1"
+    }
+}
