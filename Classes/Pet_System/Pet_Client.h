@@ -78,7 +78,7 @@ typedef Game_Model::PetData PET_MODEL;
 
 //view
 #define EVENT_REFRESH "event_refresh_Pet"
-#define QUALITY_NUM 3
+#define QUALITY_NUM 9
 #define STAR_NUM 5
 namespace Game_View
 {
@@ -115,8 +115,11 @@ namespace Game_View
 		cocos2d::ui::Text*						_petConsume;
 		cocos2d::ui::Text*						_petPower;
 		cocos2d::ui::Text*						_mePower;
-		cocos2d::ui::Text*						_qualities[QUALITY_NUM];
-		cocos2d::ui::ImageView*					_stars[STAR_NUM];
+        cocos2d::ui::Text*						_quality;
+		cocos2d::ui::ImageView*					_stars;
+        std::string qualityStr[QUALITY_NUM] ={
+          "黑铁","青铜","白银","黄金","暗金","红玉","灵器","宝器","仙器"
+        };
 
 	};
 

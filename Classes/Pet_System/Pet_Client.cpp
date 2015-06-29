@@ -124,30 +124,25 @@ void PET_VIEW::refresh()
 		Value mePowerV(mePower);
 		_mePower->setString( mePowerV.asString() );
 
-		std::string preQuality("Txt_Quality_0_");
-		for (int i = 0; i < QUALITY_NUM; i++)
-		{
-			int q = pet->quality;
-			preQuality += i;
-			if (i == q-1)
-				_qualities[i]->setVisible(true);
-			else
-				_qualities[i]->setVisible(false);
-
-		}
-
-		std::string preStar("Image_85_");
-		for (int i = 0; i < STAR_NUM; i++)
-		{
-			preStar += i;
-			int s = pet->star;
-
-			if (i <= s)
-				_stars[i]->setVisible(true);
-			else
-				_stars[i]->setVisible(false);
-		}
-
+        int q = 0;
+        q = MIN(pet->quality, QUALITY_NUM);
+        q = MAX(0, q);
+        _quality->setString(qualityStr[pet->quality]);
+        _quality->setVisible(true);
+        
+        int s = pet->star;
+        if (s>0) {
+            _stars->setVisible(true);
+            _stars->removeAllChildren();
+            for (int i=1; i<s; i++) {
+                auto otherStar = _stars->clone();
+                _stars->addChild(otherStar);
+                otherStar->setPositionX(i * 45);
+            }
+        }else{
+            _stars->removeAllChildren();
+            _stars->setVisible(false);
+        }
 	}
 
 }
@@ -170,9 +165,15 @@ void PET_VIEW::loadScrollView()
 		auto cellClone = cell->clone();
 		auto unready = (cocos2d::ui::ImageView*)( cellClone->getChildByName("Img_Unready") );
 		auto ready = (cocos2d::ui::ImageView*)( cellClone->getChildByName("Img_Ready") );
-		if ((*it).id == current_pet_id){ ready->setVisible(true); }else { ready->setVisible(false); }
+		if ((*it).id == current_pet_id)
+        {
+            ready->setVisible(true);
+        }else {
+            ready->setVisible(false);
+        }
 
-		cellClone->setPosition(Vec2(index*110,0) );cellClone->addTouchEventListener( CC_CALLBACK_2(PET_VIEW::onClickCellCallback, this) );
+		cellClone->setPosition(Vec2(index*110,0) );
+        cellClone->addTouchEventListener( CC_CALLBACK_2(PET_VIEW::onClickCellCallback, this) );
 		_petsScrollView->addChild(cellClone, index, (*it).id);
 		index++;
 
@@ -182,13 +183,15 @@ void PET_VIEW::loadScrollView()
 
 bool PET_VIEW::init()
 {
-	if( !Layer::init() )return false;
+	if( !Layer::init() )
+        return false;
 
 	Director::getInstance()->getEventDispatcher()->addCustomEventListener(EVENT_REFRESH, CC_CALLBACK_0(PET_VIEW::refresh, this));
 
 
 	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/pet/pet.ExportJson");
-	if( _rootWidget == nullptr )return false;
+	if( _rootWidget == nullptr )
+        return false;
 	addChild(_rootWidget);
 
 	_closeButton  = dynamic_cast<cocos2d::ui::Button*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Btn_Close") );
@@ -199,43 +202,19 @@ bool PET_VIEW::init()
 	_upgradeButton->setVisible(true);/*_upgradeButton->setTouchEnabled(true);*/
 	_upgradeButton->addTouchEventListener( CC_CALLBACK_2(PET_VIEW::onUpgradeCallback, this) );
 
+    //出战按钮
 	_goButton = dynamic_cast<cocos2d::ui::Button*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Button_Go"));
 	_goButton->setVisible(true); _goButton->setTouchEnabled(true);
 	_goButton->addTouchEventListener( CC_CALLBACK_2(PET_VIEW::onGoCallback, this) );
 
+    //守护兽加战斗力
 	_petPower = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_95_0"));
+    //主角原本战斗力
 	_mePower = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_95_0_4_5"));
 
-	
-	std::string preQuality("Txt_Quality_0_");
-	for (int i = 0; i < QUALITY_NUM; i++)
-	{
-		Value iInt(i);
-		std::string iStr( iInt.asString() );
-		_qualities[i] = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, preQuality + iStr));
-	}
-
-	std::string preStar("Image_85_");
-	for (int i = 0; i < STAR_NUM; i++)
-	{
-		Value iInt(i);
-		std::string iStr(iInt.asString());
-		_stars[i] = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, preStar + iStr));
-	}
-	//_starImage1 = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_0"));
-	//_starImage1->setVisible(true);
-
-	//_starImage2 = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_1"));
-	//_starImage2->setVisible(false);
-
-	//_starImage3 = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_2"));
-	//_starImage3->setVisible(false);
-
-	//_starImage4 = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_3"));
-	//_starImage4->setVisible(false);
-
-	//_starImage5 = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_4"));
-	//_starImage5->setVisible(false);
+    _quality = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Txt_Quality_0"));
+    _stars = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Image_85_0"));
+    
 	_petName = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_81"));
 	_petConsume = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_120_1"));
 	int petId = PET_MODEL::getInstance()->getCurrentPetId();
@@ -269,30 +248,25 @@ bool PET_VIEW::init()
 		Value mePowerV(mePower);
 		_mePower->setString(mePowerV.asString());
 
+        int q = 0;
+        q = MIN(pet->quality, QUALITY_NUM);
+        q = MAX(0, q);
+        _quality->setString(qualityStr[pet->quality]);
+        _quality->setVisible(true);
 
-		std::string preQuality("Txt_Quality_0_");
-		for (int i = 0; i < QUALITY_NUM; i++)
-		{
-			int q = pet->quality;
-			preQuality += i;
-			if (i==q-1)
-				_qualities[i]->setVisible(true);
-			else
-				_qualities[i]->setVisible(false);
-
-		}
-
-		std::string preStar("Image_85_");
-		for (int i = 0; i < STAR_NUM; i++)
-		{
-			preStar += i;
-			int s = pet->star;
-
-			if (i <= s)
-				_stars[i]->setVisible(true);
-			else
-				_stars[i]->setVisible(false);
-		}
+        int s = pet->star;
+        if (s>0) {
+            _stars->setVisible(true);
+            _stars->removeAllChildren();
+            for (int i=1; i<s; i++) {
+                auto otherStar = _stars->clone();
+                _stars->addChild(otherStar);
+                otherStar->setPositionX(i * 45);
+            }
+        }else{
+            _stars->removeAllChildren();
+            _stars->setVisible(false);
+        }
 	}
 
 	loadScrollView();
