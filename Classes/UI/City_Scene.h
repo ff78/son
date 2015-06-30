@@ -39,6 +39,7 @@ namespace UI
 
 		virtual void update(float delta);
 
+        void changeGuardianArmature(std::string armName);
 	private:
 
 		void loadAudio();

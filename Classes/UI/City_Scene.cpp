@@ -176,7 +176,12 @@ namespace UI
 		//    backLayer->setPosition(Vec2(0, -5));
 		//    addChild(backLayer);
 	}
-
+    
+    void City_Scene::changeGuardianArmature(std::string armName)
+    {
+        _sceneLayer->player->getGuard()->getArmature()->init(armName);
+    }
+    
 	void City_Scene::loadActorLayer()
 	{
 		_sceneLayer->initActorLayer();

@@ -1,6 +1,7 @@
 #pragma once
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
 
 #include "../Game_Interface/game_content_interface.h"
 
@@ -16,7 +17,8 @@ namespace Game_Model
 		int consume;
 		std::string name;
 		int attrId;
-
+        std::string armName;
+        std::string iconName;
 	};
 
 	struct PetAttr
@@ -116,11 +118,14 @@ namespace Game_View
 		cocos2d::ui::Text*						_petPower;
 		cocos2d::ui::Text*						_mePower;
         cocos2d::ui::Text*						_quality;
-		cocos2d::ui::ImageView*					_stars;
+		cocos2d::ui::ImageView*					_stars[STAR_NUM];
+        cocos2d::ui::ImageView*                 fightFlag;
         std::string qualityStr[QUALITY_NUM] ={
           "黑铁","青铜","白银","黄金","暗金","红玉","灵器","宝器","仙器"
         };
 
+        cocos2d::LayerColor* waitLayer;
+        cocostudio::Armature* model;
 	};
 
 };

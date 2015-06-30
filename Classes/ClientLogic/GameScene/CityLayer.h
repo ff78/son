@@ -62,12 +62,13 @@ public:
     
     void autoMove2NPC(int npcId, CallBackFun func, int param);
     
+    City_Player *player;
+    
 private:
     cocos2d::Sprite *bgSpt;
     
     BlackCity *blackCity;
     
-    City_Player *player;
     City_NPC *door;
     std::vector<City_Freind *> freindsVec;
     YNCamera *camera;

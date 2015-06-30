@@ -3,21 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "SkillView::initScrollView():SkillView.cpp">
-      </ContextState>
-      <ContextState
          contextName = "CityLayer::initBackLayer():CityLayer.cpp">
          <PersistentStrings>
             <PersistentString
                value = "blackCity">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FightActor::useSkill(int):FightActor.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "blackActor">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -31,6 +20,31 @@
       </ContextState>
       <ContextState
          contextName = "CityLayer::initActorLayer():CityLayer.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "SkillView::initScrollView():SkillView.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "FightActor::useSkill(int):FightActor.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "blackActor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game_Net::Pet_Msg::send_upgrade(Game_Logic::Game_Interface&amp;):Pet_Client.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Game_View::PetLayer::init():Pet_Client.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "model">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game_View::PetLayer::onUpgradeCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):Pet_Client.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

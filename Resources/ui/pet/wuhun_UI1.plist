@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/pet/peticon_base.png</key>
+			<key>UI resource/pet/pet_chose.png</key>
 			<dict>
 				<key>width</key>
 				<integer>105</integer>
@@ -42,7 +42,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/pet/pet_chose.png</key>
+			<key>UI resource/pet/peticon_base.png</key>
 			<dict>
 				<key>width</key>
 				<integer>105</integer>
@@ -308,63 +308,6 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/common/closd_normal.png</key>
-			<dict>
-				<key>width</key>
-				<integer>45</integer>
-				<key>height</key>
-				<integer>49</integer>
-				<key>originalWidth</key>
-				<integer>45</integer>
-				<key>originalHeight</key>
-				<integer>49</integer>
-				<key>x</key>
-				<integer>28</integer>
-				<key>y</key>
-				<integer>350</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/common/closed_light.png</key>
-			<dict>
-				<key>width</key>
-				<integer>45</integer>
-				<key>height</key>
-				<integer>49</integer>
-				<key>originalWidth</key>
-				<integer>45</integer>
-				<key>originalHeight</key>
-				<integer>49</integer>
-				<key>x</key>
-				<integer>75</integer>
-				<key>y</key>
-				<integer>350</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/common/closed_grey.png</key>
-			<dict>
-				<key>width</key>
-				<integer>45</integer>
-				<key>height</key>
-				<integer>49</integer>
-				<key>originalWidth</key>
-				<integer>45</integer>
-				<key>originalHeight</key>
-				<integer>49</integer>
-				<key>x</key>
-				<integer>122</integer>
-				<key>y</key>
-				<integer>350</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
 			<key>UI resource/pet/help.png</key>
 			<dict>
 				<key>width</key>
@@ -376,7 +319,7 @@
 				<key>originalHeight</key>
 				<integer>45</integer>
 				<key>x</key>
-				<integer>169</integer>
+				<integer>28</integer>
 				<key>y</key>
 				<integer>350</integer>
 				<key>offsetX</key>
@@ -395,7 +338,7 @@
 				<key>originalHeight</key>
 				<integer>45</integer>
 				<key>x</key>
-				<integer>216</integer>
+				<integer>75</integer>
 				<key>y</key>
 				<integer>350</integer>
 				<key>offsetX</key>
@@ -414,9 +357,66 @@
 				<key>originalHeight</key>
 				<integer>50</integer>
 				<key>x</key>
+				<integer>122</integer>
+				<key>y</key>
+				<integer>350</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/common/closd_normal.png</key>
+			<dict>
+				<key>width</key>
+				<integer>45</integer>
+				<key>height</key>
+				<integer>49</integer>
+				<key>originalWidth</key>
+				<integer>45</integer>
+				<key>originalHeight</key>
+				<integer>49</integer>
+				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
-				<integer>401</integer>
+				<integer>402</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/common/closed_light.png</key>
+			<dict>
+				<key>width</key>
+				<integer>45</integer>
+				<key>height</key>
+				<integer>49</integer>
+				<key>originalWidth</key>
+				<integer>45</integer>
+				<key>originalHeight</key>
+				<integer>49</integer>
+				<key>x</key>
+				<integer>47</integer>
+				<key>y</key>
+				<integer>402</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/common/closed_grey.png</key>
+			<dict>
+				<key>width</key>
+				<integer>45</integer>
+				<key>height</key>
+				<integer>49</integer>
+				<key>originalWidth</key>
+				<integer>45</integer>
+				<key>originalHeight</key>
+				<integer>49</integer>
+				<key>x</key>
+				<integer>94</integer>
+				<key>y</key>
+				<integer>402</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -433,9 +433,9 @@
 				<key>originalHeight</key>
 				<integer>75</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>141</integer>
 				<key>y</key>
-				<integer>453</integer>
+				<integer>402</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
