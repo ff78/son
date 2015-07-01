@@ -177,9 +177,16 @@ namespace UI
 		//    addChild(backLayer);
 	}
     
-    void City_Scene::changeGuardianArmature(std::string armName)
+    void City_Scene::changeGuardianArmature(std::string armName, bool first)
     {
-        _sceneLayer->player->getGuard()->getArmature()->init(armName);
+        if(first)
+        {
+            _sceneLayer->addGuard2Hero();
+        }else{
+            _sceneLayer->player->getGuard()->getArmature()->init(armName);
+        }
+        
+        _sceneLayer->player->getGuard()->getArmature()->getAnimation()->playWithIndex(0);
     }
     
 	void City_Scene::loadActorLayer()

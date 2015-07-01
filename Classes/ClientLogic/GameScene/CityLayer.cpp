@@ -261,6 +261,26 @@ void CityLayer::initActorLayer()
     }
 }
 
+void CityLayer::addGuard2Hero()
+{
+    int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+    Game_Data::Player* player_data = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+
+    if (player_data->get_cur_pet_id() > 0) {
+        auto guard = Guardian::create();
+        player->setGuard(guard);
+        guard->initFightData(player_data->get_cur_pet_id());
+        guard->initViewRes();
+        guard->initFightState();
+        guard->setMan(player);
+        guard->setPosX(player->getPositionX());
+        guard->setPosY(player->getPositionY());
+        guard->setPosition(player->getPosition());
+        guard->preloadSkillRes();
+        
+        actorLayer->addChild(guard);
+    }
+}
 void CityLayer::initCamera()
 {
     camera = YNCamera::create();

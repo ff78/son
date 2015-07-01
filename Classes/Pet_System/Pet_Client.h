@@ -19,6 +19,9 @@ namespace Game_Model
 		int attrId;
         std::string armName;
         std::string iconName;
+        int quality_up_id;
+        int star_up_id;
+        int variation_id;
 	};
 
 	struct PetAttr
@@ -61,7 +64,9 @@ namespace Game_Model
 
 
 	private:
-		PetData()
+        PetData():
+        _currentPetId(-1),
+        _selectedPetId(-1)
 		{
 			_pets=new std::vector<Pet>;
 			cocos2d::Director::getInstance()->getEventDispatcher()->addCustomEventListener(EVENT_CHANGE_DATA, CC_CALLBACK_0(Game_Model::PetData::eventChangeData,this) );
@@ -93,6 +98,8 @@ namespace Game_View
 		void									onCloseCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
 		void									onUpgradeCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
 		void									onGoCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
+        void onDetail(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type);
+        
 		virtual void							onEnter() override;
 		virtual void							onExit()  override;
 		virtual bool							init()    override;
@@ -120,12 +127,25 @@ namespace Game_View
         cocos2d::ui::Text*						_quality;
 		cocos2d::ui::ImageView*					_stars[STAR_NUM];
         cocos2d::ui::ImageView*                 fightFlag;
+        cocos2d::ui::Text* hpTxt;
+        cocos2d::ui::Text* mpTxt;
+        cocos2d::ui::Text* atkTxt;
+        cocos2d::ui::Text* defTxt;
+        cocos2d::ui::Text* critTxt;
+        cocos2d::ui::Text* tenacTxt;
+        cocos2d::ui::Text* hitRateTxt;
+        cocos2d::ui::Text* dodgeTxt;
+        
         std::string qualityStr[QUALITY_NUM] ={
           "黑铁","青铜","白银","黄金","暗金","红玉","灵器","宝器","仙器"
         };
 
+        cocos2d::ui::Button* detailButton;
+        cocos2d::ui::ImageView* detailBg;
         cocos2d::LayerColor* waitLayer;
         cocostudio::Armature* model;
+        bool emptyPet;
+        bool showDetail;
 	};
 
 };

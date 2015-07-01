@@ -63,7 +63,7 @@ public:
     void autoMove2NPC(int npcId, CallBackFun func, int param);
     
     City_Player *player;
-    
+    void addGuard2Hero();
 private:
     cocos2d::Sprite *bgSpt;
     

@@ -41,6 +41,9 @@ void Game_Model::PetData::load()
 			int attr = cocostudio::DICTOOL->getIntValue_json(doc[i], "att_id");
             std::string armName = cocostudio::DICTOOL->getStringValue_json(doc[i], "armature");
             std::string iconName = cocostudio::DICTOOL->getStringValue_json(doc[i], "icon");
+            int quality_up_id = DICTOOL->getIntValue_json(doc[i], "Quality_up_id");
+            int star_up_id = DICTOOL->getIntValue_json(doc[i], "star_up_id");
+            int variation_id = DICTOOL->getIntValue_json(doc[i], "variation_id");
 			config->attrId = attr;
 			config->id = id;
 			config->star = star;
@@ -49,6 +52,9 @@ void Game_Model::PetData::load()
 			config->name = name;
             config->armName = armName;
             config->iconName = iconName;
+            config->quality_up_id = quality_up_id;
+            config->star_up_id = star_up_id;
+            config->variation_id = variation_id;
 
 			_petConfigMap.insert( std::make_pair(id, config) );
             
@@ -150,7 +156,24 @@ void PET_VIEW::refresh()
             }
             _stars[i]->setVisible(true);
         }
+        
+        model->init(pet->armName);
+        model->getAnimation()->playWithIndex(0);
+        model->setVisible(true);
+        
+        auto att=PET_MODEL::getInstance()->_petAttrMap[pet->attrId];
+        hpTxt->setString(Convert2String(att->health));
+        mpTxt->setString(Convert2String(att->magic));
+        atkTxt->setString(Convert2String(att->attack));
+        defTxt->setString(Convert2String(att->defense));
+        critTxt->setString(Convert2String(att->crit));
+        tenacTxt->setString(Convert2String(att->tenacity));
+        hitRateTxt->setString(Convert2String(att->hit));
+        dodgeTxt->setString(Convert2String(att->dodge));
 
+        detailButton->setTouchEnabled(true);
+        detailButton->setBright(true);
+        
         if (PET_MODEL::getInstance()->getCurrentPetId() == petId) {
             _upgradeButton->setTouchEnabled(false);
             _upgradeButton->setBright(false);
@@ -158,8 +181,19 @@ void PET_VIEW::refresh()
             _goButton->setBright(false);
             fightFlag->setVisible(true);
         }else{
-            _upgradeButton->setTouchEnabled(true);
-            _upgradeButton->setBright(true);
+            bool canUpgrade = true;
+            int role_id = Account_Data_Mgr::instance()->get_current_role_id();
+            auto player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(role_id));
+            if(player->get_gold() < pet->consume)
+            {
+                canUpgrade = false;
+            }
+            
+            if ((pet->variation_id == pet->id) && (pet->star_up_id == pet->id) && (pet->quality_up_id == pet->id)) {
+                canUpgrade = false;
+            }
+            _upgradeButton->setTouchEnabled(canUpgrade);
+            _upgradeButton->setBright(canUpgrade);
             _goButton->setTouchEnabled(true);
             _goButton->setBright(true);
             fightFlag->setVisible(false);
@@ -240,6 +274,21 @@ bool PET_VIEW::init()
 	_goButton->setVisible(true); _goButton->setTouchEnabled(true);
 	_goButton->addTouchEventListener( CC_CALLBACK_2(PET_VIEW::onGoCallback, this) );
 
+    detailButton = dynamic_cast<cocos2d::ui::Button*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Button_114"));
+    detailButton->setTouchEnabled(true);
+    showDetail = false;
+    detailButton->addTouchEventListener(CC_CALLBACK_2(PET_VIEW::onDetail, this));
+    hpTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "shenmingshuxing shuzhi"));
+    mpTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "mofashuxing shuzhi"));
+    atkTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "gongjishuxing shuzhi"));
+    defTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "fanyushuxing shuzhi_5"));
+    critTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "baihushuxing shuzhi"));
+    tenacTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "renxingshuxing shuzhi"));
+    hitRateTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "mingzhongshuxing shuzhi"));
+    dodgeTxt = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "shangbishuxing shuzhi"));
+    
+    detailBg = dynamic_cast<cocos2d::ui::ImageView*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "shuxingjiacheng"));
+    
     //守护兽加战斗力
 	_petPower = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_95_0"));
     //主角原本战斗力
@@ -274,11 +323,17 @@ bool PET_VIEW::init()
     model->setPositionX(showPanel->getContentSize().width/2 );
     model->setPositionY(showPanel->getContentSize().height/4);
     model->setVisible(false);
+    
+    detailButton->setTouchEnabled(false);
+    detailButton->setBright(false);
+    
     showPanel->addChild(model);
+    
     
 	int petId = PET_MODEL::getInstance()->getCurrentPetId();
 	if (petId > 0)
 	{
+        emptyPet = false;
 		auto pet = PET_MODEL::getInstance()->_petConfigMap[petId];
 		_petName->setString(pet->name);
 		Value consume(pet->consume);
@@ -323,6 +378,20 @@ bool PET_VIEW::init()
 //        model->setPositionY(showPanel->getPositionY() + showPanel->getContentSize().height/5);
         model->setVisible(true);
         
+
+        auto att=PET_MODEL::getInstance()->_petAttrMap[pet->attrId];
+        hpTxt->setString(Convert2String(att->health));
+        mpTxt->setString(Convert2String(att->magic));
+        atkTxt->setString(Convert2String(att->attack));
+        defTxt->setString(Convert2String(att->defense));
+        critTxt->setString(Convert2String(att->crit));
+        tenacTxt->setString(Convert2String(att->tenacity));
+        hitRateTxt->setString(Convert2String(att->hit));
+        dodgeTxt->setString(Convert2String(att->dodge));
+
+        detailButton->setTouchEnabled(true);
+        detailButton->setBright(true);
+        
         PET_MODEL::getInstance()->setSelectedPetId(petId);
         _upgradeButton->setTouchEnabled(false);
         _upgradeButton->setBright(false);
@@ -330,6 +399,7 @@ bool PET_VIEW::init()
         _goButton->setBright(false);
         fightFlag->setVisible(true);
     }else{
+        emptyPet = true;
         auto label = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_120_1_2"));
         label->setString("角色升级可获得守护兽");
         model->setVisible(false);
@@ -339,6 +409,8 @@ bool PET_VIEW::init()
         _quality->setVisible(false);
         _upgradeButton->setVisible(false);
         _goButton->setVisible(false);
+        detailButton->setTouchEnabled(false);
+        detailButton->setBright(false);
         fightFlag->setVisible(false);
     }
 
@@ -386,6 +458,9 @@ void PET_VIEW::onUpgradeCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::Tou
         return;
     }
     
+    if ((pet->variation_id == pet->id) && (pet->star_up_id == pet->id) && (pet->quality_up_id == pet->id)) {
+        return;
+    }
     _upgradeButton->setTouchEnabled(false);
     _upgradeButton->setBright(false);
     std::vector<uint64> para;
@@ -404,6 +479,15 @@ void PET_VIEW::onGoCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEve
     waitLayer->setVisible(true);
 }
 
+void PET_VIEW::onDetail(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type)
+{
+    if (type != cocos2d::ui::Widget::TouchEventType::ENDED)
+        return;
+    showDetail = !showDetail;
+    
+    detailBg->setVisible(showDetail);
+}
+
 void PET_VIEW::onCloseCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type != cocos2d::ui::Widget::TouchEventType::ENDED)
@@ -414,7 +498,8 @@ void PET_VIEW::onCloseCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::Touch
         auto pet = PET_MODEL::getInstance()->_petConfigMap[petId];
         
         auto scene = (UI::City_Scene *)Director::getInstance()->getRunningScene();
-        scene->changeGuardianArmature(pet->armName);
+        
+        scene->changeGuardianArmature(pet->armName,emptyPet);
     }
     
 	auto spawnAction = cocos2d::Spawn::createWithTwoActions(cocos2d::DelayTime::create(0.1), cocos2d::CallFunc::create(CC_CALLBACK_0(PET_VIEW::removeFromParent, this)));
@@ -432,29 +517,47 @@ void PET_VIEW::onClickCellCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
         return;
     }
     
-    auto oldPet = _petsScrollView->getChildByTag(PET_MODEL::getInstance()->getSelectedPetId());
-    oldPet->getChildByName("Img_Cursor")->setVisible(false);
+    if (PET_MODEL::getInstance()->getSelectedPetId() != -1) {
+        auto oldPet = _petsScrollView->getChildByTag(PET_MODEL::getInstance()->getSelectedPetId());
+        oldPet->getChildByName("Img_Cursor")->setVisible(false);
+    }
     
+    
+    auto pet = PET_MODEL::getInstance()->_petConfigMap[selected_pet_id];
 	PET_MODEL::getInstance()->setSelectedPetId(cell->getTag());
 	if (PET_MODEL::getInstance()->getCurrentPetId() == selected_pet_id)
 	{
         _upgradeButton->setTouchEnabled(false);
         _upgradeButton->setBright(false);
+        _upgradeButton->setVisible(true);
         _goButton->setTouchEnabled(false);
         _goButton->setBright(false);
+        _goButton->setVisible(true);
         fightFlag->setVisible(true);
 	} else {
-        _upgradeButton->setTouchEnabled(true);
-        _upgradeButton->setBright(true);
+        bool canUpgrade = true;
+        int role_id = Account_Data_Mgr::instance()->get_current_role_id();
+        auto player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(role_id));
+        if(player->get_gold() < pet->consume)
+        {
+            canUpgrade = false;
+        }
+        
+        if ((pet->variation_id == pet->id) && (pet->star_up_id == pet->id) && (pet->quality_up_id == pet->id)) {
+            canUpgrade = false;
+        }
+        _upgradeButton->setTouchEnabled(canUpgrade);
+        _upgradeButton->setBright(canUpgrade);
+        _upgradeButton->setVisible(true);
         _goButton->setTouchEnabled(true);
         _goButton->setBright(true);
+        _goButton->setVisible(true);
         fightFlag->setVisible(false);
 	}
     
 	auto cursor = (cocos2d::ui::ImageView*)( cell->getChildByName("Img_Cursor") );
 	cursor->setVisible(true);
     
-    auto pet = PET_MODEL::getInstance()->_petConfigMap[selected_pet_id];
     _petName->setString(pet->name);
     Value consume(pet->consume);
     _petConsume->setString(consume.asString());
@@ -492,9 +595,23 @@ void PET_VIEW::onClickCellCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
         _stars[i]->setVisible(true);
     }
     
+    ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/"+pet->armName+".ExportJson");
     model->init(pet->armName);
     model->getAnimation()->playWithIndex(0);
     model->setVisible(true);
+    
+    auto att=PET_MODEL::getInstance()->_petAttrMap[pet->attrId];
+    hpTxt->setString(Convert2String(att->health));
+    mpTxt->setString(Convert2String(att->magic));
+    atkTxt->setString(Convert2String(att->attack));
+    defTxt->setString(Convert2String(att->defense));
+    critTxt->setString(Convert2String(att->crit));
+    tenacTxt->setString(Convert2String(att->tenacity));
+    hitRateTxt->setString(Convert2String(att->hit));
+    dodgeTxt->setString(Convert2String(att->dodge));
+    
+    detailButton->setTouchEnabled(true);
+    detailButton->setBright(true);
 }
 
 bool PET_NET::on_load(Game_Logic::Game_Interface& gm_interface)
