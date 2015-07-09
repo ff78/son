@@ -17,8 +17,8 @@
 #include "Network/msg_proc.h"
 #include "Network_Common/global_macros.h"
 
-#include "Skill_System/Skill/Skill_Mgr.h"
-#include "Skill_System/Buff/Buff_Mgr.h"
+//#include "Skill_System/Skill/Skill_Mgr.h"
+//#include "Skill_System/Buff/Buff_Mgr.h"
 
 #include "Player_Account/Account_Data_Mgr.h"
 #include "Character_System/Player_Config_Mgr.h"
@@ -30,7 +30,7 @@
 #include "Item_System/Item_Desc_Config_Mgr.h"
 #include "Play_System/Instance_Data_Mgr.h"
 #include "Play_System/Formula_Logic.h"
-#include "Skill_System/Skill/Technical_Mgr.h"
+//#include "Skill_System/Skill/Technical_Mgr.h"
 #include "Character_System/CommonNpc_Config_Mgr.h"
 #include "Shop_System/Shop_Config_Mgr.h"
 //#include "Activity_System/Activity_Config_Mgr.h"
@@ -180,11 +180,11 @@ void AppDelegate::init_game_system()
     Msg_Proc::instance()->init();
 
 	//initialize game play system 
-	SKILL_MGR::instance()->initialize();
-	Buff_Manager::instance()->initialize();
+//	SKILL_MGR::instance()->initialize();
+//	Buff_Manager::instance()->initialize();
 	PLAYER_MGR::instance()->initialize();
     FIGHTNPC_MGR::instance()->initialize();
-    TECHNICAL_MGR::instance()->initialize();
+//    TECHNICAL_MGR::instance()->initialize();
 	DICTIONARY_CONFIG_MGR::instance()->initialize();
 	Name_Random_Mgr::get_instance()->initialize();
 	Junior_Guide_Mgr::get_instance()->initialize();

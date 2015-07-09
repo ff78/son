@@ -17,8 +17,8 @@
 //#include "Fight_System/Offline_Fight_Record_Mgr_Cl.h"
 #include "Acupoint_System/Acupoint_Mgr_Cl.h"
 #include "Character_System/Character_Mgr.h"
-#include "Skill_System/Buff/Buff_Mgr.h"
-#include "Skill_System/Skill/Skill_Mgr.h"
+//#include "Skill_System/Buff/Buff_Mgr.h"
+//#include "Skill_System/Skill/Skill_Mgr.h"
 #include "quest_system/quest_data/quest_data_mgr.h"
 #include "Play_System/Instance_Data_Mgr.h"
 
@@ -107,7 +107,7 @@ void Account_Logic::releaseData()
     //OFFLINE_FIGHT_RECORD_MGR::instance()->release();
     //BUFF_MGR::instance()->cleanup();
     //SKILL_MGR::instance()->cleanup();
-    quest_data_mgr::instance()->release();
+    Game_Data::quest_data_mgr::instance()->release();
     INSTANCE_DATA_MGR::instance()->release();
     //ACTOR_MGR::instance()->clear_all_actor();
     CHARACTER_MGR::instance()->release();

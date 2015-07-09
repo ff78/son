@@ -201,9 +201,9 @@ void CityLayer::initActorLayer()
         guard->initViewRes();
         guard->initFightState();
         guard->setMan(player);
-        guard->setPosX(player->getPositionX());
+        guard->setPosX(player->getPositionX()-100);
         guard->setPosY(player->getPositionY());
-        guard->setPosition(player->getPosition());
+        guard->setPosition(Vec2(guard->getPosX(), guard->getPosY()));
         guard->preloadSkillRes();
         
         actorLayer->addChild(guard);
@@ -214,9 +214,9 @@ void CityLayer::initActorLayer()
         col->initViewRes();
         col->initFightState();
         col->setMan(player);
-        col->setPosX(player->getPositionX());
+        col->setPosX(player->getPositionX()-110);
         col->setPosY(player->getPositionY());
-        col->setPosition(player->getPosition());
+        col->setPosition(Vec2(col->getPosX(), col->getPosY()));
         col->preloadSkillRes();
         player->setColossus(col);
         actorLayer->addChild(col);
@@ -237,9 +237,9 @@ void CityLayer::initActorLayer()
             guard->initViewRes();
             guard->initFightState();
             guard->setMan(obj);
-            guard->setPosX(obj->getPositionX());
+            guard->setPosX(obj->getPositionX()-100);
             guard->setPosY(obj->getPositionY());
-            guard->setPosition(obj->getPosition());
+            guard->setPosition(Vec2(guard->getPosX(), guard->getPosY()));
             guard->preloadSkillRes();
             
             actorLayer->addChild(guard);
@@ -250,9 +250,9 @@ void CityLayer::initActorLayer()
             col->initViewRes();
             col->initFightState();
             col->setMan(obj);
-            col->setPosX(obj->getPositionX());
+            col->setPosX(obj->getPositionX()-110);
             col->setPosY(obj->getPositionY());
-            col->setPosition(obj->getPosition());
+            col->setPosition(Vec2(col->getPosX(), col->getPosY()));
             col->preloadSkillRes();
             obj->setColossus(col);
             actorLayer->addChild(col);
@@ -273,9 +273,9 @@ void CityLayer::addGuard2Hero()
         guard->initViewRes();
         guard->initFightState();
         guard->setMan(player);
-        guard->setPosX(player->getPositionX());
+        guard->setPosX(player->getPositionX()-100);
         guard->setPosY(player->getPositionY());
-        guard->setPosition(player->getPosition());
+        guard->setPosition(Vec2(guard->getPosX(), guard->getPosY()));
         guard->preloadSkillRes();
         
         actorLayer->addChild(guard);

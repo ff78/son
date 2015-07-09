@@ -265,7 +265,9 @@ void UI_Activity_Layer::update_grid(int index,int icon,int name,int time)
     int col = index%EACH_PAGE_NUM_ACT;
 
     const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-    m_img_icon_texture[row][col]->loadTexture(szPath, UI_TEX_TYPE_PLIST);
+    std::string p("icon/");
+    p+=szPath;
+    m_img_icon_texture[row][col]->loadTexture(p.c_str());
     m_img_icon_texture[row][col]->setVisible(true);
 
     const char *szName = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(name);

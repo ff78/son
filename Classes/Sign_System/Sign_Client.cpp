@@ -38,7 +38,7 @@ bool SIGN_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/sign/sign.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/sign.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

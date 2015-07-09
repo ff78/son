@@ -21,7 +21,7 @@ bool WashLayer::init()
 	if ( !Layer::init() )
 		return false;
 	
-	auto root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_wash/refine_wash.ExportJson");
+	auto root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_wash.ExportJson");
 	addChild(root);
 
 	_closeButton = dynamic_cast<ui::Button*>(Helper::seekWidgetByName(root, "Btn_Close_0_0"));
@@ -98,7 +98,7 @@ void WashLayer::onCloseCallBack(Ref* pSender, Widget::TouchEventType type)
 	auto seq = Sequence::createWithTwoActions(delay,remove);
 	this->runAction(seq);
 	//this->removeFromParent();
-
+    UI_Bag_Info_Layer::sIsProperty = false;
 }
 
 

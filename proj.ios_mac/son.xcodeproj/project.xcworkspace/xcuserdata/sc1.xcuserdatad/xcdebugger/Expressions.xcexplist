@@ -3,10 +3,65 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "Game_Net::Pet_Msg::send_upgrade(Game_Logic::Game_Interface&amp;):Pet_Client.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "FightActor::useSkill(int):FightActor.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "blackActor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game_View::PetLayer::init():Pet_Client.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "model">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CityLayer::initActorLayer():CityLayer.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Game_View::PetLayer::onUpgradeCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):Pet_Client.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "quest_msg_proc_client::on_update_npc_quest_bind_list(Game_Logic::Game_Interface&amp;):quest_msg_proc_client.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "player_npc_bind_quest_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CityLayer::initBackLayer():CityLayer.cpp">
          <PersistentStrings>
             <PersistentString
                value = "blackCity">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FightActor::onFrameEvent(cocostudio::Bone*, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;, int, int):FightActor.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "currSkill">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameScene::load(float):GameScene.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "backLayer">
+            </PersistentString>
+            <PersistentString
+               value = "midLayer">
+            </PersistentString>
+            <PersistentString
+               value = "battle">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,32 +74,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CityLayer::initActorLayer():CityLayer.cpp">
+         contextName = "Game_View::GodLayer::init():God_Client.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "GOD_MODEL::getInstance()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game_Data::quest_data_mgr::get_player_npc_quest_bind_data(unsigned int, std::__1::vector&lt;Game_Data::npc_bind_quest, std::__1::allocator&lt;Game_Data::npc_bind_quest&gt; &gt;&amp;):quest_data_mgr.cpp">
       </ContextState>
       <ContextState
          contextName = "SkillView::initScrollView():SkillView.cpp">
       </ContextState>
       <ContextState
-         contextName = "FightActor::useSkill(int):FightActor.cpp">
+         contextName = "Effect::initWithArmatureAR(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, float):Effect.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "blackActor">
+               value = "one">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Game_Net::Pet_Msg::send_upgrade(Game_Logic::Game_Interface&amp;):Pet_Client.cpp">
-      </ContextState>
-      <ContextState
-         contextName = "Game_View::PetLayer::init():Pet_Client.cpp">
-         <PersistentStrings>
-            <PersistentString
-               value = "model">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Game_View::PetLayer::onUpgradeCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):Pet_Client.cpp">
+         contextName = "UI_MainMenu_Layer::buttonPathFinding(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):UI_MainMenu_Layer.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -393,11 +393,13 @@ bool UI_Bag_Gem_Layer::SetSingleCellInfo(const int nTagID, Game_Data::Item_Conta
 		return false;
 
 	szTemp	= ITEM_CONFIG_MGR::instance()->get_icon_path(pItemConfig->icon);
-	nTemp	= strcmp(szTemp, "");
+    std::string p("icon/");
+    p+=szTemp;
+	nTemp	= strcmp(p.c_str(), "");
 	if (nTemp <= 0)
 		return false;
 
-	pMaterialImage->loadTexture(szTemp, UI_TEX_TYPE_PLIST);
+	pMaterialImage->loadTexture(p.c_str());
 	pMaterialImage->setVisible(true);
 	
 	// 2. 设置物品的个数
@@ -507,6 +509,7 @@ void UI_Bag_Gem_Layer::CloseCurrentLayer()
 	auto seq = Sequence::createWithTwoActions(delay, remove);
 	this->runAction(seq);
 	//this->removeFromParent();
+    UI_Bag_Info_Layer::sIsProperty = false;
 }
 
 bool UI_Bag_Gem_Layer::JudgeTargetMaterialIsExist(const int nTagID)

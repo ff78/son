@@ -40,7 +40,7 @@ bool UI_Friend_Layer::init()
 	{
 		return false;
 	}
-	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Friend/Social_Friend.ExportJson");
+	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Friend.json");
 	addChild(pLayer);
 
 	// 已有好友操作界面

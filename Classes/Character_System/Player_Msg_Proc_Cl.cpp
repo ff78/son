@@ -51,7 +51,7 @@
 //#include "Runtime.h"
 //#include "UI/GameUI_Layer.h"
 
-#include "Skill_System/Skill/Skill_Logic.h"
+//#include "Skill_System/Skill/Skill_Logic.h"
 #include "Character_System/Player_Config_Data.h"
 #include "ClientLogic/GameScene/ResultLayer.h"
 #include "../UI_Interface/UI_ModalDialogue_Layer.h"
@@ -390,7 +390,7 @@ bool Player_Msg_Proc::on_get_player_info(Game_Logic::Game_Interface& gm_interfac
     player->set_exp(exp);
     player->set_gold(gold);
     player->set_energy(energy);
-    //Game_Logic::Game_Event_Response::instance()->on_update_main_ui_info(player->get_database_character_id());
+    Game_Logic::Game_Event_Response::instance()->on_update_main_ui_info(player->get_database_character_id());
 
 	Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("eventBackMainCity");
 
@@ -730,7 +730,7 @@ bool Player_Msg_Proc::on_player_revivie(Game_Logic::Game_Interface& gm_interface
 	Game_Utils::instance()->close_UI_Tips_Layer();
 	Game_Utils::instance()->stop();*/
 
-	SKILL_LOGIC::instance()->AddBuff(player, player, 4000, false, 1);
+//	SKILL_LOGIC::instance()->AddBuff(player, player, 4000, false, 1);
 
 	return true;
 }
@@ -777,7 +777,7 @@ bool Player_Msg_Proc::on_player_quality_up(Game_Logic::Game_Interface& gm_interf
 
     character->character_quality_up();
     Game_Logic::Game_Event_Response::instance()->on_update_item_ui_info(player->get_database_character_id());
-    Game_Logic::Game_Event_Response::instance()->on_update_role_quality_up(player->get_database_character_id());
+//    Game_Logic::Game_Event_Response::instance()->on_update_role_quality_up(player->get_database_character_id());
     Game_Logic::Game_Event_Response::instance()->on_update_main_ui_info(player->get_database_character_id());
     //DICTIONARY_CONFIG_MGR::instance()->show_alert(QUALITY_UP_SUCCESS);
 
@@ -848,11 +848,11 @@ void Player_Msg_Proc::operate_gm_command_reasult(int cmd_type,GMCResult& result,
 
     case CMDT_OPEN_ALL_FUNCTION:
         {
-            player->set_function_open_id(ICON_SUM);
-			for (int i=0; i<ICON_SUM; ++i)
-			{
+//            player->set_function_open_id(ICON_SUM);
+//			for (int i=0; i<ICON_SUM; ++i)
+//			{
 				//UI_MainMenu_Layer::get_instance()->arr[i] = true;
-			}
+//			}
         }
         break;
 

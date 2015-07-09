@@ -24,7 +24,7 @@
 
 //#include "Runtime.h"
 //#include "Game/Monster_Wave_Cfg_Data_Mgr.h"
-#include "UI_Interface/UI_Settlement_Layer.h"
+//#include "UI_Interface/UI_Settlement_Layer.h"
 #include "UI_Interface/CocoStu_UI_Scene_Interface.h"
 #endif
 #include "Common/Utils.h"
@@ -50,10 +50,10 @@ Client_Instance_Msg_Proc* Client_Instance_Msg_Proc::instance()
 bool Client_Instance_Msg_Proc::on_player_enter_instance(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷½ÓÊÕ½øÈë¸±±¾µÄÏûÏ¢
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÎ©â€Â â€™Î©Â¯Â»ÃâˆÂ±Â±Ã¦ÂµÆ’Å“ËšÅ“Â¢
 	CocoStu_UI_Scene_Interface::get_instance()->unlockScreen();
     //CCLog("-------------------->Client_Instance_Msg_Proc::on_player_enter_instance ---to game");
-	// 1. ´¦ÀíÏûÏ¢ÄÚÈİ
+	// 1. Â¥Â¶Â¿ÃŒÅ“ËšÅ“Â¢Æ’â„Â»â€º
     message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
     body_ms.set_rd_ptr(sizeof(int));
     int player_id = 0;
@@ -79,7 +79,7 @@ bool Client_Instance_Msg_Proc::on_player_enter_instance(Game_Logic::Game_Interfa
         para.push_back(wave_id);
     }
 
-	// 2. ½«·şÎñÆ÷·¢¹ıÀ´µÄÊı¾İ·¢ËÍ³öÈ¥
+	// 2. Î©Â´âˆ‘Ë›Å’Ã’âˆ†Ëœâˆ‘Â¢Ï€ËÂ¿Â¥ÂµÆ’Â ËÃ¦â€ºâˆ‘Â¢Ã€Ã•â‰¥Ë†Â»â€¢
     Game_Logic::Game_Content_Interface::instance()->exec_interface("procenterinstance", para);
 
     return true;
@@ -117,7 +117,7 @@ bool Client_Instance_Msg_Proc::select_instance(Game_Logic::Game_Interface& gm_in
     CNetManager::GetMe()->send_msg( body_ms );
 
     const char* loadFont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MODEL_LOADING_FONT);
-    CocoStu_UI_Scene_Interface::get_instance()->lockScreen("",loadFont);
+    CocoStu_UI_Scene_Interface::get_instance()->lockScreen("è½½å…¥ä¸­","");
     return true;
 
 }
@@ -422,8 +422,8 @@ bool Client_Instance_Msg_Proc::on_player_stage( Game_Logic::Game_Interface& gm_i
 bool Client_Instance_Msg_Proc::on_player_stage_instance(Game_Logic::Game_Interface &gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷½ÓÊÕÍæ¼Ò¸±±¾µÄÏà¹ØĞÅÏ¢
-	// 1. »ñÈ¡µ±Ç°ÕÂ½ÚµÄËùÓĞ¹Ø¿¨µÄÍ¨¹ØÇé¿ö²¢´æ´¢
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÎ©â€Â â€™Ã•ÃŠÂºâ€œâˆÂ±Â±Ã¦ÂµÆ’Å“â€¡Ï€Ã¿â€“â‰ˆÅ“Â¢
+	// 1. ÂªÃ’Â»Â°ÂµÂ±Â«âˆâ€™Â¬Î©â„ÂµÆ’Ã€Ë˜â€â€“Ï€Ã¿Ã¸Â®ÂµÆ’Ã•Â®Ï€Ã¿Â«ÃˆÃ¸Ë†â‰¤Â¢Â¥ÃŠÂ¥Â¢
     message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
     body_ms.set_rd_ptr(sizeof(int));
     int player_id = 0, stage_id = 0, size = 0;
@@ -437,7 +437,7 @@ bool Client_Instance_Msg_Proc::on_player_stage_instance(Game_Logic::Game_Interfa
         INSTANCE_DATA_MGR::instance()->add_stage_data( stage, pass );
     }
         
-	// 2. ´æ´¢µ±Ç°ÕÂ½ÚµÄËùÓĞ¹Ø¿¨µÄµÃ·Ö
+	// 2. Â¥ÃŠÂ¥Â¢ÂµÂ±Â«âˆâ€™Â¬Î©â„ÂµÆ’Ã€Ë˜â€â€“Ï€Ã¿Ã¸Â®ÂµÆ’Âµâˆšâˆ‘Ã·
 	body_ms >> stage_id >> size;
     
     for( int i = 0; i < size; ++ i )
@@ -467,7 +467,7 @@ bool Client_Instance_Msg_Proc::on_player_stage_instance(Game_Logic::Game_Interfa
         }
     }
     
-	// 3. ·¢ËÍÏûÏ¢´ò¿ªÑ¡ÔñÕÂ½Ú½çÃæ
+	// 3. âˆ‘Â¢Ã€Ã•Å“ËšÅ“Â¢Â¥ÃšÃ¸â„¢â€”Â°â€˜Ã’â€™Â¬Î©â„Î©ÃâˆšÃŠ
 	Game_Logic::Game_Event_Response::instance()->on_update_stage_all(player_id);
 	Director::getInstance()->getRunningScene()->removeChildByName("waiting");
 
@@ -657,7 +657,7 @@ bool Client_Instance_Msg_Proc::send_back_main_city(Game_Logic::Game_Interface& g
 bool Client_Instance_Msg_Proc::send_require_challenge_next_instance(Game_Logic::Game_Interface &gm_interface)
 {
 	/************************************************************************/
-	// ·¢ËÍÏûÏ¢ÇëÇóÌôÕ½ÏÂÒ»¹Ø
+	// âˆ‘Â¢Ã€Ã•Å“ËšÅ“Â¢Â«ÃÂ«Ã›ÃƒÃ™â€™Î©Å“Â¬â€œÂªÏ€Ã¿
 	vector<uint64> para;
 	gm_interface.get_para(para);
 	if (para.size() < 2)
@@ -680,8 +680,8 @@ bool Client_Instance_Msg_Proc::send_require_challenge_next_instance(Game_Logic::
 bool Client_Instance_Msg_Proc::on_player_next_instance(Game_Logic::Game_Interface &gm_interface)
 {
 	/************************************************************************/
-	// ·şÎñÆ÷·µ»ØÏûÏ¢ÌôÕ½ÏÂÒ»¹Ø
-	// 1. ¸ü¸Äµ±Ç°¹Ø¿¨µÄID
+	// âˆ‘Ë›Å’Ã’âˆ†Ëœâˆ‘ÂµÂªÃ¿Å“ËšÅ“Â¢ÃƒÃ™â€™Î©Å“Â¬â€œÂªÏ€Ã¿
+	// 1. âˆÂ¸âˆÆ’ÂµÂ±Â«âˆÏ€Ã¿Ã¸Â®ÂµÆ’ID
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
 
@@ -690,7 +690,7 @@ bool Client_Instance_Msg_Proc::on_player_next_instance(Game_Logic::Game_Interfac
 	body_ms >> nPlayerID >> nNextInstanceID;
 	INSTANCE_DATA_MGR::instance()->set_current_instance_id(nNextInstanceID);
 
-	// 2. Í¨ÖªGameSceneÇĞ»»³¡¾°
+	// 2. Ã•Â®Ã·â„¢GameSceneÂ«â€“ÂªÂªâ‰¥Â°Ã¦âˆ
 	vector<uint64> para;
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	para.push_back(player_id);

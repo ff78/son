@@ -49,6 +49,11 @@
 
 #define ICON_PATH "icon.plist"
 
+#include "cocostudio/CocoStudio.h"
+#include "ClientLogic/Utils/GameReader.h"
+
+using namespace cocostudio;
+
 namespace Game_Data
 {
     Item_Config_Mgr* Item_Config_Mgr::instance_ = NULL;
@@ -384,6 +389,7 @@ namespace Game_Data
         Json::Value root_value;
         Container_Mgr::instance()->get_json_value_by_file_name(root_value, EQUIPMENT_DEPOT_CONFIG_FILE_PATH);
 
+        
         Equipment_Depot_Config* config = NULL;
         //char key[255] = {0};
         for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
@@ -424,154 +430,207 @@ namespace Game_Data
 
     int Item_Config_Mgr::load_equipment_config_data()
     {
+//        auto doc = GameReader::getDocInstance(EQUIPMENT_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Equipment_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Equipment_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->occupation = DICTOOL->getIntValue_json(dic, "occupation");
+//                config->pos = DICTOOL->getIntValue_json(dic, "pos");
+//                config->upgrade_cost_coefficient = DICTOOL->getIntValue_json(dic, "upgrade_cost_coefficient");
+//                
+//                for (int i = 0;i < MAX_ATTR_COUNT;++i)
+//                {
+//                    cocos2d::Value num(i);
+//                    if (i < QT_MAX)
+//                    {
+//                        std::string name("attr_quality_grow_");
+//                        config->attr_quality_grow[i] = DICTOOL->getIntValue_json(dic, (name+num.asString()).c_str());
+//                    }
+//                    
+//                    std::string baseAttrName("base_attr_");
+//                    config->base_attr[i] = DICTOOL->getIntValue_json(dic, (baseAttrName+num.asString()).c_str());
+//                    
+//                    std::string lvlAttrName("attr_level_grow_");
+//                    config->attr_level_grow[i] = DICTOOL->getIntValue_json(dic, (lvlAttrName+num.asString()).c_str());
+//                }
+//                
+//                m_map_equipment_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+
         Json::Value root_value;
         Container_Mgr::instance()->get_json_value_by_file_name(root_value, EQUIPMENT_CONFIG_FILE_PATH);
-
+        
         Equipment_Config* config = NULL;
         char key[255] = {0};
         for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
         {
             config = new Equipment_Config;
             memset(config, 0, sizeof(Equipment_Config));
-
+            
             Json::Value &v = (*iter)["base_id"];
             if (!v.empty())
             {
                 config->base_id =  v.asUInt();
             }
-
+            
             v = (*iter)["type"];
             if (!v.empty())
             {
                 config->type = v.asUInt();
             }
-
+            
             v = (*iter)["name"];
             if (!v.empty())
             {
                 config->name = v.asUInt();
             }
-
+            
             v = (*iter)["icon"];
             if (!v.empty())
             {
                 config->icon = v.asUInt();
             }
-
+            
             v = (*iter)["quality"];
             if (!v.empty())
             {
                 config->quality = v.asUInt();
             }
-
+            
             v = (*iter)["desc"];
             if (!v.empty())
             {
                 config->desc = v.asUInt();
             }
-
+            
             v = (*iter)["drop_desc"];
             if (!v.empty())
             {
                 config->drop_desc = v.asUInt();
             }
-
+            
             v = (*iter)["bind"];
             if (!v.empty())
             {
                 config->bind = v.asUInt();
             }
-
+            
             v = (*iter)["pile_count"];
             if (!v.empty())
             {
                 config->pile_count = v.asUInt();
             }
-
+            
             v = (*iter)["gold_cost"];
             if (!v.empty())
             {
                 config->gold_cost = v.asUInt();
             }
-
+            
             v = (*iter)["token_cost"];
             if (!v.empty())
             {
                 config->token_cost = v.asUInt();
             }
-
+            
             v = (*iter)["sell_income"];
             if (!v.empty())
             {
                 config->sell_income = v.asUInt();
             }
-
+            
             v = (*iter)["can_sell"];
             if (!v.empty())
             {
                 config->can_sell = v.asUInt();
             }
-
+            
             v = (*iter)["can_auction"];
             if (!v.empty())
             {
                 config->can_auction = v.asUInt();
             }
-
+            
             v = (*iter)["can_trade"];
             if (!v.empty())
             {
                 config->can_trade = v.asUInt();
             }
-
+            
             v = (*iter)["can_store"];
             if (!v.empty())
             {
                 config->can_store = v.asUInt();
             }
-
+            
             v = (*iter)["can_pile"];
             if (!v.empty())
             {
                 config->can_pile = v.asUInt();
             }
-
+            
             v = (*iter)["can_destroy"];
             if (!v.empty())
             {
                 config->can_destroy = v.asUInt();
             }
-
+            
             v = (*iter)["destroy_time"];
             if (!v.empty())
             {
                 config->destroy_time = v.asUInt();
             }
-
+            
             v = (*iter)["sort"];
             if (!v.empty())
             {
                 config->sort = v.asUInt();
             }
-
+            
             v = (*iter)["occupation"];
             if (!v.empty())
             {
                 config->occupation = v.asUInt();
             }
-
+            
             v = (*iter)["pos"];
             if (!v.empty())
             {
                 config->pos = v.asUInt();
             }
-
+            
             v = (*iter)["upgrade_cost_coefficient"];
             if (!v.empty())
             {
                 config->upgrade_cost_coefficient = v.asUInt();
             }
-
+            
             for (int i = 0;i < MAX_ATTR_COUNT;++i)
             {
                 if (i < QT_MAX)
@@ -588,7 +647,7 @@ namespace Game_Data
                         config->attr_quality_grow[i] = v.asUInt();
                     }
                 }
-
+                
                 memset(key, 0, sizeof(key));
 #ifdef YN_WINDOWS
                 sprintf_s(key,"base_attr_%d",i);
@@ -600,7 +659,7 @@ namespace Game_Data
                 {
                     config->base_attr[i] = v.asUInt();
                 }
-
+                
                 memset(key, 0, sizeof(key));
 #ifdef YN_WINDOWS
                 sprintf_s(key,"attr_level_grow_%d",i);
@@ -613,7 +672,7 @@ namespace Game_Data
                     config->attr_level_grow[i] = v.asUInt();
                 }
             }
-
+            
             m_map_equipment_config.insert(make_pair(config->base_id, config));
             m_map_item_config.insert(make_pair(config->base_id, config));
         }
@@ -625,906 +684,38 @@ namespace Game_Data
     {
         Json::Value root_value;
         Container_Mgr::instance()->get_json_value_by_file_name(root_value, USABLE_ITEM_CONFIG_FILE_PATH);
-
+        
         Usable_Item_Config* config = NULL;
         //char key[255] = {0};
         for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
         {
             config = new Usable_Item_Config;
             memset(config, 0, sizeof(Usable_Item_Config));
-
+            
             Json::Value &v = (*iter)["base_id"];
             if (!v.empty())
             {
                 config->base_id =  v.asUInt();
             }
-
+            
             v = (*iter)["type"];
             if (!v.empty())
             {
                 config->type = v.asUInt();
             }
-
+            
             v = (*iter)["name"];
             if (!v.empty())
             {
                 config->name = v.asUInt();
             }
-
+            
             v = (*iter)["icon"];
             if (!v.empty())
             {
                 config->icon = v.asUInt();
             }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            v = (*iter)["event_id"];
-            if (!v.empty())
-            {
-                config->event_id = v.asUInt();
-            }
-
-            m_map_usable_item_config.insert(make_pair(config->base_id, config));
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_quest_item_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, QUEST_ITEM_CONFIG_FILE_PATH);
-
-        Item_Config* config = NULL;
-        //char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Item_Config;
-            memset(config, 0, sizeof(Item_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_material_item_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, MATERIAL_ITEM_CONFIG_FILE_PATH);
-
-        Item_Config* config = NULL;
-       // char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Item_Config;
-            memset(config, 0, sizeof(Item_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_material_fragment_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, MATERIAL_FRAGMENT_CONFIG_FILE_PATH);
-
-        Item_Fragment_Config* config = NULL;
-        //char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Item_Fragment_Config;
-            memset(config, 0, sizeof(Item_Fragment_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            v = (*iter)["need_count"];
-            if (!v.empty())
-            {
-                config->need_count = v.asUInt();
-            }
-
-            v = (*iter)["compound_id"];
-            if (!v.empty())
-            {
-                config->compound_id = v.asUInt();
-            }
-
-            m_map_item_fragment_config.insert(make_pair(config->base_id, config));
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_book_fragment_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, BOOK_FRAGMENT_CONFIG_FILE_PATH);
-
-        Item_Fragment_Config* config = NULL;
-        //char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Item_Fragment_Config;
-            memset(config, 0, sizeof(Item_Fragment_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            v = (*iter)["need_count"];
-            if (!v.empty())
-            {
-                config->need_count = v.asUInt();
-            }
-
-            v = (*iter)["compound_id"];
-            if (!v.empty())
-            {
-                config->compound_id = v.asUInt();
-            }
-
-            m_map_item_fragment_config.insert(make_pair(config->base_id, config));
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_gift_item_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, GIFT_ITEM_CONFIG_FILE_PATH);
-
-        Usable_Item_Config* config = NULL;
-        //char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Usable_Item_Config;
-            memset(config, 0, sizeof(Usable_Item_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
-            v = (*iter)["quality"];
-            if (!v.empty())
-            {
-                config->quality = v.asUInt();
-            }
-
-            v = (*iter)["desc"];
-            if (!v.empty())
-            {
-                config->desc = v.asUInt();
-            }
-
-            v = (*iter)["drop_desc"];
-            if (!v.empty())
-            {
-                config->drop_desc = v.asUInt();
-            }
-
-            v = (*iter)["bind"];
-            if (!v.empty())
-            {
-                config->bind = v.asUInt();
-            }
-
-            v = (*iter)["pile_count"];
-            if (!v.empty())
-            {
-                config->pile_count = v.asUInt();
-            }
-
-            v = (*iter)["gold_cost"];
-            if (!v.empty())
-            {
-                config->gold_cost = v.asUInt();
-            }
-
-            v = (*iter)["token_cost"];
-            if (!v.empty())
-            {
-                config->token_cost = v.asUInt();
-            }
-
-            v = (*iter)["sell_income"];
-            if (!v.empty())
-            {
-                config->sell_income = v.asUInt();
-            }
-
-            v = (*iter)["can_sell"];
-            if (!v.empty())
-            {
-                config->can_sell = v.asUInt();
-            }
-
-            v = (*iter)["can_auction"];
-            if (!v.empty())
-            {
-                config->can_auction = v.asUInt();
-            }
-
-            v = (*iter)["can_trade"];
-            if (!v.empty())
-            {
-                config->can_trade = v.asUInt();
-            }
-
-            v = (*iter)["can_store"];
-            if (!v.empty())
-            {
-                config->can_store = v.asUInt();
-            }
-
-            v = (*iter)["can_pile"];
-            if (!v.empty())
-            {
-                config->can_pile = v.asUInt();
-            }
-
-            v = (*iter)["can_destroy"];
-            if (!v.empty())
-            {
-                config->can_destroy = v.asUInt();
-            }
-
-            v = (*iter)["destroy_time"];
-            if (!v.empty())
-            {
-                config->destroy_time = v.asUInt();
-            }
-
-            v = (*iter)["sort"];
-            if (!v.empty())
-            {
-                config->sort = v.asUInt();
-            }
-
-            v = (*iter)["event_id"];
-            if (!v.empty())
-            {
-                config->event_id = v.asUInt();
-            }
-
-            m_map_usable_item_config.insert(make_pair(config->base_id, config));
-            m_map_item_config.insert(make_pair(config->base_id, config));
-        }
-
-        return 0;
-    }
-
-    int Item_Config_Mgr::load_book_config_data()
-    {
-        Json::Value root_value;
-        Container_Mgr::instance()->get_json_value_by_file_name(root_value, BOOK_CONFIG_FILE_PATH);
-
-        Book_Config* config = NULL;
-        char key[255] = {0};
-        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
-        {
-            config = new Book_Config;
-            memset(config, 0, sizeof(Book_Config));
-
-            Json::Value &v = (*iter)["base_id"];
-            if (!v.empty())
-            {
-                config->base_id =  v.asUInt();
-            }
-
-            v = (*iter)["type"];
-            if (!v.empty())
-            {
-                config->type = v.asUInt();
-            }
-
-            v = (*iter)["name"];
-            if (!v.empty())
-            {
-                config->name = v.asUInt();
-            }
-
-            v = (*iter)["icon"];
-            if (!v.empty())
-            {
-                config->icon = v.asUInt();
-            }
-
+            
             v = (*iter)["quality"];
             if (!v.empty())
             {
@@ -1536,103 +727,1179 @@ namespace Game_Data
             {
                 config->desc = v.asUInt();
             }
-
+            
             v = (*iter)["drop_desc"];
             if (!v.empty())
             {
                 config->drop_desc = v.asUInt();
             }
-
+            
             v = (*iter)["bind"];
             if (!v.empty())
             {
                 config->bind = v.asUInt();
             }
-
+            
             v = (*iter)["pile_count"];
             if (!v.empty())
             {
                 config->pile_count = v.asUInt();
             }
-
+            
             v = (*iter)["gold_cost"];
             if (!v.empty())
             {
                 config->gold_cost = v.asUInt();
             }
-
+            
             v = (*iter)["token_cost"];
             if (!v.empty())
             {
                 config->token_cost = v.asUInt();
             }
-
+            
             v = (*iter)["sell_income"];
             if (!v.empty())
             {
                 config->sell_income = v.asUInt();
             }
-
+            
             v = (*iter)["can_sell"];
             if (!v.empty())
             {
                 config->can_sell = v.asUInt();
             }
-
+            
             v = (*iter)["can_auction"];
             if (!v.empty())
             {
                 config->can_auction = v.asUInt();
             }
-
+            
             v = (*iter)["can_trade"];
             if (!v.empty())
             {
                 config->can_trade = v.asUInt();
             }
-
+            
             v = (*iter)["can_store"];
             if (!v.empty())
             {
                 config->can_store = v.asUInt();
             }
-
+            
             v = (*iter)["can_pile"];
             if (!v.empty())
             {
                 config->can_pile = v.asUInt();
             }
-
+            
             v = (*iter)["can_destroy"];
             if (!v.empty())
             {
                 config->can_destroy = v.asUInt();
             }
-
+            
             v = (*iter)["destroy_time"];
             if (!v.empty())
             {
                 config->destroy_time = v.asUInt();
             }
-
+            
             v = (*iter)["sort"];
             if (!v.empty())
             {
                 config->sort = v.asUInt();
             }
+            
+            v = (*iter)["event_id"];
+            if (!v.empty())
+            {
+                config->event_id = v.asUInt();
+            }
+            
+            m_map_usable_item_config.insert(make_pair(config->base_id, config));
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
 
+//        auto doc = GameReader::getDocInstance(USABLE_ITEM_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Usable_Item_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Usable_Item_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->event_id = DICTOOL->getIntValue_json(dic, "event_id");
+//                
+//                m_map_usable_item_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_quest_item_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, QUEST_ITEM_CONFIG_FILE_PATH);
+        
+        Item_Config* config = NULL;
+        //char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Item_Config;
+            memset(config, 0, sizeof(Item_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
+
+//        auto doc = GameReader::getDocInstance(QUEST_ITEM_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Item_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Item_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+        
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_material_item_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, MATERIAL_ITEM_CONFIG_FILE_PATH);
+        
+        Item_Config* config = NULL;
+        // char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Item_Config;
+            memset(config, 0, sizeof(Item_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
+
+//        auto doc = GameReader::getDocInstance(MATERIAL_ITEM_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Item_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Item_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_material_fragment_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, MATERIAL_FRAGMENT_CONFIG_FILE_PATH);
+        
+        Item_Fragment_Config* config = NULL;
+        //char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Item_Fragment_Config;
+            memset(config, 0, sizeof(Item_Fragment_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
+            v = (*iter)["need_count"];
+            if (!v.empty())
+            {
+                config->need_count = v.asUInt();
+            }
+            
+            v = (*iter)["compound_id"];
+            if (!v.empty())
+            {
+                config->compound_id = v.asUInt();
+            }
+            
+            m_map_item_fragment_config.insert(make_pair(config->base_id, config));
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
+
+//        auto doc = GameReader::getDocInstance(MATERIAL_FRAGMENT_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Item_Fragment_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Item_Fragment_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->need_count = DICTOOL->getIntValue_json(dic, "need_count");
+//                config->compound_id = DICTOOL->getIntValue_json(dic, "compound_id");
+//                
+//                m_map_item_fragment_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_book_fragment_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, BOOK_FRAGMENT_CONFIG_FILE_PATH);
+        
+        Item_Fragment_Config* config = NULL;
+        //char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Item_Fragment_Config;
+            memset(config, 0, sizeof(Item_Fragment_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
+            v = (*iter)["need_count"];
+            if (!v.empty())
+            {
+                config->need_count = v.asUInt();
+            }
+            
+            v = (*iter)["compound_id"];
+            if (!v.empty())
+            {
+                config->compound_id = v.asUInt();
+            }
+            
+            m_map_item_fragment_config.insert(make_pair(config->base_id, config));
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
+        
+//        auto doc = GameReader::getDocInstance(BOOK_FRAGMENT_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Item_Fragment_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Item_Fragment_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->need_count = DICTOOL->getIntValue_json(dic, "need_count");
+//                config->compound_id = DICTOOL->getIntValue_json(dic, "compound_id");
+//                
+//                m_map_item_fragment_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_gift_item_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, GIFT_ITEM_CONFIG_FILE_PATH);
+        
+        Usable_Item_Config* config = NULL;
+        //char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Usable_Item_Config;
+            memset(config, 0, sizeof(Usable_Item_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
+            v = (*iter)["event_id"];
+            if (!v.empty())
+            {
+                config->event_id = v.asUInt();
+            }
+            
+            m_map_usable_item_config.insert(make_pair(config->base_id, config));
+            m_map_item_config.insert(make_pair(config->base_id, config));
+        }
+
+//        auto doc = GameReader::getDocInstance(GIFT_ITEM_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Usable_Item_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Usable_Item_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->event_id = DICTOOL->getIntValue_json(dic, "event_id");
+//
+//                
+//                m_map_usable_item_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
+        
+        return 0;
+    }
+
+    int Item_Config_Mgr::load_book_config_data()
+    {
+        Json::Value root_value;
+        Container_Mgr::instance()->get_json_value_by_file_name(root_value, BOOK_CONFIG_FILE_PATH);
+        
+        Book_Config* config = NULL;
+        char key[255] = {0};
+        for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
+        {
+            config = new Book_Config;
+            memset(config, 0, sizeof(Book_Config));
+            
+            Json::Value &v = (*iter)["base_id"];
+            if (!v.empty())
+            {
+                config->base_id =  v.asUInt();
+            }
+            
+            v = (*iter)["type"];
+            if (!v.empty())
+            {
+                config->type = v.asUInt();
+            }
+            
+            v = (*iter)["name"];
+            if (!v.empty())
+            {
+                config->name = v.asUInt();
+            }
+            
+            v = (*iter)["icon"];
+            if (!v.empty())
+            {
+                config->icon = v.asUInt();
+            }
+            
+            v = (*iter)["quality"];
+            if (!v.empty())
+            {
+                config->quality = v.asUInt();
+            }
+            
+            v = (*iter)["desc"];
+            if (!v.empty())
+            {
+                config->desc = v.asUInt();
+            }
+            
+            v = (*iter)["drop_desc"];
+            if (!v.empty())
+            {
+                config->drop_desc = v.asUInt();
+            }
+            
+            v = (*iter)["bind"];
+            if (!v.empty())
+            {
+                config->bind = v.asUInt();
+            }
+            
+            v = (*iter)["pile_count"];
+            if (!v.empty())
+            {
+                config->pile_count = v.asUInt();
+            }
+            
+            v = (*iter)["gold_cost"];
+            if (!v.empty())
+            {
+                config->gold_cost = v.asUInt();
+            }
+            
+            v = (*iter)["token_cost"];
+            if (!v.empty())
+            {
+                config->token_cost = v.asUInt();
+            }
+            
+            v = (*iter)["sell_income"];
+            if (!v.empty())
+            {
+                config->sell_income = v.asUInt();
+            }
+            
+            v = (*iter)["can_sell"];
+            if (!v.empty())
+            {
+                config->can_sell = v.asUInt();
+            }
+            
+            v = (*iter)["can_auction"];
+            if (!v.empty())
+            {
+                config->can_auction = v.asUInt();
+            }
+            
+            v = (*iter)["can_trade"];
+            if (!v.empty())
+            {
+                config->can_trade = v.asUInt();
+            }
+            
+            v = (*iter)["can_store"];
+            if (!v.empty())
+            {
+                config->can_store = v.asUInt();
+            }
+            
+            v = (*iter)["can_pile"];
+            if (!v.empty())
+            {
+                config->can_pile = v.asUInt();
+            }
+            
+            v = (*iter)["can_destroy"];
+            if (!v.empty())
+            {
+                config->can_destroy = v.asUInt();
+            }
+            
+            v = (*iter)["destroy_time"];
+            if (!v.empty())
+            {
+                config->destroy_time = v.asUInt();
+            }
+            
+            v = (*iter)["sort"];
+            if (!v.empty())
+            {
+                config->sort = v.asUInt();
+            }
+            
             v = (*iter)["exp"];
             if (!v.empty())
             {
                 config->exp = v.asUInt();
             }
-
+            
             v = (*iter)["need_power"];
             if (!v.empty())
             {
                 config->need_power = v.asUInt();
             }
-
+            
             for (int i = 0;i < QT_MAX;++i)
             {
                 memset(key, 0, sizeof(key));
@@ -1641,13 +1908,13 @@ namespace Game_Data
 #else
                 sprintf(key,"upgrade_base_exp_%d",i);
 #endif
-
+                
                 v = (*iter)[key];
                 if (!v.empty())
                 {
                     config->upgrade_base_exp[i] = v.asUInt();
                 }
-
+                
                 for (int j = 0;j < MAX_ATTR_COUNT;++j)
                 {
                     memset(key, 0, sizeof(key));
@@ -1656,7 +1923,7 @@ namespace Game_Data
 #else
                     sprintf(key,"base_attr_%d_%d",i,j);
 #endif
-
+                    
                     v = (*iter)[key];
                     if (!v.empty())
                     {
@@ -1664,10 +1931,58 @@ namespace Game_Data
                     }
                 }
             }
-
+            
             m_map_book_config.insert(make_pair(config->base_id, config));
             m_map_item_config.insert(make_pair(config->base_id, config));
         }
+
+//        auto doc = GameReader::getDocInstance(BOOK_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Book_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Book_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->exp = DICTOOL->getIntValue_json(dic, "exp");
+//                config->need_power = DICTOOL->getIntValue_json(dic, "need_power");
+//                for (int i = 0;i < QT_MAX;++i)
+//                {
+//                    cocos2d::Value num(i);
+//                    std::string baseAttrName("upgrade_base_exp_");
+//                    config->upgrade_base_exp[i] = DICTOOL->getIntValue_json(dic, (baseAttrName+num.asString()).c_str());
+//                    
+//                    for (int j = 0; j < MAX_ATTR_COUNT; j++) {
+//                        cocos2d::Value idx(j);
+//                        config->base_attr[i][j] = DICTOOL->getIntValue_json(dic, (baseAttrName+num.asString()+"_"+idx.asString()).c_str());
+//                    }
+//                }
+//
+//                
+//                m_map_book_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
 
         return 0;
     }
@@ -1748,185 +2063,227 @@ namespace Game_Data
     {
         Json::Value root_value;
         Container_Mgr::instance()->get_json_value_by_file_name(root_value, GEM_CONFIG_FILE_PATH);
-
+        
         Gem_Config* config = NULL;
         char key[255] = {0};
         for (Json::Value::iterator iter = root_value.begin();  iter != root_value.end();  ++iter)
         {
             config = new Gem_Config;
             memset(config, 0, sizeof(Gem_Config));
-
+            
             Json::Value &v = (*iter)["base_id"];
             if (!v.empty())
             {
                 config->base_id =  v.asUInt();
             }
-
+            
             v = (*iter)["type"];
             if (!v.empty())
             {
                 config->type = v.asUInt();
             }
-
+            
             v = (*iter)["name"];
             if (!v.empty())
             {
                 config->name = v.asUInt();
             }
-
+            
             v = (*iter)["icon"];
             if (!v.empty())
             {
                 config->icon = v.asUInt();
             }
-
+            
             v = (*iter)["quality"];
             if (!v.empty())
             {
                 config->quality = v.asUInt();
             }
-
+            
             v = (*iter)["desc"];
             if (!v.empty())
             {
                 config->desc = v.asUInt();
             }
-
+            
             v = (*iter)["drop_desc"];
             if (!v.empty())
             {
                 config->drop_desc = v.asUInt();
             }
-
+            
             v = (*iter)["bind"];
             if (!v.empty())
             {
                 config->bind = v.asUInt();
             }
-
+            
             v = (*iter)["pile_count"];
             if (!v.empty())
             {
                 config->pile_count = v.asUInt();
             }
-
+            
             v = (*iter)["gold_cost"];
             if (!v.empty())
             {
                 config->gold_cost = v.asUInt();
             }
-
+            
             v = (*iter)["token_cost"];
             if (!v.empty())
             {
                 config->token_cost = v.asUInt();
             }
-
+            
             v = (*iter)["sell_income"];
             if (!v.empty())
             {
                 config->sell_income = v.asUInt();
             }
-
+            
             v = (*iter)["can_sell"];
             if (!v.empty())
             {
                 config->can_sell = v.asUInt();
             }
-
+            
             v = (*iter)["can_auction"];
             if (!v.empty())
             {
                 config->can_auction = v.asUInt();
             }
-
+            
             v = (*iter)["can_trade"];
             if (!v.empty())
             {
                 config->can_trade = v.asUInt();
             }
-
+            
             v = (*iter)["can_store"];
             if (!v.empty())
             {
                 config->can_store = v.asUInt();
             }
-
+            
             v = (*iter)["can_pile"];
             if (!v.empty())
             {
                 config->can_pile = v.asUInt();
             }
-
+            
             v = (*iter)["can_destroy"];
             if (!v.empty())
             {
                 config->can_destroy = v.asUInt();
             }
-
+            
             v = (*iter)["destroy_time"];
             if (!v.empty())
             {
                 config->destroy_time = v.asUInt();
             }
-
+            
             v = (*iter)["sort"];
             if (!v.empty())
             {
                 config->sort = v.asUInt();
             }
-
+            
             v = (*iter)["gem_type"];
             if (!v.empty())
             {
                 config->gem_type = v.asUInt();
             }
-
+            
             v = (*iter)["level"];
             if (!v.empty())
             {
                 config->level = v.asUInt();
             }
-
+            
             v = (*iter)["upgrade_cost"];
             if (!v.empty())
             {
                 config->upgrade_cost = v.asUInt();
             }
-
+            
             v = (*iter)["set_equipment_pos"];
             if (!v.empty())
             {
                 config->set_equipment_pos = v.asUInt();
             }
-
+            
             v = (*iter)["attr_type"];
             if (!v.empty())
             {
                 config->attr_type = v.asUInt();
             }
-
+            
             v = (*iter)["attr_value"];
             if (!v.empty())
             {
                 config->attr_value = v.asUInt();
             }
-
+            
             v = (*iter)["need_count"];
             if (!v.empty())
             {
                 config->need_count = v.asUInt();
             }
-
+            
             v = (*iter)["compound_id"];
             if (!v.empty())
             {
                 config->compound_id = v.asUInt();
             }
-
+            
             m_map_gem_config.insert(make_pair(config->base_id, config));
             m_map_item_config.insert(make_pair(config->base_id, config));
         }
+
+//        auto doc = GameReader::getDocInstance(GEM_CONFIG_FILE_PATH);
+//        if (doc->IsArray()){
+//            int size = doc->Size();
+//            Gem_Config* config = NULL;
+//            
+//            for (int i = 0; i < size; i++) {
+//                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+//                config = new Gem_Config;
+//                config->base_id = DICTOOL->getIntValue_json(dic, "base_id");
+//                config->type = DICTOOL->getIntValue_json(dic, "type");
+//                config->name = DICTOOL->getStringValue_json(dic, "name");
+//                config->icon = DICTOOL->getStringValue_json(dic, "icon");
+//                config->quality = DICTOOL->getIntValue_json(dic, "quality");
+//                config->desc = DICTOOL->getStringValue_json(dic, "desc");
+//                config->drop_desc = DICTOOL->getStringValue_json(dic, "drop_desc");
+//                config->bind = DICTOOL->getIntValue_json(dic, "bind");
+//                config->pile_count = DICTOOL->getIntValue_json(dic, "pile_count");
+//                config->gold_cost = DICTOOL->getIntValue_json(dic, "gold_cost");
+//                config->token_cost = DICTOOL->getIntValue_json(dic, "token_cost");
+//                config->sell_income = DICTOOL->getIntValue_json(dic, "sell_income");
+//                config->can_sell = DICTOOL->getIntValue_json(dic, "can_sell");
+//                config->can_auction = DICTOOL->getIntValue_json(dic, "can_auction");
+//                config->can_trade = DICTOOL->getIntValue_json(dic, "can_trade");
+//                config->can_store = DICTOOL->getIntValue_json(dic, "can_store");
+//                config->can_pile = DICTOOL->getIntValue_json(dic, "can_pile");
+//                config->can_destroy = DICTOOL->getIntValue_json(dic, "can_destroy");
+//                config->destroy_time = DICTOOL->getIntValue_json(dic, "destroy_time");
+//                config->sort = DICTOOL->getIntValue_json(dic, "sort");
+//                config->gem_type = DICTOOL->getIntValue_json(dic, "gem_type");
+//                config->level = DICTOOL->getIntValue_json(dic, "level");
+//                config->upgrade_cost = DICTOOL->getIntValue_json(dic, "upgrade_cost");
+//                config->set_equipment_pos = DICTOOL->getIntValue_json(dic, "set_equipment_pos");
+//                config->attr_type = DICTOOL->getIntValue_json(dic, "attr_type");
+//                config->attr_value = DICTOOL->getIntValue_json(dic, "attr_value");
+//                config->need_count = DICTOOL->getIntValue_json(dic, "need_count");
+//                config->compound_id = DICTOOL->getIntValue_json(dic, "compound_id");
+//                
+//                m_map_gem_config.insert(make_pair(config->base_id, config));
+//                m_map_item_config.insert(make_pair(config->base_id, config));
+//            }
+//        }
 
         return 0;
     }
@@ -1990,25 +2347,37 @@ namespace Game_Data
     const char* Item_Config_Mgr::get_lock_grid()
     {
         const char* desc = get_icon_path(5132);
-        return desc;
+        std::string p("icon/");
+        p+=desc;
+        return p.c_str();
+//        return "icon/pic_kuang_suo.png";
     }
 
     const char* Item_Config_Mgr::get_gem_pos_not_open_icon()
     {
         const char* path = get_icon_path(6170);
-        return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
+//        return "icon/pic_kongwei_weikaikong.png";
     }
 
     const char* Item_Config_Mgr::get_gold_icon()
     {
         const char* path = get_icon_path(5046);
-        return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
+//        return "icon/pic_huobi_yinliang.png";
     }
 
     const char* Item_Config_Mgr::get_token_icon()
     {
         const char* path = get_icon_path(5047);
-        return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
+//        return "icon/pic_huobi_yuanbao.png";
     }
 
     void Item_Config_Mgr::proc_string(const string& content_str,item_content &ic)

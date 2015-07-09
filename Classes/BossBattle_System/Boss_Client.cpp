@@ -33,7 +33,7 @@ bool BOSS_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/boss_battle/boss_battle.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/boss_battle.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

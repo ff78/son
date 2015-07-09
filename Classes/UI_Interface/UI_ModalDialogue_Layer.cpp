@@ -26,7 +26,7 @@ bool UI_ModalDialogue_Layer::init()
 		return false;
 	}
 
-	cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Model_Dialogue/Model_Dialogue.ExportJson");
+	cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Model_Dialogue.json");
 	addChild( pWidget );
 
 	m_pLabCaption = (cocos2d::ui::Text*)Helper::seekWidgetByName(pWidget,"lbl_Caption");

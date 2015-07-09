@@ -61,7 +61,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/竞技场.png</key>
+			<key>UI resource/主界面图标/jingjichang.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -80,7 +80,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/竞技场_down.png</key>
+			<key>UI resource/主界面图标/jingjichang_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -137,7 +137,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/三界塔.png</key>
+			<key>UI resource/主界面图标/sanjieta.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -156,7 +156,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/三界塔_down.png</key>
+			<key>UI resource/主界面图标/sanjieta_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -175,7 +175,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/活动.png</key>
+			<key>UI resource/主界面图标/huodong.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -194,7 +194,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/活动_down.png</key>
+			<key>UI resource/主界面图标/huodong_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -205,34 +205,15 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
+				<integer>912</integer>
+				<key>y</key>
 				<integer>0</integer>
-				<key>y</key>
-				<integer>130</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/town/vip.png</key>
-			<dict>
-				<key>width</key>
-				<integer>37</integer>
-				<key>height</key>
-				<integer>24</integer>
-				<key>originalWidth</key>
-				<integer>37</integer>
-				<key>originalHeight</key>
-				<integer>24</integer>
-				<key>x</key>
-				<integer>130</integer>
-				<key>y</key>
-				<integer>130</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/arena/格斗家头像.png</key>
+			<key>UI resource/arena/gedoujiatouxiang.png</key>
 			<dict>
 				<key>width</key>
 				<integer>115</integer>
@@ -243,9 +224,9 @@
 				<key>originalHeight</key>
 				<integer>116</integer>
 				<key>x</key>
-				<integer>169</integer>
+				<integer>1042</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -262,9 +243,9 @@
 				<key>originalHeight</key>
 				<integer>86</integer>
 				<key>x</key>
-				<integer>286</integer>
+				<integer>1159</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -281,9 +262,9 @@
 				<key>originalHeight</key>
 				<integer>86</integer>
 				<key>x</key>
-				<integer>364</integer>
+				<integer>1237</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -300,9 +281,9 @@
 				<key>originalHeight</key>
 				<integer>24</integer>
 				<key>x</key>
-				<integer>442</integer>
+				<integer>1315</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -319,9 +300,9 @@
 				<key>originalHeight</key>
 				<integer>53</integer>
 				<key>x</key>
-				<integer>462</integer>
+				<integer>1335</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -338,9 +319,9 @@
 				<key>originalHeight</key>
 				<integer>53</integer>
 				<key>x</key>
-				<integer>515</integer>
+				<integer>1388</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -357,9 +338,9 @@
 				<key>originalHeight</key>
 				<integer>51</integer>
 				<key>x</key>
-				<integer>568</integer>
+				<integer>1441</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -376,9 +357,9 @@
 				<key>originalHeight</key>
 				<integer>51</integer>
 				<key>x</key>
-				<integer>628</integer>
+				<integer>1501</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -395,9 +376,9 @@
 				<key>originalHeight</key>
 				<integer>42</integer>
 				<key>x</key>
-				<integer>688</integer>
+				<integer>1561</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -414,9 +395,9 @@
 				<key>originalHeight</key>
 				<integer>28</integer>
 				<key>x</key>
-				<integer>834</integer>
+				<integer>1707</integer>
 				<key>y</key>
-				<integer>130</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -433,9 +414,9 @@
 				<key>originalHeight</key>
 				<integer>142</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>1790</integer>
 				<key>y</key>
-				<integer>260</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -446,15 +427,34 @@
 				<key>width</key>
 				<integer>264</integer>
 				<key>height</key>
-				<integer>264</integer>
+				<integer>263</integer>
 				<key>originalWidth</key>
 				<integer>264</integer>
 				<key>originalHeight</key>
-				<integer>264</integer>
+				<integer>263</integer>
 				<key>x</key>
-				<integer>144</integer>
+				<integer>0</integer>
 				<key>y</key>
-				<integer>260</integer>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/town/vip.png</key>
+			<dict>
+				<key>width</key>
+				<integer>37</integer>
+				<key>height</key>
+				<integer>24</integer>
+				<key>originalWidth</key>
+				<integer>37</integer>
+				<key>originalHeight</key>
+				<integer>24</integer>
+				<key>x</key>
+				<integer>266</integer>
+				<key>y</key>
+				<integer>144</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -471,34 +471,53 @@
 				<key>originalHeight</key>
 				<integer>113</integer>
 				<key>x</key>
-				<integer>410</integer>
+				<integer>305</integer>
 				<key>y</key>
-				<integer>260</integer>
+				<integer>144</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/town/battle_point.png</key>
+			<key>UI resource/主界面资源/zhan.png</key>
 			<dict>
 				<key>width</key>
-				<integer>52</integer>
+				<integer>27</integer>
 				<key>height</key>
-				<integer>23</integer>
+				<integer>25</integer>
 				<key>originalWidth</key>
-				<integer>52</integer>
+				<integer>27</integer>
 				<key>originalHeight</key>
-				<integer>23</integer>
+				<integer>25</integer>
 				<key>x</key>
-				<integer>727</integer>
+				<integer>622</integer>
 				<key>y</key>
-				<integer>260</integer>
+				<integer>144</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/守护兽.png</key>
+			<key>UI resource/主界面图标/shouhushou.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>651</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/shouhushou_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -511,13 +530,165 @@
 				<key>x</key>
 				<integer>781</integer>
 				<key>y</key>
-				<integer>260</integer>
+				<integer>144</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/守护兽_down.png</key>
+			<key>UI resource/主界面图标/jinglian.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>911</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/jinglian_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1041</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/mingpan.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1171</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/mingpan_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1301</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/shezhi.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1431</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/shezhi_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1561</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/shejiao.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1691</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/shejiao_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1821</integer>
+				<key>y</key>
+				<integer>144</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/jineng.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -530,13 +701,13 @@
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
-				<integer>526</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/精炼.png</key>
+			<key>UI resource/主界面图标/jineng_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -549,13 +720,13 @@
 				<key>x</key>
 				<integer>130</integer>
 				<key>y</key>
-				<integer>526</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/精炼_down.png</key>
+			<key>UI resource/主界面图标/beibao.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -568,13 +739,13 @@
 				<key>x</key>
 				<integer>260</integer>
 				<key>y</key>
-				<integer>526</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/命盘.png</key>
+			<key>UI resource/主界面图标/beibao_dwon.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -587,13 +758,13 @@
 				<key>x</key>
 				<integer>390</integer>
 				<key>y</key>
-				<integer>526</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/命盘_down.png</key>
+			<key>UI resource/主界面图标/shuxing.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -606,13 +777,13 @@
 				<key>x</key>
 				<integer>520</integer>
 				<key>y</key>
-				<integer>526</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/设置.png</key>
+			<key>UI resource/主界面图标/shuxing_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -625,178 +796,7 @@
 				<key>x</key>
 				<integer>650</integer>
 				<key>y</key>
-				<integer>526</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/设置_down.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>780</integer>
-				<key>y</key>
-				<integer>526</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/社交.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>0</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/社交_down.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>130</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/技能.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>260</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/技能_down.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>390</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/背包.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>520</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/背包_down.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>650</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/属性.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>780</integer>
-				<key>y</key>
-				<integer>656</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>UI resource/主界面图标/属性_down.png</key>
-			<dict>
-				<key>width</key>
-				<integer>128</integer>
-				<key>height</key>
-				<integer>128</integer>
-				<key>originalWidth</key>
-				<integer>128</integer>
-				<key>originalHeight</key>
-				<integer>128</integer>
-				<key>x</key>
-				<integer>0</integer>
-				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -813,9 +813,9 @@
 				<key>originalHeight</key>
 				<integer>39</integer>
 				<key>x</key>
-				<integer>130</integer>
+				<integer>780</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -832,9 +832,9 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>159</integer>
+				<integer>809</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -851,15 +851,15 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>289</integer>
+				<integer>939</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/神兵.png</key>
+			<key>UI resource/主界面图标/shenbing.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -870,15 +870,15 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>419</integer>
+				<integer>1069</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/神兵_按下.png</key>
+			<key>UI resource/主界面图标/shenbing_down.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -889,15 +889,15 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>549</integer>
+				<integer>1199</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/星盘.png</key>
+			<key>UI resource/主界面图标/xingpan.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -908,15 +908,15 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>679</integer>
+				<integer>1329</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>UI resource/主界面图标/星盘_按下.png</key>
+			<key>UI resource/主界面图标/xianpan_anxia.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -927,9 +927,237 @@
 				<key>originalHeight</key>
 				<integer>128</integer>
 				<key>x</key>
-				<integer>809</integer>
+				<integer>1459</integer>
 				<key>y</key>
-				<integer>786</integer>
+				<integer>409</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/paihan.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1589</integer>
+				<key>y</key>
+				<integer>409</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/paihan_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1719</integer>
+				<key>y</key>
+				<integer>409</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/xiaoshishenshou.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>1849</integer>
+				<key>y</key>
+				<integer>409</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/xiaoshishenshou_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/xiaomishu.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>130</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/xiaomishu_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>260</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/qiandao.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>390</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面图标/qiandao_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>128</integer>
+				<key>height</key>
+				<integer>128</integer>
+				<key>originalWidth</key>
+				<integer>128</integer>
+				<key>originalHeight</key>
+				<integer>128</integer>
+				<key>x</key>
+				<integer>520</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面资源/zhuxianrenwu.png</key>
+			<dict>
+				<key>width</key>
+				<integer>120</integer>
+				<key>height</key>
+				<integer>39</integer>
+				<key>originalWidth</key>
+				<integer>120</integer>
+				<key>originalHeight</key>
+				<integer>39</integer>
+				<key>x</key>
+				<integer>650</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面资源/zhuxianrenwu_down.png</key>
+			<dict>
+				<key>width</key>
+				<integer>120</integer>
+				<key>height</key>
+				<integer>39</integer>
+				<key>originalWidth</key>
+				<integer>120</integer>
+				<key>originalHeight</key>
+				<integer>39</integer>
+				<key>x</key>
+				<integer>772</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面资源/tilidikuang.png</key>
+			<dict>
+				<key>width</key>
+				<integer>156</integer>
+				<key>height</key>
+				<integer>29</integer>
+				<key>originalWidth</key>
+				<integer>156</integer>
+				<key>originalHeight</key>
+				<integer>29</integer>
+				<key>x</key>
+				<integer>894</integer>
+				<key>y</key>
+				<integer>539</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>UI resource/主界面资源/tili.png</key>
+			<dict>
+				<key>width</key>
+				<integer>28</integer>
+				<key>height</key>
+				<integer>23</integer>
+				<key>originalWidth</key>
+				<integer>28</integer>
+				<key>originalHeight</key>
+				<integer>23</integer>
+				<key>x</key>
+				<integer>1052</integer>
+				<key>y</key>
+				<integer>539</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -945,12 +1173,12 @@
 			<key>realTextureFileName</key>
 			<string>wuhun_UI0.png</string>
 			<key>size</key>
-			<string>{1024,1024}</string>
+			<string>{2048,1024}</string>
 		</dict>
 		<key>texture</key>
 		<dict>
 			<key>width</key>
-			<integer>1024</integer>
+			<integer>2048</integer>
 			<key>height</key>
 			<integer>1024</integer>
 		</dict>

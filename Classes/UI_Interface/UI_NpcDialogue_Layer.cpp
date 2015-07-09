@@ -73,7 +73,7 @@ bool UI_NpcDialogue_Layer::init()
 	if( !Layer::init() )
 		return false;
 
-	m_pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/talk/talk.ExportJson");
+	m_pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/talk.json");
 	addChild(m_pWidget);
 
 	// ¹Ø±Õ°´Å¥
@@ -375,7 +375,9 @@ int UI_NpcDialogue_Layer::displayer_quest_award(Game_Data::quest_data& qd)
 
         Item_Config_Mgr::instance()->load_icon_config_data();
 		const char* iconName = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
-		m_pImgOfAwardGoods->loadTexture(iconName, UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=iconName;
+		m_pImgOfAwardGoods->loadTexture(p.c_str());
 
 		if( para[1] > 1 )
 		{

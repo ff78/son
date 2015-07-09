@@ -78,7 +78,7 @@ namespace Game_Data
         m_map_shoping_record.clear();
         m_map_acupoint.clear();
         m_map_cool_time.clear();
-        m_map_deputy_general.clear();
+//        m_map_deputy_general.clear();
 
         memset(&m_array_equipment_bar,0,sizeof(m_array_equipment_bar));
         memset(&m_array_book_bar,0,sizeof(m_array_book_bar));
@@ -125,11 +125,11 @@ namespace Game_Data
         get_equipment_attr(EAT_HEALTH,nTotalValue);
         get_book_attr(EAT_HEALTH,nTotalValue);
         get_acupoint_attr(EAT_HEALTH,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_HEALTH,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_HEALTH,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_MAX_HP, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_MAX_HP, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -161,11 +161,11 @@ namespace Game_Data
         get_equipment_attr(EAT_MAGIC,nTotalValue);
         get_book_attr(EAT_MAGIC,nTotalValue);
         get_acupoint_attr(EAT_MAGIC,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_MAGIC,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_MAGIC,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_MAX_GP, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_MAX_GP, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -239,11 +239,11 @@ namespace Game_Data
         get_equipment_attr(EAT_ATTACK,nTotalValue);
         get_book_attr(EAT_ATTACK,nTotalValue);
         get_acupoint_attr(EAT_ATTACK,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_ATTACK,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_ATTACK,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_ATTACK, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_ATTACK, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -261,11 +261,11 @@ namespace Game_Data
         get_equipment_attr(EAT_DEFENSE,nTotalValue);
         get_book_attr(EAT_DEFENSE,nTotalValue);
         get_acupoint_attr(EAT_DEFENSE,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_DEFENSE,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_DEFENSE,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_DEFINE, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_DEFINE, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -283,11 +283,11 @@ namespace Game_Data
         get_equipment_attr(EAT_HIT,nTotalValue);
         get_book_attr(EAT_HIT,nTotalValue);
         get_acupoint_attr(EAT_HIT,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_HIT,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_HIT,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_HIT_RATIO, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_HIT_RATIO, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -305,11 +305,11 @@ namespace Game_Data
         get_equipment_attr(EAT_DODGE,nTotalValue);
         get_book_attr(EAT_DODGE,nTotalValue);
         get_acupoint_attr(EAT_DODGE,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_DODGE,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_DODGE,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_AVOIDANCE, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_AVOIDANCE, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -327,11 +327,11 @@ namespace Game_Data
         get_equipment_attr(EAT_CRIT,nTotalValue);
         get_book_attr(EAT_CRIT,nTotalValue);
         get_acupoint_attr(EAT_CRIT,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_CRIT,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_CRIT,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_CRIT_RATE, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_CRIT_RATE, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -349,11 +349,11 @@ namespace Game_Data
         get_equipment_attr(EAT_TENACITY,nTotalValue);
         get_book_attr(EAT_TENACITY,nTotalValue);
         get_acupoint_attr(EAT_TENACITY,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_TENACITY,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_TENACITY,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_TENACITY, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_TENACITY, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -370,11 +370,11 @@ namespace Game_Data
 		}
         get_equipment_attr(EAT_HURT,nTotalValue);
         get_book_attr(EAT_HURT,nTotalValue);
-        DeputyGeneral* general = get_fight_general();
-        if (general)
-        {
-            general->get_general_addition_attr(EAT_HURT,nTotalValue);
-        }
+//        DeputyGeneral* general = get_fight_general();
+//        if (general)
+//        {
+//            general->get_general_addition_attr(EAT_HURT,nTotalValue);
+//        }
 
 		nTotalValue += get_buff_attr(CA_CRIT, MT_MODFITY_TYPE1);
 		nTotalValue *= (PER_RATIO + get_buff_attr(CA_CRIT, MT_MODFITY_TYPE2))/PER_RATIO;
@@ -486,30 +486,30 @@ namespace Game_Data
 		return m_level_attr_p_->get_player_power();
 	}
 
-    int Player::get_used_power()
-    {
-        int power = 0;
-        Game_Data::Item* item = NULL;
-        Game_Data::Book_Config* config = NULL;
-        for (int i = 0;i < BP_MAX;++i)
-        {
-            item = m_array_book_bar[i];
-            if (!item)
-            {
-                continue;
-            }
-
-            config = reinterpret_cast<Game_Data::Book_Config*>(item->config);
-            if (!config)
-            {
-                continue;
-            }
-
-            power += config->need_power;
-        }
-
-        return power;
-    }
+//    int Player::get_used_power()
+//    {
+//        int power = 0;
+//        Game_Data::Item* item = NULL;
+//        Game_Data::Book_Config* config = NULL;
+//        for (int i = 0;i < BP_MAX;++i)
+//        {
+//            item = m_array_book_bar[i];
+//            if (!item)
+//            {
+//                continue;
+//            }
+//
+//            config = reinterpret_cast<Game_Data::Book_Config*>(item->config);
+//            if (!config)
+//            {
+//                continue;
+//            }
+//
+//            power += config->need_power;
+//        }
+//
+//        return power;
+//    }
 
     int Player::get_fighting_capacity()
     {
@@ -645,30 +645,30 @@ namespace Game_Data
         return 0;
     }
 
-	int Player::insert_deputy_general(DeputyGeneral* deputy_general)
-	{
-		if (!deputy_general)
-		{
-			return -1;
-		}
+//	int Player::insert_deputy_general(DeputyGeneral* deputy_general)
+//	{
+//		if (!deputy_general)
+//		{
+//			return -1;
+//		}
+//
+//		m_map_deputy_general.insert(make_pair(deputy_general->get_database_character_id(), deputy_general));
+//
+//		return 0;
+//	}
 
-		m_map_deputy_general.insert(make_pair(deputy_general->get_database_character_id(), deputy_general));
-
-		return 0;
-	}
-
-	int Player::remove_deputy_general(int id)
-	{
-		Deputy_General_Map_Iter iter = m_map_deputy_general.find(id);
-		if (iter == m_map_deputy_general.end())
-		{
-			return -1;
-		}
-
-		m_map_deputy_general.erase(iter);
-
-		return 0;
-	}
+//	int Player::remove_deputy_general(int id)
+//	{
+//		Deputy_General_Map_Iter iter = m_map_deputy_general.find(id);
+//		if (iter == m_map_deputy_general.end())
+//		{
+//			return -1;
+//		}
+//
+//		m_map_deputy_general.erase(iter);
+//
+//		return 0;
+//	}
 	
 	/*int Player::insert_relation(Relation_Data* relation)
     {
@@ -943,33 +943,33 @@ namespace Game_Data
         return container;
     }
 
-	DeputyGeneral* Player::get_deputy_general(int deputy_general_id)
-	{
-		DeputyGeneral* deputy_general = NULL;
-		Deputy_General_Map_Iter iter = m_map_deputy_general.find(deputy_general_id);
-		if ( iter != m_map_deputy_general.end() )
-		{
-			deputy_general = iter->second;
-		}
-		
-		return deputy_general;
-	}
+//	DeputyGeneral* Player::get_deputy_general(int deputy_general_id)
+//	{
+//		DeputyGeneral* deputy_general = NULL;
+//		Deputy_General_Map_Iter iter = m_map_deputy_general.find(deputy_general_id);
+//		if ( iter != m_map_deputy_general.end() )
+//		{
+//			deputy_general = iter->second;
+//		}
+//		
+//		return deputy_general;
+//	}
 
-	DeputyGeneral* Player::get_deputy_general_by_index(int index)
-	{
-		if ( index >= get_deputy_general_count() || index < 0 )
-		{
-			return NULL;
-		}
-
-		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-		for (int i = 0; i < index; i++)
-		{
-			iter++;
-		}
-		
-		return iter->second;
-	}
+//	DeputyGeneral* Player::get_deputy_general_by_index(int index)
+//	{
+//		if ( index >= get_deputy_general_count() || index < 0 )
+//		{
+//			return NULL;
+//		}
+//
+//		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//		for (int i = 0; i < index; i++)
+//		{
+//			iter++;
+//		}
+//		
+//		return iter->second;
+//	}
 
     bool Player::fill_item_message_stream(message_stream& ms)
     {
@@ -1229,37 +1229,37 @@ namespace Game_Data
         return true;
     }
 
-	bool Player::fill_deputy_general_message_stream(message_stream& ms)
-	{
-		int deputy_general_count = (int)m_map_deputy_general.size();
-		ms << deputy_general_count;
-
-		int count = 0;
-		DeputyGeneral* deputy_general = NULL;
-		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-		for (;iter != m_map_deputy_general.end();++iter)
-		{
-			deputy_general = iter->second;
-			if (deputy_general)
-			{
-				ms << deputy_general->get_database_character_id();
-				ms << deputy_general->get_static_character_id();
-				ms << deputy_general->get_character_level();
-                ms << deputy_general->get_character_quality();
-				ms << deputy_general->get_exp();
-
-				++count;
-			}
-
-		}
-
-		if (count != deputy_general_count)
-		{
-			return false;
-		}
-
-		return true;
-	}
+//	bool Player::fill_deputy_general_message_stream(message_stream& ms)
+//	{
+//		int deputy_general_count = (int)m_map_deputy_general.size();
+//		ms << deputy_general_count;
+//
+//		int count = 0;
+//		DeputyGeneral* deputy_general = NULL;
+//		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//		for (;iter != m_map_deputy_general.end();++iter)
+//		{
+//			deputy_general = iter->second;
+//			if (deputy_general)
+//			{
+//				ms << deputy_general->get_database_character_id();
+//				ms << deputy_general->get_static_character_id();
+//				ms << deputy_general->get_character_level();
+//                ms << deputy_general->get_character_quality();
+//				ms << deputy_general->get_exp();
+//
+//				++count;
+//			}
+//
+//		}
+//
+//		if (count != deputy_general_count)
+//		{
+//			return false;
+//		}
+//
+//		return true;
+//	}
 
     bool Player::fill_offline_fight_record_message_stream(message_stream& ms)
     {
@@ -1459,22 +1459,22 @@ namespace Game_Data
 #endif
     }
 
-	void Player::release_deputy_general()
-	{
-#ifdef GAME_SERVER
-		DeputyGeneral* deputy_general = NULL;
-		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-		for (;iter != m_map_deputy_general.end();++iter)
-		{
-			deputy_general = iter->second;
-			if (deputy_general)
-			{
-                CHARACTER_MGR::instance()->remove_character_from_list(deputy_general->get_database_character_id());
-                
-			}
-		}
-#endif
-	}
+//	void Player::release_deputy_general()
+//	{
+//#ifdef GAME_SERVER
+//		DeputyGeneral* deputy_general = NULL;
+//		Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//		for (;iter != m_map_deputy_general.end();++iter)
+//		{
+//			deputy_general = iter->second;
+//			if (deputy_general)
+//			{
+//                CHARACTER_MGR::instance()->remove_character_from_list(deputy_general->get_database_character_id());
+//                
+//			}
+//		}
+//#endif
+//	}
 
     void Player::release_offline_fight_record()
     {
@@ -1991,22 +1991,22 @@ namespace Game_Data
 #endif
     }
 
-	int  Player::get_fight_general_id()
-	{
-		return m_fight_general_id;
-	}
+//	int  Player::get_fight_general_id()
+//	{
+//		return m_fight_general_id;
+//	}
 
-    DeputyGeneral* Player::get_fight_general()
-    {
-        DeputyGeneral* general = get_deputy_general(m_fight_general_id);
-        return general;
-    }
+//    DeputyGeneral* Player::get_fight_general()
+//    {
+//        DeputyGeneral* general = get_deputy_general(m_fight_general_id);
+//        return general;
+//    }
 
-	void  Player::set_fight_general_id(int fight_general_id)
-	{
-		m_fight_general_id = fight_general_id;
-	}
-
+//	void  Player::set_fight_general_id(int fight_general_id)
+//	{
+//		m_fight_general_id = fight_general_id;
+//	}
+//
 	void Player::character_quality_up()
 	{
 		++m_character_quality;
@@ -2028,39 +2028,39 @@ namespace Game_Data
         Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_update_role_quality_up",para);
 	}
 
-    void Player::load_deputy_general_skill()
-    {
-        DeputyGeneral* general = NULL;
-        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-        for (;iter != m_map_deputy_general.end();++iter)
-        {
-            general = iter->second;
-            if (general)
-            {
-                vector<uint64>  para;
-                para.push_back(get_database_character_id());
-                para.push_back(general->get_database_character_id());
-                Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_select_skill", para);
-            }
-        }
-    }
+//    void Player::load_deputy_general_skill()
+//    {
+//        DeputyGeneral* general = NULL;
+//        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//        for (;iter != m_map_deputy_general.end();++iter)
+//        {
+//            general = iter->second;
+//            if (general)
+//            {
+//                vector<uint64>  para;
+//                para.push_back(get_database_character_id());
+//                para.push_back(general->get_database_character_id());
+//                Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_select_skill", para);
+//            }
+//        }
+//    }
 
-    int Player::get_deputy_general_skill_count()
-    {
-        int count = 0;
-        DeputyGeneral* general = NULL;
-        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-        for (;iter != m_map_deputy_general.end();++iter)
-        {
-            general = iter->second;
-            if (general)
-            {
-                count += general->get_skill_size();
-            }
-        }
-
-        return count;
-    }
+//    int Player::get_deputy_general_skill_count()
+//    {
+//        int count = 0;
+//        DeputyGeneral* general = NULL;
+//        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//        for (;iter != m_map_deputy_general.end();++iter)
+//        {
+//            general = iter->second;
+//            if (general)
+//            {
+//                count += general->get_skill_size();
+//            }
+//        }
+//
+//        return count;
+//    }
 
     int Player::get_bag_same_item_count(int item_base_id)
     {
@@ -2222,33 +2222,33 @@ namespace Game_Data
         return false;
     }
 
-    bool Player::player_have_general(int& count,int quality)
-    {
-        int general_count = 0;
-        DeputyGeneral* general = NULL;
-        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
-        for (;iter != m_map_deputy_general.end();++iter)
-        {
-            general = iter->second;
-            if (general->get_character_quality() < quality)
-            {
-                continue;
-            }
-
-            ++general_count;
-        }
-
-        if (general_count >= count)
-        {
-            count = general_count;
-            return true;
-        }
-        else
-        {
-            count = general_count;
-        }
-        return false;
-    }
+//    bool Player::player_have_general(int& count,int quality)
+//    {
+//        int general_count = 0;
+//        DeputyGeneral* general = NULL;
+//        Deputy_General_Map_Iter iter = m_map_deputy_general.begin();
+//        for (;iter != m_map_deputy_general.end();++iter)
+//        {
+//            general = iter->second;
+//            if (general->get_character_quality() < quality)
+//            {
+//                continue;
+//            }
+//
+//            ++general_count;
+//        }
+//
+//        if (general_count >= count)
+//        {
+//            count = general_count;
+//            return true;
+//        }
+//        else
+//        {
+//            count = general_count;
+//        }
+//        return false;
+//    }
 
     bool Player::is_fighting_capacity_changed()
     {

@@ -595,10 +595,10 @@ namespace Game_Data
 
             Game_Data::game_element_list_t ele_list;
             event_data.getFunction(ele_list);
-            if (PLAYER_LOGIC::instance()->check_can_use(role_id,ele_list) == false)
-            {
-                return;
-            }
+            //if (PLAYER_LOGIC::instance()->check_can_use(role_id,ele_list) == false)
+            //{
+            //    return;
+            //}
         }
 
         // check item is locked

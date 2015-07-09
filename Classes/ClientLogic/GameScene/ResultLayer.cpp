@@ -34,7 +34,7 @@ int ResultLayer::sCurInstanceId(0);
 
 int ResultLayer::sMoney(0);
 int ResultLayer::sExp(0);
-int ResultLayer::sClickTimes(8);
+int ResultLayer::sClickTimes(4);
 int ResultLayer::sUpWhere(0);
 int ResultLayer::sDownWhere(0);
 int ResultLayer::sTemp(0);
@@ -82,7 +82,7 @@ bool ResultLayer::initRoot()
 	bool bRet = false;
 	do
 	{
-		root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/finish/finish.ExportJson");
+		root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/finish.json");
 		CC_BREAK_IF(!root);
 		_adapterLayout = dynamic_cast<Layout*>(Helper::seekWidgetByName(root, "adapter_layer"));
 	
@@ -226,10 +226,12 @@ void ResultLayer::upCardsCallback2(cocos2d::Ref*pSender, cocos2d::ui::Widget::To
                   break;
               //const char * szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(item->config->icon);
               const char * szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
+              std::string p("icon/");
+              p+=szPath;
 
               //281479271678028 281479271677995 281479271677992 281479271678021
               ImageView* one = ImageView::create();
-              one->loadTexture(szPath, cocos2d::ui::Widget::TextureResType::PLIST);
+              one->loadTexture(p.c_str());
               one->setAnchorPoint(Vec2(0.5f, 0.5f));
               one->setPosition(Vec2(60, 88));
               one->setVisible(false);

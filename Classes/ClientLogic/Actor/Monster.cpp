@@ -841,7 +841,8 @@ void Monster::updateAI()
         if (((currDir & DIRECT::LEFT)!=0) != flipX)
         {
             flipX = !flipX;
-            armature->setScaleX((flipX) ? -1 : 1);
+            float sx = blackActor->getScaleRate();
+            armature->setScaleX((flipX) ? -sx : sx);
         }
     }
     switch (state) {
@@ -865,8 +866,8 @@ void Monster::updateAI()
         case ACTORSTATE::SNEAKRUSH:
         {
             flipX = (getPositionX()>targetActor->getPositionX());
-            
-            armature->setScaleX((flipX) ? -1 : 1);
+            float sx = blackActor->getScaleRate();
+            armature->setScaleX((flipX) ? -sx : sx);
         }
             break;
         case ACTORSTATE::WAIT:

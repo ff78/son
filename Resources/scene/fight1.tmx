@@ -50,16 +50,16 @@
   </object>
  </objectgroup>
  <objectgroup name="bgAnim">
-  <object id="5" name="s19volcano" gid="3" x="947" y="174" width="192" height="146"/>
-  <object id="6" name="s19lightning" gid="4" x="-2" y="237" width="400" height="200"/>
+     <object id="5" name="s19volcano" gid="3" x="947" y="174"/>
+     <object id="6" name="s19lightning" gid="4" x="-2" y="237"/>
  </objectgroup>
  <objectgroup name="midAnim">
-  <object id="7" name="s19denglong" gid="5" x="1133" y="232" width="62" height="74"/>
-  <object id="8" name="s19fire" gid="6" x="1286" y="325" width="69" height="102"/>
-  <object id="9" name="s19door" gid="8" x="1617" y="193" width="126" height="128"/>
+     <object id="7" name="s19denglong" gid="5" x="1133" y="232"/>
+     <object id="8" name="s19fire" gid="6" x="1286" y="325"/>
+     <object id="9" name="s19door" gid="8" x="1617" y="193"/>
  </objectgroup>
  <objectgroup name="frtAnim">
-  <object id="10" name="s19fire" gid="6" x="1591" y="495" width="69" height="102"/>
+     <object id="10" name="s19fire" gid="6" x="1591" y="495"/>
  </objectgroup>
  <objectgroup name="trap"/>
 </map>

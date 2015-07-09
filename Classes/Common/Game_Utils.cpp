@@ -30,7 +30,7 @@
 #include "Character_System/Character.h"
 #include "Character_System/Player.h"
 #include "Character_System/Player_Config_Mgr.h"
-#include "Skill_System/Skill/Skill_Logic.h"
+//#include "Skill_System/Skill/Skill_Logic.h"
 #include "UI_Interface/UI_MainMenu_Layer.h"
 //#include "Runtime.h"
 

@@ -87,7 +87,7 @@ bool SelectBattleLayer::initRoot()
     bool bRet = false;
     do
     {
-		root = dynamic_cast<cocos2d::ui::Widget*>( cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/stage_select/stage_select.ExportJson") );
+		root = dynamic_cast<cocos2d::ui::Widget*>( cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/stage_select.json") );
         CC_BREAK_IF(!root);
         addChild(root);
         
@@ -197,7 +197,7 @@ void SelectBattleLayer::resetInstanceDetail(int instanceId)
     INSTANCE_DATA_MGR::instance()->set_current_instance_id(instanceId);
     
     vector<uint> para;
-    //¸±±¾Ãû³Æ×Öµäid
+    //å‰¯æœ¬åç§°å­—å…¸id
     para.clear();
     Formula_Function_Instance::instance()->get_para_list_from_instance_data(instanceId, "instance_attribute","instance_name","instance_name",para);
     int name_dic_id = -1;
@@ -213,7 +213,7 @@ void SelectBattleLayer::resetInstanceDetail(int instanceId)
     auto stageName = dynamic_cast<Text*>(Helper::seekWidgetByName(root,"stage_name"));
     stageName->setString(instanceName);
     
-    //ĞèÒªÌåÁ¦
+    //éœ€è¦ä½“åŠ›
     Formula_Function_Instance::instance()->get_para_list_from_instance_data(instanceId, "instance_attribute","condition","energy",para);
     if ( para.size() >= 1)
     {
@@ -235,7 +235,7 @@ void SelectBattleLayer::resetInstanceDetail(int instanceId)
     sprintf( txt, "%d", player->get_energy());
     consumeEnergy->setString(txt);
     
-    //ÉèÖÃ µÀ¾ß½±Àø Í¼±ê
+    //è®¾ç½® é“å…·å¥–åŠ± å›¾æ ‡
     for (int i = 0; i < 3; i++) {
         itembg[i]->setVisible(false);
     }
@@ -286,9 +286,12 @@ int SelectBattleLayer::show_item_icon(std::vector<uint>& para, int item_count )
         }
         
         ITEM_CONFIG_MGR::instance()->load_icon_config_data();
+        
         const char* szTexture = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
+        std::string p("icon/");
+        p+=szTexture;
         itembg[item_count]->setVisible(true);
-        itembg[item_count]->loadTexture(szTexture,TextureResType::PLIST);
+        itembg[item_count]->loadTexture(p.c_str());
         itembg[item_count]->setTag(item_id);
     }
     
@@ -364,7 +367,7 @@ void SelectBattleLayer::pressStart(Ref *pSender, Widget::TouchEventType type)
 void SelectBattleLayer::enterFight()
 {
 	/************************************************************************/
-	// Íæ¼Òµã»÷ÌôÕ½°´Å¥·½·¨»Øµ÷
+	// ç©å®¶ç‚¹å‡»æŒ‘æˆ˜æŒ‰é’®æ–¹æ³•å›è°ƒ
     auto fightScene = GameScene::create();
     fightScene->setFirstPass(currScore==0);
     Director::getInstance()->replaceScene(fightScene);
@@ -473,14 +476,14 @@ void SelectBattleLayer::clickStageCallBack(cocos2d::Ref *pSender, cocos2d::ui::W
 void SelectBattleLayer::updateBig()
 {
 	/************************************************************************/
-	// Ë¢ĞÂÑ¡Ôñ¹Ø¿¨½çÃæ
+	// åˆ·æ–°é€‰æ‹©å…³å¡ç•Œé¢
 
-	// 1.»ñµÃ´óÇøÕÂ½Ú¿ªÆôÁĞ±í,²¢È·¶¨ÕÂ½Ú
-	// 1_1. »ñµÃ´óÇøÕÂ½Ú¿ªÆôÁĞ±í
+	// 1.è·å¾—å¤§åŒºç« èŠ‚å¼€å¯åˆ—è¡¨,å¹¶ç¡®å®šç« èŠ‚
+	// 1_1. è·å¾—å¤§åŒºç« èŠ‚å¼€å¯åˆ—è¡¨
 	std::map<int, int> stage_lst;
 	INSTANCE_DATA_MGR::instance()->get_stage_data(stage_lst);
 
-	// 1_2. È·¶¨ÕÂ½Ú£¨×¢:µÚÒ»ÕÂÒ»¹ØÎ´¹ı£¬ĞëÊÖ¶¯´ò¿ªµÚÒ»ÕÂ¡£µÚÒ»ÕÂËùÓĞ¹Ø¿¨Í¨¹ıºó£¬µÚ¶şÕÂ»á×Ô¶¯¿ªÆô£©
+	// 1_2. ç¡®å®šç« èŠ‚ï¼ˆæ³¨:ç¬¬ä¸€ç« ä¸€å…³æœªè¿‡ï¼Œé¡»æ‰‹åŠ¨æ‰“å¼€ç¬¬ä¸€ç« ã€‚ç¬¬ä¸€ç« æ‰€æœ‰å…³å¡é€šè¿‡åï¼Œç¬¬äºŒç« ä¼šè‡ªåŠ¨å¼€å¯ï¼‰
 	_bigId = 0;
 	int nTemp = INSTANCE_DATA_MGR::instance()->get_current_instance_stage_id();
 	if (nTemp != ENDLESS_TOWER_STATE_ID)
@@ -509,8 +512,8 @@ void SelectBattleLayer::updateBig()
 	INSTANCE_DATA_MGR::instance()->set_current_instance_stage_id(_bigId);
 
 	/************************************************************************/
-	// ĞŞ¸ÄÏÔÊ¾²ã
-	// 1. Ìí¼ÓÕÂ½ÚµÄ±êÌâ£¨µØÖ®ÕÂ¡¢ÌìÖ®ÕÂµÈ£©
+	// ä¿®æ”¹æ˜¾ç¤ºå±‚
+	// 1. æ·»åŠ ç« èŠ‚çš„æ ‡é¢˜ï¼ˆåœ°ä¹‹ç« ã€å¤©ä¹‹ç« ç­‰ï¼‰
 
 	auto stageScroll = dynamic_cast<ui::ScrollView*>(Helper::seekWidgetByName(root, "Scr_Top"));
 	stageScroll->getInnerContainer()->removeAllChildren();
@@ -559,7 +562,7 @@ void SelectBattleLayer::updateSmall(int bigId)
 {
 	pageView->removeAllPage();
 	//pageView->removeAllChildren();
-	//»ñµÃÕÂ½ÚÄÚ³¡¾°µÃ·Ö, È·¶¨Ä¬ÈÏ³¡¾°Ñ¡Ôñ
+	//è·å¾—ç« èŠ‚å†…åœºæ™¯å¾—åˆ†, ç¡®å®šé»˜è®¤åœºæ™¯é€‰æ‹©
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	Area_UI_Config* auc = INSTANCE_DATA_MGR::instance()->get_area_ui_config(bigId);;
 	list<int> instance_lst = auc->list_instance_id;
@@ -574,7 +577,7 @@ void SelectBattleLayer::updateSmall(int bigId)
 		cid.reset();
 		cid.set_instance_id(incId);
 
-		// ÅĞ¶Ïµ±Ç°¹Ø¿¨ÊÇ²»ÊÇÍæ¼ÒÒÑ¾­Í¨¹ØµÄ¹Ø¿¨
+		// åˆ¤æ–­å½“å‰å…³å¡æ˜¯ä¸æ˜¯ç©å®¶å·²ç»é€šå…³çš„å…³å¡
 		if ((Account_Data_Mgr::instance()->get_is_show_all_stage() == 0) && (-1 == INSTANCE_DATA_MGR::instance()->get_player_instance_from_list(player_id, cid)))
 		{
 			if (first_instance)
@@ -627,7 +630,7 @@ void SelectBattleLayer::updateSmall(int bigId)
 	{
 		cid.reset();
 		cid.set_instance_id(incId);
-		auto stageRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/stage/stage.ExportJson"));
+		auto stageRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/stage.json"));
 		auto tmp = dynamic_cast<Layout*>(Helper::seekWidgetByName(stageRoot, "cell0_0_0"));
 		//auto tmp2 = dynamic_cast<Layout*>(Helper::seekWidgetByName(stageRoot, "cell0_0_0"));
 		//if (condition>0&&condition<6)
@@ -697,7 +700,7 @@ void SelectBattleLayer::updateSmall(int bigId)
     auto curPage = dynamic_cast<Layout*>( pageView->getPageAtIndex(mIndex) );
     currScore = curPage->getTag()%10;
 
-	// 3. Ìí¼Óµ±Ç°¹Ø¿¨µÄÏêÏ¸ĞÅÏ¢
+	// 3. æ·»åŠ å½“å‰å…³å¡çš„è¯¦ç»†ä¿¡æ¯
 	resetInstanceDetail(instanceId);
 
 }

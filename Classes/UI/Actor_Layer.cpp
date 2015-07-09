@@ -14,7 +14,7 @@
 #include "Game_Interface/game_event_mgr.h"
 #include "Game_Interface/game_content_interface.h"
 #include "Game_Interface/game_event_response.h"
-#include "Skill_System/Skill/Skill_Logic.h"
+//#include "Skill_System/Skill/Skill_Logic.h"
 //#include "Runtime.h"
 #include "Player_Account/Account_Data_Mgr.h"
 //#include "Active_Area_Delegate.h"

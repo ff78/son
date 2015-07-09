@@ -115,7 +115,7 @@ bool Relation_Msg_Proc::send_ask_friend_list(Game_Logic::Game_Interface& gm_inte
     CNetManager::GetMe()->send_msg( body_ms );
 
 	const char* loadFont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MODEL_LOADING_FONT);
-	CocoStu_UI_Scene_Interface::get_instance()->lockScreen("",loadFont);
+	CocoStu_UI_Scene_Interface::get_instance()->lockScreen("è½½å…¥ä¸­","");
 	return true;
 }
 
@@ -123,7 +123,7 @@ bool Relation_Msg_Proc::send_ask_friend_list(Game_Logic::Game_Interface& gm_inte
 bool Relation_Msg_Proc::on_add_friend_from_apply(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷½ÓÊÕÏûÏ¢Ìí¼ÓÉêÇëºÃÓÑ 
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÎ©â€Â â€™Å“ËšÅ“Â¢ÃƒÃŒÂºâ€â€¦ÃÂ«Ãâˆ«âˆšâ€â€” 
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
 	int nResult = 0;
@@ -140,12 +140,12 @@ bool Relation_Msg_Proc::on_add_friend_from_apply(Game_Logic::Game_Interface& gm_
 bool Relation_Msg_Proc::on_add_friend(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷½ÓÊÕÏûÏ¢Ìí¼ÓºÃÓÑ 
-	// 1. »ñÈ¡ÏàÓ¦µÄºÃÓÑÊı¾İ
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÎ©â€Â â€™Å“ËšÅ“Â¢ÃƒÃŒÂºâ€âˆ«âˆšâ€â€” 
+	// 1. ÂªÃ’Â»Â°Å“â€¡â€Â¶ÂµÆ’âˆ«âˆšâ€â€”Â ËÃ¦â€º
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
 
-	// 2. ½âÎöÊı¾İ
+	// 2. Î©â€šÅ’Ë†Â ËÃ¦â€º
 	string m_name;
 	int nFriendType = 0;
 	Relation_Data strData;
@@ -161,7 +161,7 @@ bool Relation_Msg_Proc::on_add_friend(Game_Logic::Game_Interface& gm_interface)
 	strcpy(strData.name_, m_name.c_str());
 	strData.eFriendType = (RELATION_TYPE)nFriendType;
 
-	// 3. ¸ù¾İºÃÓÑÀàĞÍ²åÈëµ½²»Í¬ÁĞ±íÖĞ
+	// 3. âˆË˜Ã¦â€ºâˆ«âˆšâ€â€”Â¿â€¡â€“Ã•â‰¤Ã‚Â»ÃÂµÎ©â‰¤ÂªÃ•Â¨Â¡â€“Â±ÃŒÃ·â€“
 	if (strData.eFriendType == RT_FRIEND)
 	{
 		Relation_Manager::instance()->AddFriendToList(FRIEND_LIST_TYPE_OWN, &strData);
@@ -177,8 +177,8 @@ bool Relation_Msg_Proc::on_add_friend(Game_Logic::Game_Interface& gm_interface)
 	}
 	return true;
 
-								/*-----------ÒÔÏÂ´úÂëÎª²âÊÔ´úÂë-----------*/
-	//			// 1. »ñÈ¡ÏàÓ¦µÄºÃÓÑÊı¾İ
+								/*-----------â€œâ€˜Å“Â¬Â¥Ë™Â¬ÃÅ’â„¢â‰¤â€šÂ â€˜Â¥Ë™Â¬Ã-----------*/
+	//			// 1. ÂªÃ’Â»Â°Å“â€¡â€Â¶ÂµÆ’âˆ«âˆšâ€â€”Â ËÃ¦â€º
 	//			message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	//			body_ms.set_rd_ptr(sizeof(int));
 	//			
@@ -206,7 +206,7 @@ bool Relation_Msg_Proc::on_add_friend(Game_Logic::Game_Interface& gm_interface)
 	//			
 	//			CCString* note_text = NULL;
 	//			
-	//			// 2. ¸ù¾İÌí¼ÓºÃÓÑÊÇ·ñ³É¹¦ÌáÊ¾²»Í¬µÄĞÅÏ¢
+	//			// 2. âˆË˜Ã¦â€ºÃƒÃŒÂºâ€âˆ«âˆšâ€â€”Â Â«âˆ‘Ã’â‰¥â€¦Ï€Â¶ÃƒÂ·Â Ã¦â‰¤ÂªÃ•Â¨ÂµÆ’â€“â‰ˆÅ“Â¢
 	//			if(ART_NOT_ONLINE == result)
 	//			{
 	//				const char* szString = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(ADD_FRIEND_NOT_ONLINE);
@@ -256,14 +256,14 @@ bool Relation_Msg_Proc::on_add_friend(Game_Logic::Game_Interface& gm_interface)
 	//			//Game_Utils::instance()->show_alert(note_text->getCString());
 	//			return true;
 
-									/*-----------ÒÔÉÏ´úÂëÎª²âÊÔ´úÂë-----------*/
+									/*-----------â€œâ€˜â€¦Å“Â¥Ë™Â¬ÃÅ’â„¢â‰¤â€šÂ â€˜Â¥Ë™Â¬Ã-----------*/
 }
 
 bool Relation_Msg_Proc::on_del_friend(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷½ÓÊÕÉ¾³ıÄ¿±êºÃÓÑ
-	// 1. »ñÈ¡ºÃÓÑID
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÎ©â€Â â€™â€¦Ã¦â‰¥ËÆ’Ã¸Â±Ãâˆ«âˆšâ€â€”
+	// 1. ÂªÃ’Â»Â°âˆ«âˆšâ€â€”ID
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
 	
@@ -277,7 +277,7 @@ bool Relation_Msg_Proc::on_del_friend(Game_Logic::Game_Interface& gm_interface)
 	{
 		return false;	
 	}
-	// 2. µ÷ÓÃRelationManagerÖĞµÄÒÆ³ıºÃÓÑ·½·¨
+	// 2. ÂµËœâ€âˆšRelationManagerÃ·â€“ÂµÆ’â€œâˆ†â‰¥Ëâˆ«âˆšâ€â€”âˆ‘Î©âˆ‘Â®
 	Relation_Manager::instance()->RemoveFriendFromList(FRIEND_LIST_TYPE_OWN, friend_db_id);
 	return true;
 }
@@ -321,14 +321,14 @@ bool Relation_Msg_Proc::on_ask_friend_info(Game_Logic::Game_Interface& gm_interf
 bool Relation_Msg_Proc::on_ask_friend_list(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ´Ó·şÎñÆ÷»ñÈ¡ºÃÓÑÁĞ±í
-	// 1. »ñÈ¡ºÃÓÑ¸öÊı
+	// Â¥â€âˆ‘Ë›Å’Ã’âˆ†ËœÂªÃ’Â»Â°âˆ«âˆšâ€â€”Â¡â€“Â±ÃŒ
+	// 1. ÂªÃ’Â»Â°âˆ«âˆšâ€â€”âˆË†Â Ë
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
 	int friend_count = 0;
 	body_ms >> friend_count;
 
-	// 2. »ñÈ¡Ã¿¸öºÃÓÑµÄÓĞ¹ØĞÅÏ¢,²¢´æ´¢µ½RelationManagerÖĞ
+	// 2. ÂªÃ’Â»Â°âˆšÃ¸âˆË†âˆ«âˆšâ€â€”ÂµÆ’â€â€“Ï€Ã¿â€“â‰ˆÅ“Â¢,â‰¤Â¢Â¥ÃŠÂ¥Â¢ÂµÎ©RelationManagerÃ·â€“
 	string m_name;
 	Relation_Data strData;
 	for (int i=0; i<friend_count; i++)
@@ -349,7 +349,7 @@ bool Relation_Msg_Proc::on_ask_friend_list(Game_Logic::Game_Interface& gm_interf
 		Relation_Manager::instance()->AddFriendToList(FRIEND_LIST_TYPE_OWN, &strData);
 	}
 
-	// 3. ÉèÖÃÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ±»»ñÈ¡µ½µÄ×´Ì¬
+	// 3. â€¦Ã‹Ã·âˆšâ€œâ€”â€â€“ÂµÆ’âˆ«âˆšâ€â€”Â¡â€“Â±ÃŒÂ Â«âˆ‘Ã’Â±ÂªÂªÃ’Â»Â°ÂµÎ©ÂµÆ’â—ŠÂ¥ÃƒÂ¨
 	Relation_Manager::instance()->SetOwnFriendListGetState(true);
 	return true;
 }

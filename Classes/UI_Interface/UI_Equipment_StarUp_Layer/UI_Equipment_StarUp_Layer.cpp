@@ -31,7 +31,7 @@ bool UI_Equipment_StarUp_Layer::init()
 	{
 		return false;
 	}
-	root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_starup/refine_starup.ExportJson");
+	root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_starup.json");
 	addChild(root);
 	// 关闭按钮
 	m_pCloseBtn = dynamic_cast<ui::Button*>(Helper::seekWidgetByName(root, "Btn_Close"));
@@ -160,9 +160,11 @@ void UI_Equipment_StarUp_Layer::update()
 	if (!item)
 		return;
 	const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(item->config->icon);
+    std::string p("icon/");
+    p+=szPath;
 	const char* name = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(item->config->name);
 
-	curEquip->loadTexture(szPath, Widget::TextureResType::PLIST);
+	curEquip->loadTexture(p.c_str());
 
 	curName->setString(name);
 
@@ -319,6 +321,7 @@ void UI_Equipment_StarUp_Layer::onCloseCallBack(Ref* pSender, ui::Widget::TouchE
 	auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
 	Pnl_Property->setVisible(false);
 
+    UI_Bag_Info_Layer::sIsProperty = false;
 }
 
 void UI_Equipment_StarUp_Layer::onStrengthenTextCallBack(Ref* pSender, Widget::TouchEventType type)

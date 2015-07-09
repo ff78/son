@@ -6,9 +6,9 @@
 #include "Player.h"
 #include "CommonNpc.h"
 #include "Character_Mgr.h"
-#include "Skill_System/Skill/Technical_Mgr.h"
+//#include "Skill_System/Skill/Technical_Mgr.h"
 #include "Character_Mgr.h"
-#include "DeputyGeneral.h"
+//#include "DeputyGeneral.h"
 #include "Character_Logic.h"
 
 using namespace Game_Data;
@@ -86,37 +86,37 @@ void Character_Logic::exec_Character_function(){
 
 }
 
-bool Character_Logic::init_character_skill_list(Game_Logic::Game_Interface& gm_interface)
-{
-	vector<uint64> para;
-    gm_interface.get_para( para );
-    if( para.size() < 1 )
-        return false;
+//bool Character_Logic::init_character_skill_list(Game_Logic::Game_Interface& gm_interface)
+//{
+//	vector<uint64> para;
+//    gm_interface.get_para( para );
+//    if( para.size() < 1 )
+//        return false;
+//
+//	int character_id        = (int)para[0];
+//
+//	return init_skill_list( character_id );
+//}
 
-	int character_id        = (int)para[0];
-
-	return init_skill_list( character_id );
-}
-
-bool Character_Logic::init_skill_list(int character_id)
-{
-	Character* self = CHARACTER_MGR::instance()->get_character( character_id );
-	if ( NULL == self )
-		return false;
-
-	std::list<int> skill_list;
-	std::list<int>::iterator it;
-	TECHNICAL_MGR::instance()->get_character_technical_list(self->get_character_type(), &skill_list);
-
-	Character_Skill skill;
-	std::vector<Character_Skill> skill_vector;
-	for (it = skill_list.begin(); it != skill_list.end(); it++)
-	{
-		skill.skill_id = *it;
-		//skill.skill_level = 1;
-		skill_vector.push_back( skill );
-	}
-	self->insert_skill_list( skill_vector );
-
-	return true;
-}
+//bool Character_Logic::init_skill_list(int character_id)
+//{
+//	Character* self = CHARACTER_MGR::instance()->get_character( character_id );
+//	if ( NULL == self )
+//		return false;
+//
+//	std::list<int> skill_list;
+//	std::list<int>::iterator it;
+//	TECHNICAL_MGR::instance()->get_character_technical_list(self->get_character_type(), &skill_list);
+//
+//	Character_Skill skill;
+//	std::vector<Character_Skill> skill_vector;
+//	for (it = skill_list.begin(); it != skill_list.end(); it++)
+//	{
+//		skill.skill_id = *it;
+//		//skill.skill_level = 1;
+//		skill_vector.push_back( skill );
+//	}
+//	self->insert_skill_list( skill_vector );
+//
+//	return true;
+//}

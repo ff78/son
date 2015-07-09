@@ -35,9 +35,11 @@ void UI_Equipment_Strengthen_Layer::update()
 	if (!item)
 		return;
 	const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(item->config->icon);
+    std::string p("icon/");
+    p+=szPath;
 	const char* name = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(item->config->name);
 
-	curEquip->loadTexture(szPath, Widget::TextureResType::PLIST);
+	curEquip->loadTexture(p.c_str());
 
 	curName->setString(name);
 
@@ -153,7 +155,7 @@ bool UI_Equipment_Strengthen_Layer::init()
 	{
 		return false;
 	}
-	root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine/refine.ExportJson");
+	root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine.json");
 	addChild(root);
 
 	// ¹Ø±Õ°´Å¥
@@ -264,6 +266,7 @@ void UI_Equipment_Strengthen_Layer::OnBtnCloseCallBack(Ref*pSender, Widget::Touc
 	Pnl_Property->setVisible(false);
 
 	this->setVisible(false);
+    UI_Bag_Info_Layer::sIsProperty = false;
 	//this->removeFromParent();
 }
 

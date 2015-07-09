@@ -28,14 +28,14 @@ namespace Game_Logic
 }
 
 //一级界面
-class UI_Role_Info_Layer;
+//class UI_Role_Info_Layer;
 class Game_Utils;
 class City_NPC;
 class UI_Bag_Info_Layer;
 //class UI_Instance_Layer;
 class UI_Skill_Layer;
 //class UI_Instance_Describe_Layer;
-class UI_HeartMethod_Layer;
+//class UI_HeartMethod_Layer;
 class UI_Mission_Layer;
 class UI_ChatBoard_Layer;
 class UI_NpcDialogue_Layer;
@@ -53,16 +53,16 @@ class UI_Shop_Center_Layer;
 class UI_Activity_Layer;
 
 //二级界面
-class UI_HeartMethod_Combine_Layer;
-class UI_HeartMethod_Quality_Up_Layer;
+//class UI_HeartMethod_Combine_Layer;
+//class UI_HeartMethod_Quality_Up_Layer;
 //class UI_Secondary_Instance_Layer;
-class UI_Role_Quality_Up;
+//class UI_Role_Quality_Up;
 class UI_Daily_Mission;
-class UI_Item_Combine_Layer;
-class UI_Residual_Page_Layer;
-class UI_Skill_Icon_Info_Layer;
+//class UI_Item_Combine_Layer;
+//class UI_Residual_Page_Layer;
+//class UI_Skill_Icon_Info_Layer;
 class UI_New_Function_Open;
-class UI_Sweep_Desc_Layer;
+//class UI_Sweep_Desc_Layer;
 class UI_Trade_Layer;
 class UI_Activity_Six_Sect_Layer;
 
@@ -99,15 +99,15 @@ public:
 	{
 		FT_SystemSetting=0,
 		//FT_Billboard,
-		FT_Relationship,
+//		FT_Relationship,
 		FT_Skill,
 		FT_Bag,
 		FT_Property,
-		FT_Fate,
-		FT_Refine,
+//		FT_Fate,
+//		FT_Refine,
 		FT_Pet,
 		FT_God,
-		FT_Pan,
+//		FT_Pan,
 		FT_Num
 	};
 	
@@ -211,8 +211,8 @@ public:
     static bool update_arena(const Game_Logic::Game_Event& gm_evt);
     static bool update_count_down_time(const Game_Logic::Game_Event& gm_evt);
     static bool update_npc_dialog(const Game_Logic::Game_Event& gm_evt);
-    static bool update_role_quality_up(const Game_Logic::Game_Event& gm_evt);
-    static bool update_compound_fragment(const Game_Logic::Game_Event& gm_evt);
+//    static bool update_role_quality_up(const Game_Logic::Game_Event& gm_evt);
+//    static bool update_compound_fragment(const Game_Logic::Game_Event& gm_evt);
     static bool update_fate(const Game_Logic::Game_Event& gm_evt);
     static bool update_banks(const Game_Logic::Game_Event& gm_evt);
     static bool update_rank(const Game_Logic::Game_Event& gm_evt);
@@ -237,8 +237,8 @@ public:
 	void visibleExchange();
 	void visibleLoginAward();
 	void visibleDailyMission();			//每日任务界面
-	void visibleFragmentCombine();		//碎片合成界面
-	void visibleResidualPage();			//残页界面
+//	void visibleFragmentCombine();		//碎片合成界面
+//	void visibleResidualPage();			//残页界面
 	void visibleSkillUpLayer( bool visible, int skillId = 0, int characterId=0 );			//招式升级界面
 	void visibleFuncOpen( int iconNameId, int iconOpenId  );
 	void visibleSweepDescLayer(int ui_instance_elite);
@@ -280,12 +280,12 @@ private:
 	//cocos2d::ui::Button*		_fateBtn;
 	//cocos2d::ui::Button*		_arenaBtn;
 	//cocos2d::ui::Button*		_propertyBtn;
-	cocos2d::ui::Text*		_tryonceBtn;
-	UI_Role_Info_Layer*					m_pRoleInfo;
+	cocos2d::ui::Button*		_tryonceBtn;
+//	UI_Role_Info_Layer*					m_pRoleInfo;
 	UI_Bag_Info_Layer*					m_pBagInfo;
 	UI_Skill_Layer*						m_pSkillInfo;
 //	UI_Instance_Layer*					m_pAreaInstance;
-	UI_HeartMethod_Layer*				m_pHeartMethod;
+//	UI_HeartMethod_Layer*				m_pHeartMethod;
 	UI_Mission_Layer*					m_pMission;
 	UI_Arena_Layer*						m_pArena;
 	UI_Material_Fragment_Layer*		    m_pMaterialFragment;
@@ -315,16 +315,16 @@ private:
 //	UI_Activity_Layer*					m_activity_layer;
 
 	//二级界面
-	UI_HeartMethod_Combine_Layer*		m_pHeartMethodCombineLayer;
-	UI_HeartMethod_Quality_Up_Layer*	m_pHeartMethodQualityUpLayer;
+//	UI_HeartMethod_Combine_Layer*		m_pHeartMethodCombineLayer;
+//	UI_HeartMethod_Quality_Up_Layer*	m_pHeartMethodQualityUpLayer;
 //	UI_Secondary_Instance_Layer*		m_pSecondaryInstanceLayer;
-	UI_Role_Quality_Up*					m_pRoleQualityUpLayer;
+//	UI_Role_Quality_Up*					m_pRoleQualityUpLayer;
 	UI_Daily_Mission*					m_pDailyMissionLayer;
-	UI_Item_Combine_Layer*			    m_pItemCombineLayer;
-	UI_Residual_Page_Layer*				m_pResidualPageLayer;
-	UI_Skill_Icon_Info_Layer*			m_pSkillDescLayer;
+//	UI_Item_Combine_Layer*			    m_pItemCombineLayer;
+//	UI_Residual_Page_Layer*				m_pResidualPageLayer;
+//	UI_Skill_Icon_Info_Layer*			m_pSkillDescLayer;
 	UI_New_Function_Open*				m_pFuncOpenLayer;
-	UI_Sweep_Desc_Layer*				m_pSweepDescLayer;
+//	UI_Sweep_Desc_Layer*				m_pSweepDescLayer;
 	UI_Trade_Layer*						m_trade_layer;
 //	UI_Activity_Six_Sect_Layer*			m_activity_six_sect_layer;
     

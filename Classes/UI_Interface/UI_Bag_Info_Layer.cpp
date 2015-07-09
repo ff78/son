@@ -28,6 +28,7 @@ Value UI_Bag_Info_Layer::sGold(0);
 Value UI_Bag_Info_Layer::sToken(0);
 Value UI_Bag_Info_Layer::sName(0);
 Value UI_Bag_Info_Layer::sPower(0);
+Value UI_Bag_Info_Layer::sTili(0);
 Value UI_Bag_Info_Layer::sExp(0);
 Value UI_Bag_Info_Layer::sHP(0);
 Value UI_Bag_Info_Layer::sAtk(0);
@@ -68,7 +69,7 @@ bool UI_Bag_Info_Layer::initRoot()
 	{
 		ITEM_CONFIG_MGR::instance()->load_icon_config_data();
 		//root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/bag_new_1/bag_new_1.ExportJson");
-		root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/bag_all/bag_all.ExportJson");
+		root = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/bag_all.json");
 		CC_BREAK_IF(!root);
 
 		//auto tidy = dynamic_cast<Text*>(Helper::seekWidgetByName(root, "Label_40"));
@@ -188,6 +189,7 @@ bool UI_Bag_Info_Layer::initData()
 
 			UI_Bag_Info_Layer::sName = player->get_character_name();
 			UI_Bag_Info_Layer::sPower = player->get_fighting_capacity();
+            UI_Bag_Info_Layer::sTili = player->get_energy();
 			//int Exp = player->get_character
 			UI_Bag_Info_Layer::sHP = player->get_character_cur_hp();
 			UI_Bag_Info_Layer::sAtk = player->get_character_attack();
@@ -196,6 +198,10 @@ bool UI_Bag_Info_Layer::initData()
 			UI_Bag_Info_Layer::sLevel = player->get_character_level();
 			UI_Bag_Info_Layer::sJob = player->get_job();
 		}
+        auto title = dynamic_cast<Text*>(Helper::seekWidgetByName(root, "Txt_Top_property"));
+        auto bagTitle = dynamic_cast<Text*>(Helper::seekWidgetByName(root, "Txt_Top_bag"));
+        title->setVisible(sIsProperty.asBool());
+        bagTitle->setVisible(!sIsProperty.asBool());
 
 		//curPageNum = dynamic_cast<TextAtlas*>(Helper::seekWidgetByName(root, "AtlasLabel_44"));
 		//CC_BREAK_IF(!curPageNum);
@@ -223,6 +229,11 @@ bool UI_Bag_Info_Layer::initData()
 		CC_BREAK_IF(!powerAtlas);
 		auto powerStr = sPower.asString();
 		powerAtlas->setString(powerStr);
+        
+        tiliAtlas = dynamic_cast<TextAtlas*>(Helper::seekWidgetByName(root, "tili"));
+        CC_BREAK_IF(!tiliAtlas);
+        auto tiliStr = sTili.asString();
+        tiliAtlas->setString(powerStr);
 
 		hpAtlas = dynamic_cast<TextAtlas*>(Helper::seekWidgetByName(root, "HP_atlas"));
 		CC_BREAK_IF(!hpAtlas);
@@ -1041,9 +1052,10 @@ void UI_Bag_Info_Layer::updateEquips(int index, int type,/* int count,*/ int qua
 		ITEM_CONFIG_MGR::instance()->load_icon_config_data();
 
 		const char * szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-
+        std::string p("icon/");
+        p+=szPath;
 		//materials[row][col]->loadTexture(szPath);
-		equips[row][col]->loadTexture(szPath, cocos2d::ui::Widget::TextureResType::PLIST);
+		equips[row][col]->loadTexture(p.c_str());
 		equips[row][col]->setTouchEnabled(true);
 		equips[row][col]->setVisible(true);
 	}
@@ -1053,7 +1065,9 @@ void UI_Bag_Info_Layer::updateEquips(int index, int type,/* int count,*/ int qua
 		const char *szPath = DICTIONARY_CONFIG_MGR::instance()->get_quality_icon(quality);
 
 		szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-		m_img_equipment_bar[index]->loadTexture(szPath, UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=szPath;
+		m_img_equipment_bar[index]->loadTexture(p.c_str());
 		m_img_equipment_bar[index]->setVisible(true);
         m_img_equipment_bar[index]->setTouchEnabled(true);
 	}
@@ -1096,9 +1110,10 @@ void UI_Bag_Info_Layer::updateEntities(int index, int type,/* int count,*/ /*int
 		int col = index%COL_NUM;
 
 		const char * szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-
+        std::string p("icon/");
+        p+=szPath;
 		//materials[row][col]->loadTexture(szPath);
-		entities[row][col]->loadTexture(szPath, cocos2d::ui::Widget::TextureResType::PLIST);
+		entities[row][col]->loadTexture(p.c_str());
 		entities[row][col]->setTouchEnabled(true);
 		entities[row][col]->setVisible(true);
 
@@ -1144,9 +1159,10 @@ void UI_Bag_Info_Layer::updateMaterials(int index, int type,/* int count,*/ /*in
 		int col = index%COL_NUM;
 
 		const char * szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-
+        std::string p("icon/");
+        p+=szPath;
 		//materials[row][col]->loadTexture(szPath);
-		materials[row][col]->loadTexture(szPath, cocos2d::ui::Widget::TextureResType::PLIST);
+		materials[row][col]->loadTexture(p.c_str());
 		cocos2d::Vector<cocos2d::Node*> vec = materials[row][col]->getChildren();
 		TextAtlas* tmpA = nullptr;
 		if (vec.size()<=0)

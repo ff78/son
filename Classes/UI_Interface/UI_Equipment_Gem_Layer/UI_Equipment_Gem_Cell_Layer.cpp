@@ -86,10 +86,12 @@ void UI_Equipment_Gem_Cell_Layer::SetCurrentGemInfoForShow(const uint64 nGemID)
 
 	// 2. 显示宝石的信息
 	const char* szTemp = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
+    std::string p("icon/");
+    p+=szTemp;
 	int nTemp = strcmp(szTemp, "");
 	if (nTemp > 0)
 	{
-		m_pIconImageViwe->loadTexture(szTemp, UI_TEX_TYPE_PLIST);
+		m_pIconImageViwe->loadTexture(p.c_str());
 		m_pIconImageViwe->setVisible(true);
 	}
 

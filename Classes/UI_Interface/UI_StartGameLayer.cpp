@@ -24,7 +24,7 @@ bool UI_StartGameLayer::init()
 
 		setKeypadEnabled(true);
 
-		m_pWidgetStartGame = dynamic_cast<Widget*>(cocostudio::GUIReader::shareReader()->widgetFromJsonFile("ui/Start_Game/Start_Game.ExportJson"));
+		m_pWidgetStartGame = dynamic_cast<Widget*>(cocostudio::GUIReader::shareReader()->widgetFromJsonFile("ui/Start_Game.json"));
 		this->addChild(m_pWidgetStartGame);
 
 		m_btnStartGame = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pWidgetStartGame, "Button_9"));

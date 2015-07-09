@@ -40,7 +40,7 @@ bool UI_Ranking_List_Layer::init()
 	if (!Layer::init())
 		return false;
 
-	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Rank_List/Rank_List.ExportJson");
+	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Rank_List.json");
 	addChild(pLayer);
 
 	// 竞技场按钮
@@ -334,11 +334,13 @@ void UI_Ranking_List_Layer::RequestTargetCellSimpleInfo(const int nIndex)
 	int nTemp = 0;
 	const char * szTemp;
 	szTemp = ITEM_CONFIG_MGR::instance()->get_icon_path(strData.nIconID);
+    std::string p("icon/");
+    p+=szTemp;
 	nTemp = strcmp(szTemp, "");
 	if (nTemp <= 0)
 		return;
 
-	m_pTargetRankingPresentImg->loadTexture(szTemp, UI_TEX_TYPE_PLIST);
+	m_pTargetRankingPresentImg->loadTexture(p.c_str());
 	m_pTargetRankingPresentImg->setVisible(true);
 }
 
@@ -375,11 +377,13 @@ void UI_Ranking_List_Layer::RequestPlayerRankingSimpleInfo()
 	int nTemp = 0;
 	const char * szTemp;
 	szTemp = ITEM_CONFIG_MGR::instance()->get_icon_path(strData.nIconID);
+    std::string p("icon/");
+    p+=szTemp;
 	nTemp = strcmp(szTemp, "");
 	if (nTemp <= 0)
 		return;
 
-	m_pMyRankingPresentImg->loadTexture(szTemp, UI_TEX_TYPE_PLIST);
+	m_pMyRankingPresentImg->loadTexture(p.c_str());
 	m_pMyRankingPresentImg->setVisible(true);
 }
 

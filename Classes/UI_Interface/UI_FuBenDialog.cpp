@@ -123,7 +123,9 @@ void UI_FuBenDialog::setVisibleAndMessage(bool isLeft,int imageId,int messageId)
 	if(isLeft)
 	{
 		const char* iconname=ITEM_CONFIG_MGR::instance()->get_icon_path(imageId);
-		m_pimg_left->loadTexture(iconname,UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=iconname;
+		m_pimg_left->loadTexture(p.c_str());
 		//m_pimg_left->setAnchorPoint(Vec2(0,0));
 		//m_pimg_left->setPosition(Vec2(0.f,0.f));
 		m_pimg_left->setFlipX(false);
@@ -132,7 +134,9 @@ void UI_FuBenDialog::setVisibleAndMessage(bool isLeft,int imageId,int messageId)
 	else
 	{
 		const char* iconname=ITEM_CONFIG_MGR::instance()->get_icon_path(imageId);
-		m_pimg_right->loadTexture(iconname,UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=iconname;
+		m_pimg_right->loadTexture(p.c_str());
 		//m_pimg_right->setAnchorPoint(Vec2(1,0));
 		//float parentWidth = m_pimg_right->getParent()->getContentSize().width;
 		//m_pimg_right->setPosition(Vec2(parentWidth, 0.f));

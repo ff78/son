@@ -33,7 +33,7 @@ bool FATE_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/chart/chart.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/chart.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

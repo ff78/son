@@ -82,9 +82,9 @@ void Guardian::enterState(int nextState)
         {
             setTargetToActor(man);
             if (man->getPositionX()>=getPositionX()) {
-                targetMovePos.x = man->getPositionX() - 80;
+                targetMovePos.x = man->getPositionX() - 110;
             }else{
-                targetMovePos.x = man->getPositionX() + 80;
+                targetMovePos.x = man->getPositionX() + 110;
             }
             Move2Target(targetMovePos);
         }
@@ -113,7 +113,8 @@ void Guardian::updateAI()
         if (((currDir & DIRECT::LEFT)!=0) != flipX)
         {
             flipX = !flipX;
-            armature->setScaleX((flipX) ? -1 : 1);
+            float sx = blackActor->getScaleRate();
+            armature->setScaleX((flipX) ? -sx : sx);
         }
     }
     
@@ -227,7 +228,7 @@ bool Guardian::farFromHero()
         return false;
     }
     
-    if (abs(getPosition().getDistance(man->getPosition())) > 100) {
+    if (abs(getPosition().getDistance(man->getPosition())) > 130) {
         return true;
     }
     

@@ -38,7 +38,7 @@ bool ARENA_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/arena/arena.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/arena.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

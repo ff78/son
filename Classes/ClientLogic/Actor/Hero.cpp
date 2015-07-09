@@ -185,7 +185,8 @@ void Hero::updateAI()
             if (((currDir & DIRECT::LEFT)!=0) != flipX)
             {
                 flipX = !flipX;
-                armature->setScaleX((flipX) ? -1 : 1);
+                float sx = blackActor->getScaleRate();
+                armature->setScaleX((flipX) ? -sx : sx);
             }
             
             //移动

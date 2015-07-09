@@ -57,7 +57,7 @@ bool UI_ChatBoard_Layer::init()
 {
 	if (!cocos2d::Layer::init())
 		return false;
-	cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/ChatBoard/ChatBoard.ExportJson");
+	cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/ChatBoard.json");
 	//cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/ChatBoard_0/ChatBoard_0.ExportJson");
 	addChild(pWidget);
 
@@ -84,7 +84,7 @@ bool UI_ChatBoard_Layer::init()
 
 	Size size(640,40);
 	auto box = CommonEditBox::create(size);
-	box->SetPositionAndMaxLength(0, 80, 120);
+	box->SetPositionAndMaxLength(0, 40, 150);
 	addChild(box,2,"chat_box");
 
 	//È«²¿ °´Å¥

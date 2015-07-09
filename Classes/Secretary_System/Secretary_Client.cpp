@@ -50,7 +50,7 @@ bool SECRETARY_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/secretary/secretary.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/secretary.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

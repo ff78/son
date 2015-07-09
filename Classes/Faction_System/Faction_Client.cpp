@@ -177,7 +177,7 @@ bool FACTION_MAIN_VIEW::init()
 		addChild(board, 1,"Board");
 
 		m_pRoot = nullptr;
-		m_pRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_main/guild_main.ExportJson"));
+		m_pRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_main.json"));
 		CC_BREAK_IF(!m_pRoot);
 		addChild(m_pRoot);
 
@@ -294,7 +294,7 @@ void FACTION_MAIN_VIEW::onClickBoss(cocos2d::Ref* pSender, cocos2d::ui::Widget::
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-	m_pBossRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_boss/guild_boss.ExportJson"));
+	m_pBossRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_boss.json"));
 
 	auto one = dynamic_cast<ImageView*>(Helper::seekWidgetByName(m_pBossRoot, "Img_Boss1"));
 	one->addTouchEventListener(this, toucheventselector(FACTION_MAIN_VIEW::onClickOne));
@@ -563,7 +563,7 @@ void FACTION_MAIN_VIEW::onClickWorship(cocos2d::Ref* pSender, cocos2d::ui::Widge
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-	m_pWorshipRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_worship/guild_worship.ExportJson"));
+	m_pWorshipRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_worship.json"));
 	addChild(m_pWorshipRoot, 2, 125);
 	int curTime = FACTION_MODEL::getInstance()->getWorshipCurTime();
 	int totalTime = FACTION_MODEL::getInstance()->getWorshipTotalTime();
@@ -688,7 +688,7 @@ void FACTION_MAIN_VIEW::onClickDig(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-	m_pMineRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_dig/guild_dig.ExportJson"));
+	m_pMineRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_dig.json"));
 	addChild(m_pMineRoot, 2, 126);
 
 	auto closeMine = dynamic_cast<Widget*>(Helper::seekWidgetByName(m_pMineRoot, "Btn_Close"));
@@ -803,7 +803,7 @@ void FACTION_MAIN_VIEW::onClickTotem(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-	auto totem = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_totem/guild_totem.ExportJson"));
+	auto totem = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_totem.json"));
 	addChild(totem, 2, 127);
 
 	auto closeTotem = dynamic_cast<Button*>(Helper::seekWidgetByName(totem, "Btn_Close"));
@@ -964,7 +964,7 @@ void FACTION_MAIN_VIEW::onClickMember(cocos2d::Ref* pSender, cocos2d::ui::Widget
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-	m_pMemberRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_member/guild_member.ExportJson"));
+	m_pMemberRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_member.json"));
 	addChild(m_pMemberRoot, 2, 128);
 
 	vector<faction_member_data> list = FACTION_MODEL::getInstance()->getMembers();
@@ -1107,7 +1107,7 @@ void FACTION_MAIN_VIEW::onClickRejob(cocos2d::Ref* pSender, cocos2d::ui::Widget:
 		return;
 	auto frame = dynamic_cast<Widget*>(Helper::seekWidgetByName(m_pMemberRoot, "Pnl_Frame"));
 	frame->setVisible(true);
-	m_pRejobRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_rejob/guild_rejob.ExportJson"));
+	m_pRejobRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_rejob.json"));
 	addChild(m_pRejobRoot, 2, 666);
 	
 	auto ckbHead = dynamic_cast<cocos2d::ui::CheckBox*>(Helper::seekWidgetByName(m_pRejobRoot, "Ckb_Head"));
@@ -1224,7 +1224,7 @@ void FACTION_MAIN_VIEW::onClickDonate(cocos2d::Ref* pSender, cocos2d::ui::Widget
 		return;
 	auto frame = dynamic_cast<Widget*>(Helper::seekWidgetByName(m_pMemberRoot, "Pnl_Frame"));
 	frame->setVisible(true);
-	m_pDonateRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_donate/guild_donate.ExportJson"));
+	m_pDonateRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_donate.json"));
 	addChild(m_pDonateRoot, 2, 668);
 
 	auto ckbOne = dynamic_cast<cocos2d::ui::CheckBox*>(Helper::seekWidgetByName(m_pDonateRoot, "Ckb_One"));
@@ -1334,7 +1334,7 @@ void FACTION_MAIN_VIEW::onClickExit(cocos2d::Ref* pSender, cocos2d::ui::Widget::
 		return;
 	auto frame = dynamic_cast<Widget*>(Helper::seekWidgetByName(m_pMemberRoot, "Pnl_Frame"));
 	frame->setVisible(true);
-	auto exit = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_exit/guild_exit.ExportJson"));
+	auto exit = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_exit.json"));
 	addChild(exit, 2, 680);
 
 	auto confirm = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(exit, "Btn_Confirm"));
@@ -1537,7 +1537,7 @@ void FACTION_APPLY_VIEW::onClickButtonOpenFrame(cocos2d::Ref* pSender, cocos2d::
 		return;
 	m_pFrame->setVisible(true);
 
-	auto condition = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_create_c/guild_create_c.ExportJson"));
+	auto condition = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_create_c.json"));
 	addChild(condition,2,234);
 
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
@@ -1599,7 +1599,7 @@ void FACTION_APPLY_VIEW::onClickButtonConditionConfirm(cocos2d::Ref* pSender, co
 	removeChildByTag(234);
 	return;
 
-	auto rename = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_create_r/guild_create_r.ExportJson"));
+	auto rename = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_create_r.json"));
 	addChild(rename, 2, 235);
 
 	auto pnl = dynamic_cast<Layout*>(Helper::seekWidgetByName(rename, "Pnl_Create_Rename"));
@@ -1661,7 +1661,7 @@ bool FACTION_APPLY_VIEW::init()
 		editor->SetPositionAndMaxLength(-280, 125, 10);
 		addChild(editor, 1,"searchbox");
 
-		m_pApplyRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_apply/guild_apply.ExportJson"));
+		m_pApplyRoot = dynamic_cast<Widget*>(cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/guild_apply.json"));
 		CC_BREAK_IF(!m_pApplyRoot);
 		addChild(m_pApplyRoot);
 

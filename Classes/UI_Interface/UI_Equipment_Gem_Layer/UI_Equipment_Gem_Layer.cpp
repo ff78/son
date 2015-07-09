@@ -49,9 +49,14 @@ bool UI_Equipment_Gem_Layer::init()
 	{
 		return false;
 	}
-	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_gem/refine_gem.ExportJson");
+	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/refine_gem.json");
 	addChild(pLayer);
-
+    
+//    // 关闭按钮
+//    m_pCloseBtn = dynamic_cast<ui::Button*>(Helper::seekWidgetByName(pLayer, "Close_Btn_0_0"));
+//    m_pCloseBtn->setTouchEnabled(true);
+//    m_pCloseBtn->addTouchEventListener(CC_CALLBACK_2(UI_Equipment_Gem_Layer::onCloseCallBack, this));
+    
 	// 强化按钮
 	m_pEquipStrengthenText	= dynamic_cast<ui::Button*>(Helper::seekWidgetByName(pLayer, "Btn_Strengthen"));
 	m_pEquipStrengthenText->setBrightStyle(Widget::BrightStyle::NORMAL);
@@ -181,11 +186,13 @@ void UI_Equipment_Gem_Layer::RefreshEquipmentBaseInfo()
 	int nTemp = 0;
 	const char * szTemp; 
 
-	szTemp	= ITEM_CONFIG_MGR::instance()->get_icon_path(pItemConfig->icon);								
+	szTemp	= ITEM_CONFIG_MGR::instance()->get_icon_path(pItemConfig->icon);
+    std::string p("icon/");
+    p+=szTemp;
 	nTemp	= strcmp(szTemp, "");
 	if (nTemp > 0)
 	{
-		m_pEquipIcon->loadTexture(szTemp, UI_TEX_TYPE_PLIST);
+		m_pEquipIcon->loadTexture(p.c_str());
 	}
 	
 	szTemp = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(pItemConfig->name);						
@@ -457,4 +464,32 @@ void UI_Equipment_Gem_Layer::OnBtnSetOffGemhCallBack(Ref* pSender, Widget::Touch
 		return;
 
 	ITEM_LOGIC::instance()->set_off_gem(m_nEquipItemID, nGemPos);
+}
+
+void UI_Equipment_Gem_Layer::onCloseCallBack(Ref* pSender, ui::Widget::TouchEventType type)
+{
+    if (type != Widget::TouchEventType::ENDED)
+        return;
+    //CC_SAFE_RETAIN(this);
+    //this->removeFromParent();
+    this->setVisible(false);
+    
+//    auto root = (Widget*)this->getParent();
+//    auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
+//    Pnl_Equip_Bar->setVisible(true);
+//    auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
+//    Pnl_Use->setVisible(false);
+    ////auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
+    ////compare->setVisible(true);
+    //auto panel_right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right"));
+    //panel_right->setVisible(false);
+    ////auto panel_right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right_1"));
+    ////panel_right1->setVisible(true);
+    
+//    auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
+//    Pnl_Bag->setVisible(true);
+//    auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
+//    Pnl_Property->setVisible(false);
+    
+    UI_Bag_Info_Layer::sIsProperty = false;
 }

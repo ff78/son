@@ -28,7 +28,7 @@ bool UI_Ranking_List_Cell_Layer::init()
 	if (!Layout::init())
 		return false;
 
-	Widget* pLayer			= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Rank_List_Cell/Rank_List_Cell.ExportJson");
+	Widget* pLayer			= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Rank_List_Cell.json");
 	this->addChild(pLayer);													
 
 	// 名次文本

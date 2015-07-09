@@ -271,7 +271,9 @@ void UI_Material_Fragment_Layer::change_refresh()
 		m_fragmentIconBack[index]->loadTexture(string,UI_TEX_TYPE_PLIST);
 
 		string = ITEM_CONFIG_MGR::instance()->get_icon_path(item->config->icon);
-		m_iconTexture[index]->loadTexture(string,UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=string;
+		m_iconTexture[index]->loadTexture(p.c_str());
 		m_iconTexture[index]->setTag(item->config->base_id);
 
 		//图标名称 及 数量显示
@@ -377,7 +379,9 @@ void UI_Material_Fragment_Layer::materialShow(int item_base_id)
 		const char* string = DICTIONARY_CONFIG_MGR::instance()->get_quality_icon(fragment_config->quality);
 		m_pImgCombineBefore->loadTexture(string,UI_TEX_TYPE_PLIST);
 		string = ITEM_CONFIG_MGR::instance()->get_icon_path(fragment_config->icon);
-		m_pImgCombineBeforeTexture->loadTexture(string,UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=string;
+		m_pImgCombineBeforeTexture->loadTexture(p.c_str());
 		m_pImgCombineBeforeTexture->setVisible(true);
 		string = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(fragment_config->desc);
 		m_pTeaFragmentDesc->setText(string);
@@ -393,7 +397,9 @@ void UI_Material_Fragment_Layer::materialShow(int item_base_id)
 			string = DICTIONARY_CONFIG_MGR::instance()->get_quality_icon(material_config->quality);
 			m_pImgCombineAfter->loadTexture(string,UI_TEX_TYPE_PLIST);
 			string = ITEM_CONFIG_MGR::instance()->get_icon_path(material_config->icon);
-			m_pImgCombineAfterTexture->loadTexture(string,UI_TEX_TYPE_PLIST);
+            std::string p("icon/");
+            p+=string;
+			m_pImgCombineAfterTexture->loadTexture(p.c_str());
 			m_pImgCombineAfterTexture->setVisible(true);
 			string = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(material_config->desc);
 			m_pTeaCombineDesc->setText(string);

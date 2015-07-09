@@ -255,28 +255,36 @@ namespace Game_Data
 	{
 		quality = quality % (QT_MAX+1);
 		const char* path = ITEM_CONFIG_MGR::instance()->get_icon_path(m_quality_icon_id[quality]);
-		return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
 	}
 
 	const char* Item_Desc_Config_Mgr::get_charactor_quality_circle_icon(int quality)
 	{
 		quality = quality % (QT_MAX+1);
 		const char* path = ITEM_CONFIG_MGR::instance()->get_icon_path(m_charactor_quality_circle_icon_id[quality]);
-		return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
 	}
 
 	const char* Item_Desc_Config_Mgr::get_skill_circle_icon( int quality )
 	{
 		quality = quality % (QT_MAX+1);
 		const char* path = ITEM_CONFIG_MGR::instance()->get_icon_path(m_skill_circle_icon_id[quality]);
-		return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
 	}
 
 	const char* Item_Desc_Config_Mgr::get_skill_square_icon( int quality)
 	{
 		quality = quality % (QT_MAX+1);
 		const char* path = ITEM_CONFIG_MGR::instance()->get_icon_path(m_skill_square_icon_id[quality]);
-		return path;
+        std::string p("icon/");
+        p+=path;
+        return p.c_str();
 	}
 
 	const char* Item_Desc_Config_Mgr::get_quality_string(int quality)
@@ -297,7 +305,9 @@ namespace Game_Data
 	{
 		level = level % (VEIN_LEVEL_MAX);
 		const char* path = ITEM_CONFIG_MGR::instance()->get_icon_path(m_vein_level_icon_id[level]);
-		return path;
+        std::string p("icon/");
+        p+=path;
+		return p.c_str();
 	}
 
 	const char* Item_Desc_Config_Mgr::get_vein_level_string(int level)

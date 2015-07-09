@@ -11,11 +11,11 @@
 
 #include "Item_System/Item_Msg_Proc_Cl.h"
 #include "Item_Container_System/Item_Container_Msg_Proc_Cl.h"
-#include "Skill_System/Skill/Skill_Msg_Proc.h"
+//#include "Skill_System/Skill/Skill_Msg_Proc.h"
 #include "Play_System/Client_Instance_Msg_Proc.h"
 #include "Shop_System/Shop_Msg_Proc_Cl.h"
 #include "quest_system/quest_logic/quest_msg_proc_client.h"
-#include "Character_System/Deputy_General_Msg_Proc.h"
+//#include "Character_System/Deputy_General_Msg_Proc.h"
 #include "Relation_System/Relation_Msg_Proc.h"
 //#include "Fight_System/Offline_Fight_Msg_Proc_Cl.h"
 //#include "Fight_System/Online_Fight_Msg_Proc_Cl.h"
@@ -186,10 +186,10 @@ int Msg_Proc::init( void )
 	reg_interface(SC_BUY_ITEM,              Shop_Msg_Proc::on_buy_item);
 
 	// deputy_general
-	reg_interface(SC_LOAD_DEPUTY_GENERAL,           Deputy_General_Msg_Proc::on_load_deputy_general);
-	reg_interface(SC_DEPUTY_GENERAL_FIGHT,          Deputy_General_Msg_Proc::on_deputy_general_fight);
-    reg_interface(SC_DEPUTY_GENERAL_CANCEL_FIGHT,   Deputy_General_Msg_Proc::on_deputy_general_cancel_fight);
-    reg_interface(SC_CREATE_DEPUTY_GENERAL,         Deputy_General_Msg_Proc::on_create_deputy_general);
+//	reg_interface(SC_LOAD_DEPUTY_GENERAL,           Deputy_General_Msg_Proc::on_load_deputy_general);
+//	reg_interface(SC_DEPUTY_GENERAL_FIGHT,          Deputy_General_Msg_Proc::on_deputy_general_fight);
+//    reg_interface(SC_DEPUTY_GENERAL_CANCEL_FIGHT,   Deputy_General_Msg_Proc::on_deputy_general_cancel_fight);
+//    reg_interface(SC_CREATE_DEPUTY_GENERAL,         Deputy_General_Msg_Proc::on_create_deputy_general);
 
 	// relation
 	reg_interface(SC_ADD_FRIEND,				Relation_Msg_Proc::on_add_friend_from_apply);

@@ -74,8 +74,8 @@
           "name": "pet_tz3_atk",
           "parent": "",
           "dI": 15,
-          "x": 12.0,
-          "y": 70.0,
+          "x": 11.0,
+          "y": 57.0,
           "z": 3,
           "cX": 1.0,
           "cY": 1.0,
@@ -316,8 +316,8 @@
           "name": "walk",
           "parent": "",
           "dI": -1,
-          "x": -16.0,
-          "y": 74.0,
+          "x": -11.0,
+          "y": 61.0,
           "z": 2,
           "cX": 1.0,
           "cY": 1.0,
@@ -474,8 +474,8 @@
           "name": "stand",
           "parent": "",
           "dI": -1,
-          "x": -22.0,
-          "y": 68.0,
+          "x": -17.0,
+          "y": 55.0,
           "z": 1,
           "cX": 1.0,
           "cY": 1.0,
@@ -898,7 +898,7 @@
         },
         {
           "name": "walk",
-          "dr": 19,
+          "dr": 20,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -1100,7 +1100,7 @@
           ]
         },
         {
-          "name": "pet_tz3_atk",
+          "name": "pet_ma3_atk",
           "dr": 32,
           "lp": false,
           "to": 0,
@@ -1134,7 +1134,7 @@
               "dl": 0.0,
               "frame_data": [
                 {
-                  "dI": 0,
+                  "dI": 15,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -1409,8 +1409,8 @@
   "texture_data": [
     {
       "name": "pet_rabbit_std001",
-      "width": 146.0,
-      "height": 143.0,
+      "width": 121.0,
+      "height": 119.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_rabbit_3.plist"
@@ -1505,8 +1505,8 @@
     },
     {
       "name": "pet_rabbit_move001",
-      "width": 149.0,
-      "height": 153.0,
+      "width": 123.0,
+      "height": 129.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_rabbit_3.plist"
@@ -1585,8 +1585,8 @@
     },
     {
       "name": "pet_rabbit_atk001",
-      "width": 160.0,
-      "height": 143.0,
+      "width": 135.0,
+      "height": 121.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_rabbit_3.plist"
@@ -1705,8 +1705,8 @@
     },
     {
       "name": "pet_rabbit_atk016",
-      "width": 84.0,
-      "height": 151.0,
+      "width": 71.0,
+      "height": 127.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_rabbit_3.plist"

@@ -19,106 +19,106 @@
 using namespace std;
 namespace Game_Data
 {
-    // Ʒ��
+    // 品质
     enum Quality_Type
     {
-		QT_WHITE = 0,                   // ��ɫ
-		QT_RED,							// ��ɫ
-		QT_BLACK,						// ��ɫ
-		QT_GREY,						// ��ɫ
-		QT_YELLOW,						// ��ɫ
-		QT_GREEN,                       // ��ɫ
-		QT_BLUE,                        // ��ɫ
-		QT_PURPLE,                      // ��ɫ
-		QT_ORANGE,                      // ��ɫ
+		QT_WHITE = 0,                   // 白色
+		QT_RED,							// 红色
+		QT_BLACK,						// 黑色
+		QT_GREY,						// 灰色
+		QT_YELLOW,						// 黄色
+		QT_GREEN,                       // 绿色
+		QT_BLUE,                        // 蓝色
+		QT_PURPLE,                      // 紫色
+		QT_ORANGE,                      // 橙色
 
 		QT_MAX,                         // 
     };
 
-    // Ʒ��ģ������
+    // 品质模块类型
     enum Quality_Module_Type
     {
-        QMT_ROLE = 0,                   // ����
-        QMT_EQUIPMENT,                  // װ��
-        QMT_BOOK,                       // �ķ��鼮
+        QMT_ROLE = 0,                   // 人物
+        QMT_EQUIPMENT,                  // 装备
+        QMT_BOOK,                       // 心法书籍
 
         QMT_MAX,                        // 
     };
 
-    // ��������
+    // 道具类型
     enum Item_Type
     {
-        IT_EQUIPMENT_DEPOT = 0,         // װ����
-        IT_EQUIPMENT,                   // װ��
-        IT_USABLE_ITEM,                 // ��ʹ��
-        IT_MATERIAL_ITEM,               // ����
-        IT_QUEST_ITEM,                  // ������Ʒ
-        IT_BOOK,                        // �ķ��鼮
-        IT_BOOK_FRAGMENT,               // �ķ���Ҷ
-        IT_MATERIAL_FRAGMENT,           // ������Ƭ
-        IT_GIFT_ITEM,                   // ���
-        IT_GEM,                         // ��ʯ
+        IT_EQUIPMENT_DEPOT = 0,         // 装备库
+        IT_EQUIPMENT,                   // 装备
+        IT_USABLE_ITEM,                 // 可使用
+        IT_MATERIAL_ITEM,               // 材料
+        IT_QUEST_ITEM,                  // 任务物品
+        IT_BOOK,                        // 心法书籍
+        IT_BOOK_FRAGMENT,               // 心法残叶
+        IT_MATERIAL_FRAGMENT,           // 材料碎片
+        IT_GIFT_ITEM,                   // 礼包
+        IT_GEM,                         // 宝石
     };
 
-    // ���߰�״̬
+    // 道具绑定状态
     enum Item_Bind_State
     {
-        IBS_NOT_BIND = 0,               // ����
-        IBS_GOT_BIND,                   // ʰȡ��
-        IBS_USED_BIND,                  // ʹ�ð�
+        IBS_NOT_BIND = 0,               // 不绑定
+        IBS_GOT_BIND,                   // 拾取绑定
+        IBS_USED_BIND,                  // 使用绑定
     };
 
-    // ��ʯ����
+    // 宝石类型
     enum Gem_Type
     {
-        GT_ATK = 1,                     // ������ʯ
-        GT_DEF,                         // ������ʯ
-        GT_HP,                          // ��Ѫ��ʯ
-        GT_DOD,                         // ���ܱ�ʯ
-        GT_HIT,                         // ���б�ʯ
+        GT_ATK = 1,                     // 攻击宝石
+        GT_DEF,                         // 防御宝石
+        GT_HP,                          // 气血宝石
+        GT_DOD,                         // 闪避宝石
+        GT_HIT,                         // 命中宝石
     };
 
-    // �������ɷ�ʽ
+    // 道具生成方式
     enum Item_Create_Way
     {
-        ICW_DROP = 1,                   // ����
-        ICW_BUY,                        // ����
-        ICW_PRESENT,                    // ϵͳ����
-        ICW_COMPOUND,                   // �ϳ�
-        ICW_GM_COMMAND,                 // GM��������
+        ICW_DROP = 1,                   // 掉落
+        ICW_BUY,                        // 购买
+        ICW_PRESENT,                    // 系统赠送
+        ICW_COMPOUND,                   // 合成
+        ICW_GM_COMMAND,                 // GM命令添加
     };
 
-    // ���ߴݻٷ�ʽ
+    // 道具摧毁方式
     enum Item_Destroy_Way
     {
-        IDW_NORMAL = 0,                 // ����
-        IDW_USED,                       // ʹ��
-        IDW_MAKE,                       // �ϳ�
-        IDW_SELL,                       // ����
-        IDW_DISCARD,                    // ����
-        IDW_TIME_OUT,                   // ��ʱ
-        IDW_PILE,                       // �ѵ�
-        IDW_QUEST,                      // ����
+        IDW_NORMAL = 0,                 // 正常
+        IDW_USED,                       // 使用
+        IDW_MAKE,                       // 合成
+        IDW_SELL,                       // 卖店
+        IDW_DISCARD,                    // 丢弃
+        IDW_TIME_OUT,                   // 超时
+        IDW_PILE,                       // 堆叠
+        IDW_QUEST,                      // 任务
     };
 
-    // װ�����λ��
+    // 装备佩戴位置
     enum Equipment_Pos
     {
-		EP_WEAPON= 0,                   // ����
-        EP_ARMOUR,                      // �·�
-        EP_BOOTS,                       // Ь��
-		EP_NECKLACE,					// ����
-		EP_BELT,						// ����
-		EP_PANTS,						// ����
-		EP_HELMET,                      // ͷ��
-        EP_ORNAMENT,                    // ��Ʒ
-		EP_ORNAMENT2,                   // ��Ʒ
-        EP_FASHION,                     // ʱװ
+		EP_WEAPON= 0,                   // 武器
+        EP_ARMOUR,                      // 衣服
+        EP_BOOTS,                       // 鞋子
+		EP_NECKLACE,					// 项链
+		EP_BELT,						// 腰带
+		EP_PANTS,						// 裤子
+		EP_HELMET,                      // 头盔
+        EP_ORNAMENT,                    // 饰品
+		EP_ORNAMENT2,                   // 饰品
+        EP_FASHION,                     // 时装
 
         EP_MAX,                         // 
     };
 
-    // �ķ��鼮���λ��
+    // 心法书籍佩戴位置
     enum Book_Pos
     {
         
@@ -126,113 +126,113 @@ namespace Game_Data
         BP_MAX = 6,                         // 
     };
 
-    // װ����������
+    // 装备属性类型
     enum Equipment_Attr_Type
     {
-        EAT_HEALTH = 0,                 // ����
-        EAT_MAGIC,                      // ���
-        EAT_ATTACK,                     // ����
-        EAT_DEFENSE,                    // ����
-        EAT_HIT,                        // ����
-        EAT_DODGE,                      // ����
-        EAT_CRIT,                       // ����
-        EAT_TENACITY,                   // ����
-        EAT_HURT,                       // �����˺�
+        EAT_HEALTH = 0,                 // 生命
+        EAT_MAGIC,                      // 罡气
+        EAT_ATTACK,                     // 攻击
+        EAT_DEFENSE,                    // 防御
+        EAT_HIT,                        // 命中
+        EAT_DODGE,                      // 闪避
+        EAT_CRIT,                       // 暴击
+        EAT_TENACITY,                   // 坚韧
+        EAT_HURT,                       // 暴击伤害
     };
 
-    // װ����������
+    // 装备属性类型
     enum Item_Load_Type
     {
-        ILT_BAG = 0,                    // ���ر���
-        ILT_BOOK_BAG,                   // �����ķ�
-        ILT_STORE,                      // ���زֿ�
+        ILT_BAG = 0,                    // 加载背包
+        ILT_BOOK_BAG,                   // 加载心法
+        ILT_STORE,                      // 加载仓库
     };
 
-    // �������
+    // 礼包类型
     enum Gift_Type
     {
-        GT_RANDOM = 1,                  // ���һ�ֽ���
-        GT_ALL,                         // ����������Ʒ
+        GT_RANDOM = 1,                  // 随机一种奖励
+        GT_ALL,                         // 奖励所有物品
     };
 
     struct Item_Config
     {
-        int                     base_id;                    // ��ID
-        int                     type;                       // ���ͣ�1��װ����2������Ʒ��3�����ϣ�4��������Ʒ��5���ķ��鼮��6���ķ���ҳ��
-        int                     name;                       // ����
-        int                     icon;                       // ͼ��
-        int                     quality;                    // Ʒ�ʣ�0���ף�1���̣�2������3���ϣ�4���ȣ�
-        int                     desc;                       // ˵��
-        int                     drop_desc;                  // ����˵��
-        int                     bind;                       // ��״̬��0�����󶨣�1��ʰȡ�󶨣�2��ʹ�ð󶨣�
-        int                     pile_count;                 // �ɶѵ�����
-        int                     gold_cost;                  // ��ҹ��򻨷�
-        int                     token_cost;                 // ���ҹ��򻨷�
-        int                     sell_income;                // ��������
-        int					    can_sell;                   // �ɷ����
-        int					    can_auction;                // �ɷ����
-        int					    can_trade;                  // �ɷ���
-        int					    can_store;                  // �ɷ��Ųֿ�
-        int					    can_pile;                   // �ɷ�ѵ�
-        int					    can_destroy;                // �ɷ�ݻ�
-        int					    destroy_time;               // ���ߴݻ�ʱ��(��)
-        int					    sort;                       // �������
+        int                     base_id;                    // 表ID
+        int                     type;                       // 类型（1：装备，2：消耗品，3：材料，4：任务物品，5：心法书籍，6：心法残页）
+        int             name;                       // 名称
+        int             icon;                       // 图标
+        int                     quality;                    // 品质（0：白，1：绿，2：蓝，3：紫，4：橙）
+        int             desc;                       // 说明
+        int             drop_desc;                  // 出处说明
+        int                     bind;                       // 绑定状态（0：不绑定，1：拾取绑定，2：使用绑定）
+        int                     pile_count;                 // 可堆叠个数
+        int                     gold_cost;                  // 金币购买花费
+        int                     token_cost;                 // 代币购买花费
+        int                     sell_income;                // 出售收入
+        int					    can_sell;                   // 可否出售
+        int					    can_auction;                // 可否寄卖
+        int					    can_trade;                  // 可否交易
+        int					    can_store;                  // 可否存放仓库
+        int					    can_pile;                   // 可否堆叠
+        int					    can_destroy;                // 可否摧毁
+        int					    destroy_time;               // 道具摧毁时间(秒)
+        int					    sort;                       // 排序规则
     };
 
-    // װ����
+    // 装备库
     struct Equipment_Depot_Config:Item_Config
     {
-        int                     level;                      // �ȼ�
-        int                     item_base_id;               // װ�����ķ��ı�ID
+        int                     level;                      // 等级
+        int                     item_base_id;               // 装备，心法的表ID
     };
 
-    // ��Ƭ
+    // 碎片
     struct Item_Fragment_Config:Item_Config
     {
-        int                     need_count;                 // �ϳ�����������Ҫ�ĸ���
-        int                     compound_id;                // �ϳ��������ߵı�ID
+        int                     need_count;                 // 合成完整道具需要的个数
+        int                     compound_id;                // 合成完整道具的表ID
     };
 
-    // װ��
+    // 装备
     struct Equipment_Config:Item_Config
     {
-        int                     occupation;                 // ƥ��ְҵ
-        int                     pos;                        // װ��λ�ã�0��������1���·���2��Ь�ӣ�3��������4��������5������, 6:ͷ�� ,7:��Ʒ, 8:��Ʒ 9:ʱװ��
-        int                     upgrade_cost_coefficient;   // ��������ϵ��
-        int                     base_attr[MAX_ATTR_COUNT];         // װ����������
-        int                     attr_level_grow[MAX_ATTR_COUNT];   // �������Գɳ�
-        int                     attr_quality_grow[QT_MAX];  // ��Ʒ���Գɳ�
+        int                     occupation;                 // 匹配职业
+        int                     pos;                        // 装备位置（0：武器，1：衣服，2：鞋子，3：项链，4：腰带，5：裤子, 6:头盔 ,7:饰品, 8:饰品 9:时装）
+        int                     upgrade_cost_coefficient;   // 升级花费系数
+        int                     base_attr[MAX_ATTR_COUNT];         // 装备基础属性
+        int                     attr_level_grow[MAX_ATTR_COUNT];   // 升级属性成长
+        int                     attr_quality_grow[QT_MAX];  // 升品属性成长
     };
 
-    // ��ʹ�õ���
+    // 可使用道具
     struct Usable_Item_Config:Item_Config
     {
-        int                     event_id;                   // �����¼�ID
+        int                     event_id;                   // 触发事件ID
     };
 
-    // �ķ��鼮
+    // 心法书籍
     struct Book_Config:Item_Config
     {
-        int                     exp;                                // �ṩ�ľ���
-        int                     need_power;                         // ����������
-        int                     upgrade_base_exp[QT_MAX];           // Ʒ�ʶ�Ӧ��������������
-        int                     base_attr[QT_MAX][MAX_ATTR_COUNT];  // �ķ���������
-        int                     max_level[QT_MAX];                  // Ʒ�ʶ�Ӧ�����ȼ�
-        int                     upgrade_exp_grow[QT_MAX];           // Ʒ�ʶ�Ӧ����������ĳɳ�
-        int                     attr_grow[QT_MAX][MAX_ATTR_COUNT];  // Ʒ�ʶ�Ӧ���Եĳɳ�
+        int                     exp;                                // 提供的经验
+        int                     need_power;                         // 穿戴需求功力
+        int                     upgrade_base_exp[QT_MAX];           // 品质对应的升级基础经验
+        int                     base_attr[QT_MAX][MAX_ATTR_COUNT];  // 心法基础属性
+        int                     max_level[QT_MAX];                  // 品质对应的最大等级
+        int                     upgrade_exp_grow[QT_MAX];           // 品质对应的升级经验的成长
+        int                     attr_grow[QT_MAX][MAX_ATTR_COUNT];  // 品质对应属性的成长
     };
 
-    // ��ʯ
+    // 宝石
     struct Gem_Config:Item_Config
     {
-        int                     gem_type;                   // ����
-        int                     level;                      // �ȼ�
-        int                     upgrade_cost;               // �ϳɻ���
-        int                     set_equipment_pos;          // ��Ƕλ��
-        int                     attr_type;                  // ��������
-        int                     attr_value;                 // ������ֵ
-        int                     need_count;                 // �ϳɱ�ʯ��Ҫ�ĸ���
-        int                     compound_id;                // �ϳɱ�ʯ�ı�ID
+        int                     gem_type;                   // 类型
+        int                     level;                      // 等级
+        int                     upgrade_cost;               // 合成花费
+        int                     set_equipment_pos;          // 镶嵌位置
+        int                     attr_type;                  // 属性类型
+        int                     attr_value;                 // 属性数值
+        int                     need_count;                 // 合成宝石需要的个数
+        int                     compound_id;                // 合成宝石的表ID
     };
 
     struct item_content

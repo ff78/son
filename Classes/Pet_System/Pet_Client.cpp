@@ -179,6 +179,7 @@ void PET_VIEW::refresh()
             _upgradeButton->setBright(false);
             _goButton->setTouchEnabled(false);
             _goButton->setBright(false);
+            _goButton->setVisible(false);
             fightFlag->setVisible(true);
         }else{
             bool canUpgrade = true;
@@ -196,6 +197,7 @@ void PET_VIEW::refresh()
             _upgradeButton->setBright(canUpgrade);
             _goButton->setTouchEnabled(true);
             _goButton->setBright(true);
+            _goButton->setVisible(true);
             fightFlag->setVisible(false);
         }
 	}
@@ -255,7 +257,7 @@ bool PET_VIEW::init()
 	Director::getInstance()->getEventDispatcher()->addCustomEventListener(EVENT_REFRESH, CC_CALLBACK_0(PET_VIEW::refresh, this));
 
 
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/pet/pet.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/pet.json");
 	if( _rootWidget == nullptr )
         return false;
 	addChild(_rootWidget);
@@ -321,7 +323,8 @@ bool PET_VIEW::init()
     model= Armature::create("pet_horse_3");
 //    model->getAnimation()->playWithIndex(0);
     model->setPositionX(showPanel->getContentSize().width/2 );
-    model->setPositionY(showPanel->getContentSize().height/4);
+    model->setPositionY(showPanel->getContentSize().height/4+40);
+    model->setScale(1.5);
     model->setVisible(false);
     
     detailButton->setTouchEnabled(false);
@@ -397,11 +400,12 @@ bool PET_VIEW::init()
         _upgradeButton->setBright(false);
         _goButton->setTouchEnabled(false);
         _goButton->setBright(false);
+        _goButton->setVisible(false);
         fightFlag->setVisible(true);
     }else{
         emptyPet = true;
         auto label = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_120_1_2"));
-        label->setString("角色升级可获得守护兽");
+        label->setString("角色升到2级可获得守护兽");
         model->setVisible(false);
         _petName->setVisible(false);
         _petConsume->setString("0");
@@ -486,6 +490,11 @@ void PET_VIEW::onDetail(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventTy
     showDetail = !showDetail;
     
     detailBg->setVisible(showDetail);
+    if (!showDetail) {
+        detailButton->setTitleText("详细");
+    }else{
+        detailButton->setTitleText("返回");
+    }
 }
 
 void PET_VIEW::onCloseCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType type)
@@ -531,8 +540,9 @@ void PET_VIEW::onClickCellCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
         _upgradeButton->setBright(false);
         _upgradeButton->setVisible(true);
         _goButton->setTouchEnabled(false);
-        _goButton->setBright(false);
-        _goButton->setVisible(true);
+        _goButton->setVisible(false);
+//        _goButton->setBright(false);
+//        _goButton->setVisible(true);
         fightFlag->setVisible(true);
 	} else {
         bool canUpgrade = true;

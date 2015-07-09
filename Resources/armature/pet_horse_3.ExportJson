@@ -74,8 +74,8 @@
           "name": "pet_ma3_atk",
           "parent": "",
           "dI": 9,
-          "x": 27.0,
-          "y": 101.0,
+          "x": 24.0,
+          "y": 83.0,
           "z": 3,
           "cX": 1.0,
           "cY": 1.0,
@@ -232,8 +232,8 @@
           "name": "walk",
           "parent": "",
           "dI": -1,
-          "x": 13.0,
-          "y": 70.0,
+          "x": 15.0,
+          "y": 57.0,
           "z": 2,
           "cX": 1.0,
           "cY": 1.0,
@@ -390,8 +390,8 @@
           "name": "stand",
           "parent": "",
           "dI": -1,
-          "x": -5.0,
-          "y": 66.0,
+          "x": -3.0,
+          "y": 53.0,
           "z": 1,
           "cX": 1.0,
           "cY": 1.0,
@@ -814,7 +814,7 @@
         },
         {
           "name": "walk",
-          "dr": 19,
+          "dr": 20,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -1050,7 +1050,7 @@
               "dl": 0.0,
               "frame_data": [
                 {
-                  "dI": 0,
+                  "dI": 9,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -1359,8 +1359,8 @@
   "texture_data": [
     {
       "name": "pet_horse_std001",
-      "width": 126.0,
-      "height": 144.0,
+      "width": 105.0,
+      "height": 120.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_horse_3.plist"
@@ -1455,8 +1455,8 @@
     },
     {
       "name": "pet_horse_move 001",
-      "width": 170.0,
-      "height": 153.0,
+      "width": 143.0,
+      "height": 128.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_horse_3.plist"
@@ -1535,8 +1535,8 @@
     },
     {
       "name": "pet_horse_atk001",
-      "width": 136.0,
-      "height": 138.0,
+      "width": 114.0,
+      "height": 117.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_horse_3.plist"
@@ -1607,8 +1607,8 @@
     },
     {
       "name": "pet_horse_atk010",
-      "width": 126.0,
-      "height": 144.0,
+      "width": 106.0,
+      "height": 121.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": "pet_horse_3.plist"

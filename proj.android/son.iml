@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager" forced_jdk="true">
-    <varelement var="file://$PARENT-1-PROJECT_LOC$/cocos2d/cocos/2d/platform/android/java/src" kind="linksrc:" value="libcocos2d" />
+    <varelement var="file://$PARENT-1-PROJECT_LOC$/cocos2d/cocos/2d/platform/android/java/src" value="linksrc:libcocos2d" />
     <conelement value="com.android.ide.eclipse.adt.DEPENDENCIES" />
     <src_description expected_position="1">
       <src_folder value="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK" expected_position="0" />

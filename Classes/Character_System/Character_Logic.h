@@ -18,9 +18,9 @@ public:
     static Character_Logic* instance();
 	int init_Character_system( void );
 
-	static bool init_character_skill_list(Game_Logic::Game_Interface& gm_interface);
+//	static bool init_character_skill_list(Game_Logic::Game_Interface& gm_interface);
 
-	static bool  init_skill_list(int character_id);
+//	static bool  init_skill_list(int character_id);
 
 	int exec_Character_function(const char* cmd, std::vector<uint64> para, const char* key);
 	int reg_Character_function();

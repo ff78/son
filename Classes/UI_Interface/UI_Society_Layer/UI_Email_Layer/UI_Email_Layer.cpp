@@ -40,7 +40,7 @@ bool UI_Email_Layer::init()
 	vector<uint64> para;
 	Game_Logic::Game_Content_Interface::instance()->exec_interface(EVENT_EMAIL_SEND_LOAD, para);
 
-	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_All_Email/Social_All_Email.ExportJson");
+	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_All_Email.json");
 	addChild(pLayer);
 
 	// 发送邮件按钮

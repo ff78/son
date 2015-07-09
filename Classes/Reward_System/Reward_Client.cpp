@@ -38,7 +38,7 @@ bool REWARD_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/quest_everyday/quest_everyday.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/quest_everyday.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

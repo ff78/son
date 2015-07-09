@@ -19,7 +19,7 @@
 #include "Character_System/Player_Msg_Proc_Cl.h"
 #include "Item_System/Item_Msg_Proc_Cl.h"
 #include "Item_Container_System/Item_Container_Msg_Proc_Cl.h"
-#include "Skill_System/Skill/Skill_Msg_Proc.h"
+//#include "Skill_System/Skill/Skill_Msg_Proc.h"
 #include "Play_System/Formula_Function_Instance.h"
 #include "Play_System/Formula_Function_Instance_Client.h"
 #include "Play_System/Formula_Function_Monster_Wave.h"
@@ -28,7 +28,7 @@
 #include "quest_system/quest_logic/quest_msg_proc_client.h"
 #include "quest_system/quest_logic/quest_npc_logic.h"
 #include "quest_system/quest_logic/quest_logic.h"
-#include "Character_System/Deputy_General_Msg_Proc.h"
+//#include "Character_System/Deputy_General_Msg_Proc.h"
 #include "Relation_System/Relation_Msg_Proc.h"
 #include "Event_System/event_system_logic.h"
 //#include "Fight_System/Offline_Fight_Msg_Proc_Cl.h"
@@ -282,10 +282,10 @@ namespace Game_Logic
 		reg_interface("isquestinprocess",							quest_logic::is_quest_in_process);
 
 		//character system
-        reg_interface("initcharacterskilllist",             Character_Logic::init_character_skill_list);
-		reg_interface("send_load_deputy_general",           Deputy_General_Msg_Proc::send_load_deputy_general);
-		reg_interface("send_deputy_general_fight",          Deputy_General_Msg_Proc::send_deputy_general_fight);
-		reg_interface("send_deputy_general_cancel_fight",   Deputy_General_Msg_Proc::send_deputy_general_cancel_fight);
+//        reg_interface("initcharacterskilllist",             Character_Logic::init_character_skill_list);
+//		reg_interface("send_load_deputy_general",           Deputy_General_Msg_Proc::send_load_deputy_general);
+//		reg_interface("send_deputy_general_fight",          Deputy_General_Msg_Proc::send_deputy_general_fight);
+//		reg_interface("send_deputy_general_cancel_fight",   Deputy_General_Msg_Proc::send_deputy_general_cancel_fight);
 		
 		// relation
 		reg_interface("send_add_friend",            Relation_Msg_Proc::send_add_friend);

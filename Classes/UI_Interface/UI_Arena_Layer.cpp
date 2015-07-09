@@ -312,8 +312,11 @@ void UI_Arena_Layer::update()
 	//setPlayerName
 	m_pLabMyName->setString(player->get_character_name());
 	//setPlayerPhoto
+    
 	const char* picRoleHead = ITEM_CONFIG_MGR::instance()->get_icon_path(player->get_face_mode_id());
-	m_pImgMyHeadPhoto->loadTexture(picRoleHead, UI_TEX_TYPE_PLIST);
+    std::string p("icon/");
+    p+=picRoleHead;
+	m_pImgMyHeadPhoto->loadTexture(p.c_str());
     const char* quality_back = DICTIONARY_CONFIG_MGR::instance()->get_quality_icon(player->get_character_quality());
     m_pImgMyHeadPhotoBack->loadTexture(quality_back, UI_TEX_TYPE_PLIST);
 	//setPlayerLevel
@@ -367,7 +370,9 @@ void UI_Arena_Layer::update()
 		if (roleData)
 		{
 			picRoleHead = ITEM_CONFIG_MGR::instance()->get_icon_path(roleData->get_player_face_mode_id());
-			m_pImgOffLinePlayerHeadPhoto[i]->loadTexture(picRoleHead, UI_TEX_TYPE_PLIST);
+            std::string p("icon/");
+            p+=picRoleHead;
+            m_pImgOffLinePlayerHeadPhoto[i]->loadTexture(p.c_str());
 		}
 
         quality_back = DICTIONARY_CONFIG_MGR::instance()->get_quality_icon(fight.quality_);

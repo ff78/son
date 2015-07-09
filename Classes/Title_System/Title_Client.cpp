@@ -33,7 +33,7 @@ bool TITLE_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/title/title.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/title.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

@@ -10,7 +10,7 @@
 #include "Character_System/CommonNpc.h"
 #include "Character_System/Player.h"
 #include "Item_System/Item_Config_Mgr.h"
-#include "Skill_System/Skill/Technical_Mgr.h"
+//#include "Skill_System/Skill/Technical_Mgr.h"
 #include "Play_System/Formula_Function_Instance.h"
 //#include "UI/NPC.h"
 //#include "UI_Instance_Layer.h"
@@ -837,32 +837,32 @@ int UI_Mission_Layer::get_instance_name(Game_Data::Game_Element& ele_cont, const
 }
 int UI_Mission_Layer::get_skill_name(Game_Data::Game_Element& ele_cont, const char* key_name, char* txt)
 {
-	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
-
-	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
-	if( NULL == player )
-		return -1;
-
-	int gender = player->get_sex();
-	vector<uint> para;
-
-	para.clear();
-	string comp_key = key_name;
-	string skill_name = "";
-
-	if(!comp_key.compare(ele_cont.get_command()))
-	{
-		ele_cont.get_para_list_in_vector( para);
-		if( para.size() > 1 )
-		{
-			Technical_Data* skill = TECHNICAL_MGR::instance()->GetTechnicalData(para[0]);
-			if(NULL == skill )
-				return -1;
-			skill_name = GET_STRING(skill->name_index);
-			sprintf( txt, "%s  %s   %d / %d ", txt, skill_name.data(), (int)ele_cont.get_count(), (int)para[2]);
-			return 0;
-		}
-	}
+//	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//
+//	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+//	if( NULL == player )
+//		return -1;
+//
+//	int gender = player->get_sex();
+//	vector<uint> para;
+//
+//	para.clear();
+//	string comp_key = key_name;
+//	string skill_name = "";
+//
+//	if(!comp_key.compare(ele_cont.get_command()))
+//	{
+//		ele_cont.get_para_list_in_vector( para);
+//		if( para.size() > 1 )
+//		{
+//			Technical_Data* skill = TECHNICAL_MGR::instance()->GetTechnicalData(para[0]);
+//			if(NULL == skill )
+//				return -1;
+//			skill_name = GET_STRING(skill->name_index);
+//			sprintf( txt, "%s  %s   %d / %d ", txt, skill_name.data(), (int)ele_cont.get_count(), (int)para[2]);
+//			return 0;
+//		}
+//	}
 	return 0;
 }
 int UI_Mission_Layer::get_item_name(Game_Data::Game_Element& ele_cont, const char* key_name, char* txt)
@@ -1073,7 +1073,9 @@ void UI_Mission_Layer::commonUIPart(Game_Data::quest_data* qd,int index)
         }
 
 		const char* iconName = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
-		m_UI[index].m_pImgAwardIcon->loadTexture(iconName, UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=iconName;
+		m_UI[index].m_pImgAwardIcon->loadTexture(p.c_str());
 	m_UI[index].m_pImgAwardIconBack->setTag(para[0]);
         m_UI[index].m_pImgAwardIconBack->setVisible(true);
         m_UI[index].m_pImgAwardIconBack->setTouchEnabled(true);

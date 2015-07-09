@@ -215,38 +215,38 @@ namespace Game_Data
         Game_Logic::Game_Content_Interface::instance()->exec_interface("send_player_buy_energy", para);
     }
 
-    void Player_Logic::player_callup_deputy_general(int character_id)
-    {
-        int player_id = Account_Data_Mgr::instance()->get_current_role_id();
-        if (player_id == character_id)
-        {
-            return;
-        }
-
-        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
-        if (!player)
-        {
-            return;
-        }
-
-        Character* character = CHARACTER_MGR::instance()->get_character(character_id);
-        if (!character)
-        {
-            return;
-        }
-
-        if (character_id == player->get_fight_general_id())
-        {
-            std::vector<uint64> para;
-            Game_Logic::Game_Content_Interface::instance()->exec_interface("send_deputy_general_cancel_fight", para);
-        } 
-        else
-        {
-            std::vector<uint64> para;
-            para.push_back(character_id);
-            Game_Logic::Game_Content_Interface::instance()->exec_interface("send_deputy_general_fight", para);
-        }
-    }
+//    void Player_Logic::player_callup_deputy_general(int character_id)
+//    {
+//        int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//        if (player_id == character_id)
+//        {
+//            return;
+//        }
+//
+//        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+//        if (!player)
+//        {
+//            return;
+//        }
+//
+//        Character* character = CHARACTER_MGR::instance()->get_character(character_id);
+//        if (!character)
+//        {
+//            return;
+//        }
+//
+//        if (character_id == player->get_fight_general_id())
+//        {
+//            std::vector<uint64> para;
+//            Game_Logic::Game_Content_Interface::instance()->exec_interface("send_deputy_general_cancel_fight", para);
+//        } 
+//        else
+//        {
+//            std::vector<uint64> para;
+//            para.push_back(character_id);
+//            Game_Logic::Game_Content_Interface::instance()->exec_interface("send_deputy_general_fight", para);
+//        }
+//    }
 
     void Player_Logic::player_quality_up(int character_id)
     {
@@ -384,49 +384,49 @@ namespace Game_Data
         return true;
     }
 
-    bool Player_Logic::check_can_use(int player_id,game_element_list_t& ele_list)
-    {
-        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
-        if (!player)
-        {
-            return false;
-        }
-
-        vector<uint> para;
-        Game_Data::game_element_list_t::iterator itg;
-        for( itg = ele_list.begin(); itg != ele_list.end(); ++ itg)
-        {
-            para.clear();
-            Game_Data::Game_Element& element = (*itg);
-            if(strcmp(element.get_command(),"award_general_exp") == 0)
-            {
-                DeputyGeneral* general = player->get_fight_general();
-                if (general)
-                {
-                    if (general->get_character_level() >= MAX_LEVEL)
-                    {
-                        DICTIONARY_CONFIG_MGR::instance()->show_alert(ROLE_REACH_LEVEL_LIMIT);
-                        return false;
-                    }
-                }
-                else
-                {
-                    DICTIONARY_CONFIG_MGR::instance()->show_alert(GENERAL_USE_EXP_ITEM);
-                    return false;
-                }
-            }
-            else if (strcmp(element.get_command(),"award_deputy_general") == 0)
-            {
-                if (player->get_deputy_general_count() > 2)
-                {
-                    DICTIONARY_CONFIG_MGR::instance()->show_alert(GENERAL_FULL);
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
+//    bool Player_Logic::check_can_use(int player_id,game_element_list_t& ele_list)
+//    {
+//        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+//        if (!player)
+//        {
+//            return false;
+//        }
+//
+//        vector<uint> para;
+//        Game_Data::game_element_list_t::iterator itg;
+//        for( itg = ele_list.begin(); itg != ele_list.end(); ++ itg)
+//        {
+//            para.clear();
+//            Game_Data::Game_Element& element = (*itg);
+//            if(strcmp(element.get_command(),"award_general_exp") == 0)
+//            {
+//                DeputyGeneral* general = player->get_fight_general();
+//                if (general)
+//                {
+//                    if (general->get_character_level() >= MAX_LEVEL)
+//                    {
+//                        DICTIONARY_CONFIG_MGR::instance()->show_alert(ROLE_REACH_LEVEL_LIMIT);
+//                        return false;
+//                    }
+//                }
+//                else
+//                {
+//                    DICTIONARY_CONFIG_MGR::instance()->show_alert(GENERAL_USE_EXP_ITEM);
+//                    return false;
+//                }
+//            }
+//            else if (strcmp(element.get_command(),"award_deputy_general") == 0)
+//            {
+//                if (player->get_deputy_general_count() > 2)
+//                {
+//                    DICTIONARY_CONFIG_MGR::instance()->show_alert(GENERAL_FULL);
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return true;
+//    }
 
     void Player_Logic::calc_need_bag_room(Player* player,int item_base_id,int count,int& need_bag_count)
     {

@@ -23,7 +23,7 @@
 #include "Character_System/Player_Logic_Cl.h"
 //#include "Runtime.h"
 #include "Item_System/Item_Logic_Cl.h"
-#include "Skill_System/Skill/Skill_Logic.h"
+//#include "Skill_System/Skill/Skill_Logic.h"
 #include "RecentlyServer.h"
 #include "Shield_Word/ShieldManager.h"
 
@@ -128,7 +128,7 @@ bool Account_Msg_Proc::send_player_login(Game_Logic::Game_Interface& gm_interfac
         return false;
     }
 	const char* loadFont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MODEL_LOADING_FONT);
-    CocoStu_UI_Scene_Interface::get_instance()->lockScreen("",loadFont);
+    CocoStu_UI_Scene_Interface::get_instance()->lockScreen("载入中","");
 	Profile::setStringForKey(PROFILE_KEY_FIRST_USERNAME,account.c_str());
 	Profile::setStringForKey(PROFILE_KEY_FIRST_PASSWORD,key.c_str());
 	Profile::flush();
@@ -138,7 +138,7 @@ bool Account_Msg_Proc::send_player_login(Game_Logic::Game_Interface& gm_interfac
 
 void Account_Msg_Proc::send_info_to_sdk(int server_id,string rolename)
 {
-	//����Java����SDk�����˺���Ϣ
+	//µ˜”√Java£¨œÚSDk¥´µ›’À∫≈–≈œ¢
 
 }
 
@@ -308,7 +308,7 @@ bool Account_Msg_Proc::send_player_start_game(Game_Logic::Game_Interface& gm_int
         }
 
 		const char* loadFont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MODEL_LOADING_FONT);
-        CocoStu_UI_Scene_Interface::get_instance()->lockScreen("",loadFont);
+        CocoStu_UI_Scene_Interface::get_instance()->lockScreen("载入中","");
         return true;
     }
 
@@ -408,11 +408,11 @@ bool Account_Msg_Proc::send_create_role( Game_Logic::Game_Interface& gm_interfac
     {
         sex = (int)para[0];
     }
-	//���������Ƿ��зǷ��ֶ�
+	//‘⁄’‚¿ÔºÏ≤‚ «∑Ò∫¨”–∑«∑®◊÷∂Œ
 	bool valueRet=ShieldManager::sharedShieldManager()->isNameContainShield(role_name);
 	if(valueRet)
 	{
-		//���������֣���ʾ�Ի���
+		//∞¸∫¨∆¡±Œ◊÷£¨œ‘ æ∂‘ª∞øÚ
 		const char* szString = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(CONTAIN_SHIELD);
 		UI_ModalDialogue_Layer::DoModal("",szString,UI_ModalDialogue_Layer::DT_OK);
 		return false;
@@ -425,7 +425,7 @@ bool Account_Msg_Proc::send_create_role( Game_Logic::Game_Interface& gm_interfac
 	std::string imei;
 	std::string macaddress;
 	int job = UI::Main_City_Actor_Layer::get_instance()->getJob();
-	//Ŀǰֻ����3 �䶷��ְҵ
+	//ƒø«∞÷ªø™∑≈3 Œ‰∂∑º“÷∞“µ
 	//job = 3;
 #if(CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
 	dev_name_tmp = Account_Msg_Proc::devname;
@@ -456,7 +456,7 @@ bool Account_Msg_Proc::send_create_role( Game_Logic::Game_Interface& gm_interfac
     CNetManager::GetMe()->send_msg( body_ms );
 
 	const char* loadFont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MODEL_LOADING_FONT);
-	CocoStu_UI_Scene_Interface::get_instance()->lockScreen("",loadFont);
+	CocoStu_UI_Scene_Interface::get_instance()->lockScreen("载入中","");
 
     return 0;
 }
@@ -707,7 +707,7 @@ bool Account_Msg_Proc::on_player_enter_scene(Game_Logic::Game_Interface& gm_inte
     player->set_offline_fight_count(offline_fight_count);
     player->set_buy_offline_fight_count(buy_offline_fight_count);
     player->set_offline_fight_rank_reward_count(offline_fight_rank_reward_count);
-    player->set_fight_general_id(general_id);
+//    player->set_fight_general_id(general_id);
     player->set_banks_exchange_count(banks_exchange_count);
     player->set_function_open_id(function_open_id); //17
     player->set_character_name(name.c_str());

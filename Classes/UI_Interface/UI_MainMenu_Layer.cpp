@@ -1,22 +1,22 @@
 #include "UI_MainMenu_Layer.h"
 //#include "cocos-ext.h"
-#include "UI_Role_Info_Layer.h"
+//#include "UI_Role_Info_Layer.h"
 #include "UI_Bag_Info_Layer.h"
 //#include "UI_Instance_Layer.h"
 //#include "UI_Skill_Info_Layer/UI_Skill_Info_Layer.h"
 #include "UI_Skill_Info_Layer/SkillView.h"
 #include "UI_Society_Layer/UI_Society_Layer.h"
 #include "UI_Ranking_List_Layer/UI_Ranking_List_Layer.h"
-#include "UI_Settlement_Layer.h"
-#include "UI_HeartMethod_Layer.h"
+//#include "UI_Settlement_Layer.h"
+//#include "UI_HeartMethod_Layer.h"
 #include "UI_Mission_Layer.h"
 #include "UI_Arena_Layer.h"
 #include "UI_Material_Fragment_Layer.h"
 #include "UI_ChatBoard_Layer.h"
 #include "UI_NpcDialogue_Layer.h"
 #include "UI_MissionDialogue_Layer.h"
-#include "UI_HeartMethod_Combine_Layer.h"
-#include "UI_HeartMethod_Quality_Up_Layer.h"
+//#include "UI_HeartMethod_Combine_Layer.h"
+//#include "UI_HeartMethod_Quality_Up_Layer.h"
 #include "UI_ModalDialogue_Layer.h"
 //#include "UI_Ranking_List_Layer.h"
 #include "UI/Loading_Scene.h"
@@ -25,14 +25,14 @@
 //#include "UI_Instance_Describe_Layer.h"
 //#include "UI_Secondary_Instance_Layer.h"
 #include "CocoStu_UI_Scene_Interface.h"
-#include "UI_Role_Quality_Up.h"
+//#include "UI_Role_Quality_Up.h"
 #include "UI_Daily_Mission.h"
-#include "UI_Item_Combine_Layer.h"
-#include "UI_Residual_Page_Layer.h"
+//#include "UI_Item_Combine_Layer.h"
+//#include "UI_Residual_Page_Layer.h"
 #include "UI_New_Function_Open.h"
 #include "UI_Fate_Layer.h"
 #include "Joiner_Guidance.h"
-#include "UI_Sweep_Desc_Layer.h"
+//#include "UI_Sweep_Desc_Layer.h"
 #include "UI_Shop_Center_Layer.h"
 #include "UI_Trade_Layer.h"
 //#include "UI_Activity_Layer.h"
@@ -49,7 +49,7 @@
 
 #include "Item_System/Item_Data.h"
 #include "Item_System/Item_Mgr_Cl.h"
-#include "Skill_System/Skill/Skill_Logic.h"
+//#include "Skill_System/Skill/Skill_Logic.h"
 //#include "Game_Utils.h"
 #include "UI/Actor_Layer.h"
 #include "Item_System/Item_Desc_Config_Mgr.h"
@@ -109,11 +109,11 @@ using namespace Game_Data;
 UI_MainMenu_Layer* UI_MainMenu_Layer::m_instance_ = NULL;
 
 UI_MainMenu_Layer::UI_MainMenu_Layer(void)
-:m_pRoleInfo(NULL),
-m_pBagInfo(NULL),
+:m_pBagInfo(NULL),
+//m_pRoleInfo(NULL),
 m_pSkillInfo(NULL),
 //m_pInstanceDes(NULL),
-m_pHeartMethod(NULL),
+//m_pHeartMethod(NULL),
 m_pEquipmentStrenthen(NULL),
 m_pEquipmentStarUp(NULL),
 m_pMission(NULL),
@@ -122,18 +122,18 @@ m_pMaterialFragment(NULL),
 m_pChatBoard(NULL),
 m_pNpcDialogue(NULL),
 m_pMissionDialogue(NULL),
-m_pHeartMethodCombineLayer(NULL),
-m_pHeartMethodQualityUpLayer(NULL),
+//m_pHeartMethodCombineLayer(NULL),
+//m_pHeartMethodQualityUpLayer(NULL),
 //m_pSecondaryInstanceLayer(NULL),
 m_pAllSetting(NULL),
 m_bt_state(1),
 //m_pRankingList(NULL),
 m_pFateLayer(NULL),
-m_pRoleQualityUpLayer(NULL),
+//m_pRoleQualityUpLayer(NULL),
 m_pDailyMissionLayer(NULL),
-m_pItemCombineLayer(NULL),
-m_pResidualPageLayer(NULL),
-m_pSkillDescLayer(NULL),
+//m_pItemCombineLayer(NULL),
+//m_pResidualPageLayer(NULL),
+//m_pSkillDescLayer(NULL),
 m_pFuncOpenLayer(NULL),
 m_pBtnChatBoard(NULL),
 m_pImgFindWay(NULL),
@@ -146,7 +146,7 @@ m_pBancksLayer(NULL),
 m_nOpenActNum(0),
 recordNum(0),
 m_pLoginAwardLayer(NULL),
-m_pSweepDescLayer(NULL),
+//m_pSweepDescLayer(NULL),
 m_pShopCenterLayer(NULL),
 m_trade_layer(NULL),
 //m_activity_layer(NULL),
@@ -170,7 +170,7 @@ UI_MainMenu_Layer::~UI_MainMenu_Layer(void)
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_ARENA);
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_COUNT_DOWN_TIME);
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_UI_NPCDIALOG);
-	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
+//	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_UI_COMPOUND_FRAGMENT);
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_UI_FATE);
 	remove_event_update_ui(Game_Logic::Game_Event::EVENT_TYPE_FRIEND_DETAIL);
@@ -211,25 +211,25 @@ bool UI_MainMenu_Layer::init()
 	_titleImg->setTouchEnabled(true);
 	_titleImg->addTouchEventListener( CC_CALLBACK_2(UI_MainMenu_Layer::onClickTitleCallback,this) );
 
-	_sports[sArena] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Arena"));
-	_sports[sArena]->setVisible(true);
-	_sports[sArena]->setTouchEnabled(true);
-	_sports[sArena]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickArenaCallback, this));
-	_sports[sArena]->setPosition(Vec2(_sports[sArena]->getPosition().x - VisibleRect::cutLength(), _sports[sArena]->getPosition().y));
-	_sportsPosition[sArena] = _sports[sArena]->getPosition();
+//	_sports[sArena] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Arena"));
+//	_sports[sArena]->setVisible(true);
+//	_sports[sArena]->setTouchEnabled(true);
+//	_sports[sArena]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickArenaCallback, this));
+//	_sports[sArena]->setPosition(Vec2(_sports[sArena]->getPosition().x - VisibleRect::cutLength(), _sports[sArena]->getPosition().y));
+//	_sportsPosition[sArena] = _sports[sArena]->getPosition();
 
 	//_sports[sParty] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Party"));
 	//_sports[sParty]->setVisible(true);
 	//_sports[sParty]->setTouchEnabled(true);
 	//_sports[sParty]->setPosition(Vec2(_sports[sParty]->getPosition().x - VisibleRect::cutLength(), _sports[sParty]->getPosition().y));
 	//_sportsPosition[sParty] = _sports[sParty]->getPosition();
-	_sportsDestinationCbx = (cocos2d::ui::CheckBox*)Helper::seekWidgetByName(_rootWidget, "challenge");
-	_sportsDestinationCbx->setZOrder(1);
-	_sportsDestinationCbx->setPosition(Vec2(_sportsDestinationCbx->getPosition().x - VisibleRect::cutLength(), _sportsDestinationCbx->getPosition().y));
-	_sportsDestinationCbx->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::sportsToggle, this));
-	_sportsDestination = _sportsDestinationCbx->getPosition();
-	for (int i = 0; i < int(sNum); i++)
-		_sports[i]->setPosition(_sportsDestination);
+//	_sportsDestinationCbx = (cocos2d::ui::CheckBox*)Helper::seekWidgetByName(_rootWidget, "challenge");
+//	_sportsDestinationCbx->setZOrder(1);
+//	_sportsDestinationCbx->setPosition(Vec2(_sportsDestinationCbx->getPosition().x - VisibleRect::cutLength(), _sportsDestinationCbx->getPosition().y));
+//	_sportsDestinationCbx->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::sportsToggle, this));
+//	_sportsDestination = _sportsDestinationCbx->getPosition();
+//	for (int i = 0; i < int(sNum); i++)
+//		_sports[i]->setPosition(_sportsDestination);
 	//	sportsToggle(_sportsDestinationCbx, Widget::TouchEventType::ENDED);
 	//sportsToggle(_sportsDestinationCbx, Widget::TouchEventType::ENDED);
 	// 无尽塔按钮
@@ -276,13 +276,15 @@ bool UI_MainMenu_Layer::init()
 	auto sign = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Sign"));
 	sign->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonSign, this));
 
-	_tryonceBtn = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(_rootWidget, "txt_quest"));
+	_tryonceBtn = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Button_249"));
 	_tryonceBtn->setVisible(true);
 	_tryonceBtn->setTouchEnabled(true);
 	_tryonceBtn->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonPathFinding, this));
-    auto missionSpt = Sprite::create("town/main_mission.png");
-    missionSpt->setAnchorPoint(Vec2(0, 0));
-    _tryonceBtn->addChild(missionSpt);
+    auto tryTxt = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(_rootWidget, "txt_quest"));
+    tryTxt->setVisible(false);
+//    auto missionSpt = Sprite::create("town/main_mission.png");
+//    missionSpt->setAnchorPoint(Vec2(0, 0));
+//    _tryonceBtn->addChild(missionSpt);
     log("after refresh main");
 
 	//经验条初始化
@@ -298,9 +300,9 @@ bool UI_MainMenu_Layer::init()
 //	}
 	
 	
-	m_pFunctionalBtn[FT_Pan] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Button_204"));
-	m_ptBtnOrigenPos[FT_Pan] = m_pFunctionalBtn[FT_Pan]->getPosition();
-	m_pFunctionalBtn[FT_Pan]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickStarCallback, this));
+//	m_pFunctionalBtn[FT_Pan] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Button_204"));
+//	m_ptBtnOrigenPos[FT_Pan] = m_pFunctionalBtn[FT_Pan]->getPosition();
+//	m_pFunctionalBtn[FT_Pan]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickStarCallback, this));
 
 	m_pFunctionalBtn[FT_God] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Button_203"));
 	m_ptBtnOrigenPos[FT_God] = m_pFunctionalBtn[FT_God]->getPosition();
@@ -310,12 +312,12 @@ bool UI_MainMenu_Layer::init()
 	m_ptBtnOrigenPos[FT_Pet] = m_pFunctionalBtn[FT_Pet]->getPosition();
 	m_pFunctionalBtn[FT_Pet]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickPetCallback, this));
 
-	m_pFunctionalBtn[FT_Refine] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Refine"));
-	m_ptBtnOrigenPos[FT_Refine] = m_pFunctionalBtn[FT_Refine]->getPosition();
+//	m_pFunctionalBtn[FT_Refine] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Refine"));
+//	m_ptBtnOrigenPos[FT_Refine] = m_pFunctionalBtn[FT_Refine]->getPosition();
 
-	m_pFunctionalBtn[FT_Fate] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Fate"));
+//	m_pFunctionalBtn[FT_Fate] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Fate"));
 //	m_pFunctionalBtn[FT_Fate]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::onClickFateCallback, this));
-	m_ptBtnOrigenPos[FT_Fate] = m_pFunctionalBtn[FT_Fate]->getPosition();
+//	m_ptBtnOrigenPos[FT_Fate] = m_pFunctionalBtn[FT_Fate]->getPosition();
 
 	m_pFunctionalBtn[FT_Property] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Property"));
 	m_pFunctionalBtn[FT_Property]->setPosition(Vec2(m_pFunctionalBtn[FT_Property]->getPosition().x - VisibleRect::cutLength(), m_pFunctionalBtn[FT_Property]->getPosition().y));
@@ -337,10 +339,10 @@ bool UI_MainMenu_Layer::init()
 	//m_pFunctionalBtn[FT_Billboard]->addTouchEventListener(this, toucheventselector(UI_MainMenu_Layer::onClickTaskCallback) );
 	//m_ptBtnOrigenPos[FT_Billboard] = m_pFunctionalBtn[FT_Billboard]->getPosition();
 
-	m_pFunctionalBtn[FT_Relationship] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget,"friend"));
-	m_pFunctionalBtn[FT_Relationship]->setPosition(Vec2(m_pFunctionalBtn[FT_Relationship]->getPosition().x-VisibleRect::cutLength(),m_pFunctionalBtn[FT_Relationship]->getPosition().y));
-	m_pFunctionalBtn[FT_Relationship]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonSocialActivity, this));
-	m_ptBtnOrigenPos[FT_Relationship] = m_pFunctionalBtn[FT_Relationship]->getPosition();
+//	m_pFunctionalBtn[FT_Relationship] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget,"friend"));
+//	m_pFunctionalBtn[FT_Relationship]->setPosition(Vec2(m_pFunctionalBtn[FT_Relationship]->getPosition().x-VisibleRect::cutLength(),m_pFunctionalBtn[FT_Relationship]->getPosition().y));
+//	m_pFunctionalBtn[FT_Relationship]->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonSocialActivity, this));
+//	m_ptBtnOrigenPos[FT_Relationship] = m_pFunctionalBtn[FT_Relationship]->getPosition();
 
 	m_pFunctionalBtn[FT_SystemSetting] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget,"option"));
 	m_pFunctionalBtn[FT_SystemSetting]->setPosition(Vec2(m_pFunctionalBtn[FT_SystemSetting]->getPosition().x-VisibleRect::cutLength(),m_pFunctionalBtn[FT_SystemSetting]->getPosition().y));
@@ -361,9 +363,9 @@ bool UI_MainMenu_Layer::init()
 	addChild(m_pChatBoard, 20, CHAT_LAYER);
 	m_pChatBoard->setVisible(false);
 
-	_emailButton = dynamic_cast<cocos2d::ui::Button*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "mail"));
-	_emailButton->setTouchEnabled(true);
-	_emailButton->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonSocialActivity, this) );
+//	_emailButton = dynamic_cast<cocos2d::ui::Button*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "mail"));
+//	_emailButton->setTouchEnabled(true);
+//	_emailButton->addTouchEventListener(CC_CALLBACK_2(UI_MainMenu_Layer::buttonSocialActivity, this) );
 
 	m_pBtnToggle = (cocos2d::ui::CheckBox*)Helper::seekWidgetByName(_rootWidget,"group");
 	m_pBtnToggle->setZOrder(1);
@@ -376,7 +378,7 @@ bool UI_MainMenu_Layer::init()
 	m_pImgFontShadow = dynamic_cast<cocos2d::ui::ImageView*>(Helper::seekWidgetByName(_rootWidget, "Image_12"));
 	m_pImgFontShadow->setVisible(false);
 
-	m_lab_fighting_capacity = dynamic_cast<cocos2d::ui::TextAtlas*>(Helper::seekWidgetByName(_rootWidget,"battle_value_label"));
+	m_lab_fighting_capacity = dynamic_cast<cocos2d::ui::TextAtlas*>(Helper::seekWidgetByName(_rootWidget,"battle_value_label_0_0"));
 	m_lab_fighting_capacity->setString("0");
 
 	joyStick = SneakyJoystick::create();
@@ -411,8 +413,8 @@ bool UI_MainMenu_Layer::init()
     
 	reg_event_update_ui("update_friend_list", UI_MainMenu_Layer::update_friend_list, Game_Logic::Game_Event::EVENT_TYPE_FRIEND_LIST);
 	reg_event_update_ui("update_npcdialog", UI_MainMenu_Layer::update_npc_dialog, Game_Logic::Game_Event::EVENT_TYPE_UI_NPCDIALOG);
-	reg_event_update_ui("update_role_quality_up", UI_MainMenu_Layer::update_role_quality_up, Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
-	reg_event_update_ui("update_compound_fragment", UI_MainMenu_Layer::update_compound_fragment, Game_Logic::Game_Event::EVENT_TYPE_UI_COMPOUND_FRAGMENT);
+//	reg_event_update_ui("update_role_quality_up", UI_MainMenu_Layer::update_role_quality_up, Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
+//	reg_event_update_ui("update_compound_fragment", UI_MainMenu_Layer::update_compound_fragment, Game_Logic::Game_Event::EVENT_TYPE_UI_COMPOUND_FRAGMENT);
 	reg_event_update_ui("update_fate", UI_MainMenu_Layer::update_fate, Game_Logic::Game_Event::EVENT_TYPE_UI_FATE);
 	reg_event_update_ui("update_selected_relation_spine", UI_MainMenu_Layer::update_friend_detail, Game_Logic::Game_Event::EVENT_TYPE_FRIEND_DETAIL);
 	reg_event_update_ui("update_banks", UI_MainMenu_Layer::update_banks, Game_Logic::Game_Event::EVENT_TYPE_UI_BANKS);
@@ -830,41 +832,41 @@ void UI_MainMenu_Layer::showNpcDialogue(int nNpcID)
 
 void UI_MainMenu_Layer::buttonMainRoleInfo(Ref* pSender, Widget::TouchEventType type)
 {
-	int player_id;
-	Game_Data::Player* player;
-
-	switch (type)
-	{
-	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		player_id = Account_Data_Mgr::instance()->get_current_role_id();
-		player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
-		if (!player)
-		{
-			return;
-		}
-		if (ROLE_QUA_UP_STEP_1 == player->get_guide_id()
-			|| LIEUTENANT_FIGHT_STEP_1 == player->get_guide_id()
-			)
-		{
-			player->change_guide_id(player->get_guide_id() + 1);
-		}
-
-
-		if (!m_pRoleInfo)
-		{
-			m_pRoleInfo = UI_Role_Info_Layer::create();
-			float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-			m_pRoleInfo->setScale(rate);
-			this->addChild(m_pRoleInfo, 20, ROLE_LAYER);
-		}
-		m_pRoleInfo->setVisible(true);
-
-		//setToggleState(1);
-
-		break;
-	default:
-		break;
-	}
+//	int player_id;
+//	Game_Data::Player* player;
+//
+//	switch (type)
+//	{
+//	case cocos2d::ui::Widget::TouchEventType::ENDED:
+//		player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//		player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+//		if (!player)
+//		{
+//			return;
+//		}
+//		if (ROLE_QUA_UP_STEP_1 == player->get_guide_id()
+//			|| LIEUTENANT_FIGHT_STEP_1 == player->get_guide_id()
+//			)
+//		{
+//			player->change_guide_id(player->get_guide_id() + 1);
+//		}
+//
+//
+//		if (!m_pRoleInfo)
+//		{
+//			m_pRoleInfo = UI_Role_Info_Layer::create();
+//			float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//			m_pRoleInfo->setScale(rate);
+//			this->addChild(m_pRoleInfo, 20, ROLE_LAYER);
+//		}
+//		m_pRoleInfo->setVisible(true);
+//
+//		//setToggleState(1);
+//
+//		break;
+//	default:
+//		break;
+//	}
 }
 
 void UI_MainMenu_Layer::buttonChatBoard(Ref* pSender, Widget::TouchEventType type)
@@ -920,6 +922,7 @@ void UI_MainMenu_Layer::buttonBagInfo(Ref* pSender, Widget::TouchEventType type)
 			UI_Bag_Info_Layer::sIsProperty = false;
 			UI_Bag_Info_Layer::sName = player->get_character_name();
 			UI_Bag_Info_Layer::sPower = player->get_fighting_capacity();
+            UI_Bag_Info_Layer::sTili = player->get_energy();
 			//Exp = player->get_character
 			UI_Bag_Info_Layer::sHP = player->get_character_cur_hp();
 			UI_Bag_Info_Layer::sAtk = player->get_character_attack();
@@ -986,17 +989,17 @@ void UI_MainMenu_Layer::quest_show_equipment(int item_base_id)
 
 void UI_MainMenu_Layer::quest_show_book_bag(int item_base_id)
 {
-	if (!m_pHeartMethod)
-	{
-		m_pHeartMethod = UI_HeartMethod_Layer::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pHeartMethod->setScale(rate);
-		this->addChild(m_pHeartMethod, 20, BAG_LAYER);
-		m_pHeartMethod->setVisible(true);
-		return;
-	}
-
-	m_pHeartMethod->setVisible(true);
+//	if (!m_pHeartMethod)
+//	{
+//		m_pHeartMethod = UI_HeartMethod_Layer::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pHeartMethod->setScale(rate);
+//		this->addChild(m_pHeartMethod, 20, BAG_LAYER);
+//		m_pHeartMethod->setVisible(true);
+//		return;
+//	}
+//
+//	m_pHeartMethod->setVisible(true);
 }
 
 void UI_MainMenu_Layer::show_arena()
@@ -1307,14 +1310,14 @@ void UI_MainMenu_Layer::HideAllWindow()
 	//{
 	//	m_pSkillInfo->setVisible(false);
 	//}
-	if (m_pRoleInfo)
-	{
-		m_pRoleInfo->setVisible(false);
-	}
-	if (m_pHeartMethod)
-	{
-		m_pHeartMethod->setVisible(false);
-	}
+//	if (m_pRoleInfo)
+//	{
+//		m_pRoleInfo->setVisible(false);
+//	}
+//	if (m_pHeartMethod)
+//	{
+//		m_pHeartMethod->setVisible(false);
+//	}
 
 }
 
@@ -1515,40 +1518,40 @@ bool UI_MainMenu_Layer::update_npc_dialog(const Game_Logic::Game_Event& gm_evt)
 	return true;
 }
 
-bool UI_MainMenu_Layer::update_role_quality_up(const Game_Logic::Game_Event& gm_evt)
-{
-	if (get_instance()->m_pRoleQualityUpLayer)
-	{
-		get_instance()->m_pRoleQualityUpLayer->update_role();
-		get_instance()->m_pRoleQualityUpLayer->update();
-	}
-	return true;
-}
+//bool UI_MainMenu_Layer::update_role_quality_up(const Game_Logic::Game_Event& gm_evt)
+//{
+//	if (get_instance()->m_pRoleQualityUpLayer)
+//	{
+//		get_instance()->m_pRoleQualityUpLayer->update_role();
+//		get_instance()->m_pRoleQualityUpLayer->update();
+//	}
+//	return true;
+//}
 
-bool UI_MainMenu_Layer::update_compound_fragment(const Game_Logic::Game_Event& gm_evt)
-{
-	if (get_instance()->m_pMaterialFragment)
-	{
-		vector<uint64> para;
-		gm_evt.get_para(para);
-		if (para.size() > 0)
-		{
-			get_instance()->m_pMaterialFragment->update((int)para[0]);
-		}
-	}
-
-	if (get_instance()->m_pResidualPageLayer)
-	{
-		vector<uint64> para;
-		gm_evt.get_para(para);
-		if (para.size() > 0)
-		{
-			get_instance()->m_pResidualPageLayer->update((int)para[0]);
-		}
-	}
-
-	return true;
-}
+//bool UI_MainMenu_Layer::update_compound_fragment(const Game_Logic::Game_Event& gm_evt)
+//{
+//	if (get_instance()->m_pMaterialFragment)
+//	{
+//		vector<uint64> para;
+//		gm_evt.get_para(para);
+//		if (para.size() > 0)
+//		{
+//			get_instance()->m_pMaterialFragment->update((int)para[0]);
+//		}
+//	}
+//
+//	if (get_instance()->m_pResidualPageLayer)
+//	{
+//		vector<uint64> para;
+//		gm_evt.get_para(para);
+//		if (para.size() > 0)
+//		{
+//			get_instance()->m_pResidualPageLayer->update((int)para[0]);
+//		}
+//	}
+//
+//	return true;
+//}
 
 bool UI_MainMenu_Layer::update_fate(const Game_Logic::Game_Event& gm_evt)
 {
@@ -1612,38 +1615,38 @@ void UI_MainMenu_Layer::buttonPathFinding(Ref* pSender, Widget::TouchEventType t
 
 void UI_MainMenu_Layer::buttonHeartMethod(Ref* pSender, Widget::TouchEventType type)
 {
-	int role_id;
-	Player* player;
-	switch (type)
-	{
-	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		role_id = Account_Data_Mgr::instance()->get_current_role_id();
-		player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(role_id));
-		if (!player) return;
-		if (XF_EQUIP_GUIDE_STEP_1 == player->get_guide_id()
-			|| XF_COMBINE_STEP_1 == player->get_guide_id()
-			|| XF_ASSEMBLE_STEP_1 == player->get_guide_id()
-			|| XF_QUA_UP_STEP_1 == player->get_guide_id()
-			)
-		{
-			player->change_guide_id(player->get_guide_id() + 1);
-		}
-
-		if (!m_pHeartMethod)
-		{
-			m_pHeartMethod = UI_HeartMethod_Layer::create();
-			float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-			m_pHeartMethod->setScale(rate);
-			this->addChild(m_pHeartMethod, 20, BAG_LAYER);
-		}
-		m_pHeartMethod->setVisible(true);
-
-		//setToggleState(1);
-
-		break;
-	default:
-		break;
-	}
+//	int role_id;
+//	Player* player;
+//	switch (type)
+//	{
+//	case cocos2d::ui::Widget::TouchEventType::ENDED:
+//		role_id = Account_Data_Mgr::instance()->get_current_role_id();
+//		player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(role_id));
+//		if (!player) return;
+//		if (XF_EQUIP_GUIDE_STEP_1 == player->get_guide_id()
+//			|| XF_COMBINE_STEP_1 == player->get_guide_id()
+//			|| XF_ASSEMBLE_STEP_1 == player->get_guide_id()
+//			|| XF_QUA_UP_STEP_1 == player->get_guide_id()
+//			)
+//		{
+//			player->change_guide_id(player->get_guide_id() + 1);
+//		}
+//
+//		if (!m_pHeartMethod)
+//		{
+//			m_pHeartMethod = UI_HeartMethod_Layer::create();
+//			float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//			m_pHeartMethod->setScale(rate);
+//			this->addChild(m_pHeartMethod, 20, BAG_LAYER);
+//		}
+//		m_pHeartMethod->setVisible(true);
+//
+//		//setToggleState(1);
+//
+//		break;
+//	default:
+//		break;
+//	}
 }
 
 void UI_MainMenu_Layer::buttonMission(Ref* pSender, Widget::TouchEventType type)
@@ -1715,21 +1718,29 @@ void UI_MainMenu_Layer::RefreshMainUIInfo()
 
 	// 6. 战力值增加的话，弹出提示
 	int nPower	= player->get_fighting_capacity();
-	ui::TextAtlas* pPowerText = (ui::TextAtlas*)cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "battle_value_label");
+	ui::TextAtlas* pPowerText = (ui::TextAtlas*)cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "battle_value_label_0_0");
 	pPowerText->setColor(ccc3(255, 255, 255));
 	pPowerText->setString(CCString::createWithFormat("%d", nPower)->getCString());
+    
+    int tiliVal = player->get_energy();
+    auto tili = dynamic_cast<ui::TextAtlas*>(Helper::seekWidgetByName(_rootWidget, "tilishuzhi"));
+    tili->setString(CCString::createWithFormat("%d", tiliVal)->getCString());
+    
+    int vipVal = player->get_vip_lv();
+    auto vip = dynamic_cast<ui::TextAtlas*>(Helper::seekWidgetByName(_rootWidget, "vipshuzi"));
+    vip->setString(CCString::createWithFormat("%d", vipVal)->getCString());
 }
 
 void UI_MainMenu_Layer::visibleRoleQualityUp()
 {
-	if (!m_pRoleQualityUpLayer)
-	{
-		m_pRoleQualityUpLayer = UI_Role_Quality_Up::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pRoleQualityUpLayer->setScale(rate);
-		this->addChild(m_pRoleQualityUpLayer, 20);
-	}
-	m_pRoleQualityUpLayer->setVisible(true);
+//	if (!m_pRoleQualityUpLayer)
+//	{
+//		m_pRoleQualityUpLayer = UI_Role_Quality_Up::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pRoleQualityUpLayer->setScale(rate);
+//		this->addChild(m_pRoleQualityUpLayer, 20);
+//	}
+//	m_pRoleQualityUpLayer->setVisible(true);
 }
 
 void UI_MainMenu_Layer::visibleExchange()
@@ -1766,27 +1777,27 @@ void UI_MainMenu_Layer::visibleDailyMission()
 	m_pDailyMissionLayer->setVisible(true);
 }
 
-void UI_MainMenu_Layer::visibleFragmentCombine()
-{
-	if (!m_pItemCombineLayer)
-	{
-		m_pItemCombineLayer = UI_Item_Combine_Layer::create();
-		this->addChild(m_pItemCombineLayer);
-	}
-	m_pItemCombineLayer->setVisible(true);
-}
+//void UI_MainMenu_Layer::visibleFragmentCombine()
+//{
+//	if (!m_pItemCombineLayer)
+//	{
+//		m_pItemCombineLayer = UI_Item_Combine_Layer::create();
+//		this->addChild(m_pItemCombineLayer);
+//	}
+//	m_pItemCombineLayer->setVisible(true);
+//}
 
-void UI_MainMenu_Layer::visibleResidualPage()
-{
-	if (!m_pResidualPageLayer)
-	{
-		m_pResidualPageLayer = UI_Residual_Page_Layer::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pResidualPageLayer->setScale(rate);
-		this->addChild(m_pResidualPageLayer);
-	}
-	m_pResidualPageLayer->setVisible(true);
-}
+//void UI_MainMenu_Layer::visibleResidualPage()
+//{
+//	if (!m_pResidualPageLayer)
+//	{
+//		m_pResidualPageLayer = UI_Residual_Page_Layer::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pResidualPageLayer->setScale(rate);
+//		this->addChild(m_pResidualPageLayer);
+//	}
+//	m_pResidualPageLayer->setVisible(true);
+//}
 
 void UI_MainMenu_Layer::visibleSkillUpLayer(bool visible, int skillId, int characterId)
 {
@@ -1813,25 +1824,25 @@ void UI_MainMenu_Layer::visibleFuncOpen(int iconNameId, int iconOpenId)
 	m_pFuncOpenLayer->showPromptInfo(iconNameId, iconOpenId);
 }
 
-void UI_MainMenu_Layer::visibleSweepDescLayer(int ui_instance_elite)
-{
-	if (!m_pSweepDescLayer)
-	{
-		m_pSweepDescLayer = UI_Sweep_Desc_Layer::create();
-		this->addChild(m_pSweepDescLayer, MAX_LAYER);
-	}
-
-	if (ui_instance_elite == 0)
-	{
-		m_pSweepDescLayer->set_is_elite_instance(0);
-	}
-	else
-	{
-		m_pSweepDescLayer->set_is_elite_instance(1);
-	}
-
-	m_pSweepDescLayer->setVisible(true);
-}
+//void UI_MainMenu_Layer::visibleSweepDescLayer(int ui_instance_elite)
+//{
+//	if (!m_pSweepDescLayer)
+//	{
+//		m_pSweepDescLayer = UI_Sweep_Desc_Layer::create();
+//		this->addChild(m_pSweepDescLayer, MAX_LAYER);
+//	}
+//
+//	if (ui_instance_elite == 0)
+//	{
+//		m_pSweepDescLayer->set_is_elite_instance(0);
+//	}
+//	else
+//	{
+//		m_pSweepDescLayer->set_is_elite_instance(1);
+//	}
+//
+//	m_pSweepDescLayer->setVisible(true);
+//}
 
 void UI_MainMenu_Layer::visibleEquipmentInlayLayer()
 {
@@ -1877,15 +1888,15 @@ void UI_MainMenu_Layer::visibleActivityEnterLayer(Ref* pSender, Widget::TouchEve
 
 void UI_MainMenu_Layer::visibleHeartMethodCombine(int character_id)
 {
-	if (!m_pHeartMethodCombineLayer)
-	{
-		m_pHeartMethodCombineLayer = UI_HeartMethod_Combine_Layer::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pHeartMethodCombineLayer->setScale(rate);
-		this->addChild(m_pHeartMethodCombineLayer, 20);
-	}
-
-	m_pHeartMethodCombineLayer->setVisible(true);
+//	if (!m_pHeartMethodCombineLayer)
+//	{
+//		m_pHeartMethodCombineLayer = UI_HeartMethod_Combine_Layer::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pHeartMethodCombineLayer->setScale(rate);
+//		this->addChild(m_pHeartMethodCombineLayer, 20);
+//	}
+//
+//	m_pHeartMethodCombineLayer->setVisible(true);
 }
 
 void UI_MainMenu_Layer::visibleEquipmentQualityUp(uint64 item_id)
@@ -1912,31 +1923,31 @@ void UI_MainMenu_Layer::visibleSecondaryInstance(int area_id)
 //	selBattleLayer->setVisible(true);
 //}
 #else
-	if (!m_pSecondaryInstanceLayer)
-	{
-		m_pSecondaryInstanceLayer = UI_Secondary_Instance_Layer::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pSecondaryInstanceLayer->setScale(rate);
-		this->addChild(m_pSecondaryInstanceLayer, 20);
-	}
-
-	m_pSecondaryInstanceLayer->init_instance_date(area_id);
-	m_pSecondaryInstanceLayer->setVisible(true);
-#endif	
+//	if (!m_pSecondaryInstanceLayer)
+//	{
+//		m_pSecondaryInstanceLayer = UI_Secondary_Instance_Layer::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pSecondaryInstanceLayer->setScale(rate);
+//		this->addChild(m_pSecondaryInstanceLayer, 20);
+//	}
+//
+//	m_pSecondaryInstanceLayer->init_instance_date(area_id);
+//	m_pSecondaryInstanceLayer->setVisible(true);
+#endif
 }
 
 void UI_MainMenu_Layer::visibleHeartMethodQualityUp(uint64 item_id)
 {
-	if (!m_pHeartMethodQualityUpLayer)
-	{
-		m_pHeartMethodQualityUpLayer = UI_HeartMethod_Quality_Up_Layer::create();
-		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
-		m_pHeartMethodQualityUpLayer->setScale(rate);
-		this->addChild(m_pHeartMethodQualityUpLayer, 20);
-	}
-
-	//m_pHeartMethodQualityUpLayer->set_up_item_id(item_id);
-	m_pHeartMethodQualityUpLayer->setVisible(true);
+//	if (!m_pHeartMethodQualityUpLayer)
+//	{
+//		m_pHeartMethodQualityUpLayer = UI_HeartMethod_Quality_Up_Layer::create();
+//		float rate = Director::getInstance()->getVisibleSize().width / Director::getInstance()->getWinSize().width;
+//		m_pHeartMethodQualityUpLayer->setScale(rate);
+//		this->addChild(m_pHeartMethodQualityUpLayer, 20);
+//	}
+//
+//	//m_pHeartMethodQualityUpLayer->set_up_item_id(item_id);
+//	m_pHeartMethodQualityUpLayer->setVisible(true);
 }
 
 #if 0
@@ -2962,8 +2973,10 @@ void UI_MainMenu_Layer::refresh_quest_show()
 				//{
 				    int icon = npc->get_face_mode_id();
 					const char* iconname = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
+                std::string p("icon/");
+                p+=iconname;
 				//设置 提交任务的 NPC 头像   以及任务字体显示
-					m_pImgFindWay->loadTexture(iconname,UI_TEX_TYPE_PLIST);
+					m_pImgFindWay->loadTexture(p.c_str());
 				//	int type = config->get_npc_type();
 				//	m_pLabFindWayFont->setString(pNpc->get_name());
 				//	m_pLabFindWayFont->setVisible(true);
@@ -3057,10 +3070,10 @@ bool UI_MainMenu_Layer::update_login_award(const Game_Logic::Game_Event& gm_evt)
 
 bool UI_MainMenu_Layer::update_instance_sweep(const Game_Logic::Game_Event& gm_evt)
 {
-	if (get_instance()->m_pSweepDescLayer)
-	{
-		get_instance()->m_pSweepDescLayer->update();
-	}
+//	if (get_instance()->m_pSweepDescLayer)
+//	{
+//		get_instance()->m_pSweepDescLayer->update();
+//	}
 	return true;
 }
 
@@ -3265,6 +3278,7 @@ void UI_MainMenu_Layer::openPropertyCallback(cocos2d::Ref*pSender, cocos2d::ui::
 			UI_Bag_Info_Layer::sIsProperty = true;
 			UI_Bag_Info_Layer::sName = player->get_character_name();
 			UI_Bag_Info_Layer::sPower = player->get_fighting_capacity();
+            UI_Bag_Info_Layer::sTili = player->get_energy();
 			//Exp = player->get_character
 			UI_Bag_Info_Layer::sHP = player->get_character_cur_hp();
 			UI_Bag_Info_Layer::sAtk = player->get_character_attack();

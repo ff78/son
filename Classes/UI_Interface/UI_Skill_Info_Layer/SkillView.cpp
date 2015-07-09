@@ -90,7 +90,7 @@ bool SkillView::init()
 	Director::getInstance()->getEventDispatcher()->addCustomEventListener(SKILL_UPGRADE_DONE, CC_CALLBACK_0(SkillView::onUpgradeFromServer,this) );
 
 
-	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Character_Skill/Character_Skill.ExportJson");
+	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Character_Skill.json");
 	addChild(pLayer);
 	
 	_arrowImage = dynamic_cast<ui::ImageView*>(Helper::seekWidgetByName(pLayer, "Image_15"));
@@ -601,6 +601,21 @@ void SkillView::onFrameEvent(cocostudio::Bone *bone, const std::string& evt, int
 //				}
 //			}
 		}
+        if (strncmp(result[i].c_str(), "backEffect", strlen("backEffect")) == 0) {
+            size_t tagLen = strlen("backEffect");
+            size_t sLen = result[i].length();
+            int effTag = atoi(result[i].substr(tagLen, sLen - tagLen).c_str()) - 1;
+            auto one = (MyImageView*)_scrolView->getChildByTag(_leftIndex);
+            auto effStr = one->backEff[armatureIndex][effTag];
+            if (effStr != "") {
+                std::string resPath = ARM_DIR + effStr + ".ExportJson";
+                ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                
+                auto eff1 = Effect::create();
+                eff1->initWithArmatureAR(effStr, 1.1 * one->backScale[armatureIndex][effTag]);
+                _backLayer->addChild(eff1);
+            }
+        }
 		//if (strncmp(result[i].c_str(), "screenFrontEffect", strlen("screenFrontEffect")) == 0) {
 		//	size_t tagLen = strlen("screenFrontEffect");
 		//	size_t sLen = result[i].length();

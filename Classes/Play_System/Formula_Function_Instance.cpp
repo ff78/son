@@ -31,7 +31,7 @@
 //#include "Game/Monster_Wave_Cfg_Data_Mgr.h"
 #include "UI_Interface/UI_FuBenDialog.h"
 #include "UI_Interface/UI_TimeLimitedInstance_Layer.h"
-#include "UI_Interface/UI_Settlement_Layer.h"
+//#include "UI_Interface/UI_Settlement_Layer.h"
 #include "UI_Interface/UI_ModalDialogue_Layer.h"
 #include "UI_Interface/UI_Message.h"
 #else

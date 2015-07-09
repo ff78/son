@@ -34,7 +34,7 @@ bool UI_Email_Cell_Layer::init()
 	if (!Layout::init())
 		return false;
 
-	Widget* pLayer		= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Email_Cell/Social_Email_Cell.ExportJson");
+	Widget* pLayer		= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Email_Cell.json");
 	this->addChild(pLayer);
 
 	// 名字文本

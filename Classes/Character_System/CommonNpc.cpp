@@ -1,5 +1,5 @@
 
-#include "Skill_System/Impact/Impact_Common.h"
+//#include "Skill_System/Impact/Impact_Common.h"
 #include "CommonNpc_Config_Mgr.h"
 #include "CommonNpc_Config_Data.h"
 #include "CommonNpc.h"

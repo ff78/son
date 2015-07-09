@@ -75,7 +75,7 @@ bool UI_MissionDialogue_Layer::init()
 	{
 		return false;
 	}
-	m_pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/mission_finish/mission_finish.ExportJson");
+	m_pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/mission_finish.json");
 
 	addChild(m_pWidget);
 
@@ -90,27 +90,28 @@ bool UI_MissionDialogue_Layer::init()
 
 	m_pLabOfAwardGoodsNum = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget,"lab_award_3"));
 	
-	auto animation = cocos2d::Animation::create();
-	Value preFileName("create-role/effects/boom_");
-	Value suffFileName(".png");
-	for (int i = 0; i < 15; i++)
-	{
-		Value midFileName(i + 1);
-		Value fileName(preFileName.asString() + midFileName.asString() + suffFileName.asString());
-		animation->addSpriteFrameWithFileName(fileName.asString());
-	}
-	animation->setDelayPerUnit(1.5 / 15);
-	//animation->setRestoreOriginalFrame(true);
-	//animation->setLoops(true);
-	auto animate = Animate::create(animation);
-	auto func = CallFunc::create( CC_CALLBACK_0(UI_MissionDialogue_Layer::hideEffectSprite, this) );
-	_effectSequence = Sequence::create(animate, func, nullptr);
-	_effectSequence->retain();
-	_effectSprite = Sprite::create();
-	auto middle = Director::getInstance()->getWinSize();
-	_effectSprite->setPosition(middle/2);
-	addChild(_effectSprite,1);
-	_effectSprite->runAction(_effectSequence);
+    cocostudio::ActionManagerEx::getInstance()->playActionByName("ui/mission_finish.json", "Animation0");
+//	auto animation = cocos2d::Animation::create();
+//	Value preFileName("create-role/effects/boom_");
+//	Value suffFileName(".png");
+//	for (int i = 0; i < 15; i++)
+//	{
+//		Value midFileName(i + 1);
+//		Value fileName(preFileName.asString() + midFileName.asString() + suffFileName.asString());
+//		animation->addSpriteFrameWithFileName(fileName.asString());
+//	}
+//	animation->setDelayPerUnit(1.5 / 15);
+//	//animation->setRestoreOriginalFrame(true);
+//	//animation->setLoops(true);
+//	auto animate = Animate::create(animation);
+//	auto func = CallFunc::create( CC_CALLBACK_0(UI_MissionDialogue_Layer::hideEffectSprite, this) );
+//	_effectSequence = Sequence::create(animate, func, nullptr);
+//	_effectSequence->retain();
+//	_effectSprite = Sprite::create();
+//	auto middle = Director::getInstance()->getWinSize();
+//	_effectSprite->setPosition(middle/2);
+//	addChild(_effectSprite,1);
+//	_effectSprite->runAction(_effectSequence);
     
 	return true;
 }
@@ -285,7 +286,9 @@ int UI_MissionDialogue_Layer::displayer_quest_award(Game_Data::quest_data& qd)
 
         ITEM_CONFIG_MGR::instance()->load_icon_config_data();
 		const char* iconName = ITEM_CONFIG_MGR::instance()->get_icon_path(config->icon);
-		m_pImgOfAwardGoods->loadTexture(iconName, UI_TEX_TYPE_PLIST);
+        std::string p("icon/");
+        p+=iconName;
+		m_pImgOfAwardGoods->loadTexture(p.c_str());
 		awardGoodId_ = para[0];
 		awardGoodCount_ = para[1];
 
@@ -854,5 +857,5 @@ switch (type)
 
 void UI_MissionDialogue_Layer::hideEffectSprite()
 {
-	_effectSprite->setVisible(false);
+//	_effectSprite->setVisible(false);
 }

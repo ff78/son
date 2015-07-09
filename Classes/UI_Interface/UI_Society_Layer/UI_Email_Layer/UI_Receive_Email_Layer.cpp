@@ -35,7 +35,7 @@ bool UI_Receive_Email_Layer::init()
 	{
 		return false;
 	}
-	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Receive_Email/Social_Receive_Email.ExportJson");
+	ui::Widget* pLayer				= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Receive_Email.json");
 	addChild(pLayer);
 
 	// 收件箱按钮

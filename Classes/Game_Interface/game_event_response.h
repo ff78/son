@@ -32,8 +32,8 @@ namespace Game_Logic
         void on_update_npcdialog(int player_id);
 		void on_collided_something(int item_id,int player_id);
 		void on_useitem_something(int item_id,int player_id);
-        void on_update_role_quality_up(int player_id);
-        void on_update_compound_fragment(int player_id,int change);
+//        void on_update_role_quality_up(int player_id);
+//        void on_update_compound_fragment(int player_id,int change);
         void on_update_fate(int player_id);
 		void on_update_selected_relation_spine( int player_id );
 		void on_update_banks(int player_id);

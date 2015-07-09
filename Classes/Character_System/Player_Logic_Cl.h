@@ -36,13 +36,13 @@ namespace Game_Data
 		void send_chat_msg_private(int channel, const char* receiver_name, const char* chat);
 		/************************* dely *************************/
         void player_buy_energy();
-        void player_callup_deputy_general(int character_id);
+//        void player_callup_deputy_general(int character_id);
         void player_quality_up(int character_id);
 
         bool check_bag_room(int player_id,game_element_list_t& ele_list);
         bool check_bag_room(int player_id,int item_base_id,int count);
 
-        bool check_can_use(int player_id,game_element_list_t& ele_list);
+//        bool check_can_use(int player_id,game_element_list_t& ele_list);
 
     private:
         void calc_need_bag_room(Player* player,int item_base_id,int count,int& need_bag_count);

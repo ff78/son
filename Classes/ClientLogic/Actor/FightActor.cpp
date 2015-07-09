@@ -1240,6 +1240,8 @@ void FightActor::updateFrontEffect()
 //        if (flipX) {
 //            eff->setScaleX(-eff->getScaleRate());
 //        }
+        
+//        float sx = eff->getScaleRate();
         eff->setScaleX((flipX) ? -1 : 1);
     }
     
@@ -1263,6 +1265,7 @@ void FightActor::updateBackEffect()
         if (eff->getFollowY()) {
             eff->setPositionY(armature->getPositionY());
         }
+//        float sx = eff->getScaleRate();
         eff->setScaleX((flipX) ? -1 : 1);
     }
     

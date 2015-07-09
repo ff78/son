@@ -273,9 +273,9 @@ void GameScene::load(float dt)
                 guard->initViewRes();
                 guard->initFightState();
                 guard->setMan(hero);
-                guard->setPosX(hero->getPositionX());
+                guard->setPosX(hero->getPositionX()-100);
                 guard->setPosY(hero->getPositionY());
-                guard->setPosition(hero->getPosition());
+                guard->setPosition(Vec2(guard->getPosX(), guard->getPosY()));
                 guard->preloadSkillRes();
                 
                 actorLayer->addChild(guard);
@@ -288,9 +288,9 @@ void GameScene::load(float dt)
                 col->initViewRes();
                 col->initFightState();
                 col->setMan(hero);
-                col->setPosX(hero->getPositionX());
+                col->setPosX(hero->getPositionX()-110);
                 col->setPosY(hero->getPositionY());
-                col->setPosition(hero->getPosition());
+                col->setPosition(Vec2(col->getPosX(), col->getPosY()));
                 col->preloadSkillRes();
                 hero->colossus = col;
                 actorLayer->addChild(col);
@@ -451,7 +451,7 @@ void GameScene::enterGame()
     uiLayer = Layer::create();
     
     auto winSize = Director::getInstance()->getWinSize();
-    Layout *battleRoot = dynamic_cast<Layout*>(GUIReader::getInstance()->widgetFromJsonFile("ui/battle/battle.ExportJson"));
+    Layout *battleRoot = dynamic_cast<Layout*>(GUIReader::getInstance()->widgetFromJsonFile("ui/battle.json"));
     battleRoot->setTag(BATTLE_LAYOUT);
 
     uiLayer->addChild(battleRoot);
@@ -754,13 +754,13 @@ void GameScene::enterGame()
     }
     addChild(goalLayer);
    
-    tipBg = Sprite::create("img/battle/recommend_top.png");
+    tipBg = Sprite::create("img/battle/notblue.png");
     tipLabel = Label::createWithSystemFont("", "arial", 16);
     tipLabel->setPosition(tipBg->getContentSize().width/2, tipBg->getContentSize().height/2);
-    tipLabel->setColor(Color3B::BLUE);
+    tipLabel->setColor(Color3B::WHITE);
     tipBg->addChild(tipLabel);
-    tipBg->setPosition(Vec2(winSize.width/2, winSize.height/2));
-    addChild(tipBg);
+    tipBg->setPosition(Vec2(tipBg->getContentSize().width/2, -90));
+    mpBar->addChild(tipBg);
     tipBg->setVisible(false);
     /****************************************** dely ***************************************/
 

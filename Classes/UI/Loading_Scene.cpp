@@ -101,7 +101,9 @@ namespace UI
 			std::string chnStr = UserDefault::getInstance()->getStringForKey("tip");
 			*/
 			tipsLab = cocos2d::LabelTTF::create(str, "Arial", 24);
-			tipsLab->setPosition(Vec2(pt.x, pt.y + 150));
+			tipsLab->setPositionX(loading_pattern_->getPositionX()+loading_pattern_->getContentSize().width/2);
+            tipsLab->setPositionY(loading_pattern_->getPositionY());
+            tipsLab->setAnchorPoint(Vec2(0, 0.5));
 			colorLayer->addChild(tipsLab,4);
 
 			/******************************** dely ******************************/

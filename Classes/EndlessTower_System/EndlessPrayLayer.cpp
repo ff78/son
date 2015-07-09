@@ -16,7 +16,7 @@ bool EndlessPrayLayer::init()
     if( !Layer::init() )
         return false;
     
-    auto _rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/endlesstower_jackpot/endlesstower_jackpot.ExportJson");
+    auto _rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/endlesstower_jackpot.json");
     if( _rootWidget == nullptr )
         return false;
     addChild(_rootWidget);

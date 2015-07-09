@@ -35,7 +35,7 @@ bool UI_Send_Email_Layer::init()
 	{
 		return false;
 	}
-	_root			= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Send_Email/Social_Send_Email.ExportJson");
+	_root			= cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social_Send_Email.json");
 	addChild(_root);
 	auto contentTxt = dynamic_cast<ui::Text*>(Helper::seekWidgetByName(_root, "Email_Content_Text"));
 	_contentToSend = contentTxt->getString();

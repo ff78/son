@@ -3,7 +3,7 @@
 #include "Common/GameMacro.h"
 //#include "AI_System/Game_Utils.h"
 #endif
-#include "Skill_System/Buff/Buff_Mgr.h"
+//#include "Skill_System/Buff/Buff_Mgr.h"
 #include "Skill_System/Impact/Impact_Common.h"
 #include "Character.h"
 #include <stdio.h>
@@ -62,7 +62,7 @@ namespace Game_Data
 		//m_ai_state				= MISS_STATE;
 #endif
 		m_no_hurt_time          = GetCurTime(0);
-		m_buff_vector.clear();                            
+//		m_buff_vector.clear();                            
 #if 1//yypp
 		m_job_skill_list.clear();
 		m_select_job_skill_list.clear();
@@ -81,8 +81,8 @@ namespace Game_Data
 		return nTotalValue;
 	}
 
-	int Character::have_this_buff(int buffid)
-	{
+//	int Character::have_this_buff(int buffid)
+//	{
 		/*vector<Buff_Logic>::iterator it = m_buff_vector.begin();
 		for (; it != m_buff_vector.end(); it++)
 		{
@@ -91,12 +91,12 @@ namespace Game_Data
 				return 1;
 			}
 		}*/
+//
+//		return 0;
+//	}
 
-		return 0;
-	}
-
-	Buff_Logic* Character::get_buff_logic(int buffid)
-	{
+//	Buff_Logic* Character::get_buff_logic(int buffid)
+//	{
 		/*vector<Buff_Logic>::iterator it = m_buff_vector.begin();
 		for (; it != m_buff_vector.end(); it++)
 		{
@@ -106,11 +106,11 @@ namespace Game_Data
 			}
 		}
 */
-		return NULL;
-	}
+//		return NULL;
+//	}
 
-	int Character::insert_buff(Buff_Logic* buff_logic)
-	{
+//	int Character::insert_buff(Buff_Logic* buff_logic)
+//	{
 //		if ( NULL == buff_logic )
 //			return 1;
 //
@@ -134,12 +134,12 @@ namespace Game_Data
 //		/*Game_Utils::instance()->srpite_set_is_stunning(get_database_character_id(), (get_buff_attr(CA_CANNOT_MOVE, MT_MODFITY_TYPE1) != 0));
 //		Game_Utils::instance()->sprite_set_move_scale(get_database_character_id(), get_character_move_speed_rate());*/
 //#endif
+//
+//		return 0;
+//	}
 
-		return 0;
-	}
-
-	int Character::remove_buff(int buffid)
-	{
+//	int Character::remove_buff(int buffid)
+//	{
 //		vector<Buff_Logic>::iterator it = m_buff_vector.begin();
 //		for (; it != m_buff_vector.end(); it++)
 //		{
@@ -154,12 +154,12 @@ namespace Game_Data
 //				return 0;
 //			}
 //		}
+//
+//		return 1;
+//	}
 
-		return 1;
-	}
-
-	int Character::remove_all_buff()
-	{
+//	int Character::remove_all_buff()
+//	{
 //		vector<Buff_Logic>::iterator it = m_buff_vector.begin();
 //		for (; it != m_buff_vector.end(); it++)
 //		{
@@ -177,11 +177,11 @@ namespace Game_Data
 //
 //		m_buff_vector.clear();
 //
-		return 0;
-	}
+//		return 0;
+//	}
 
-	int Character::remove_all_fight_buff()
-	{
+//	int Character::remove_all_fight_buff()
+//	{
 //		vector<Buff_Logic>::iterator it = m_buff_vector.begin();
 //		for (; it != m_buff_vector.end(); it++)
 //		{
@@ -205,22 +205,22 @@ namespace Game_Data
 //		Game_Utils::instance()->srpite_set_is_stunning(get_database_character_id(), 0);
 //		Game_Utils::instance()->sprite_set_move_scale(get_database_character_id(), 1);
 //#endif*/
+//
+//		return 0;
+//	}
 
-		return 0;
-	}
-
-	Buff_Logic* Character::get_buff_logic_by_index(int index)
-	{
-		if ( index > (int)m_buff_vector.size() )
-			return NULL;
-
-		return &m_buff_vector.at(index);
-	}
-	
-	int Character::get_buff_size()
-	{
-		return m_buff_vector.size();
-	}
+//	Buff_Logic* Character::get_buff_logic_by_index(int index)
+//	{
+//		if ( index > (int)m_buff_vector.size() )
+//			return NULL;
+//
+//		return &m_buff_vector.at(index);
+//	}
+//	
+//	int Character::get_buff_size()
+//	{
+//		return m_buff_vector.size();
+//	}
 
 	//int Character::get_buff_replace_index(Buff_Data* buffInfoPtr)
 	//{
@@ -441,10 +441,10 @@ namespace Game_Data
 	void Character::set_dead(int dead)
 	{ 
 		m_dead = dead;
-		if ( 0 != m_dead )
-		{
-			remove_all_buff();
-		}
+//		if ( 0 != m_dead )
+//		{
+//			remove_all_buff();
+//		}
 	}
 #if 1//yypp
 	int Character::get_player_select_skill_by_index(int index)

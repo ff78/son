@@ -91,8 +91,6 @@
 		3E85DF261B3A4A2E0011215F /* CommonNpc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC311B3A4A2C0011215F /* CommonNpc.cpp */; };
 		3E85DF271B3A4A2E0011215F /* CommonNpc_Config_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC341B3A4A2C0011215F /* CommonNpc_Config_Mgr.cpp */; };
 		3E85DF281B3A4A2E0011215F /* CommonNpc_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC361B3A4A2C0011215F /* CommonNpc_Logic.cpp */; };
-		3E85DF291B3A4A2E0011215F /* Deputy_General_Msg_Proc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC381B3A4A2C0011215F /* Deputy_General_Msg_Proc.cpp */; };
-		3E85DF2A1B3A4A2E0011215F /* DeputyGeneral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC3A1B3A4A2C0011215F /* DeputyGeneral.cpp */; };
 		3E85DF2B1B3A4A2E0011215F /* FightNpc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC3C1B3A4A2C0011215F /* FightNpc.cpp */; };
 		3E85DF2C1B3A4A2E0011215F /* FightNpc_Config_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC3F1B3A4A2C0011215F /* FightNpc_Config_Mgr.cpp */; };
 		3E85DF2D1B3A4A2E0011215F /* FightNpc_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DC411B3A4A2C0011215F /* FightNpc_Logic.cpp */; };
@@ -274,14 +272,6 @@
 		3E85DFE71B3A4A2E0011215F /* Shop_Msg_Proc_Cl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE151B3A4A2D0011215F /* Shop_Msg_Proc_Cl.cpp */; };
 		3E85DFE81B3A4A2E0011215F /* Shoping_Record_Mgr_Cl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE181B3A4A2D0011215F /* Shoping_Record_Mgr_Cl.cpp */; };
 		3E85DFE91B3A4A2E0011215F /* Sign_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE1B1B3A4A2D0011215F /* Sign_Client.cpp */; };
-		3E85DFEA1B3A4A2E0011215F /* Buff_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE201B3A4A2D0011215F /* Buff_Logic.cpp */; };
-		3E85DFEB1B3A4A2E0011215F /* Buff_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE221B3A4A2D0011215F /* Buff_Mgr.cpp */; };
-		3E85DFEC1B3A4A2E0011215F /* Impact_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE261B3A4A2D0011215F /* Impact_Logic.cpp */; };
-		3E85DFED1B3A4A2E0011215F /* LogicManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE291B3A4A2D0011215F /* LogicManager.cpp */; };
-		3E85DFEE1B3A4A2E0011215F /* Skill_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE2E1B3A4A2E0011215F /* Skill_Logic.cpp */; };
-		3E85DFEF1B3A4A2E0011215F /* Skill_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE301B3A4A2E0011215F /* Skill_Mgr.cpp */; };
-		3E85DFF01B3A4A2E0011215F /* Skill_Msg_Proc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE321B3A4A2E0011215F /* Skill_Msg_Proc.cpp */; };
-		3E85DFF11B3A4A2E0011215F /* Technical_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE341B3A4A2E0011215F /* Technical_Mgr.cpp */; };
 		3E85DFF21B3A4A2E0011215F /* Star_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE371B3A4A2E0011215F /* Star_Client.cpp */; };
 		3E85DFF31B3A4A2E0011215F /* Task_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE3A1B3A4A2E0011215F /* Task_Client.cpp */; };
 		3E85DFF41B3A4A2E0011215F /* Title_Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE3D1B3A4A2E0011215F /* Title_Client.cpp */; };
@@ -309,7 +299,6 @@
 		3E85E00A1B3A4A2E0011215F /* UI_Bag_Gem_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE6F1B3A4A2E0011215F /* UI_Bag_Gem_Layer.cpp */; };
 		3E85E00B1B3A4A2E0011215F /* UI_Bag_Info_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE711B3A4A2E0011215F /* UI_Bag_Info_Layer.cpp */; };
 		3E85E00C1B3A4A2E0011215F /* UI_Banks_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE731B3A4A2E0011215F /* UI_Banks_Layer.cpp */; };
-		3E85E00D1B3A4A2E0011215F /* UI_Button_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE751B3A4A2E0011215F /* UI_Button_Layer.cpp */; };
 		3E85E00E1B3A4A2E0011215F /* UI_ChatBoard_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE771B3A4A2E0011215F /* UI_ChatBoard_Layer.cpp */; };
 		3E85E00F1B3A4A2E0011215F /* UI_Config_Data_Mgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE7A1B3A4A2E0011215F /* UI_Config_Data_Mgr.cpp */; };
 		3E85E0101B3A4A2E0011215F /* UI_Daily_Mission.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE7C1B3A4A2E0011215F /* UI_Daily_Mission.cpp */; };
@@ -324,14 +313,8 @@
 		3E85E0191B3A4A2E0011215F /* UI_FuBenDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE921B3A4A2E0011215F /* UI_FuBenDialog.cpp */; };
 		3E85E01A1B3A4A2E0011215F /* UI_Function_Instance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE941B3A4A2E0011215F /* UI_Function_Instance.cpp */; };
 		3E85E01B1B3A4A2E0011215F /* UI_Goods_Grid_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE961B3A4A2E0011215F /* UI_Goods_Grid_Layer.cpp */; };
-		3E85E01C1B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE981B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.cpp */; };
-		3E85E01D1B3A4A2E0011215F /* UI_HeartMethod_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE9A1B3A4A2E0011215F /* UI_HeartMethod_Layer.cpp */; };
-		3E85E01E1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE9C1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.cpp */; };
 		3E85E01F1B3A4A2E0011215F /* UI_Icon_Info_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DE9E1B3A4A2E0011215F /* UI_Icon_Info_Layer.cpp */; };
-		3E85E0201B3A4A2E0011215F /* UI_Instance_Describe_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEA01B3A4A2E0011215F /* UI_Instance_Describe_Layer.cpp */; };
-		3E85E0211B3A4A2E0011215F /* UI_Instance_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEA21B3A4A2E0011215F /* UI_Instance_Layer.cpp */; };
 		3E85E0221B3A4A2E0011215F /* UI_Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEA41B3A4A2E0011215F /* UI_Interface.cpp */; };
-		3E85E0231B3A4A2E0011215F /* UI_Item_Combine_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEA61B3A4A2E0011215F /* UI_Item_Combine_Layer.cpp */; };
 		3E85E0241B3A4A2E0011215F /* UI_Json_Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEA91B3A4A2E0011215F /* UI_Json_Manager.cpp */; };
 		3E85E0251B3A4A2E0011215F /* UI_Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEAB1B3A4A2E0011215F /* UI_Logic.cpp */; };
 		3E85E0261B3A4A2E0011215F /* UI_Login_Award_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEAD1B3A4A2E0011215F /* UI_Login_Award_Layer.cpp */; };
@@ -348,13 +331,7 @@
 		3E85E0311B3A4A2E0011215F /* UI_PowerChangeTips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEC31B3A4A2E0011215F /* UI_PowerChangeTips.cpp */; };
 		3E85E0321B3A4A2E0011215F /* UI_Public_Announcement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEC51B3A4A2E0011215F /* UI_Public_Announcement.cpp */; };
 		3E85E0331B3A4A2E0011215F /* UI_Ranking_List_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEC71B3A4A2E0011215F /* UI_Ranking_List_Layer.cpp */; };
-		3E85E0341B3A4A2E0011215F /* UI_Residual_Page_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEC91B3A4A2E0011215F /* UI_Residual_Page_Layer.cpp */; };
-		3E85E0351B3A4A2E0011215F /* UI_Role_Info_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DECB1B3A4A2E0011215F /* UI_Role_Info_Layer.cpp */; };
-		3E85E0361B3A4A2E0011215F /* UI_Role_Quality_Up.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DECD1B3A4A2E0011215F /* UI_Role_Quality_Up.cpp */; };
-		3E85E0371B3A4A2E0011215F /* UI_Secondary_Instance_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DECF1B3A4A2E0011215F /* UI_Secondary_Instance_Layer.cpp */; };
-		3E85E0381B3A4A2E0011215F /* UI_Settlement_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DED11B3A4A2E0011215F /* UI_Settlement_Layer.cpp */; };
 		3E85E0391B3A4A2E0011215F /* UI_Shop_Center_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DED31B3A4A2E0011215F /* UI_Shop_Center_Layer.cpp */; };
-		3E85E03A1B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DED51B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.cpp */; };
 		3E85E03B1B3A4A2E0011215F /* MyImageView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DED81B3A4A2E0011215F /* MyImageView.cpp */; };
 		3E85E03C1B3A4A2E0011215F /* SkillView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEDA1B3A4A2E0011215F /* SkillView.cpp */; };
 		3E85E03D1B3A4A2E0011215F /* UI_Email_Cell_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEDE1B3A4A2E0011215F /* UI_Email_Cell_Layer.cpp */; };
@@ -366,7 +343,6 @@
 		3E85E0431B3A4A2E0011215F /* UI_Friend_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEEC1B3A4A2E0011215F /* UI_Friend_Layer.cpp */; };
 		3E85E0441B3A4A2E0011215F /* UI_Society_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEEE1B3A4A2E0011215F /* UI_Society_Layer.cpp */; };
 		3E85E0451B3A4A2E0011215F /* UI_StartGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEF01B3A4A2E0011215F /* UI_StartGameLayer.cpp */; };
-		3E85E0461B3A4A2E0011215F /* UI_Sweep_Desc_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEF21B3A4A2E0011215F /* UI_Sweep_Desc_Layer.cpp */; };
 		3E85E0471B3A4A2E0011215F /* UI_SystemSetting_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEF41B3A4A2E0011215F /* UI_SystemSetting_Layer.cpp */; };
 		3E85E0481B3A4A2E0011215F /* UI_TimeLimitedInstance_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEF61B3A4A2E0011215F /* UI_TimeLimitedInstance_Layer.cpp */; };
 		3E85E0491B3A4A2E0011215F /* UI_Tips_Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DEF81B3A4A2E0011215F /* UI_Tips_Layer.cpp */; };
@@ -382,6 +358,7 @@
 		3E85E0531B3A4A2E0011215F /* UpdateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DF0F1B3A4A2E0011215F /* UpdateManager.cpp */; };
 		3E85E0541B3A4A2E0011215F /* UpdateProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DF111B3A4A2E0011215F /* UpdateProtocol.cpp */; };
 		3E85E0551B3A4A2E0011215F /* VersionInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E85DF131B3A4A2E0011215F /* VersionInfo.cpp */; };
+		3EA3EE921B4BD4F600209477 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 3EA3EE911B4BD4F600209477 /* icon */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -576,6 +553,7 @@
 		1D6058910D05DD3D006BFB54 /* son iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "son iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3E6401521B4B82D200F10EE1 /* Impact_Common.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = Impact_Common.h; sourceTree = "<group>"; };
 		3E85DB9C1B3A47FC0011215F /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../cocos2d/external/curl/prebuilt/ios/libcurl.a; sourceTree = "<group>"; };
 		3E85DB9F1B3A49E30011215F /* armature */ = {isa = PBXFileReference; lastKnownFileType = folder; path = armature; sourceTree = "<group>"; };
 		3E85DBA01B3A49E30011215F /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audio; sourceTree = "<group>"; };
@@ -673,10 +651,6 @@
 		3E85DC351B3A4A2C0011215F /* CommonNpc_Config_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNpc_Config_Mgr.h; sourceTree = "<group>"; };
 		3E85DC361B3A4A2C0011215F /* CommonNpc_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonNpc_Logic.cpp; sourceTree = "<group>"; };
 		3E85DC371B3A4A2C0011215F /* CommonNpc_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNpc_Logic.h; sourceTree = "<group>"; };
-		3E85DC381B3A4A2C0011215F /* Deputy_General_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Deputy_General_Msg_Proc.cpp; sourceTree = "<group>"; };
-		3E85DC391B3A4A2C0011215F /* Deputy_General_Msg_Proc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deputy_General_Msg_Proc.h; sourceTree = "<group>"; };
-		3E85DC3A1B3A4A2C0011215F /* DeputyGeneral.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeputyGeneral.cpp; sourceTree = "<group>"; };
-		3E85DC3B1B3A4A2C0011215F /* DeputyGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeputyGeneral.h; sourceTree = "<group>"; };
 		3E85DC3C1B3A4A2C0011215F /* FightNpc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FightNpc.cpp; sourceTree = "<group>"; };
 		3E85DC3D1B3A4A2C0011215F /* FightNpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightNpc.h; sourceTree = "<group>"; };
 		3E85DC3E1B3A4A2C0011215F /* FightNpc_Config_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightNpc_Config_Data.h; sourceTree = "<group>"; };
@@ -765,7 +739,7 @@
 		3E85DCA81B3A4A2D0011215F /* Effect_Cfg_Data_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect_Cfg_Data_Mgr.h; sourceTree = "<group>"; };
 		3E85DCA91B3A4A2D0011215F /* Game_Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game_Utils.cpp; sourceTree = "<group>"; };
 		3E85DCAA1B3A4A2D0011215F /* Game_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game_Utils.h; sourceTree = "<group>"; };
-		3E85DCAB1B3A4A2D0011215F /* GameDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDefine.h; sourceTree = "<group>"; };
+		3E85DCAB1B3A4A2D0011215F /* GameDefine.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = GameDefine.h; sourceTree = "<group>"; };
 		3E85DCAC1B3A4A2D0011215F /* GameMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMacro.h; sourceTree = "<group>"; };
 		3E85DCAD1B3A4A2D0011215F /* GameResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResource.h; sourceTree = "<group>"; };
 		3E85DCAE1B3A4A2D0011215F /* Inlines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inlines.h; sourceTree = "<group>"; };
@@ -918,11 +892,11 @@
 		3E85DD551B3A4A2D0011215F /* Item_Config_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Config_Data.h; sourceTree = "<group>"; };
 		3E85DD561B3A4A2D0011215F /* Item_Config_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item_Config_Mgr.cpp; sourceTree = "<group>"; };
 		3E85DD571B3A4A2D0011215F /* Item_Config_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Config_Mgr.h; sourceTree = "<group>"; };
-		3E85DD581B3A4A2D0011215F /* Item_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Data.h; sourceTree = "<group>"; };
+		3E85DD581B3A4A2D0011215F /* Item_Data.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = Item_Data.h; sourceTree = "<group>"; };
 		3E85DD591B3A4A2D0011215F /* Item_Desc_Config_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item_Desc_Config_Mgr.cpp; sourceTree = "<group>"; };
-		3E85DD5A1B3A4A2D0011215F /* Item_Desc_Config_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Desc_Config_Mgr.h; sourceTree = "<group>"; };
+		3E85DD5A1B3A4A2D0011215F /* Item_Desc_Config_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = Item_Desc_Config_Mgr.h; sourceTree = "<group>"; };
 		3E85DD5B1B3A4A2D0011215F /* Item_Logic_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item_Logic_Cl.cpp; sourceTree = "<group>"; };
-		3E85DD5C1B3A4A2D0011215F /* Item_Logic_Cl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Logic_Cl.h; sourceTree = "<group>"; };
+		3E85DD5C1B3A4A2D0011215F /* Item_Logic_Cl.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = Item_Logic_Cl.h; sourceTree = "<group>"; };
 		3E85DD5D1B3A4A2D0011215F /* Item_Mgr_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item_Mgr_Cl.cpp; sourceTree = "<group>"; };
 		3E85DD5E1B3A4A2D0011215F /* Item_Mgr_Cl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Mgr_Cl.h; sourceTree = "<group>"; };
 		3E85DD5F1B3A4A2D0011215F /* Item_Msg_Proc_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Item_Msg_Proc_Cl.cpp; sourceTree = "<group>"; };
@@ -1059,14 +1033,14 @@
 		3E85DDF11B3A4A2D0011215F /* quest_msg_proc_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quest_msg_proc_client.h; sourceTree = "<group>"; };
 		3E85DDF21B3A4A2D0011215F /* quest_npc_logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quest_npc_logic.cpp; sourceTree = "<group>"; };
 		3E85DDF31B3A4A2D0011215F /* quest_npc_logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quest_npc_logic.h; sourceTree = "<group>"; };
-		3E85DDF51B3A4A2D0011215F /* Radiate_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Radiate_Msg_Proc.cpp; sourceTree = "<group>"; };
-		3E85DDF61B3A4A2D0011215F /* Radiate_Msg_Proc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radiate_Msg_Proc.h; sourceTree = "<group>"; };
+		3E85DDF51B3A4A2D0011215F /* Radiate_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = Radiate_Msg_Proc.cpp; sourceTree = "<group>"; };
+		3E85DDF61B3A4A2D0011215F /* Radiate_Msg_Proc.h */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.c.h; path = Radiate_Msg_Proc.h; sourceTree = "<group>"; };
 		3E85DDF81B3A4A2D0011215F /* Name_Random_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Name_Random_Mgr.cpp; sourceTree = "<group>"; };
 		3E85DDF91B3A4A2D0011215F /* Name_Random_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Name_Random_Mgr.h; sourceTree = "<group>"; };
 		3E85DDFB1B3A4A2D0011215F /* Rank_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rank_Data.h; sourceTree = "<group>"; };
 		3E85DDFC1B3A4A2D0011215F /* Rank_Logic_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rank_Logic_Cl.cpp; sourceTree = "<group>"; };
 		3E85DDFD1B3A4A2D0011215F /* Rank_Logic_Cl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rank_Logic_Cl.h; sourceTree = "<group>"; };
-		3E85DDFE1B3A4A2D0011215F /* Rank_Mgr_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rank_Mgr_Cl.cpp; sourceTree = "<group>"; };
+		3E85DDFE1B3A4A2D0011215F /* Rank_Mgr_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = Rank_Mgr_Cl.cpp; sourceTree = "<group>"; };
 		3E85DDFF1B3A4A2D0011215F /* Rank_Mgr_Cl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rank_Mgr_Cl.h; sourceTree = "<group>"; };
 		3E85DE001B3A4A2D0011215F /* Rank_Msg_Proc_Cl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rank_Msg_Proc_Cl.cpp; sourceTree = "<group>"; };
 		3E85DE011B3A4A2D0011215F /* Rank_Msg_Proc_Cl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rank_Msg_Proc_Cl.h; sourceTree = "<group>"; };
@@ -1092,25 +1066,6 @@
 		3E85DE1B1B3A4A2D0011215F /* Sign_Client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sign_Client.cpp; sourceTree = "<group>"; };
 		3E85DE1C1B3A4A2D0011215F /* Sign_Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sign_Client.h; sourceTree = "<group>"; };
 		3E85DE1F1B3A4A2D0011215F /* Buff_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buff_Common.h; sourceTree = "<group>"; };
-		3E85DE201B3A4A2D0011215F /* Buff_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buff_Logic.cpp; sourceTree = "<group>"; };
-		3E85DE211B3A4A2D0011215F /* Buff_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buff_Logic.h; sourceTree = "<group>"; };
-		3E85DE221B3A4A2D0011215F /* Buff_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buff_Mgr.cpp; sourceTree = "<group>"; };
-		3E85DE231B3A4A2D0011215F /* Buff_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buff_Mgr.h; sourceTree = "<group>"; };
-		3E85DE251B3A4A2D0011215F /* Impact_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Impact_Common.h; sourceTree = "<group>"; };
-		3E85DE261B3A4A2D0011215F /* Impact_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Impact_Logic.cpp; sourceTree = "<group>"; };
-		3E85DE271B3A4A2D0011215F /* Impact_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Impact_Logic.h; sourceTree = "<group>"; };
-		3E85DE291B3A4A2D0011215F /* LogicManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogicManager.cpp; sourceTree = "<group>"; };
-		3E85DE2A1B3A4A2D0011215F /* LogicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogicManager.h; sourceTree = "<group>"; };
-		3E85DE2B1B3A4A2E0011215F /* LogicManagerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogicManagerCommon.h; sourceTree = "<group>"; };
-		3E85DE2D1B3A4A2E0011215F /* Skill_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill_Common.h; sourceTree = "<group>"; };
-		3E85DE2E1B3A4A2E0011215F /* Skill_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skill_Logic.cpp; sourceTree = "<group>"; };
-		3E85DE2F1B3A4A2E0011215F /* Skill_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill_Logic.h; sourceTree = "<group>"; };
-		3E85DE301B3A4A2E0011215F /* Skill_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skill_Mgr.cpp; sourceTree = "<group>"; };
-		3E85DE311B3A4A2E0011215F /* Skill_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill_Mgr.h; sourceTree = "<group>"; };
-		3E85DE321B3A4A2E0011215F /* Skill_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skill_Msg_Proc.cpp; sourceTree = "<group>"; };
-		3E85DE331B3A4A2E0011215F /* Skill_Msg_Proc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill_Msg_Proc.h; sourceTree = "<group>"; };
-		3E85DE341B3A4A2E0011215F /* Technical_Mgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Technical_Mgr.cpp; sourceTree = "<group>"; };
-		3E85DE351B3A4A2E0011215F /* Technical_Mgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Technical_Mgr.h; sourceTree = "<group>"; };
 		3E85DE371B3A4A2E0011215F /* Star_Client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Star_Client.cpp; sourceTree = "<group>"; };
 		3E85DE381B3A4A2E0011215F /* Star_Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star_Client.h; sourceTree = "<group>"; };
 		3E85DE3A1B3A4A2E0011215F /* Task_Client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task_Client.cpp; sourceTree = "<group>"; };
@@ -1167,8 +1122,6 @@
 		3E85DE721B3A4A2E0011215F /* UI_Bag_Info_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Bag_Info_Layer.h; sourceTree = "<group>"; };
 		3E85DE731B3A4A2E0011215F /* UI_Banks_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Banks_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE741B3A4A2E0011215F /* UI_Banks_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Banks_Layer.h; sourceTree = "<group>"; };
-		3E85DE751B3A4A2E0011215F /* UI_Button_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Button_Layer.cpp; sourceTree = "<group>"; };
-		3E85DE761B3A4A2E0011215F /* UI_Button_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Button_Layer.h; sourceTree = "<group>"; };
 		3E85DE771B3A4A2E0011215F /* UI_ChatBoard_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_ChatBoard_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE781B3A4A2E0011215F /* UI_ChatBoard_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_ChatBoard_Layer.h; sourceTree = "<group>"; };
 		3E85DE791B3A4A2E0011215F /* UI_Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Config.h; sourceTree = "<group>"; };
@@ -1198,22 +1151,10 @@
 		3E85DE951B3A4A2E0011215F /* UI_Function_Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Function_Instance.h; sourceTree = "<group>"; };
 		3E85DE961B3A4A2E0011215F /* UI_Goods_Grid_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Goods_Grid_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE971B3A4A2E0011215F /* UI_Goods_Grid_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Goods_Grid_Layer.h; sourceTree = "<group>"; };
-		3E85DE981B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_HeartMethod_Combine_Layer.cpp; sourceTree = "<group>"; };
-		3E85DE991B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_HeartMethod_Combine_Layer.h; sourceTree = "<group>"; };
-		3E85DE9A1B3A4A2E0011215F /* UI_HeartMethod_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_HeartMethod_Layer.cpp; sourceTree = "<group>"; };
-		3E85DE9B1B3A4A2E0011215F /* UI_HeartMethod_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_HeartMethod_Layer.h; sourceTree = "<group>"; };
-		3E85DE9C1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_HeartMethod_Quality_Up_Layer.cpp; sourceTree = "<group>"; };
-		3E85DE9D1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_HeartMethod_Quality_Up_Layer.h; sourceTree = "<group>"; };
 		3E85DE9E1B3A4A2E0011215F /* UI_Icon_Info_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Icon_Info_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE9F1B3A4A2E0011215F /* UI_Icon_Info_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Icon_Info_Layer.h; sourceTree = "<group>"; };
-		3E85DEA01B3A4A2E0011215F /* UI_Instance_Describe_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Instance_Describe_Layer.cpp; sourceTree = "<group>"; };
-		3E85DEA11B3A4A2E0011215F /* UI_Instance_Describe_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Instance_Describe_Layer.h; sourceTree = "<group>"; };
-		3E85DEA21B3A4A2E0011215F /* UI_Instance_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Instance_Layer.cpp; sourceTree = "<group>"; };
-		3E85DEA31B3A4A2E0011215F /* UI_Instance_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Instance_Layer.h; sourceTree = "<group>"; };
 		3E85DEA41B3A4A2E0011215F /* UI_Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Interface.cpp; sourceTree = "<group>"; };
 		3E85DEA51B3A4A2E0011215F /* UI_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Interface.h; sourceTree = "<group>"; };
-		3E85DEA61B3A4A2E0011215F /* UI_Item_Combine_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Item_Combine_Layer.cpp; sourceTree = "<group>"; };
-		3E85DEA71B3A4A2E0011215F /* UI_Item_Combine_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Item_Combine_Layer.h; sourceTree = "<group>"; };
 		3E85DEA81B3A4A2E0011215F /* UI_Json_Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Json_Config.h; sourceTree = "<group>"; };
 		3E85DEA91B3A4A2E0011215F /* UI_Json_Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Json_Manager.cpp; sourceTree = "<group>"; };
 		3E85DEAA1B3A4A2E0011215F /* UI_Json_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Json_Manager.h; sourceTree = "<group>"; };
@@ -1247,20 +1188,8 @@
 		3E85DEC61B3A4A2E0011215F /* UI_Public_Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Public_Announcement.h; sourceTree = "<group>"; };
 		3E85DEC71B3A4A2E0011215F /* UI_Ranking_List_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Ranking_List_Layer.cpp; sourceTree = "<group>"; };
 		3E85DEC81B3A4A2E0011215F /* UI_Ranking_List_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Ranking_List_Layer.h; sourceTree = "<group>"; };
-		3E85DEC91B3A4A2E0011215F /* UI_Residual_Page_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Residual_Page_Layer.cpp; sourceTree = "<group>"; };
-		3E85DECA1B3A4A2E0011215F /* UI_Residual_Page_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Residual_Page_Layer.h; sourceTree = "<group>"; };
-		3E85DECB1B3A4A2E0011215F /* UI_Role_Info_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Role_Info_Layer.cpp; sourceTree = "<group>"; };
-		3E85DECC1B3A4A2E0011215F /* UI_Role_Info_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Role_Info_Layer.h; sourceTree = "<group>"; };
-		3E85DECD1B3A4A2E0011215F /* UI_Role_Quality_Up.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Role_Quality_Up.cpp; sourceTree = "<group>"; };
-		3E85DECE1B3A4A2E0011215F /* UI_Role_Quality_Up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Role_Quality_Up.h; sourceTree = "<group>"; };
-		3E85DECF1B3A4A2E0011215F /* UI_Secondary_Instance_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Secondary_Instance_Layer.cpp; sourceTree = "<group>"; };
-		3E85DED01B3A4A2E0011215F /* UI_Secondary_Instance_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Secondary_Instance_Layer.h; sourceTree = "<group>"; };
-		3E85DED11B3A4A2E0011215F /* UI_Settlement_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Settlement_Layer.cpp; sourceTree = "<group>"; };
-		3E85DED21B3A4A2E0011215F /* UI_Settlement_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Settlement_Layer.h; sourceTree = "<group>"; };
 		3E85DED31B3A4A2E0011215F /* UI_Shop_Center_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Shop_Center_Layer.cpp; sourceTree = "<group>"; };
 		3E85DED41B3A4A2E0011215F /* UI_Shop_Center_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Shop_Center_Layer.h; sourceTree = "<group>"; };
-		3E85DED51B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Skill_Icon_Info_Layer.cpp; sourceTree = "<group>"; };
-		3E85DED61B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Skill_Icon_Info_Layer.h; sourceTree = "<group>"; };
 		3E85DED81B3A4A2E0011215F /* MyImageView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyImageView.cpp; sourceTree = "<group>"; };
 		3E85DED91B3A4A2E0011215F /* MyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageView.h; sourceTree = "<group>"; };
 		3E85DEDA1B3A4A2E0011215F /* SkillView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillView.cpp; sourceTree = "<group>"; };
@@ -1283,8 +1212,6 @@
 		3E85DEEF1B3A4A2E0011215F /* UI_Society_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Society_Layer.h; sourceTree = "<group>"; };
 		3E85DEF01B3A4A2E0011215F /* UI_StartGameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_StartGameLayer.cpp; sourceTree = "<group>"; };
 		3E85DEF11B3A4A2E0011215F /* UI_StartGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_StartGameLayer.h; sourceTree = "<group>"; };
-		3E85DEF21B3A4A2E0011215F /* UI_Sweep_Desc_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Sweep_Desc_Layer.cpp; sourceTree = "<group>"; };
-		3E85DEF31B3A4A2E0011215F /* UI_Sweep_Desc_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Sweep_Desc_Layer.h; sourceTree = "<group>"; };
 		3E85DEF41B3A4A2E0011215F /* UI_SystemSetting_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_SystemSetting_Layer.cpp; sourceTree = "<group>"; };
 		3E85DEF51B3A4A2E0011215F /* UI_SystemSetting_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_SystemSetting_Layer.h; sourceTree = "<group>"; };
 		3E85DEF61B3A4A2E0011215F /* UI_TimeLimitedInstance_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_TimeLimitedInstance_Layer.cpp; sourceTree = "<group>"; };
@@ -1316,6 +1243,7 @@
 		3E85DF131B3A4A2E0011215F /* VersionInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VersionInfo.cpp; sourceTree = "<group>"; };
 		3E85DF141B3A4A2E0011215F /* VersionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionInfo.h; sourceTree = "<group>"; };
 		3E85E0561B3A4E370011215F /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppMacros.h; path = ../Classes/AppMacros.h; sourceTree = "<group>"; };
+		3EA3EE911B4BD4F600209477 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -1556,6 +1484,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E6401511B4B82D200F10EE1 /* Impact */ = {
+			isa = PBXGroup;
+			children = (
+				3E6401521B4B82D200F10EE1 /* Impact_Common.h */,
+			);
+			path = Impact;
+			sourceTree = "<group>";
+		};
 		3E85DC011B3A4A2C0011215F /* Action_System */ = {
 			isa = PBXGroup;
 			children = (
@@ -1662,10 +1598,6 @@
 				3E85DC351B3A4A2C0011215F /* CommonNpc_Config_Mgr.h */,
 				3E85DC361B3A4A2C0011215F /* CommonNpc_Logic.cpp */,
 				3E85DC371B3A4A2C0011215F /* CommonNpc_Logic.h */,
-				3E85DC381B3A4A2C0011215F /* Deputy_General_Msg_Proc.cpp */,
-				3E85DC391B3A4A2C0011215F /* Deputy_General_Msg_Proc.h */,
-				3E85DC3A1B3A4A2C0011215F /* DeputyGeneral.cpp */,
-				3E85DC3B1B3A4A2C0011215F /* DeputyGeneral.h */,
 				3E85DC3C1B3A4A2C0011215F /* FightNpc.cpp */,
 				3E85DC3D1B3A4A2C0011215F /* FightNpc.h */,
 				3E85DC3E1B3A4A2C0011215F /* FightNpc_Config_Data.h */,
@@ -2520,10 +2452,8 @@
 		3E85DE1D1B3A4A2D0011215F /* Skill_System */ = {
 			isa = PBXGroup;
 			children = (
+				3E6401511B4B82D200F10EE1 /* Impact */,
 				3E85DE1E1B3A4A2D0011215F /* Buff */,
-				3E85DE241B3A4A2D0011215F /* Impact */,
-				3E85DE281B3A4A2D0011215F /* LogicManager */,
-				3E85DE2C1B3A4A2E0011215F /* Skill */,
 			);
 			name = Skill_System;
 			path = ../Classes/Skill_System;
@@ -2533,48 +2463,8 @@
 			isa = PBXGroup;
 			children = (
 				3E85DE1F1B3A4A2D0011215F /* Buff_Common.h */,
-				3E85DE201B3A4A2D0011215F /* Buff_Logic.cpp */,
-				3E85DE211B3A4A2D0011215F /* Buff_Logic.h */,
-				3E85DE221B3A4A2D0011215F /* Buff_Mgr.cpp */,
-				3E85DE231B3A4A2D0011215F /* Buff_Mgr.h */,
 			);
 			path = Buff;
-			sourceTree = "<group>";
-		};
-		3E85DE241B3A4A2D0011215F /* Impact */ = {
-			isa = PBXGroup;
-			children = (
-				3E85DE251B3A4A2D0011215F /* Impact_Common.h */,
-				3E85DE261B3A4A2D0011215F /* Impact_Logic.cpp */,
-				3E85DE271B3A4A2D0011215F /* Impact_Logic.h */,
-			);
-			path = Impact;
-			sourceTree = "<group>";
-		};
-		3E85DE281B3A4A2D0011215F /* LogicManager */ = {
-			isa = PBXGroup;
-			children = (
-				3E85DE291B3A4A2D0011215F /* LogicManager.cpp */,
-				3E85DE2A1B3A4A2D0011215F /* LogicManager.h */,
-				3E85DE2B1B3A4A2E0011215F /* LogicManagerCommon.h */,
-			);
-			path = LogicManager;
-			sourceTree = "<group>";
-		};
-		3E85DE2C1B3A4A2E0011215F /* Skill */ = {
-			isa = PBXGroup;
-			children = (
-				3E85DE2D1B3A4A2E0011215F /* Skill_Common.h */,
-				3E85DE2E1B3A4A2E0011215F /* Skill_Logic.cpp */,
-				3E85DE2F1B3A4A2E0011215F /* Skill_Logic.h */,
-				3E85DE301B3A4A2E0011215F /* Skill_Mgr.cpp */,
-				3E85DE311B3A4A2E0011215F /* Skill_Mgr.h */,
-				3E85DE321B3A4A2E0011215F /* Skill_Msg_Proc.cpp */,
-				3E85DE331B3A4A2E0011215F /* Skill_Msg_Proc.h */,
-				3E85DE341B3A4A2E0011215F /* Technical_Mgr.cpp */,
-				3E85DE351B3A4A2E0011215F /* Technical_Mgr.h */,
-			);
-			path = Skill;
 			sourceTree = "<group>";
 		};
 		3E85DE361B3A4A2E0011215F /* Star_System */ = {
@@ -2675,8 +2565,6 @@
 				3E85DE721B3A4A2E0011215F /* UI_Bag_Info_Layer.h */,
 				3E85DE731B3A4A2E0011215F /* UI_Banks_Layer.cpp */,
 				3E85DE741B3A4A2E0011215F /* UI_Banks_Layer.h */,
-				3E85DE751B3A4A2E0011215F /* UI_Button_Layer.cpp */,
-				3E85DE761B3A4A2E0011215F /* UI_Button_Layer.h */,
 				3E85DE771B3A4A2E0011215F /* UI_ChatBoard_Layer.cpp */,
 				3E85DE781B3A4A2E0011215F /* UI_ChatBoard_Layer.h */,
 				3E85DE791B3A4A2E0011215F /* UI_Config.h */,
@@ -2698,22 +2586,10 @@
 				3E85DE951B3A4A2E0011215F /* UI_Function_Instance.h */,
 				3E85DE961B3A4A2E0011215F /* UI_Goods_Grid_Layer.cpp */,
 				3E85DE971B3A4A2E0011215F /* UI_Goods_Grid_Layer.h */,
-				3E85DE981B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.cpp */,
-				3E85DE991B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.h */,
-				3E85DE9A1B3A4A2E0011215F /* UI_HeartMethod_Layer.cpp */,
-				3E85DE9B1B3A4A2E0011215F /* UI_HeartMethod_Layer.h */,
-				3E85DE9C1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.cpp */,
-				3E85DE9D1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.h */,
 				3E85DE9E1B3A4A2E0011215F /* UI_Icon_Info_Layer.cpp */,
 				3E85DE9F1B3A4A2E0011215F /* UI_Icon_Info_Layer.h */,
-				3E85DEA01B3A4A2E0011215F /* UI_Instance_Describe_Layer.cpp */,
-				3E85DEA11B3A4A2E0011215F /* UI_Instance_Describe_Layer.h */,
-				3E85DEA21B3A4A2E0011215F /* UI_Instance_Layer.cpp */,
-				3E85DEA31B3A4A2E0011215F /* UI_Instance_Layer.h */,
 				3E85DEA41B3A4A2E0011215F /* UI_Interface.cpp */,
 				3E85DEA51B3A4A2E0011215F /* UI_Interface.h */,
-				3E85DEA61B3A4A2E0011215F /* UI_Item_Combine_Layer.cpp */,
-				3E85DEA71B3A4A2E0011215F /* UI_Item_Combine_Layer.h */,
 				3E85DEA81B3A4A2E0011215F /* UI_Json_Config.h */,
 				3E85DEA91B3A4A2E0011215F /* UI_Json_Manager.cpp */,
 				3E85DEAA1B3A4A2E0011215F /* UI_Json_Manager.h */,
@@ -2747,26 +2623,12 @@
 				3E85DEC61B3A4A2E0011215F /* UI_Public_Announcement.h */,
 				3E85DEC71B3A4A2E0011215F /* UI_Ranking_List_Layer.cpp */,
 				3E85DEC81B3A4A2E0011215F /* UI_Ranking_List_Layer.h */,
-				3E85DEC91B3A4A2E0011215F /* UI_Residual_Page_Layer.cpp */,
-				3E85DECA1B3A4A2E0011215F /* UI_Residual_Page_Layer.h */,
-				3E85DECB1B3A4A2E0011215F /* UI_Role_Info_Layer.cpp */,
-				3E85DECC1B3A4A2E0011215F /* UI_Role_Info_Layer.h */,
-				3E85DECD1B3A4A2E0011215F /* UI_Role_Quality_Up.cpp */,
-				3E85DECE1B3A4A2E0011215F /* UI_Role_Quality_Up.h */,
-				3E85DECF1B3A4A2E0011215F /* UI_Secondary_Instance_Layer.cpp */,
-				3E85DED01B3A4A2E0011215F /* UI_Secondary_Instance_Layer.h */,
-				3E85DED11B3A4A2E0011215F /* UI_Settlement_Layer.cpp */,
-				3E85DED21B3A4A2E0011215F /* UI_Settlement_Layer.h */,
 				3E85DED31B3A4A2E0011215F /* UI_Shop_Center_Layer.cpp */,
 				3E85DED41B3A4A2E0011215F /* UI_Shop_Center_Layer.h */,
-				3E85DED51B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.cpp */,
-				3E85DED61B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.h */,
 				3E85DED71B3A4A2E0011215F /* UI_Skill_Info_Layer */,
 				3E85DEDC1B3A4A2E0011215F /* UI_Society_Layer */,
 				3E85DEF01B3A4A2E0011215F /* UI_StartGameLayer.cpp */,
 				3E85DEF11B3A4A2E0011215F /* UI_StartGameLayer.h */,
-				3E85DEF21B3A4A2E0011215F /* UI_Sweep_Desc_Layer.cpp */,
-				3E85DEF31B3A4A2E0011215F /* UI_Sweep_Desc_Layer.h */,
 				3E85DEF41B3A4A2E0011215F /* UI_SystemSetting_Layer.cpp */,
 				3E85DEF51B3A4A2E0011215F /* UI_SystemSetting_Layer.h */,
 				3E85DEF61B3A4A2E0011215F /* UI_TimeLimitedInstance_Layer.cpp */,
@@ -2981,6 +2843,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3EA3EE911B4BD4F600209477 /* icon */,
 				3E85DB9F1B3A49E30011215F /* armature */,
 				3E85DBA01B3A49E30011215F /* audio */,
 				3E85DBA11B3A49E30011215F /* bag */,
@@ -3250,6 +3113,7 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3E85DBD31B3A49E30011215F /* channelID in Resources */,
 				3E85DBEA1B3A49E30011215F /* myclose_down.png in Resources */,
+				3EA3EE921B4BD4F600209477 /* icon in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				3E85DFAB1B3A4A2E0011215F /* sconscript in Resources */,
 				3E85DBF11B3A49E30011215F /* pic_lucency.png in Resources */,
@@ -3295,11 +3159,9 @@
 				3E85DF9F1B3A4A2E0011215F /* Item_Container_Msg_Proc_Cl.cpp in Sources */,
 				3E85DFB71B3A4A2E0011215F /* FileAPI.cpp in Sources */,
 				3E85E0481B3A4A2E0011215F /* UI_TimeLimitedInstance_Layer.cpp in Sources */,
-				3E85E0461B3A4A2E0011215F /* UI_Sweep_Desc_Layer.cpp in Sources */,
 				3E85E0071B3A4A2E0011215F /* UI_Activity_Six_Sect_Layer.cpp in Sources */,
 				3E85E0451B3A4A2E0011215F /* UI_StartGameLayer.cpp in Sources */,
 				3E85DF581B3A4A2E0011215F /* StateMachine.cpp in Sources */,
-				3E85DF2A1B3A4A2E0011215F /* DeputyGeneral.cpp in Sources */,
 				3E85DF991B3A4A2E0011215F /* gameplay_ctrl_event_proc.cpp in Sources */,
 				3E85DF9A1B3A4A2E0011215F /* gameplay_ctrl_fun_proc.cpp in Sources */,
 				3E85E02F1B3A4A2E0011215F /* UI_New_Function_Open.cpp in Sources */,
@@ -3310,7 +3172,6 @@
 				3E85DFF81B3A4A2E0011215F /* Actor_Layer.cpp in Sources */,
 				3E85E0061B3A4A2E0011215F /* UI_Activity_Layer.cpp in Sources */,
 				3E85DFD81B3A4A2E0011215F /* quest_logic.cpp in Sources */,
-				3E85DFF11B3A4A2E0011215F /* Technical_Mgr.cpp in Sources */,
 				3E85DF891B3A4A2E0011215F /* Faction_Client.cpp in Sources */,
 				3E85DF671B3A4A2E0011215F /* Daily_Task_Logic_Cl.cpp in Sources */,
 				3E85DF151B3A4A2E0011215F /* YNActions.cpp in Sources */,
@@ -3336,7 +3197,6 @@
 				3E85DF231B3A4A2E0011215F /* Character.cpp in Sources */,
 				3E85DF351B3A4A2E0011215F /* Bullet.cpp in Sources */,
 				3E85DF851B3A4A2E0011215F /* event_system_data_mgr.cpp in Sources */,
-				3E85E0351B3A4A2E0011215F /* UI_Role_Info_Layer.cpp in Sources */,
 				3E85DF6E1B3A4A2E0011215F /* BlackColossus.cpp in Sources */,
 				3E85E00E1B3A4A2E0011215F /* UI_ChatBoard_Layer.cpp in Sources */,
 				3E85DF1A1B3A4A2E0011215F /* Acupoint_Config_Mgr.cpp in Sources */,
@@ -3350,7 +3210,6 @@
 				3E85DF9E1B3A4A2E0011215F /* Item_Container_Mgr_Cl.cpp in Sources */,
 				3E85E01F1B3A4A2E0011215F /* UI_Icon_Info_Layer.cpp in Sources */,
 				3E85DFE01B3A4A2E0011215F /* Rank_Msg_Proc_Cl.cpp in Sources */,
-				3E85E01D1B3A4A2E0011215F /* UI_HeartMethod_Layer.cpp in Sources */,
 				3E85DFB81B3A4A2E0011215F /* message_coder.cpp in Sources */,
 				3E85DF4D1B3A4A2E0011215F /* BuffManager.cpp in Sources */,
 				3E85E04B1B3A4A2E0011215F /* UI_Trade_Layer.cpp in Sources */,
@@ -3363,7 +3222,6 @@
 				3E85DF201B3A4A2E0011215F /* Banks_Logic_Mgr.cpp in Sources */,
 				3E85DFF71B3A4A2E0011215F /* SkillMsgProc.cpp in Sources */,
 				3E85E04E1B3A4A2E0011215F /* UI_Ranking_List_Cell_Layer.cpp in Sources */,
-				3E85DFEC1B3A4A2E0011215F /* Impact_Logic.cpp in Sources */,
 				3E85DF631B3A4A2E0011215F /* Cool_Time_Logic_Cl.cpp in Sources */,
 				3E85DF721B3A4A2E0011215F /* Little.cpp in Sources */,
 				3E85DF791B3A4A2E0011215F /* DialogGroup.cpp in Sources */,
@@ -3386,17 +3244,14 @@
 				3E85DF811B3A4A2E0011215F /* Endless_Client.cpp in Sources */,
 				3E85E0531B3A4A2E0011215F /* UpdateManager.cpp in Sources */,
 				3E85DF3D1B3A4A2E0011215F /* Guardian.cpp in Sources */,
-				3E85E0341B3A4A2E0011215F /* UI_Residual_Page_Layer.cpp in Sources */,
 				3E85DF2C1B3A4A2E0011215F /* FightNpc_Config_Mgr.cpp in Sources */,
 				3E85DF731B3A4A2E0011215F /* MonsterTeam.cpp in Sources */,
 				3E85DFFB1B3A4A2E0011215F /* Loading_NoTouch_Layer.cpp in Sources */,
-				3E85DFEE1B3A4A2E0011215F /* Skill_Logic.cpp in Sources */,
 				3E85DF8C1B3A4A2E0011215F /* Function_Open_Config_Mgr.cpp in Sources */,
 				3E85DF661B3A4A2E0011215F /* Daily_Task_Config_Mgr.cpp in Sources */,
 				3E85E03F1B3A4A2E0011215F /* UI_Receive_Email_Layer.cpp in Sources */,
 				3E85E0181B3A4A2E0011215F /* UI_Fate_Layer.cpp in Sources */,
 				3E85DF2B1B3A4A2E0011215F /* FightNpc.cpp in Sources */,
-				3E85E00D1B3A4A2E0011215F /* UI_Button_Layer.cpp in Sources */,
 				3E85E0011B3A4A2E0011215F /* CocoStu_UI_Scene_Interface.cpp in Sources */,
 				3E85DF5F1B3A4A2E0011215F /* Tool.cpp in Sources */,
 				3E85DF9D1B3A4A2E0011215F /* God_Weapon_Config_Mgr.cpp in Sources */,
@@ -3423,11 +3278,9 @@
 				3E85DF761B3A4A2E0011215F /* SkillTag.cpp in Sources */,
 				3E85DF841B3A4A2E0011215F /* Event_Function_Instance.cpp in Sources */,
 				3E85DF501B3A4A2E0011215F /* GameScene.cpp in Sources */,
-				3E85DF291B3A4A2E0011215F /* Deputy_General_Msg_Proc.cpp in Sources */,
 				3E85DF241B3A4A2E0011215F /* Character_Logic.cpp in Sources */,
 				3E85DF4C1B3A4A2E0011215F /* Buff.cpp in Sources */,
 				3E85DF511B3A4A2E0011215F /* HitEffectLayer.cpp in Sources */,
-				3E85DFED1B3A4A2E0011215F /* LogicManager.cpp in Sources */,
 				3E85DFF41B3A4A2E0011215F /* Title_Client.cpp in Sources */,
 				3E85E00A1B3A4A2E0011215F /* UI_Bag_Gem_Layer.cpp in Sources */,
 				3E85DF831B3A4A2E0011215F /* Event_Data.cpp in Sources */,
@@ -3447,7 +3300,6 @@
 				3E85E0491B3A4A2E0011215F /* UI_Tips_Layer.cpp in Sources */,
 				3E85E0441B3A4A2E0011215F /* UI_Society_Layer.cpp in Sources */,
 				3E85DFA31B3A4A2E0011215F /* Item_Mgr_Cl.cpp in Sources */,
-				3E85E0381B3A4A2E0011215F /* UI_Settlement_Layer.cpp in Sources */,
 				3E85E0121B3A4A2E0011215F /* UI_Equipment_Gem_Layer.cpp in Sources */,
 				3E85DF941B3A4A2E0011215F /* game_event_response.cpp in Sources */,
 				3E85DFFA1B3A4A2E0011215F /* DownLoading_Layer.cpp in Sources */,
@@ -3469,7 +3321,6 @@
 				3E85DFE71B3A4A2E0011215F /* Shop_Msg_Proc_Cl.cpp in Sources */,
 				3E85DF8D1B3A4A2E0011215F /* Function_Open_Logic.cpp in Sources */,
 				3E85DF1F1B3A4A2E0011215F /* Award_Msg_Proc_Cl.cpp in Sources */,
-				3E85E0201B3A4A2E0011215F /* UI_Instance_Describe_Layer.cpp in Sources */,
 				3E85E0001B3A4A2E0011215F /* CocoStu_UI_Scene_Config_Mgr.cpp in Sources */,
 				3E85E0411B3A4A2E0011215F /* UI_Add_Friend_Layer.cpp in Sources */,
 				3E85DF171B3A4A2E0011215F /* Activity_Logic_Cl.cpp in Sources */,
@@ -3481,7 +3332,6 @@
 				3E85E0191B3A4A2E0011215F /* UI_FuBenDialog.cpp in Sources */,
 				3E85DFE41B3A4A2E0011215F /* Secretary_Client.cpp in Sources */,
 				3E85DF7F1B3A4A2E0011215F /* MissionDialog.cpp in Sources */,
-				3E85E01E1B3A4A2E0011215F /* UI_HeartMethod_Quality_Up_Layer.cpp in Sources */,
 				3E85DF9B1B3A4A2E0011215F /* gameplay_ctrl_logic.cpp in Sources */,
 				3E85E0091B3A4A2E0011215F /* UI_Arena_Layer.cpp in Sources */,
 				3E85DFA71B3A4A2E0011215F /* json_reader.cpp in Sources */,
@@ -3495,8 +3345,6 @@
 				3E85E01B1B3A4A2E0011215F /* UI_Goods_Grid_Layer.cpp in Sources */,
 				3E85DF371B3A4A2E0011215F /* City_NPC.cpp in Sources */,
 				3E85DF2E1B3A4A2E0011215F /* FightPlayer.cpp in Sources */,
-				3E85DFEB1B3A4A2E0011215F /* Buff_Mgr.cpp in Sources */,
-				3E85E0211B3A4A2E0011215F /* UI_Instance_Layer.cpp in Sources */,
 				3E85E04A1B3A4A2E0011215F /* UI_Tools.cpp in Sources */,
 				3E85DF7E1B3A4A2E0011215F /* Dialogue_Client.cpp in Sources */,
 				3E85DF391B3A4A2E0011215F /* Colossus.cpp in Sources */,
@@ -3508,7 +3356,6 @@
 				3E85DF261B3A4A2E0011215F /* CommonNpc.cpp in Sources */,
 				3E85DFF31B3A4A2E0011215F /* Task_Client.cpp in Sources */,
 				3E85DFA81B3A4A2E0011215F /* json_value.cpp in Sources */,
-				3E85E01C1B3A4A2E0011215F /* UI_HeartMethod_Combine_Layer.cpp in Sources */,
 				3E85E0261B3A4A2E0011215F /* UI_Login_Award_Layer.cpp in Sources */,
 				3E85DFD31B3A4A2E0011215F /* RecentlyServer.cpp in Sources */,
 				3E85DF751B3A4A2E0011215F /* Skill.cpp in Sources */,
@@ -3527,7 +3374,6 @@
 				3E85DFB31B3A4A2E0011215F /* msg_proc.cpp in Sources */,
 				3E85E0151B3A4A2E0011215F /* UI_Equipment_Strengthen_Info_Layer.cpp in Sources */,
 				3E85DFB61B3A4A2E0011215F /* EncoderManager.cpp in Sources */,
-				3E85E0361B3A4A2E0011215F /* UI_Role_Quality_Up.cpp in Sources */,
 				3E85DF971B3A4A2E0011215F /* gameplay_ctrl_tool.cpp in Sources */,
 				3E85E04D1B3A4A2E0011215F /* WashLayer.cpp in Sources */,
 				3E85E0221B3A4A2E0011215F /* UI_Interface.cpp in Sources */,
@@ -3535,13 +3381,11 @@
 				3E85E0331B3A4A2E0011215F /* UI_Ranking_List_Layer.cpp in Sources */,
 				3E85E0241B3A4A2E0011215F /* UI_Json_Manager.cpp in Sources */,
 				3E85DFAC1B3A4A2E0011215F /* Junior_Guide_Mgr.cpp in Sources */,
-				3E85DFEA1B3A4A2E0011215F /* Buff_Logic.cpp in Sources */,
 				3E85DFBB1B3A4A2E0011215F /* ServerSocket.cpp in Sources */,
 				3E85E03D1B3A4A2E0011215F /* UI_Email_Cell_Layer.cpp in Sources */,
 				3E85DF181B3A4A2E0011215F /* Activity_Msg_Proc_Cl.cpp in Sources */,
 				3E85DFBF1B3A4A2E0011215F /* SocketBillingOutputStream.cpp in Sources */,
 				3E85E0051B3A4A2E0011215F /* Select_Server_UI.cpp in Sources */,
-				3E85E0231B3A4A2E0011215F /* UI_Item_Combine_Layer.cpp in Sources */,
 				3E85DFAF1B3A4A2E0011215F /* Login_Reward_Msg_Proc_Cl.cpp in Sources */,
 				3E85E02D1B3A4A2E0011215F /* UI_MissionDialogue_Layer.cpp in Sources */,
 				3E85DFAE1B3A4A2E0011215F /* Login_Reward_Mgr_Cl.cpp in Sources */,
@@ -3556,7 +3400,6 @@
 				3E85DF821B3A4A2E0011215F /* EndlessPrayLayer.cpp in Sources */,
 				3E85DFFF1B3A4A2E0011215F /* Message_Layer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
-				3E85E03A1B3A4A2E0011215F /* UI_Skill_Icon_Info_Layer.cpp in Sources */,
 				3E85DF1D1B3A4A2E0011215F /* Acupoint_Msg_Proc_Cl.cpp in Sources */,
 				3E85DFFD1B3A4A2E0011215F /* Login_Scene.cpp in Sources */,
 				3E85E0251B3A4A2E0011215F /* UI_Logic.cpp in Sources */,
@@ -3571,7 +3414,6 @@
 				3E85DFBA1B3A4A2E0011215F /* Packet.cpp in Sources */,
 				3E85E01A1B3A4A2E0011215F /* UI_Function_Instance.cpp in Sources */,
 				3E85DF6D1B3A4A2E0011215F /* BlackCity.cpp in Sources */,
-				3E85DFEF1B3A4A2E0011215F /* Skill_Mgr.cpp in Sources */,
 				3E85E0301B3A4A2E0011215F /* UI_NpcDialogue_Layer.cpp in Sources */,
 				3E85E0141B3A4A2E0011215F /* UI_Equipment_StarUp_Layer.cpp in Sources */,
 				3E85DFBE1B3A4A2E0011215F /* SocketBillingInputStream.cpp in Sources */,
@@ -3590,13 +3432,11 @@
 				3E85DF741B3A4A2E0011215F /* MonsterWave.cpp in Sources */,
 				3E85DF7C1B3A4A2E0011215F /* DialogManager.cpp in Sources */,
 				3E85E0521B3A4A2E0011215F /* UpdateHelper.cpp in Sources */,
-				3E85DFF01B3A4A2E0011215F /* Skill_Msg_Proc.cpp in Sources */,
 				3E85DFA41B3A4A2E0011215F /* Item_Msg_Proc_Cl.cpp in Sources */,
 				3E85DF771B3A4A2E0011215F /* WarWorld.cpp in Sources */,
 				3E85DFD01B3A4A2E0011215F /* Account_Logic.cpp in Sources */,
 				3E85DFA21B3A4A2E0011215F /* Item_Logic_Cl.cpp in Sources */,
 				3E85E0041B3A4A2E0011215F /* MyEditBox.cpp in Sources */,
-				3E85E0371B3A4A2E0011215F /* UI_Secondary_Instance_Layer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

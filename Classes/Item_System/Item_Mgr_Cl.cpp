@@ -11,7 +11,7 @@
 #include "Play_System/Instance_Data_Mgr.h"
 #include "Event_System/event_system_data_mgr.h"
 
-#include "UI_Interface/UI_Instance_Layer.h"
+//#include "UI_Interface/UI_Instance_Layer.h"
 #include "UI_Interface/UI_MainMenu_Layer.h"
 
 #include "Common/GameDefine.h"
@@ -752,23 +752,23 @@ namespace Game_Data
                 }
                 else if(strcmp(element.get_command(),"award_general_exp") == 0)
                 {
-                    int player_id = Account_Data_Mgr::instance()->get_current_role_id();
-                    Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
-                    if (player)
-                    {
-                        DeputyGeneral* general = player->get_fight_general();
-                        if (general)
-                        {
-                            vector<uint> para;
-                            element.get_para_list_in_vector( para);
-                            if(para.size() > 0)
-                            {
-                                int value = para[0];
-                                const char* show = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(GENERAL_GET_EXP);
-                                reward = CCString::createWithFormat(show,general->get_character_name(),value)->getCString();
-                            }
-                        }
-                    }                    
+//                    int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//                    Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+//                    if (player)
+//                    {
+//                        DeputyGeneral* general = player->get_fight_general();
+//                        if (general)
+//                        {
+//                            vector<uint> para;
+//                            element.get_para_list_in_vector( para);
+//                            if(para.size() > 0)
+//                            {
+//                                int value = para[0];
+//                                const char* show = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(GENERAL_GET_EXP);
+//                                reward = CCString::createWithFormat(show,general->get_character_name(),value)->getCString();
+//                            }
+//                        }
+//                    }                    
                 }
                 else if(strcmp(element.get_command(),"award_deputy_general") == 0)
                 {
@@ -823,7 +823,7 @@ namespace Game_Data
             change = 1;
         }
 
-        Game_Logic::Game_Event_Response::instance()->on_update_compound_fragment(player->get_database_character_id(),change);
+//        Game_Logic::Game_Event_Response::instance()->on_update_compound_fragment(player->get_database_character_id(),change);
         DICTIONARY_CONFIG_MGR::instance()->show_alert(EXCHANGE_SUCCESS);
 
         //Game_Utils::instance()->add_effect_to_scene("");//材料合成
@@ -864,7 +864,7 @@ namespace Game_Data
             change = 1;
         }
 
-        Game_Logic::Game_Event_Response::instance()->on_update_compound_fragment(player->get_database_character_id(),change);
+//        Game_Logic::Game_Event_Response::instance()->on_update_compound_fragment(player->get_database_character_id(),change);
         DICTIONARY_CONFIG_MGR::instance()->show_alert(ASSEMBLE_SUCCESS);
 
         //Game_Utils::instance()->add_effect_to_scene("");//心法拼装

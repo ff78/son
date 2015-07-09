@@ -7,7 +7,8 @@
 #ifdef GAME_CLIENT
 //#include "AI_System/Game_Utils.h"
 #endif
-#include "Skill_System/Buff/Buff_Logic.h"
+#include "Game_Interface/common.h"
+//#include "Skill_System/Buff/Buff_Logic.h"
 //#include "Skill_System/Skill/Skill_Common.h"
 
 namespace Game_Data
@@ -46,20 +47,20 @@ namespace Game_Data
 
     struct Character_Skill
     {
-        uint64 database_id;         // Êı¾İ¿âID
-        int skill_id;               // ¼¼ÄÜID
-        //int skill_level;            // ¼¼ÄÜµÈ¼¶
+        uint64 database_id;         // Â ËÃ¦â€ºÃ¸â€šID
+        int skill_id;               // ÂºÂºÆ’â€¹ID
+        //int skill_level;            // ÂºÂºÆ’â€¹ÂµÂ»Âºâˆ‚
     };
 
 	struct Player_Faction_Data
 	{
-		uint64 faction_id;		// ¹¤»áID
-		int _faction_job;		// ¹¤»áÖ°Î»(Ã»ÓĞ¹¤»á:0,³ÉÔ±:1,¸±°ïÖ÷:2,°ïÖ÷:3)
-		char	_name[16 + 1];	// ¹¤»áÃû³Æ
-		int contribute_num;			// ¹±Ï×¶È
-		int curr_digging_num;		// µ±ÌìÍÚ¿óµÄ´ÎÊı
-		int curr_worship_num;		// µ±ÌìÄ¤°İµÄ´ÎÊı
-		int curr_boss_num;			// µ±ÌìÌôÕ½BOSS´ÎÊı
+		uint64 faction_id;		// Ï€Â§ÂªÂ·ID
+		int _faction_job;		// Ï€Â§ÂªÂ·Ã·âˆÅ’Âª(âˆšÂªâ€â€“Ï€Â§ÂªÂ·:0,â‰¥â€¦â€˜Â±:1,âˆÂ±âˆÃ”Ã·Ëœ:2,âˆÃ”Ã·Ëœ:3)
+		char	_name[16 + 1];	// Ï€Â§ÂªÂ·âˆšËšâ‰¥âˆ†
+		int contribute_num;			// Ï€Â±Å“â—Šâˆ‚Â»
+		int curr_digging_num;		// ÂµÂ±ÃƒÃÃ•â„Ã¸Ã›ÂµÆ’Â¥Å’Â Ë
+		int curr_worship_num;		// ÂµÂ±ÃƒÃÆ’Â§âˆâ€ºÂµÆ’Â¥Å’Â Ë
+		int curr_boss_num;			// ÂµÂ±ÃƒÃÃƒÃ™â€™Î©BOSSÂ¥Å’Â Ë
 	};
 
     class Character
@@ -129,14 +130,14 @@ namespace Game_Data
 		virtual void set_Dark_Resist(int _val){ m_Dark_Resist = _val; }
 		virtual int get_Dark_Resist(){ return m_Dark_Resist; }
 
-        virtual int have_this_buff(int buffid);
-        virtual Buff_Logic* get_buff_logic(int buffid);
-        virtual int insert_buff(Buff_Logic* buff_logic);
-        virtual int remove_buff(int buffid);
-        virtual int remove_all_buff();
-		virtual int remove_all_fight_buff();
-        virtual Buff_Logic* get_buff_logic_by_index(int index);
-        virtual int get_buff_size();
+//        virtual int have_this_buff(int buffid);
+//        virtual Buff_Logic* get_buff_logic(int buffid);
+//        virtual int insert_buff(Buff_Logic* buff_logic);
+//        virtual int remove_buff(int buffid);
+//        virtual int remove_all_buff();
+//		virtual int remove_all_fight_buff();
+//        virtual Buff_Logic* get_buff_logic_by_index(int index);
+//        virtual int get_buff_size();
         //virtual int get_buff_replace_index(Buff_Data* buffInfoPtr);
         virtual void insert_skill_list(std::vector<Character_Skill> &skill_list);
         virtual void insert_skill(Character_Skill & skill);
@@ -236,56 +237,58 @@ namespace Game_Data
 		void update_player_select_skills();
 #endif
 
+        int get_vip_lv(){ return m_vip_level = 0; }
+        void set_vip_lv(int lv){ m_vip_level = lv; }
     protected:
-        int				            m_database_id;                      // Êı¾İ¿âID
-        int                         m_static_id;                        // ¾²Ì¬Êı¾İID
-        int                         m_type;                             // ÀàĞÍ    EVENT_TYPE_PLAYERÍæ¼Ò  EVENT_TYPE_MONSTER¹ÖÎï EVENT_TYPE_NPC(NPC)
-        int                         m_level;                            // µÈ¼¶
-        int                         m_cur_hp;                           // µ±Ç°ÆøÑª
-        int                         m_cur_mp;						    // µ±Ç°Å­Æø
-        int                         m_cur_gp;						    // µ±Ç°î¸Æø
-        int				    	    m_coord_x;                          // x×ø±ê
-        int				    	    m_coord_y;						    // y×ø±ê
-        int				    	    m_scene_id;						    // ³¡¾°id
-        int                         m_max_hp;                           // ÆøÑªÉÏÏŞ
-        int                         m_max_mp;						    // Å­ÆøÉÏÏŞ
-        int                         m_max_gp;						    // î¸ÆøÉÏÏŞ
-        int                         m_hp_recover_speed;		            // ÆøÑª»Ø¸´ËÙ¶È
-        int                         m_gp_reduce_hurt;				    // î¸Æø¼õÉËÂÊ
-        int                         m_gp_behit_time;				    // î¸ÆøÊÜÉËºó»Ö¸´¼ä¸ô
-        int                         m_gp_recover_speed;				    // î¸Æø»Ö¸´ËÙ¶È
-        int                         m_attack;						    // ¹¥»÷Á¦
-        int                         m_define;						    // ·ÀÓùÁ¦
-        int                         m_hit_ratio;					    // ÃüÖĞÖµ
-        int                         m_avoidance;					    // »Ø±ÜÖµ
-        int                         m_crit_rate;					    // ±©»÷Öµ
-        int                         m_tenacity;						    // ¼áÈÍÖµ
-        int                         m_crit;							    // ±©»÷ÉËº¦¼Ó³É
-        int                         m_dead;                             // ËÀÍö
-        int				    	    m_invincible;					    // ÎŞµĞ
-        int				    	    m_no_hurt_time;					    // Î´ÊÜµ½¹¥»÷µÄÊ±¼ä
-        int				    	    m_character_quality;			    // ÈËÎïµÄÆ·ÖÊ
-		int                         m_move_speed_rate;                  // ÒÆ¶¯ËÙÂÊ  
+        int				            m_database_id;                      // Â ËÃ¦â€ºÃ¸â€šID
+        int                         m_static_id;                        // Ã¦â‰¤ÃƒÂ¨Â ËÃ¦â€ºID
+        int                         m_type;                             // Â¿â€¡â€“Ã•    EVENT_TYPE_PLAYERÃ•ÃŠÂºâ€œ  EVENT_TYPE_MONSTERÏ€Ã·Å’Ã” EVENT_TYPE_NPC(NPC)
+        int                         m_level;                            // ÂµÂ»Âºâˆ‚
+        int                         m_cur_hp;                           // ÂµÂ±Â«âˆâˆ†Â¯â€”â„¢
+        int                         m_cur_mp;						    // ÂµÂ±Â«âˆâ‰ˆâ‰ âˆ†Â¯
+        int                         m_cur_gp;						    // ÂµÂ±Â«âˆÃ“âˆâˆ†Â¯
+        int				    	    m_coord_x;                          // xâ—ŠÂ¯Â±Ã
+        int				    	    m_coord_y;						    // yâ—ŠÂ¯Â±Ã
+        int				    	    m_scene_id;						    // â‰¥Â°Ã¦âˆid
+        int                         m_max_hp;                           // âˆ†Â¯â€”â„¢â€¦Å“Å“ï¬
+        int                         m_max_mp;						    // â‰ˆâ‰ âˆ†Â¯â€¦Å“Å“ï¬
+        int                         m_max_gp;						    // Ã“âˆâˆ†Â¯â€¦Å“Å“ï¬
+        int                         m_hp_recover_speed;		            // âˆ†Â¯â€”â„¢ÂªÃ¿âˆÂ¥Ã€Å¸âˆ‚Â»
+        int                         m_gp_reduce_hurt;				    // Ã“âˆâˆ†Â¯ÂºÄ±â€¦Ã€Â¬Â 
+        int                         m_gp_behit_time;				    // Ã“âˆâˆ†Â¯Â â€¹â€¦Ã€âˆ«Ã›ÂªÃ·âˆÂ¥Âºâ€°âˆÃ™
+        int                         m_gp_recover_speed;				    // Ã“âˆâˆ†Â¯ÂªÃ·âˆÂ¥Ã€Å¸âˆ‚Â»
+        int                         m_attack;						    // Ï€â€¢ÂªËœÂ¡Â¶
+        int                         m_define;						    // âˆ‘Â¿â€Ë˜Â¡Â¶
+        int                         m_hit_ratio;					    // âˆšÂ¸Ã·â€“Ã·Âµ
+        int                         m_avoidance;					    // ÂªÃ¿Â±â€¹Ã·Âµ
+        int                         m_crit_rate;					    // Â±Â©ÂªËœÃ·Âµ
+        int                         m_tenacity;						    // ÂºÂ·Â»Ã•Ã·Âµ
+        int                         m_crit;							    // Â±Â©ÂªËœâ€¦Ã€âˆ«Â¶Âºâ€â‰¥â€¦
+        int                         m_dead;                             // Ã€Â¿Ã•Ë†
+        int				    	    m_invincible;					    // Å’ï¬Âµâ€“
+        int				    	    m_no_hurt_time;					    // Å’Â¥Â â€¹ÂµÎ©Ï€â€¢ÂªËœÂµÆ’Â Â±Âºâ€°
+        int				    	    m_character_quality;			    // Â»Ã€Å’Ã”ÂµÆ’âˆ†âˆ‘Ã·Â 
+		int                         m_move_speed_rate;                  // â€œâˆ†âˆ‚Ã˜Ã€Å¸Â¬Â   
 
-		//  ÊôĞÔ¿¹ĞÔ
-		int							m_Ice_Resist;						// ±ù¿¹
-		int							m_Fire_Resist;						// »ğ¿¹
-		int							m_Thunder_Resist;					// À×¿¹
-		int							m_Wind_Resist;						// ·ç¿¹
-		int							m_Light_Resist;						// ¹â¿¹
-		int							m_Dark_Resist;						// °µ¿¹
+		//  Â Ã™â€“â€˜Ã¸Ï€â€“â€˜
+		int							m_Ice_Resist;						// Â±Ë˜Ã¸Ï€
+		int							m_Fire_Resist;						// Âªï£¿Ã¸Ï€
+		int							m_Thunder_Resist;					// Â¿â—ŠÃ¸Ï€
+		int							m_Wind_Resist;						// âˆ‘ÃÃ¸Ï€
+		int							m_Light_Resist;						// Ï€â€šÃ¸Ï€
+		int							m_Dark_Resist;						// âˆÂµÃ¸Ï€
 
-		int							m_job;								// Ö°Òµ
+		int							m_job;								// Ã·âˆâ€œÂµ
 
 		/*
 #ifdef GAME_CLIENT
-        Charcter_AI_State        m_ai_state;						   // AI×´Ì¬
+        Charcter_AI_State        m_ai_state;						   // AIâ—ŠÂ¥ÃƒÂ¨
 #endif*/
-        vector<Buff_Logic>       m_buff_vector;                        // buffÁĞ±í
-        vector<Character_Skill>  m_skill_vector;                       // listÁĞ±í
+//        vector<Buff_Logic>       m_buff_vector;                        // buffÂ¡â€“Â±ÃŒ
+        vector<Character_Skill>  m_skill_vector;                       // listÂ¡â€“Â±ÃŒ
 
-		vector<int>				m_job_skill_list;						// ¼¼ÄÜÁĞ±í(Íæ¼Òµ±Ç°Ñ§Ï°µÄ)
-		vector<int>				m_select_job_skill_list;				// Íæ¼ÒÑ¡ÔñµÄ¼¼ÄÜID
+		vector<int>				m_job_skill_list;						// ÂºÂºÆ’â€¹Â¡â€“Â±ÃŒ(Ã•ÃŠÂºâ€œÂµÂ±Â«âˆâ€”ÃŸÅ“âˆÂµÆ’)
+		vector<int>				m_select_job_skill_list;				// Ã•ÃŠÂºâ€œâ€”Â°â€˜Ã’ÂµÆ’ÂºÂºÆ’â€¹ID
 #if 1//yypp
 		vector<int>				m_temp_job_skill_list;
 #endif
@@ -293,5 +296,7 @@ namespace Game_Data
 		int						m_cur_pet_id;
 
 		int						m_cur_god_id;
+        
+        int	 m_vip_level;		// VIPç­‰çº§
     };
 }

@@ -177,21 +177,28 @@ int quest_msg_proc_client::display_npc_quest_state( int instance_npc_id, int sta
     if (Game_Data::quest_data::QUEST_STATE_INPROCESS == state)
     {
         const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(II_REQUEST_2);
-        Game_Utils::instance()->set_sprite_info(instance_npc_id , szPath,true);
+        std::string p("icon/");
+        p+=szPath;
+        
+        Game_Utils::instance()->set_sprite_info(instance_npc_id , p.c_str(),true);
 
         changed = true;
     }
     else if (Game_Data::quest_data::QUEST_STATE_ACCEPTABLE == state)
     {
         const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(II_REQUEST_3);
-        Game_Utils::instance()->set_sprite_info(instance_npc_id , szPath,true);
+        std::string p("icon/");
+        p+=szPath;
+        Game_Utils::instance()->set_sprite_info(instance_npc_id , p.c_str(),true);
 
         changed = true;
     }
     else  if (Game_Data::quest_data::QUEST_STATE_SUBMITABLE == state)
     {
         const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(II_REQUEST_1);
-        Game_Utils::instance()->set_sprite_info(instance_npc_id , szPath,true);
+        std::string p("icon/");
+        p+=szPath;
+        Game_Utils::instance()->set_sprite_info(instance_npc_id , p.c_str(),true);
         changed = true;
     }
  

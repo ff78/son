@@ -19,7 +19,7 @@ bool DialogLayer::init()
 {
     currLine = currSeg = -1;
     
-    Layout *root = dynamic_cast<Layout*>(GUIReader::getInstance()->widgetFromJsonFile("ui/quest_accept/quest_accept.ExportJson"));
+    Layout *root = dynamic_cast<Layout*>(GUIReader::getInstance()->widgetFromJsonFile("ui/quest_accept.json"));
     addChild(root);
     
     leftHeadIcon = dynamic_cast<ImageView *>(Helper::seekWidgetByName(root, "Image_head_l"));

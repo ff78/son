@@ -41,7 +41,7 @@ public:
 	void								ChangeOtherLayerState(const Child_Layer_State eType);	// 切换到其余页面状态
 
 	bool								JudgeTargetGemInCurrentEquip(const uint64 nGemID);		// 当前装备中是否存在目标宝石		
-
+    void onCloseCallBack(Ref* pSender, ui::Widget::TouchEventType type);
 private:
 	//---按钮方法回调---//	
 	void								OnBtnStrengthenTextCallBack(Ref* pSender, Widget::TouchEventType type);			// 强化按钮方法回调
@@ -68,6 +68,7 @@ private:
 
 	ui::ScrollView*						m_pGemScrollView;										// 宝石的滚动层
 
+    ui::Button*							m_pCloseBtn;
 public:
 	//---获取和设置成员变量---//
 	inline void							SetCurrentEquipItemID(const uint64 nItemID)

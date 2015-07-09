@@ -31,11 +31,11 @@ namespace UI
     {
         int job;
         std::string animStr;
-        std::string actionStr;
-        std::string frontEffStr;
-        std::string frontScaleStr;
-        std::string backEffStr;
-        std::string backScaleStr;
+        std::vector<std::string> actions;
+        std::vector<std::vector<std::string>> frontEff;
+        std::vector<std::vector<float>> frontScale;
+        std::vector<std::vector<std::string>> backEff;
+        std::vector<std::vector<float>> backScale;
     };
   class Main_City_Background_Layer : public Layer
   {
@@ -86,6 +86,7 @@ namespace UI
 	  void clickJob4(Ref* pSender, Widget::TouchEventType type);
 	  void clickJob5(Ref* pSender, Widget::TouchEventType type);
       void animationEvent(cocostudio::Armature *armature, cocostudio::MovementEventType movementType, const std::string& movementID);
+      void onFrameEvent(cocostudio::Bone *bone, const std::string& evt, int originFrameIndex, int currentFrameIndex);
 	  
 	  void setUILayer(cocos2d::Layer* pUILayer){ m_pUILayer = pUILayer; }
 	  cocos2d::Layer* getUILayer(){ return m_pUILayer; }
@@ -93,6 +94,9 @@ namespace UI
 	  void setUILayerWidget(cocos2d::ui::Widget* pUIWidget){ m_pWidget = pUIWidget; }
 	  
 	  void hideEffectSprite();
+      
+      void loadAnimJson();
+      void playSkill(std::vector<std::string>* actionNames);
   private:
 	  static Main_City_Actor_Layer*  instance_;
 	  cocos2d::Layer* m_pUILayer;
@@ -121,8 +125,17 @@ namespace UI
 	  std::vector<std::string>	_nvqiangActionNames;
 	  cocostudio::Armature*		_wudoujiaArmature;
 	  std::vector<std::string>	_wudoujiaActionNames;
+      
+      cocos2d::Layer* roleLayer;
+      cocos2d::Layer* frontLayer;
+      cocos2d::Layer* backLayer;
+      cocos2d::Sprite* shadow;
+      
+      cocostudio::Armature* armature;
+      std::map<int, struct RoleAnim*> jobAnimMap;
 
-
+      int armatureIndex;
+      int animationCount;
   };
 
 

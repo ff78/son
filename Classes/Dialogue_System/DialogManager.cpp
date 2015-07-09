@@ -48,6 +48,7 @@ bool DialogManager::nextPage()
     
     if(!currGroup->nextPage())
     {
+        currDialogId = currDialogGroupId = -1;
         dialogOver = true;
         currGroup = nullptr;
         return false;
@@ -60,6 +61,7 @@ void DialogManager::skipDialog()
 {
     dialogOver = true;
     currGroup = nullptr;
+    currDialogId = currDialogGroupId = -1;
 }
 
 DialogGroup* DialogManager::getCurrGroup()

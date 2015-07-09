@@ -40,7 +40,7 @@ bool UI_Society_Layer::init()
 	{
 		return false;
 	}
-	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/Social/social.ExportJson");
+	ui::Widget* pLayer = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/social.json");
 	addChild(pLayer);
 
 	// 关闭按钮

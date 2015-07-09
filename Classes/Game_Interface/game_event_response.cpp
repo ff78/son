@@ -307,33 +307,33 @@ namespace Game_Logic
         Game_Event_Mgr::instance()->proc_event(player_id,"update_friend_list",ge);
     }
 
-    void Game_Event_Response::on_update_role_quality_up(int player_id)
-    {
-        Game_Event ge;
-        ge.set_char_id(player_id);
-        ge.set_char_type(Game_Event::EVENT_TYPE_PLAYER);
-        ge.set_event_active_type(Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
-        ge.set_event_owner_id (0);
-        ge.set_event_active_type(0);
-        ge.set_event_active_id(0);
-        Game_Event_Mgr::instance()->proc_event(player_id,"update_role_quality_up",ge);
-    }
+//    void Game_Event_Response::on_update_role_quality_up(int player_id)
+//    {
+//        Game_Event ge;
+//        ge.set_char_id(player_id);
+//        ge.set_char_type(Game_Event::EVENT_TYPE_PLAYER);
+//        ge.set_event_active_type(Game_Logic::Game_Event::EVENT_TYPE_UI_ROLE_QUALITY_UP);
+//        ge.set_event_owner_id (0);
+//        ge.set_event_active_type(0);
+//        ge.set_event_active_id(0);
+//        Game_Event_Mgr::instance()->proc_event(player_id,"update_role_quality_up",ge);
+//    }
 
-    void Game_Event_Response::on_update_compound_fragment(int player_id,int change)
-    {
-        Game_Event ge;
-        ge.set_char_id(player_id);
-        ge.set_char_type(Game_Event::EVENT_TYPE_PLAYER);
-        ge.set_event_active_type(Game_Logic::Game_Event::EVENT_TYPE_UI_COMPOUND_FRAGMENT);
-        ge.set_event_owner_id (0);
-        ge.set_event_active_type(0);
-        ge.set_event_active_id(0);
-
-        vector<uint64>  para;
-        para.push_back(change);
-        ge.set_para(para);
-        Game_Event_Mgr::instance()->proc_event(player_id,"update_compound_fragment",ge);
-    }
+//    void Game_Event_Response::on_update_compound_fragment(int player_id,int change)
+//    {
+//        Game_Event ge;
+//        ge.set_char_id(player_id);
+//        ge.set_char_type(Game_Event::EVENT_TYPE_PLAYER);
+//        ge.set_event_active_type(Game_Logic::Game_Event::EVENT_TYPE_UI_COMPOUND_FRAGMENT);
+//        ge.set_event_owner_id (0);
+//        ge.set_event_active_type(0);
+//        ge.set_event_active_id(0);
+//
+//        vector<uint64>  para;
+//        para.push_back(change);
+//        ge.set_para(para);
+//        Game_Event_Mgr::instance()->proc_event(player_id,"update_compound_fragment",ge);
+//    }
 
     void Game_Event_Response::on_update_fate(int player_id)
     {

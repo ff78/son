@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="32" tileheight="32" nextobjectid="17">
+ <tileset firstgid="1" name="scene_19" tilewidth="1923" tileheight="660">
+  <image source="../scene_19.png" width="1923" height="660"/>
+ </tileset>
+ <tileset firstgid="2" name="scene_26_back" tilewidth="1723" tileheight="441">
+  <image source="../scene_26_back.png" width="1723" height="441"/>
+ </tileset>
+ <tileset firstgid="3" name="s19_vol_001" tilewidth="192" tileheight="146">
+  <image source="../s19_vol_001.png" width="192" height="146"/>
+ </tileset>
+ <tileset firstgid="4" name="s19_light_002" tilewidth="400" tileheight="200">
+  <image source="../s19_light_002.png" width="400" height="200"/>
+ </tileset>
+ <tileset firstgid="5" name="s19_denglong_001" tilewidth="62" tileheight="74">
+  <image source="../s19_denglong_001.png" width="62" height="79"/>
+ </tileset>
+ <tileset firstgid="6" name="s19_fire_001" tilewidth="69" tileheight="102">
+  <image source="../s19_fire_001.png" width="69" height="120"/>
+ </tileset>
+ <tileset firstgid="7" name="scene_19_front" tilewidth="1923" tileheight="215">
+  <image source="../scene_19_front.png" width="1923" height="215"/>
+ </tileset>
+ <tileset firstgid="8" name="door (1)" tilewidth="250" tileheight="250">
+  <image source="../door (1).png" width="250" height="250"/>
+ </tileset>
+ <tileset firstgid="9" name="torch (1)" tilewidth="100" tileheight="100">
+  <image source="../torch (1).png" width="100" height="100"/>
+ </tileset>
+ <tileset firstgid="10" name="fire (1)" tilewidth="150" tileheight="150">
+  <image source="../fire (1).png" width="150" height="150"/>
+ </tileset>
+ <tileset firstgid="11" name="b_torch (1)" tilewidth="100" tileheight="200">
+  <image source="../b_torch (1).png" width="100" height="200"/>
+ </tileset>
+ <objectgroup name="doors">
+  <object id="1" name="born" type="born" x="130" y="524"/>
+ </objectgroup>
+ <objectgroup name="wave1">
+  <object id="2" x="1231" y="481">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="wave2">
+  <object id="3" x="705.989" y="415.024" width="24.4782" height="22.556" rotation="-1.34197">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="6"/>
+   </properties>
+  </object>
+  <object id="4" x="713" y="582">
+   <properties>
+    <property name="monId" value="101"/>
+    <property name="teamId" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="midAnim">
+  <object id="8" name="s05torch" gid="11" x="156.5" y="334"/>
+  <object id="9" name="s05torch" gid="11" x="1663.5" y="334"/>
+  <object id="11" name="s05torch2" gid="9" x="732.5" y="284" />
+  <object id="12" name="s05torch2" gid="9" x="1096.5" y="284"/>
+  <object id="14" name="s05fire" gid="10" x="216.5" y="566"/>
+  <object id="15" name="s05fire" gid="10" x="1561.5" y="559"/>
+ </objectgroup>
+</map>

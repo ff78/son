@@ -127,7 +127,9 @@ switch (type)
 void UI_Activity_Six_Sect_Layer::update_grid(int index,int name,int icon,int time,int reward,int level,int energy,int cur_count,int join_count)
 {
     const char* szPath = ITEM_CONFIG_MGR::instance()->get_icon_path(icon);
-    m_img_area_texture[index]->loadTexture(szPath, UI_TEX_TYPE_PLIST);
+    std::string p("icon/");
+    p+=szPath;
+    m_img_area_texture[index]->loadTexture(p.c_str());
     m_img_area_texture[index]->setVisible(true);
 
     const char *szName = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(name);

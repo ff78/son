@@ -79,8 +79,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/Character_System/CommonNpc.cpp \
 ../../Classes/Character_System/CommonNpc_Config_Mgr.cpp \
 ../../Classes/Character_System/CommonNpc_Logic.cpp \
-../../Classes/Character_System/Deputy_General_Msg_Proc.cpp \
-../../Classes/Character_System/DeputyGeneral.cpp \
 ../../Classes/Character_System/FightNpc.cpp \
 ../../Classes/Character_System/FightNpc_Config_Mgr.cpp \
 ../../Classes/Character_System/FightNpc_Logic.cpp \
@@ -212,14 +210,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/Shop_System/Shop_Msg_Proc_Cl.cpp \
 ../../Classes/Shop_System/Shoping_Record_Mgr_Cl.cpp \
 ../../Classes/Sign_System/Sign_Client.cpp \
-../../Classes/Skill_System/Buff/Buff_Logic.cpp \
-../../Classes/Skill_System/Buff/Buff_Mgr.cpp \
-../../Classes/Skill_System/Impact/Impact_Logic.cpp \
-../../Classes/Skill_System/LogicManager/LogicManager.cpp \
-../../Classes/Skill_System/Skill/Skill_Logic.cpp \
-../../Classes/Skill_System/Skill/Skill_Mgr.cpp \
-../../Classes/Skill_System/Skill/Skill_Msg_Proc.cpp \
-../../Classes/Skill_System/Skill/Technical_Mgr.cpp \
 ../../Classes/Star_System/Star_Client.cpp \
 ../../Classes/Task_System/Task_Client.cpp \
 ../../Classes/Title_System/Title_Client.cpp \
@@ -246,7 +236,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/UI_Interface/UI_Arena_Layer.cpp \
 ../../Classes/UI_Interface/UI_Bag_Info_Layer.cpp \
 ../../Classes/UI_Interface/UI_Banks_Layer.cpp \
-../../Classes/UI_Interface/UI_Button_Layer.cpp \
 ../../Classes/UI_Interface/UI_ChatBoard_Layer.cpp \
 ../../Classes/UI_Interface/UI_Config_Data_Mgr.cpp \
 ../../Classes/UI_Interface/UI_Daily_Mission.cpp \
@@ -255,14 +244,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/UI_Interface/UI_FuBenDialog.cpp \
 ../../Classes/UI_Interface/UI_Function_Instance.cpp \
 ../../Classes/UI_Interface/UI_Goods_Grid_Layer.cpp \
-../../Classes/UI_Interface/UI_HeartMethod_Combine_Layer.cpp \
-../../Classes/UI_Interface/UI_HeartMethod_Layer.cpp \
-../../Classes/UI_Interface/UI_HeartMethod_Quality_Up_Layer.cpp \
 ../../Classes/UI_Interface/UI_Icon_Info_Layer.cpp \
-../../Classes/UI_Interface/UI_Instance_Describe_Layer.cpp \
-../../Classes/UI_Interface/UI_Instance_Layer.cpp \
 ../../Classes/UI_Interface/UI_Interface.cpp \
-../../Classes/UI_Interface/UI_Item_Combine_Layer.cpp \
 ../../Classes/UI_Interface/UI_Json_Manager.cpp \
 ../../Classes/UI_Interface/UI_Logic.cpp \
 ../../Classes/UI_Interface/UI_LoginLayer.cpp \
@@ -279,11 +262,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/UI_Interface/UI_PowerChangeTips.cpp \
 ../../Classes/UI_Interface/UI_Public_Announcement.cpp \
 ../../Classes/UI_Interface/UI_Ranking_List_Layer.cpp \
-../../Classes/UI_Interface/UI_Residual_Page_Layer.cpp \
-../../Classes/UI_Interface/UI_Role_Info_Layer.cpp \
-../../Classes/UI_Interface/UI_Role_Quality_Up.cpp \
-../../Classes/UI_Interface/UI_Secondary_Instance_Layer.cpp \
-../../Classes/UI_Interface/UI_Settlement_Layer.cpp \
 ../../Classes/UI_Interface/UI_Shop_Center_Layer.cpp \
 ../../Classes/UI_Interface/UI_Skill_Info_Layer/SkillView.cpp \
 ../../Classes/UI_Interface/UI_Skill_Info_Layer/MyImageView.cpp \
@@ -297,7 +275,6 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/UI_Interface/UI_Wash_Layer/WashLayer.cpp \
 ../../Classes/UI_Interface/UI_Society_Layer/UI_Society_Layer.cpp \
 ../../Classes/UI_Interface/UI_StartGameLayer.cpp \
-../../Classes/UI_Interface/UI_Sweep_Desc_Layer.cpp \
 ../../Classes/UI_Interface/UI_SystemSetting_Layer.cpp \
 ../../Classes/UI_Interface/UI_TimeLimitedInstance_Layer.cpp \
 ../../Classes/UI_Interface/UI_Tips_Layer.cpp \

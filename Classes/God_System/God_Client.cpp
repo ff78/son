@@ -68,7 +68,7 @@ bool GOD_VIEW::init()
 
 	Director::getInstance()->getEventDispatcher()->addCustomEventListener(EVENT_ON_UPDATE_SUCCESS, CC_CALLBACK_0(GOD_VIEW::eventOnUpdate, this) );
 
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/godweapon/godweapon.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/godweapon.json");
 	if( _rootWidget == nullptr )return false;
 	addChild(_rootWidget);
 
@@ -77,7 +77,7 @@ bool GOD_VIEW::init()
 	_closeButton->addTouchEventListener(CC_CALLBACK_2(GOD_VIEW::onCloseCallback, this));
 	
 	_upgradeButton = dynamic_cast<cocos2d::ui::Button*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Button_119") );
-	_upgradeButton->setVisible(true);_upgradeButton->setTouchEnabled(true);
+	_upgradeButton->setVisible(false);_upgradeButton->setTouchEnabled(false);
 	_upgradeButton->addTouchEventListener(CC_CALLBACK_2(GOD_VIEW::onUpgradeCallback, this));
 
 	_levelText = dynamic_cast<cocos2d::ui::Text*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_5_0") );
@@ -104,10 +104,10 @@ bool GOD_VIEW::init()
         std::string name(player->get_character_name());
         auto upGradeDesc = dynamic_cast<cocos2d::ui::Text*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_120") );
         upGradeDesc->setColor(Color3B::RED);
-        upGradeDesc->setString(name + "等级提升后可获得天降神兵！");
+        upGradeDesc->setString(name + "等级提升到3级可获得天降神兵！");
         auto skillName = dynamic_cast<cocos2d::ui::Text*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_73") );
         skillName->setColor(Color3B::RED);
-        skillName->setString("未获得");
+        skillName->setString("3级获得");
         auto skillDes = dynamic_cast<cocos2d::ui::Text*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_73_0") );
         skillDes->setVisible(false);
         auto la5 = dynamic_cast<cocos2d::ui::Text*>( cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_5") );
@@ -117,8 +117,9 @@ bool GOD_VIEW::init()
         
         cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/wdj_quantao.ExportJson");
         _armatureRepeat = cocostudio::Armature::create("wdj_quantao");
+        _armatureRepeat->setScale(1.5);
         _armatureRepeat->getAnimation()->playWithIndex(0);
-        _armatureRepeat->setPosition( Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2-70) );
+        _armatureRepeat->setPosition( Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2-260) );
         this->addChild(_armatureRepeat,999);
         _armatureRepeat->setColor(Color3B::GRAY);
 		return true;
@@ -138,8 +139,9 @@ bool GOD_VIEW::init()
 
 	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(str);
 	_armatureRepeat = cocostudio::Armature::create(path);
+    _armatureRepeat->setScale(1.5);
 	_armatureRepeat->getAnimation()->play("stand");
-	_armatureRepeat->setPosition( Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2-70) );
+	_armatureRepeat->setPosition( Vec2(Director::getInstance()->getWinSize().width / 2, Director::getInstance()->getWinSize().height / 2-260) );
     _armatureRepeat->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(GodLayer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 	this->addChild(_armatureRepeat,999);
 

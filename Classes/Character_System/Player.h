@@ -8,7 +8,7 @@
 #include "Acupoint_System/Acupoint_Data.h"
 #include "Cool_Time_System/Cool_Time_Data.h"
 #include "Item_Container_System/Item_Container_Data.h"
-#include "DeputyGeneral.h"
+//#include "DeputyGeneral.h"
 #include "Relation_System/Relation_Common.h"
 #include "Network_Common/global_macros.h"
 
@@ -56,7 +56,7 @@ namespace Game_Data
 		virtual int get_character_combo( void ){return m_nComboNum;}
 		virtual void set_character_combo( int nComboNum );
 		virtual int get_power();
-        virtual int get_used_power();
+//        virtual int get_used_power();
         virtual int get_fighting_capacity();
 		virtual void set_character_quality(int quality){this->m_character_quality=quality;}
 		virtual int get_character_quality(){return this->m_character_quality;}
@@ -186,8 +186,8 @@ namespace Game_Data
         int insert_item_container(Item_Container* container);
         int remove_item_container(int id);
 
-		int insert_deputy_general(DeputyGeneral* deputy_general);
-		int remove_deputy_general(int id);
+//		int insert_deputy_general(DeputyGeneral* deputy_general);
+//		int remove_deputy_general(int id);
 		
 		//int insert_relation(Relation_Data* relation);
 		//int remove_relation(int friend_role_id);
@@ -219,7 +219,7 @@ namespace Game_Data
         Acupoint_Map& get_acupoint_map(){return m_map_acupoint;} 
         Cool_Time_Map& get_cool_time_map(){return m_map_cool_time;}
         Item_Container_Map& get_player_item_container_map(){return m_map_item_container;}
-		Deputy_General_Map& get_deputy_general() {return m_map_deputy_general;}
+//		Deputy_General_Map& get_deputy_general() {return m_map_deputy_general;}
 
         Item* get_item(uint64 item_id);
         Item* get_material_fragment(int item_base_id);
@@ -229,8 +229,8 @@ namespace Game_Data
         Cool_Time* get_cool_time(int type);
         //Relation_Data* get_relation(int friend_role_id);
         Item_Container* get_item_container(uint64 container_id);
-		DeputyGeneral* get_deputy_general(int deputy_general_id);
-		DeputyGeneral* get_deputy_general_by_index(int index);
+//		DeputyGeneral* get_deputy_general(int deputy_general_id);
+//		DeputyGeneral* get_deputy_general_by_index(int index);
 
         bool fill_item_message_stream(message_stream& ms);
         bool fill_material_fragment_message_stream(message_stream& ms);
@@ -239,7 +239,7 @@ namespace Game_Data
         bool fill_acupoint_message_stream(message_stream& ms); 
         bool fill_cool_time_message_stream(message_stream& ms);
         bool fill_item_container_message_stream(message_stream& ms);
-		bool fill_deputy_general_message_stream(message_stream& ms);
+//		bool fill_deputy_general_message_stream(message_stream& ms);
         bool fill_offline_fight_record_message_stream(message_stream& ms);
 
 		void db_save(int player_id);  
@@ -258,26 +258,26 @@ namespace Game_Data
         void release_acupoint();
         void release_cool_time();
         void release_item_container();
-		void release_deputy_general();
+//		void release_deputy_general();
         void release_offline_fight_record();
 		void release_relation();
 
         int get_material_fragment_type_count(){return m_map_material_fragment.size();}
         int get_book_fragment_type_count(){return m_map_book_fragment.size();}
         int get_item_container_count(){return m_map_item_container.size();}
-		int get_deputy_general_count() {return m_map_deputy_general.size();}
+//		int get_deputy_general_count() {return m_map_deputy_general.size();}
 		//int get_relation_count(){return m_map_relation.size();}
         //int get_offline_fight_record_count(){return m_list_offline_fight_record.size();}
 
         void login_refresh_data(int player_id);
         void login_update_energy(int player_id);
 
-		int get_fight_general_id();
-        DeputyGeneral* get_fight_general();
-		void set_fight_general_id(int fight_general_id);
-
-        void load_deputy_general_skill();
-        int get_deputy_general_skill_count();
+//		int get_fight_general_id();
+//        DeputyGeneral* get_fight_general();
+//		void set_fight_general_id(int fight_general_id);
+//
+//        void load_deputy_general_skill();
+//        int get_deputy_general_skill_count();
 
         int get_bag_same_item_count(int item_base_id);
 
@@ -344,7 +344,7 @@ namespace Game_Data
         Acupoint_Map                        m_map_acupoint;
         Cool_Time_Map                       m_map_cool_time;
         Item_Container_Map                  m_map_item_container;
-		Deputy_General_Map                  m_map_deputy_general;
+//		Deputy_General_Map                  m_map_deputy_general;
        // Offline_Fight_Record_List           m_list_offline_fight_record;
 
 		int								    m_fight_general_id;    // 出战的副将Id

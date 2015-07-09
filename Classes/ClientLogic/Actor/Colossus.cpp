@@ -82,9 +82,9 @@ void Colossus::enterState(int nextState)
         {
             setTargetToActor(man);
             if (man->getPositionX()>=getPositionX()) {
-                targetMovePos.x = man->getPositionX() - 80;
+                targetMovePos.x = man->getPositionX() - 110;
             }else{
-                targetMovePos.x = man->getPositionX() + 80;
+                targetMovePos.x = man->getPositionX() + 110;
             }
             
             Move2Target(targetMovePos);
@@ -95,9 +95,9 @@ void Colossus::enterState(int nextState)
             posX = man->getPosX();
             posY = man->getPosY();
             if (man->getPositionX()>=getPositionX()) {
-                posX = man->getPositionX() - 80;
+                posX = man->getPositionX() - 110;
             }else{
-                posX = man->getPositionX() + 80;
+                posX = man->getPositionX() + 110;
             }
             setPosition(posX, posY);
 //            setDir(man->currDir);
@@ -128,7 +128,7 @@ bool Colossus::farFromHero()
         return false;
     }
     
-    if (abs(getPosition().getDistance(man->getPosition())) > 100) {
+    if (abs(getPosition().getDistance(man->getPosition())) > 130) {
         return true;
     }
     

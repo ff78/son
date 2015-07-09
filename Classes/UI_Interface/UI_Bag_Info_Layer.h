@@ -49,6 +49,7 @@ public:
 	static Value sMP;
 	static Value sLevel;
 	static Value sJob;
+    static Value sTili;
 	static Value sJobStrings[];
 	bool initData();
 	
@@ -57,6 +58,7 @@ public:
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::Text*, tokenAtlas, TokenAtlas);
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::Text*, nameTxt, NameTxt);
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::TextAtlas*, powerAtlas, PowerAtlas);
+    CC_SYNTHESIZE_READONLY(cocos2d::ui::TextAtlas*, tiliAtlas, TiliAtlas);
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::TextAtlas*, hpAtlas, HpAtlas);
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::TextAtlas*, atkAtlas, AtkAtlas);
 	CC_SYNTHESIZE_READONLY(cocos2d::ui::TextAtlas*, guardAtlas, GuardAtlas);

@@ -38,7 +38,7 @@ bool STAR_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/star/star.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/star.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

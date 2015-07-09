@@ -43,7 +43,7 @@ bool ENDLESS_VIEW::init()
 	if( !Layer::init() )
 		return false;
 	
-	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/endlesstower/endlesstower.ExportJson");
+	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/endlesstower.json");
 	if( _rootWidget == nullptr )
 		return false;
 	addChild(_rootWidget);

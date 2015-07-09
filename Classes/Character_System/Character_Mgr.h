@@ -48,7 +48,7 @@ namespace Game_Data
 	    void update_buff(float delta);
 		void update_gangqi(float delta);
 
-        DeputyGeneral* create_deputy_general(Player* player,int character_base_id,int character_type,int level);
+//        DeputyGeneral* create_deputy_general(Player* player,int character_base_id,int character_type,int level);
 		int create_general_id(int role_id);
         void refresh_player_daily_data();
 

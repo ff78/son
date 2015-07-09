@@ -26,7 +26,12 @@
 
 #include "cocos2d.h"
 #include "Common/Utils.h"
+#include "cocostudio/CocoStudio.h"
+#include "../ClientLogic/Utils/GameReader.h"
+#include "ClientLogic/Utils/BaseUtils.h"
+#include "ClientLogic/Actor/Effect.h"
 
+using namespace cocostudio;
 using namespace Game_Data;
 
 namespace UI
@@ -136,9 +141,9 @@ namespace UI
 		family_name = name_f;
 
 
-		if (0 == sex) //ÀÊª˙≈Æ–‘√˚≥∆
+		if (0 == sex) //√Ä√ä¬™Àô‚âà√Ü‚Äì‚Äò‚àöÀö‚â•‚àÜ
 			family_name_called_id = rand() % (1808 - 1500) + 1501;
-		if (1 == sex) //ÀÊª˙ƒ––‘√˚≥∆
+		if (1 == sex) //√Ä√ä¬™Àô∆í‚Äì‚Äì‚Äò‚àöÀö‚â•‚àÜ
 			family_name_called_id = rand() % (956 - 500) + 501;
 
 		CCLOG("family_name_called_id = %d", family_name_called_id);
@@ -162,7 +167,7 @@ namespace UI
     
     void Main_City_Background_Layer::init_bg()
     {
-        // to do: ¥”≈‰÷√Œƒº˛÷–ªÒ»°±≥ÕºÕº
+        // to do: ¬•‚Äù‚âà‚Ä∞√∑‚àö≈í∆í¬∫Àõ√∑‚Äì¬™√í¬ª¬∞¬±‚â•√ï¬∫√ï¬∫
         cocos2d::log("Main_City_Background_Layer::init_bg");
         cocos2d::Sprite* sp = cocos2d::Sprite::create("scene_res/login_bg.png");
 		sp->setOpacity(0);
@@ -193,7 +198,7 @@ namespace UI
 		////armatureOnce->getAnimation()->setFrameEventCallFunc( CC_CALLBACK_0(Main_City_Background_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
 		//this->addChild(_armatureOnce);
 		
-        // ¥¥Ω®∞Ê±æ–≈œ¢
+        // ¬•¬•Œ©¬Æ‚àû√ä¬±√¶‚Äì‚âà≈ì¬¢
         std::string str_version = Account_Data_Mgr::instance()->get_version();
         LabelTTF *lable_version = LabelTTF::create(str_version.c_str(), "Thonburi", 30.f);
         //lable_version->setVisible(true);
@@ -408,36 +413,64 @@ namespace UI
         CC_ASSERT(m_pUILayer);
         if (m_pUILayer)
         {
+            
             auto layer = LayerColor::create(Color4B::BLACK);
             addChild(layer,m_pUILayer->getLocalZOrder()-1);
 
-			auto size = Director::getInstance()->getWinSize();
-			cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/nvqiang.ExportJson");
-			_nvqiangArmature = cocostudio::Armature::create("nvqiang");
-			_nvqiangArmature->getAnimation()->play("stand");
-			_nvqiangArmature->setPosition(Vec2(size.width / 2, size.height / 2 - 200));
-			_nvqiangArmature->setVisible(false);
-            _nvqiangArmature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-//			_nvqiangActionNames.push_back("stand");
-//			_nvqiangActionNames.push_back("nq_xfq");
-			addChild(_nvqiangArmature);
+            loadAnimJson();
+            for (auto role : jobAnimMap) {
+                std::string resPath("armature/");
+                resPath += role.second->animStr;
+                resPath += ".ExportJson";
+                ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                
+            }
+            roleLayer = Layer::create();
+            auto size = Director::getInstance()->getWinSize();
+            roleLayer->setPosition(Vec2(size.width / 2, size.height / 2 - 200));
+            addChild(roleLayer);
+            
+            backLayer = Layer::create();
+            roleLayer->addChild(backLayer);
 
-			cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/wdj.ExportJson");
-			_wudoujiaArmature = cocostudio::Armature::create("wdj");
-			_wudoujiaArmature->getAnimation()->play("stand");
-			_wudoujiaArmature->setPosition( Vec2(size.width / 2, size.height / 2-200) );
-            _wudoujiaArmature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-//			_wudoujiaActionNames.push_back("stand");
-//			_wudoujiaActionNames.push_back("blq");
-			addChild(_wudoujiaArmature);
+            shadow = Sprite::create("img/scene/shadow.png");
+            shadow->setVisible(true);
+            roleLayer->addChild(shadow);
 
-			auto shadow = Sprite::create("img/scene/shadow.png");
-			shadow->setAnchorPoint(Vec2(0.5, 0.5));
-			shadow->setPosition(Vec2(size.width / 2, 110));
-			addChild(shadow);
-			//dynamic_cast<cocos2d::ui::ImageView*>(Helper::seekWidgetByName(m_pWidget, "Image_37"))->setPosition(Vec2(277, 340));
+            armature = Armature::create(jobAnimMap[3]->animStr);
+            armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+            armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+            armature->setVisible(true);
+            roleLayer->addChild(armature);
+            
+            frontLayer = Layer::create();
+            roleLayer->addChild(frontLayer);
+            playSkill(&jobAnimMap[3]->actions);
+      
+           
+//			cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/nvqiang.ExportJson");
+//			_nvqiangArmature = cocostudio::Armature::create("nvqiang");
+//			_nvqiangArmature->getAnimation()->play("stand");
+//            _nvqiangArmature->setScale(1.5);
+//			_nvqiangArmature->setPosition(Vec2(size.width / 2, size.height / 2 - 200));
+//			_nvqiangArmature->setVisible(false);
+//            _nvqiangArmature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+////			_nvqiangActionNames.push_back("stand");
+////			_nvqiangActionNames.push_back("nq_xfq");
+//			addChild(_nvqiangArmature);
+//
+//			cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo("armature/wdj.ExportJson");
+//			_wudoujiaArmature = cocostudio::Armature::create("wdj");
+//			_wudoujiaArmature->getAnimation()->play("stand");
+//            _wudoujiaArmature->setScale(1.5);
+//			_wudoujiaArmature->setPosition( Vec2(size.width / 2, size.height / 2-200) );
+//            _wudoujiaArmature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+////			_wudoujiaActionNames.push_back("stand");
+////			_wudoujiaActionNames.push_back("blq");
+//			addChild(_wudoujiaArmature);
 
-			_outAction = ActionManagerEx::getInstance()->getActionByName("Create_Role.ExportJson", "move_out");
+
+			_outAction = ActionManagerEx::getInstance()->getActionByName("Create_Role.json", "move_out");
 
 			auto animation = cocos2d::Animation::create();
 			Value preFileName("create-role/effects/boom_");
@@ -508,6 +541,116 @@ namespace UI
         }
     }
     
+    void Main_City_Actor_Layer::loadAnimJson()
+    {
+        auto doc = GameReader::getDocInstance("GameData/scene_createRole.json");
+        if (doc->IsArray()){
+            int size = doc->Size();
+            for (int i = 0; i < size; i++) {
+                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+                auto jobAnim = new RoleAnim;
+                jobAnim->job = DICTOOL->getIntValue_json(dic, "job");
+                jobAnim->animStr = DICTOOL->getStringValue_json(dic, "armFile");
+                std::string actionName = DICTOOL->getStringValue_json(dic, "action_name");
+                std::string frontEff = DICTOOL->getStringValue_json(dic, "frontEffect");
+                std::string frontScale = DICTOOL->getStringValue_json(dic, "frontScale");
+                std::string backScale = DICTOOL->getStringValue_json(dic, "backScale");
+                std::string backEff = DICTOOL->getStringValue_json(dic, "backEffect");
+
+                
+                auto actionVec = YNBaseUtil::splitString(actionName, "|");
+//                auto actions2 = new std::vector<std::string>;
+                for (auto action:actionVec)
+                {
+                    jobAnim->actions.push_back(action);
+                }
+                
+                
+                if (frontScale != "null") {
+                    auto fsStrVec = YNBaseUtil::splitString(frontScale, "|");
+                    int i = 0, j = 0;
+                    for (auto fScaleSeq : fsStrVec)
+                    {
+                        std::vector<float> tmpVec;
+                        auto fScalePartVec = YNBaseUtil::splitString(fScaleSeq, ";");
+                        for (auto partStr : fScalePartVec)
+                        {
+                            tmpVec.push_back(atof(partStr.c_str()));
+                            j++;
+                        }
+                        jobAnim->frontScale.push_back(tmpVec);
+                        i++;
+                    }
+                }
+                
+                if (frontEff != "null") {
+                    auto feStrVec = YNBaseUtil::splitString(frontEff, "|");
+                    int i = 0, j = 0;
+                    for (auto fEffSeq : feStrVec)
+                    {
+                        std::vector<std::string> tmpVec;
+                        auto fePartVec = YNBaseUtil::splitString(fEffSeq, ";");
+                        for (auto partStr : fePartVec)
+                        {
+                            tmpVec.push_back(partStr);
+                            j++;
+                        }
+                        jobAnim->frontEff.push_back(tmpVec);
+                        i++;
+                    }
+                }
+                
+                if (backScale != "null") {
+                    auto bsStrVec = YNBaseUtil::splitString(backScale, "|");
+                    int i = 0, j = 0;
+                    for (auto bScaleSeq : bsStrVec)
+                    {
+                        std::vector<float> tmpVec;
+                        auto bScalePartVec = YNBaseUtil::splitString(bScaleSeq, ";");
+                        for (auto partStr : bScalePartVec)
+                        {
+                            tmpVec.push_back(atof(partStr.c_str()));
+                            j++;
+                        }
+                        jobAnim->backScale.push_back(tmpVec);
+                        i++;
+                    }
+                }
+                
+                if (backEff != "null") {
+                    auto beStrVec = YNBaseUtil::splitString(backEff, "|");
+                    int i = 0, j = 0;
+                    for (auto bEffSeq : beStrVec)
+                    {
+                        std::vector<std::string> tmpVec;
+                        auto bePartVec = YNBaseUtil::splitString(bEffSeq, ";");
+                        for (auto partStr : bePartVec)
+                        {
+                            tmpVec.push_back(partStr);
+                            j++;
+                        }
+                        jobAnim->backEff.push_back(tmpVec);
+                        i++;
+                    }
+                }
+
+                jobAnimMap[jobAnim->job] = jobAnim;
+            }
+        }
+
+    }
+    
+    void Main_City_Actor_Layer::playSkill(std::vector<std::string>* actionNames)
+    {
+        armatureIndex = 0;
+        animationCount = actionNames->size();
+        armature->setVisible(true);
+        shadow->setVisible(true);
+        armature->getAnimation()->playWithNames(*actionNames);
+        frontLayer->removeAllChildren();
+        backLayer->removeAllChildren();
+    }
+    
     void Main_City_Actor_Layer::loadSelectRoleSexList()
     {
         
@@ -533,7 +676,7 @@ namespace UI
              m_pSelectState->setPosition(img_roleMale->getPosition());
              }*/
             
-            //“‘œ¬ƒ⁄»›ø…œ‘ æΩ«…´µƒ π«˜¿∂Øª≠
+            //‚Äú‚Äò≈ì¬¨∆í‚ÅÑ¬ª‚Ä∫√∏‚Ä¶≈ì‚Äò¬†√¶Œ©¬´‚Ä¶¬¥¬µ∆í œÄ¬´Àú¬ø‚àÇ√ò¬™‚â†
             //             cocos2d::ui::ImageView* img_roleChildM = dynamic_cast<cocos2d::ui::ImageView*>(Helper::seekWidgetByName(m_pUILayer,"img_male_avator"));
             //             cocos2d::ui::ImageView* img_roleChileF = dynamic_cast<cocos2d::ui::ImageView*>(Helper::seekWidgetByName(m_pUILayer,"img_female_avator"));
             //
@@ -569,9 +712,9 @@ namespace UI
             family_name = name_f;
             
             
-            if (0 == m_sex) //ÀÊª˙≈Æ–‘√˚≥∆
+            if (0 == m_sex) //√Ä√ä¬™Àô‚âà√Ü‚Äì‚Äò‚àöÀö‚â•‚àÜ
                 family_name_called_id = rand() % (1808 - 1500) + 1501;
-            if (1 == m_sex) //ÀÊª˙ƒ––‘√˚≥∆
+            if (1 == m_sex) //√Ä√ä¬™Àô∆í‚Äì‚Äì‚Äò‚àöÀö‚â•‚àÜ
                 family_name_called_id = rand() % (956 - 500) + 501;
             
             CCLOG("family_name_called_id = %d", family_name_called_id);
@@ -633,9 +776,9 @@ namespace UI
                 family_name = name_f;
                 
                 
-                if (0 == m_sex) //ÀÊª˙≈Æ–‘√˚≥∆
+                if (0 == m_sex) //√Ä√ä¬™Àô‚âà√Ü‚Äì‚Äò‚àöÀö‚â•‚àÜ
                     family_name_called_id = rand() % (1808 - 1500) + 1501;
-                if (1 == m_sex) //ÀÊª˙ƒ––‘√˚≥∆
+                if (1 == m_sex) //√Ä√ä¬™Àô∆í‚Äì‚Äì‚Äò‚àöÀö‚â•‚àÜ
                     family_name_called_id = rand() % (956 - 500) + 501;
                 
                 CCLOG("family_name_called_id = %d", family_name_called_id);
@@ -804,13 +947,20 @@ namespace UI
                 job3->setHighlighted(false);
                 //job4->setHighlighted(false);
                 //job5->setHighlighted(false);
-				_nvqiangArmature->getAnimation()->play("nq_xfq");
+//                playSkill()
+//				_nvqiangArmature->getAnimation()->play("nq_xfq");
 //				_nvqiangArmature->getAnimation()->playWithNames(_nvqiangActionNames);
-				_nvqiangArmature->setVisible(true);
-				_wudoujiaArmature->setVisible(false);
+//				_nvqiangArmature->setVisible(true);
+//				_wudoujiaArmature->setVisible(false);
 				if (_isChanging)
 					return;
 				_isChanging = true;
+                if (jobAnimMap.find(m_job)!=jobAnimMap.end()) {
+                    armature->init(jobAnimMap[m_job]->animStr);
+                    armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+                    armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+                    playSkill(&jobAnimMap[m_job]->actions);
+                }
 				_outAction->play();
 				this->_effectSprite->setVisible(true);
 				_effectSprite->runAction(_effectSequence);
@@ -836,13 +986,19 @@ namespace UI
                 job3->setHighlighted(true);
                 //job4->setHighlighted(false);
                 //job5->setHighlighted(false);
-				_nvqiangArmature->setVisible(false);
-				_wudoujiaArmature->setVisible(true);
-                
-				_wudoujiaArmature->getAnimation()->play("blq");
+//				_nvqiangArmature->setVisible(false);
+//				_wudoujiaArmature->setVisible(true);
+//                
+//				_wudoujiaArmature->getAnimation()->play("blq");
 				if (_isChanging)
 					return;
 				_isChanging = true;
+                if (jobAnimMap.find(m_job)!=jobAnimMap.end()) {
+                    armature->init(jobAnimMap[m_job]->animStr);
+                    armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+                    armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
+                    playSkill(&jobAnimMap[m_job]->actions);
+                }
 				_outAction->play();
 				this->_effectSprite->setVisible(true);
 				_effectSprite->runAction(_effectSequence);
@@ -915,7 +1071,7 @@ namespace UI
 				_isChanging = false;
 		}
 
-		if (_outAction != nullptr&& _roleImg!=nullptr )
+		if (_outAction != nullptr&& _roleImg!=nullptr)
 		{
 			float cur = _outAction->getCurrentTime();
 			float tot = _outAction->getTotalTime();
@@ -940,12 +1096,124 @@ namespace UI
     
     void Main_City_Actor_Layer::animationEvent(Armature *armature, MovementEventType movementType, const std::string& movementID)
     {
-        if (movementType == MovementEventType::COMPLETE)
-        {
-            if (movementID == "blq" || movementID == "nq_xfq") {
+//        if (movementType == MovementEventType::COMPLETE)
+//        {
+//            if (movementID == "blq" || movementID == "nq_xfq") {
+//                armature->getAnimation()->play("stand");
+//            }
+//        }
+        if (movementType == MovementEventType::COMPLETE && movementID != "stand") {
+            armatureIndex++;
+            if (armatureIndex >= animationCount) {
+                armatureIndex = animationCount = 0;
                 armature->getAnimation()->play("stand");
             }
+            
         }
     }
- 
+    
+    void Main_City_Actor_Layer::onFrameEvent(cocostudio::Bone *bone, const std::string& evt, int originFrameIndex, int currentFrameIndex)
+    {
+        auto result = YNBaseUtil::splitString(evt, ",");
+        
+        int i = 0;
+        for (auto cell:result)
+        {
+            if (strncmp(result[i].c_str(), "frontEffect", strlen("frontEffect")) == 0) {
+                size_t tagLen = strlen("frontEffect");
+                size_t sLen = result[i].length();
+                int effTag = atoi(result[i].substr(tagLen, sLen - tagLen).c_str()) - 1;
+                auto one = jobAnimMap[m_job];
+                auto effStr = one->frontEff[armatureIndex][effTag];
+                float effScale = one->frontScale[armatureIndex][effTag];
+                if (effStr != "") {
+                    std::string resPath = "armature/" + effStr + ".ExportJson";
+                    ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                    
+                    auto eff1 = Effect::create();
+                    eff1->initWithArmatureAR(effStr, 1.1 * effScale);
+                    frontLayer->addChild(eff1);
+                }
+                //			if (currSkill != nullptr) {
+                //				if ((strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "") != 0 && (strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "null") != 0))) {
+                //					//ÂàùÂßãÂåñÂíåËµÑÊ∫êËΩΩÂÖ•
+                //					std::string resPath = ARM_DIR + currSkill->getFrontEffectStr()[effTag] + ".ExportJson";
+                //					ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                //
+                //					auto eff1 = Effect::create();
+                //					eff1->initWithArmature(currSkill->getFrontEffectStr()[effTag], currSkill->getFrontScale()[effTag]);
+                //					eff1->setFollowY(currSkill->getEffectFollowY());
+                //					_frontLayer->addChild(eff1);
+                //				}
+                //			}
+            }
+            if (strncmp(result[i].c_str(), "backEffect", strlen("backEffect")) == 0) {
+                size_t tagLen = strlen("backEffect");
+                size_t sLen = result[i].length();
+                int effTag = atoi(result[i].substr(tagLen, sLen - tagLen).c_str()) - 1;
+                auto one = jobAnimMap[m_job];
+                auto effStr = one->backEff[armatureIndex][effTag];
+                float effScale = one->backScale[armatureIndex][effTag];
+                if (effStr != "") {
+                    std::string resPath = "armature/" + effStr + ".ExportJson";
+                    ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                    
+                    auto eff1 = Effect::create();
+                    eff1->initWithArmatureAR(effStr, 1.1 * effScale);
+                    backLayer->addChild(eff1);
+                }
+                //			if (currSkill != nullptr) {
+                //				if ((strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "") != 0 && (strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "null") != 0))) {
+                //					//ÂàùÂßãÂåñÂíåËµÑÊ∫êËΩΩÂÖ•
+                //					std::string resPath = ARM_DIR + currSkill->getFrontEffectStr()[effTag] + ".ExportJson";
+                //					ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+                //
+                //					auto eff1 = Effect::create();
+                //					eff1->initWithArmature(currSkill->getFrontEffectStr()[effTag], currSkill->getFrontScale()[effTag]);
+                //					eff1->setFollowY(currSkill->getEffectFollowY());
+                //					_frontLayer->addChild(eff1);
+                //				}
+                //			}
+            }
+            //if (strncmp(result[i].c_str(), "screenFrontEffect", strlen("screenFrontEffect")) == 0) {
+            //	size_t tagLen = strlen("screenFrontEffect");
+            //	size_t sLen = result[i].length();
+            //	int effTag = atoi(result[i].substr(tagLen, sLen - tagLen).c_str()) - 1;
+            //	if (currSkill != nullptr) {
+            //		if ((strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "") != 0 && (strcmp(currSkill->getFrontEffectStr()[effTag].c_str(), "null") != 0))) {
+            //			//ÂàùÂßãÂåñÂíåËµÑÊ∫êËΩΩÂÖ•
+            //			auto hurtEffect = Effect::create();
+            //			hurtEffect->initWithRes(currSkill->getFrontEffectStr()[effTag], currSkill->getFrontScale()[effTag]);
+            
+            //			auto arm = hurtEffect->getArmature();
+            //			arm->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(FightActor::effAnimEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+            
+            //			auto scene = dynamic_cast<GameScene *>(Director::getInstance()->getRunningScene());
+            //			scene->getscrFrtLayer()->addChild(hurtEffect);
+            //		}
+            //	}
+            //}
+            //if (strncmp(result[i].c_str(), "backEffect", strlen("backEffect")) == 0) {
+            //	size_t tagLen = strlen("backEffect");
+            //	size_t sLen = result[i].length();
+            //	int effTag = atoi(result[i].substr(tagLen, sLen - tagLen).c_str()) - 1;
+            //	if (currSkill != nullptr) {
+            //		if ((strcmp(currSkill->getBackEffectStr()[effTag].c_str(), "") != 0 && (strcmp(currSkill->getBackEffectStr()[effTag].c_str(), "null") != 0))) {
+            //			//ÂàùÂßãÂåñÂíåËµÑÊ∫êËΩΩÂÖ•
+            //			std::string resPath = ARM_DIR + currSkill->getBackEffectStr()[effTag] + ".ExportJson";
+            //			ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
+            
+            //			auto eff1 = Effect::create();
+            //			eff1->initWithArmature(currSkill->getBackEffectStr()[effTag], currSkill->getBackScale()[effTag]);
+            //			eff1->setFollowY(currSkill->getEffectFollowY());
+            //			backEffectLayer->addChild(eff1);
+            
+            //		}
+            //	}
+            //}
+            i++;
+        }
+        
+    }
+    
 };

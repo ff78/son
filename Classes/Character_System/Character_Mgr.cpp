@@ -7,12 +7,12 @@
 #endif // GAME_SEVER
 
 #include "Player.h"
-#include "DeputyGeneral.h"
+//#include "DeputyGeneral.h"
 #include "FightNpc.h"
 #include "Character.h"
 #include "Character_Mgr.h"
 #include "Common/Tool.h"
-#include "Skill_System/Buff/Buff_Mgr.h"
+//#include "Skill_System/Buff/Buff_Mgr.h"
 //#include "Fight_System/Fight_Config_Data.h"
 
 #include <fstream>
@@ -279,24 +279,24 @@ namespace Game_Data
         return m_last_general_id;
 	}
 
-    DeputyGeneral* Character_Mgr::create_deputy_general(Player* player,int character_base_id,int character_type,int level)
-    {
-        DeputyGeneral* general = new DeputyGeneral;
-        general->set_owner(player);
-        general->set_database_character_id(create_general_id(player->get_database_character_id()));
-        general->set_character_type(character_type);
-        general->init_attr_data(character_base_id, level);
-        general->set_exp(0);
-
-        player->insert_deputy_general(general);
-        insert_character(general);
-
-        vector<uint64> para;
-        para.push_back(general->get_database_character_id());
-        Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_insert_deputy_general", para);
-
-        return general;
-    }
+//    DeputyGeneral* Character_Mgr::create_deputy_general(Player* player,int character_base_id,int character_type,int level)
+//    {
+//        DeputyGeneral* general = new DeputyGeneral;
+//        general->set_owner(player);
+//        general->set_database_character_id(create_general_id(player->get_database_character_id()));
+//        general->set_character_type(character_type);
+//        general->init_attr_data(character_base_id, level);
+//        general->set_exp(0);
+//
+//        player->insert_deputy_general(general);
+//        insert_character(general);
+//
+//        vector<uint64> para;
+//        para.push_back(general->get_database_character_id());
+//        Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_insert_deputy_general", para);
+//
+//        return general;
+//    }
 
     void Character_Mgr::refresh_player_daily_data()
     {
@@ -324,28 +324,28 @@ namespace Game_Data
 #endif // GAME_SERVER
     }
 
-    void Character_Mgr::save_deputy_general(int role_id)
-    {
-        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(role_id));
-        if (!player)
-        {
-            return;
-        }
-
-        Deputy_General_Map& map_deputy_general = player->get_deputy_general();
-
-        DeputyGeneral* deputy_general = NULL;
-        Deputy_General_Map_Iter iter = map_deputy_general.begin();
-        for (;iter != map_deputy_general.end();++iter)
-        {
-            deputy_general = iter->second;
-            if (deputy_general)
-            {
-                vector<uint64> para;
-                para.push_back(deputy_general->get_database_character_id());
-                Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_update_deputy_general", para);
-            }
-
-        }
-    }
+//    void Character_Mgr::save_deputy_general(int role_id)
+//    {
+//        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(role_id));
+//        if (!player)
+//        {
+//            return;
+//        }
+//
+//        Deputy_General_Map& map_deputy_general = player->get_deputy_general();
+//
+//        DeputyGeneral* deputy_general = NULL;
+//        Deputy_General_Map_Iter iter = map_deputy_general.begin();
+//        for (;iter != map_deputy_general.end();++iter)
+//        {
+//            deputy_general = iter->second;
+//            if (deputy_general)
+//            {
+//                vector<uint64> para;
+//                para.push_back(deputy_general->get_database_character_id());
+//                Game_Logic::Game_Content_Interface::instance()->exec_interface("sql_update_deputy_general", para);
+//            }
+//
+//        }
+//    }
 }
