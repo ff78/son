@@ -32,6 +32,7 @@ void SkillTag::readFileAll(std::string filename)
 			skillTag.atkStiffDur = DICTOOL->getFloatValue_json(dic, "atkStiff");
 			skillTag.hitStiffDur = DICTOOL->getFloatValue_json(dic, "hurtStiff");
 			skillTag.chatterLoop = DICTOOL->getIntValue_json(dic, "chatterLoop");
+            skillTag.chatterRange = DICTOOL->getFloatValue_json(dic, "chatterRange");
 			skillTag.hitBackSpeed = DICTOOL->getFloatValue_json(dic, "hitBackSpeed");
 			skillTag.airAtkStiffDur = DICTOOL->getFloatValue_json(dic, "airAtkStiff");
 			skillTag.airHitStiffDur = DICTOOL->getFloatValue_json(dic, "airHurtStiff");
@@ -114,6 +115,7 @@ bool SkillTag::initData(int idx, rapidjson::Document& _doc) {
 	atkStiffDur = DICTOOL->getFloatValue_json(dic, "atkStiff");
 	hitStiffDur = DICTOOL->getFloatValue_json(dic, "hurtStiff");
 	chatterLoop = DICTOOL->getIntValue_json(dic, "chatterLoop");
+    chatterRange = DICTOOL->getFloatValue_json(dic, "chatterRange");
 	hitBackSpeed = DICTOOL->getFloatValue_json(dic, "hitBackSpeed");
 	airAtkStiffDur = DICTOOL->getFloatValue_json(dic, "airAtkStiff");
 	airHitStiffDur = DICTOOL->getFloatValue_json(dic, "airHurtStiff");

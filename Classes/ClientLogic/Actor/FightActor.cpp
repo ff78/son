@@ -442,9 +442,15 @@ void FightActor::bulletHurt(Bullet *bullet)
     float hitSpeed = 0;
     if (armature->getPositionY() > 0) {
         chatterLoop = 1;
+        chatterOffX[0] = -3;
+        chatterOffX[1] = 3;
+        chatterOffX[2] = -3;
         hitSpeed = 5;
     }else{
         chatterLoop = 1;
+        chatterOffX[0] = -3;
+        chatterOffX[1] = 3;
+        chatterOffX[2] = -3;
         hitSpeed = 3;
     }
     hurtMoveSpeed = hitSpeed * ((bullet->getFlipX()) ? -1 : 1);
@@ -535,6 +541,9 @@ void FightActor::bodyHurt()
     }
     
     chatterLoop = 5;
+    chatterOffX[0] = -3;
+    chatterOffX[1] = 3;
+    chatterOffX[2] = -3;
     hurtMoveSpeed = 6 * ((killer->flipX) ? -1 : 1);
     lieShockSpeed = hurtMoveSpeed/3;
     
@@ -710,9 +719,15 @@ void FightActor::skillBulletHurt()
     if (killSkill != nullptr) {
         if (armature->getPositionY() > 0) {
             chatterLoop = killSkillTag->getAirChatterLoop();
+            chatterOffX[0] = -killSkillTag->getChatterRange();
+            chatterOffX[1] = killSkillTag->getChatterRange();
+            chatterOffX[2] = -killSkillTag->getChatterRange();
             hitSpeed = killSkillTag->getAirHitBackSpeed();
         }else{
             chatterLoop = killSkillTag->getChatterLoop();
+            chatterOffX[0] = -killSkillTag->getChatterRange();
+            chatterOffX[1] = killSkillTag->getChatterRange();
+            chatterOffX[2] = -killSkillTag->getChatterRange();
             hitSpeed = killSkillTag->getHitBackSpeed();
         }
         
@@ -925,9 +940,15 @@ void FightActor::hurt()
     if (killSkill != nullptr) {
         if (armature->getPositionY() > 0) {
             chatterLoop = killSkillTag->getAirChatterLoop();
+            chatterOffX[0] = -killSkillTag->getChatterRange();
+            chatterOffX[1] = killSkillTag->getChatterRange();
+            chatterOffX[2] = -killSkillTag->getChatterRange();
             hitSpeed = killSkillTag->getAirHitBackSpeed();
         }else{
             chatterLoop = killSkillTag->getChatterLoop();
+            chatterOffX[0] = -killSkillTag->getChatterRange();
+            chatterOffX[1] = killSkillTag->getChatterRange();
+            chatterOffX[2] = -killSkillTag->getChatterRange();
             hitSpeed = killSkillTag->getHitBackSpeed();
         }
         

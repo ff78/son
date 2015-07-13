@@ -397,9 +397,12 @@ void ActorLayer::update(float dt)
             if(mon->getAtking())
             {
                 Rect rAttackRect = mon->getCurrSkillTag()->getAttackRect();
+                if (!mon->getFlipX()) {
+                    rAttackRect.origin.x += rAttackRect.size.width;
+                }
                 float thick = mon->getCurrSkillTag()->getAtkAreaThick();
                 bool  bMonsterFlipX = mon->getFlipX();
-                mon->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
+//                mon->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
                 float boneY = 0, armatureY = 0;
                 auto armature = mon->getArmature();
                 armatureY = armature->getPositionY();
@@ -415,7 +418,7 @@ void ActorLayer::update(float dt)
                     mon->setIsValidAtk(true);
                     continue;
                 }
-                if (abs(mon->getPositionY() - hero->getPositionY()) < thick && abs(mon->getPositionX() - hero->getPositionX()) < 500)
+                if (abs(mon->getPositionY() - hero->getPositionY()) < thick && abs(mon->getPositionX() - hero->getPositionX()) < rAttackRect.size.width)
                 {
                     auto bRect = hero->getBodyRect();
                     armature = hero->getArmature();
@@ -456,15 +459,18 @@ void ActorLayer::update(float dt)
             if(gear->getAtking())
             {
                 Rect rAttackRect = gear->getCurrSkillTag()->getAttackRect();
+                if (!gear->getFlipX()) {
+                    rAttackRect.origin.x += rAttackRect.size.width;
+                }
                 float thick = gear->getCurrSkillTag()->getAtkAreaThick();
                 bool  bGearsterFlipX = gear->getFlipX();
-                gear->DealAttackRectByFlip(bGearsterFlipX, &rAttackRect);
+//                gear->DealAttackRectByFlip(bGearsterFlipX, &rAttackRect);
                 float boneY = 0, armatureY = 0;
                 auto armature = gear->getArmature();
                 armatureY = armature->getPositionY();
                 rAttackRect.origin += Vec2(gear->getPositionX(), armatureY + boneY + gear->getPositionY());
 
-                if (abs(gear->getPositionY() - hero->getPositionY()) < thick && abs(gear->getPositionX() - hero->getPositionX()) < 500)
+                if (abs(gear->getPositionY() - hero->getPositionY()) < thick && abs(gear->getPositionX() - hero->getPositionX()) < rAttackRect.size.width)
                 {
                     auto bRect = hero->getBodyRect();
                     armature = hero->getArmature();
@@ -486,9 +492,12 @@ void ActorLayer::update(float dt)
     if(hero->getAtking())
 	{
 		Rect rAttackRect = hero->getCurrSkillTag()->getAttackRect();
+        if (!hero->getFlipX()) {
+            rAttackRect.origin.x = (-rAttackRect.origin.x-rAttackRect.size.width);
+        }
         float thick = hero->getCurrSkillTag()->getAtkAreaThick();
 		bool  bMonsterFlipX = hero->getFlipX();
-		hero->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
+//		hero->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
         float boneY = 0, armatureY = 0;
         auto armature = hero->getArmature();
         armatureY = armature->getPositionY();
@@ -535,7 +544,7 @@ void ActorLayer::update(float dt)
                 }
                 continue;
             }
-            if (fabs(hero->getPositionY() - monster->getPositionY()) < thick && fabs(hero->getPositionX() - monster->getPositionX()) < 500) {
+            if (fabs(hero->getPositionY() - monster->getPositionY()) < thick && fabs(hero->getPositionX() - monster->getPositionX()) < rAttackRect.size.width) {
                 auto bRect = monster->getBodyRect();
                 armature = monster->getArmature();
                 armatureY = armature->getPositionY();
@@ -610,7 +619,7 @@ void ActorLayer::update(float dt)
             Rect rAttackRect = guard->getCurrSkillTag()->getAttackRect();
             float thick = guard->getCurrSkillTag()->getAtkAreaThick();
             bool  bMonsterFlipX = guard->getFlipX();
-            guard->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
+//            guard->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
             float boneY = 0, armatureY = 0;
             auto armature = guard->getArmature();
             armatureY = armature->getPositionY();
@@ -657,7 +666,7 @@ void ActorLayer::update(float dt)
                     }
                     continue;
                 }
-                if (fabs(guard->getPositionY() - monster->getPositionY()) < thick && fabs(guard->getPositionX() - monster->getPositionX()) < 500) {
+                if (fabs(guard->getPositionY() - monster->getPositionY()) < thick && fabs(guard->getPositionX() - monster->getPositionX()) < rAttackRect.size.width) {
                     auto bRect = monster->getBodyRect();
                     armature = monster->getArmature();
                     armatureY = armature->getPositionY();
@@ -719,7 +728,7 @@ void ActorLayer::update(float dt)
             Rect rAttackRect = col->getCurrSkillTag()->getAttackRect();
             float thick = col->getCurrSkillTag()->getAtkAreaThick();
             bool  bMonsterFlipX = col->getFlipX();
-            col->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
+//            col->DealAttackRectByFlip(bMonsterFlipX, &rAttackRect);
             float boneY = 0, armatureY = 0;
             auto armature = col->getArmature();
             armatureY = armature->getPositionY();
@@ -766,7 +775,7 @@ void ActorLayer::update(float dt)
                     }
                     continue;
                 }
-                if (fabs(col->getPositionY() - monster->getPositionY()) < thick && fabs(col->getPositionX() - monster->getPositionX()) < 500) {
+                if (fabs(col->getPositionY() - monster->getPositionY()) < thick && fabs(col->getPositionX() - monster->getPositionX()) < rAttackRect.size.width) {
                     auto bRect = monster->getBodyRect();
                     armature = monster->getArmature();
                     armatureY = armature->getPositionY();

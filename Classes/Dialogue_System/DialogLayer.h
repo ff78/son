@@ -22,6 +22,8 @@ public:
     
     void nextPage();
     
+    void update(float delta);
+    
     void touchBegan(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type);
 private:
     CC_SYNTHESIZE_READONLY(int, currSeg, CurrSeg);
@@ -34,6 +36,8 @@ private:
     CC_SYNTHESIZE_READONLY(cocos2d::ui::Text *, rightName, RightName);
     
     CC_SYNTHESIZE_READONLY(cocos2d::ui::Text *, content, Content);
+    CC_SYNTHESIZE_READONLY(bool, stayOver, StayOver);
+    float currentTime;
 };
 
 #endif /* defined(__son__DialogLayer__) */

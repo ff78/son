@@ -34,6 +34,7 @@ private:
 	CC_SYNTHESIZE_READONLY(float, atkStiffDur, AtkStiffDur);
 	CC_SYNTHESIZE_READONLY(float, hitStiffDur, HitStiffDur);
 	CC_SYNTHESIZE_READONLY(int, chatterLoop, ChatterLoop);
+    CC_SYNTHESIZE_READONLY(float, chatterRange, ChatterRange)
 	CC_SYNTHESIZE_READONLY(float, hitBackSpeed, HitBackSpeed);
 	CC_SYNTHESIZE_READONLY(float, airAtkStiffDur, AirAtkStiffDur);
 	CC_SYNTHESIZE_READONLY(float, airHitStiffDur, AirHitStiffDur);

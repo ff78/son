@@ -952,15 +952,15 @@ namespace UI
 //				_nvqiangArmature->getAnimation()->playWithNames(_nvqiangActionNames);
 //				_nvqiangArmature->setVisible(true);
 //				_wudoujiaArmature->setVisible(false);
-				if (_isChanging)
-					return;
-				_isChanging = true;
                 if (jobAnimMap.find(m_job)!=jobAnimMap.end()) {
                     armature->init(jobAnimMap[m_job]->animStr);
                     armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
                     armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
                     playSkill(&jobAnimMap[m_job]->actions);
                 }
+				if (_isChanging)
+					return;
+				_isChanging = true;
 				_outAction->play();
 				this->_effectSprite->setVisible(true);
 				_effectSprite->runAction(_effectSequence);
@@ -990,15 +990,15 @@ namespace UI
 //				_wudoujiaArmature->setVisible(true);
 //                
 //				_wudoujiaArmature->getAnimation()->play("blq");
-				if (_isChanging)
-					return;
-				_isChanging = true;
                 if (jobAnimMap.find(m_job)!=jobAnimMap.end()) {
                     armature->init(jobAnimMap[m_job]->animStr);
                     armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::animationEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
                     armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_0(Main_City_Actor_Layer::onFrameEvent, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4));
                     playSkill(&jobAnimMap[m_job]->actions);
                 }
+				if (_isChanging)
+					return;
+				_isChanging = true;
 				_outAction->play();
 				this->_effectSprite->setVisible(true);
 				_effectSprite->runAction(_effectSequence);

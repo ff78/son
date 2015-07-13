@@ -15,7 +15,7 @@ bool UI_LoginLayer::init()
 	{
 		CC_BREAK_IF(!cocos2d::Layer::init());
 
-		// ´´½¨°æ±¾ĞÅÏ¢
+		// åˆ›å»ºç‰ˆæœ¬ä¿¡æ¯
 		std::string str_version = Account_Data_Mgr::instance()->get_version();
 		LabelTTF *lable_version = LabelTTF::create(str_version.c_str(),"Thonburi",30.f);
 		//lable_version->setVisible(true);
@@ -44,30 +44,30 @@ bool UI_LoginLayer::init()
 		m_pWidget=cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/UI_Login_Layer/UI_Login_Layer.ExportJson");
 		this->addChild(m_pWidget);
 
-		//µÇÂ¼µÄºº×Ö
+		//ç™»å½•çš„æ±‰å­—
 		cocos2d::ui::Text* logintxt=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget, "lab_login"));
 		const char* textlogin=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(UI_LOGIN_TEXT);
 		if (logintxt)
 			logintxt->setString(textlogin);
-		//µÇÂ¼°´Å¥
+		//ç™»å½•æŒ‰é’®
 		m_btnLogin=dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pWidget, "btn_login"));
 		m_btnLogin->addTouchEventListener(this,toucheventselector(UI_LoginLayer::btnCallBack));
 		m_btnLogin->setTitleText(textlogin);
-		//ÌáÊ¾ÎÄ×Ö
+		//æç¤ºæ–‡å­—
 		m_labTips=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget, "lab_tips"));
 		m_labTips->setTag(TAG_LABEL_TEXT);
-		//¶Ô»°¿ò
+		//å¯¹è¯æ¡†
 		m_imgDialog=dynamic_cast<cocos2d::ui::ImageView*>(Helper::seekWidgetByName(m_pWidget, "img_update_dialog"));
 		m_imgDialog->setVisible(false);
 		m_btnClose=dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pWidget, "btn_close_dialog"));
 		m_btnClose->addTouchEventListener(this,toucheventselector(UI_LoginLayer::closeDialogCallBack));
-		//¸üĞÂµÄÌáÊ¾
+		//æ›´æ–°çš„æç¤º
 		m_teaUpdateTips=dynamic_cast<cocos2d::ui::TextField*>(Helper::seekWidgetByName(m_pWidget, "tea_update_tips"));
 		const char* update_tips = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(UPDATE_TIPS);
 		if (m_teaUpdateTips)
 		m_teaUpdateTips->setText(update_tips);
 
-		//Ôİ²»¸üĞÂ°´Å¥
+		//æš‚ä¸æ›´æ–°æŒ‰é’®
 		m_tbnNotNow=dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pWidget, "tbn_not_now"));
 		if (m_tbnNotNow)
 		m_tbnNotNow->addTouchEventListener(this,toucheventselector(UI_LoginLayer::notNowCallBack));
@@ -75,7 +75,7 @@ bool UI_LoginLayer::init()
 		m_labNotNow=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget, "lab_not_now"));
 		if (m_labNotNow)
 		m_labNotNow->setString(txt_not_now);
-		//¼ÌĞø¸üĞÂ
+		//ç»§ç»­æ›´æ–°
 		m_tbnContinue=dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pWidget, "tbn_continue"));
 		if (m_tbnContinue)
 		m_tbnContinue->addTouchEventListener(this,toucheventselector(UI_LoginLayer::continueCallBack));
@@ -89,7 +89,7 @@ bool UI_LoginLayer::init()
 }
 void UI_LoginLayer::btnCallBack(Ref* pSender,Widget::TouchEventType type)
 {
-	//µã»÷°´Å¥£¬µ¯³öSDK³öÀ´µÄ½çÃæ
+	//ç‚¹å‡»æŒ‰é’®ï¼Œå¼¹å‡ºSDKå‡ºæ¥çš„ç•Œé¢
 #if  0//(CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
 //	Dependence::showLogin();
 #endif

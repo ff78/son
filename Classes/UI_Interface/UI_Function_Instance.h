@@ -20,19 +20,19 @@ public:
 
 	static bool enter_scene(Game_Logic::Game_Interface& gm_interface);
 
-	//Register_UI ĞÂÓÃ»§×¢²á½çÃæ°´Å¥ÊÂ¼ş
+	//Register_UI æ–°ç”¨æˆ·æ³¨å†Œç•Œé¢æŒ‰é’®äº‹ä»¶
 	static bool next_layer(Game_Logic::Game_Interface& gm_interface);
 	static bool create_role(Game_Logic::Game_Interface& gm_interface);
 	static bool button_register(Game_Logic::Game_Interface& gm_interface);
 	static bool go_serverlist_scene(Game_Logic::Game_Interface& gm_interface);
 
-	//UI_Login  UI_Select_Role  µÇÂ½½çÃæÒÔ¼°Ñ¡Ôñ½ÇÉ«½çÃæ °´Å¥ÊÂ¼ş
+	//UI_Login  UI_Select_Role  ç™»é™†ç•Œé¢ä»¥åŠé€‰æ‹©è§’è‰²ç•Œé¢ æŒ‰é’®äº‹ä»¶
 	static bool login_in(Game_Logic::Game_Interface& gm_interface);
 	static bool game_register(Game_Logic::Game_Interface& gm_interface);
 	static bool enter_game(Game_Logic::Game_Interface& gm_interface);
 	static bool select_role(Game_Logic::Game_Interface& gm_interface);
 
-	//ĞÂÓÃ»§×¢²á½çÃæ ÄÚÈİĞÅÏ¢
+	//æ–°ç”¨æˆ·æ³¨å†Œç•Œé¢ å†…å®¹ä¿¡æ¯
 
 };
 #endif // !defined(EA_0DD82B0F_A1BC_467f_AF6C_F0FE1A9D36C6__INCLUDED_)

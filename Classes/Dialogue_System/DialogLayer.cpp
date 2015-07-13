@@ -30,6 +30,8 @@ bool DialogLayer::init()
     
     content = dynamic_cast<Text *>(Helper::seekWidgetByName(root, "txt_quest"));
     nextPage();
+    currentTime = 0;
+    stayOver = false;
     
     root->addTouchEventListener(CC_CALLBACK_2(DialogLayer::touchBegan, this));
 //    auto listener1 = EventListenerTouchOneByOne::create();
@@ -38,6 +40,7 @@ bool DialogLayer::init()
 //    
 //    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
 //    _touchListener = listener1;
+    scheduleUpdate();
     return true;
 }
 
@@ -82,14 +85,20 @@ void DialogLayer::nextPage()
 
 void DialogLayer::touchBegan(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
 {
+    if (!stayOver) {
+        return;
+    }
     switch (type) {
         case Widget::TouchEventType::BEGAN:
         {
+            stayOver = false;
+            currentTime = 0;
             if(!DialogManager::instance()->nextPage())
             {
                 removeFromParent();
                 return;
             }
+            
             
             nextPage();
         }
@@ -97,5 +106,15 @@ void DialogLayer::touchBegan(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
             
         default:
             break;
+    }
+}
+
+void DialogLayer::update(float delta)
+{
+    if (!stayOver) {
+        currentTime+=delta;
+        if (currentTime>=0.5) {
+            stayOver = true;
+        }
     }
 }

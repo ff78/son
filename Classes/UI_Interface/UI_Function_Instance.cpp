@@ -42,7 +42,7 @@ bool UI_Function_Instance::enter_scene(Game_Logic::Game_Interface& gm_interface)
 bool UI_Function_Instance::next_layer( Game_Logic::Game_Interface& gm_interface )
 {
 
-    //Ñ¡Ôñ·şÎñÆ÷  ×¢²á  ¿ªÊ¼ÓÎÏ· µÈ°´¼üÏìÓ¦(ÔİÊ±)
+    //é€‰æ‹©æœåŠ¡å™¨  æ³¨å†Œ  å¼€å§‹æ¸¸æˆ ç­‰æŒ‰é”®å“åº”(æš‚æ—¶)
     vector<uint64> para;
     gm_interface.get_para(para);
     if( para.size() < 1)
@@ -143,7 +143,7 @@ bool UI_Function_Instance::game_register( Game_Logic::Game_Interface& gm_interfa
     return true;
 }
 
-//×¢²áUI½çÃæ  ×¢²á°´Å¥ÊÂ¼ş
+//æ³¨å†ŒUIç•Œé¢  æ³¨å†ŒæŒ‰é’®äº‹ä»¶
 bool UI_Function_Instance::button_register(Game_Logic::Game_Interface& gm_interface)
 {
 
@@ -158,7 +158,7 @@ bool UI_Function_Instance::button_register(Game_Logic::Game_Interface& gm_interf
     return true;
 }
 
-//µ½·şÎñÆ÷ÁĞ±í½çÃæ
+//åˆ°æœåŠ¡å™¨åˆ—è¡¨ç•Œé¢
 bool UI_Function_Instance::go_serverlist_scene(Game_Logic::Game_Interface& gm_interface)
 {
 
@@ -175,7 +175,7 @@ bool UI_Function_Instance::go_serverlist_scene(Game_Logic::Game_Interface& gm_in
     return true;
 }
 
-//Ñ¡Ôñ½ÇÉ«
+//é€‰æ‹©è§’è‰²
 bool UI_Function_Instance::select_role(Game_Logic::Game_Interface& gm_interface)
 {
 

@@ -1158,7 +1158,7 @@
 		3E85DEA81B3A4A2E0011215F /* UI_Json_Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Json_Config.h; sourceTree = "<group>"; };
 		3E85DEA91B3A4A2E0011215F /* UI_Json_Manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Json_Manager.cpp; sourceTree = "<group>"; };
 		3E85DEAA1B3A4A2E0011215F /* UI_Json_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Json_Manager.h; sourceTree = "<group>"; };
-		3E85DEAB1B3A4A2E0011215F /* UI_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Logic.cpp; sourceTree = "<group>"; };
+		3E85DEAB1B3A4A2E0011215F /* UI_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Logic.cpp; sourceTree = "<group>"; };
 		3E85DEAC1B3A4A2E0011215F /* UI_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Logic.h; sourceTree = "<group>"; };
 		3E85DEAD1B3A4A2E0011215F /* UI_Login_Award_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI_Login_Award_Layer.cpp; sourceTree = "<group>"; };
 		3E85DEAE1B3A4A2E0011215F /* UI_Login_Award_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI_Login_Award_Layer.h; sourceTree = "<group>"; };
