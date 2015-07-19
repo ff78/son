@@ -982,7 +982,7 @@
 		3E85DDB81B3A4A2D0011215F /* Dependence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dependence.cpp; sourceTree = "<group>"; };
 		3E85DDB91B3A4A2D0011215F /* Dependence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dependence.h; sourceTree = "<group>"; };
 		3E85DDBB1B3A4A2D0011215F /* Cell_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell_Data.h; sourceTree = "<group>"; };
-		3E85DDBC1B3A4A2D0011215F /* Client_Instance_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Client_Instance_Msg_Proc.cpp; sourceTree = "<group>"; };
+		3E85DDBC1B3A4A2D0011215F /* Client_Instance_Msg_Proc.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = Client_Instance_Msg_Proc.cpp; sourceTree = "<group>"; };
 		3E85DDBD1B3A4A2D0011215F /* Client_Instance_Msg_Proc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client_Instance_Msg_Proc.h; sourceTree = "<group>"; };
 		3E85DDBE1B3A4A2D0011215F /* Container_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Container_Data.h; sourceTree = "<group>"; };
 		3E85DDBF1B3A4A2D0011215F /* Container_Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Container_Logic.cpp; sourceTree = "<group>"; };
@@ -1091,7 +1091,7 @@
 		3E85DE511B3A4A2E0011215F /* Loading_Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loading_Scene.h; sourceTree = "<group>"; };
 		3E85DE521B3A4A2E0011215F /* Login_Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Login_Scene.cpp; sourceTree = "<group>"; };
 		3E85DE531B3A4A2E0011215F /* Login_Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login_Scene.h; sourceTree = "<group>"; };
-		3E85DE541B3A4A2E0011215F /* Main_City_Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main_City_Scene.cpp; sourceTree = "<group>"; };
+		3E85DE541B3A4A2E0011215F /* Main_City_Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 2147486000; lastKnownFileType = sourcecode.cpp.cpp; path = Main_City_Scene.cpp; sourceTree = "<group>"; };
 		3E85DE551B3A4A2E0011215F /* Main_City_Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main_City_Scene.h; sourceTree = "<group>"; };
 		3E85DE561B3A4A2E0011215F /* Message_Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message_Layer.cpp; sourceTree = "<group>"; };
 		3E85DE571B3A4A2E0011215F /* Message_Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message_Layer.h; sourceTree = "<group>"; };

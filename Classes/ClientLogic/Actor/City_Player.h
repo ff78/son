@@ -41,6 +41,7 @@ public:
     
     void startAutoMove(cocos2d::Point p);
     
+    void levelup();
 private:
     BlackActor *blackActor;
     CC_SYNTHESIZE(CallBackFun, arriveFunc, ArrvieFunc);

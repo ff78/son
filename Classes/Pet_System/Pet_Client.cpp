@@ -402,6 +402,7 @@ bool PET_VIEW::init()
         _goButton->setBright(false);
         _goButton->setVisible(false);
         fightFlag->setVisible(true);
+//    }else if() {
     }else{
         emptyPet = true;
         auto label = dynamic_cast<cocos2d::ui::Text*>(cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "Label_120_1_2"));

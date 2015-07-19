@@ -7,6 +7,7 @@
 //
 
 #include "City_Player.h"
+#include "Effect.h"
 /************************  dely *************************/
 #include "DataModule/Little.h"
 
@@ -48,7 +49,7 @@ void City_Player::initWithId(int idx)
     shadow->setPosition(Vec2(0, 0));
     addChild(shadow);
     
-    //³õÊ¼»¯ºÍ×ÊÔ´ÔØÈë
+    //åˆå§‹åŒ–å’Œèµ„æºè½½å…¥
     std::string resPath = ARM_DIR + blackActor->getResName() + ".ExportJson";
     ArmatureDataManager::getInstance()->addArmatureFileInfo(resPath);
     armature = Armature::create(blackActor->getResName());
@@ -57,11 +58,11 @@ void City_Player::initWithId(int idx)
 //    armature->setAnchorPoint(Point(0.5, 0));
     addChild(armature);
     
-    //¼ÓÔØ×´Ì¬»ú
+    //åŠ è½½çŠ¶æ€æœº
     stateMachine = new StateMachine();
     std::string machinePath = STATE_MACHINE_DIR + blackActor->getStateMachineFile();
     stateMachine->loadFromFile(machinePath);
-    //³õÊ¼×´Ì¬ºÍ¶¯×÷
+    //åˆå§‹çŠ¶æ€å’ŒåŠ¨ä½œ
     state = ACTORSTATE::UNDEFINED;
     event = StateMachine::action_undefined;
     changeState(ACTORSTATE::IDLE);
@@ -183,7 +184,7 @@ void City_Player::updateState()
             break;
     }
 
-    //È·¶¨Òª×ª»»Ê±£¬ÔÙ½øÈë×´Ì¬»ú½øÐÐ×´Ì¬Ìø×ª
+    //ç¡®å®šè¦è½¬æ¢æ—¶ï¼Œå†è¿›å…¥çŠ¶æ€æœºè¿›è¡ŒçŠ¶æ€è·³è½¬
     if (needChange) {
         switch2NextState(state, event);
         
@@ -216,7 +217,7 @@ void City_Player::updateAI()
                 armature->setScaleX((flipX) ? -1 : 1);
             }
             
-            //ÒÆ¶¯
+            //ç§»åŠ¨
             posX = getPositionX() + speedX;
             posY = getPositionY() + speedY;
         }
@@ -293,3 +294,9 @@ void City_Player::startAutoMove(Point p)
     event = stateMachine->findEventVal("EVENT_AUTOMOVE");
 }
 
+void City_Player::levelup()
+{
+    auto effect = Effect::create();
+    effect->initWithArmatureAR("levelup");
+    addChild(effect, -1);
+}

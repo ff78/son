@@ -27,7 +27,32 @@ namespace Game_Logic
 	struct Game_Event;
 }
 
-//Ò»¼¶½çÃæ
+enum OperateType
+{
+    OP_CLICK = 1,
+    OP_MOVE = 2,
+    OP_DRAG = 3
+};
+struct GuideData
+{
+    int tableId;
+    int level;
+    int nextStepId;
+    std::string armStr;
+    float offX;
+    float offY;
+    float scaleX;
+    float scaleY;
+    float moveX;
+    float moveY;
+    std::string itemName;
+    std::string destItmeName;
+    std::string tipStr;
+    int operateType;
+};
+
+
+//ä¸€çº§ç•Œé¢
 //class UI_Role_Info_Layer;
 class Game_Utils;
 class City_NPC;
@@ -52,7 +77,7 @@ class UI_Login_Award_Layer;
 class UI_Shop_Center_Layer;
 class UI_Activity_Layer;
 
-//¶ş¼¶½çÃæ
+//äºŒçº§ç•Œé¢
 //class UI_HeartMethod_Combine_Layer;
 //class UI_HeartMethod_Quality_Up_Layer;
 //class UI_Secondary_Instance_Layer;
@@ -172,7 +197,7 @@ public:
 	void buttonReward(Ref* pSender, Widget::TouchEventType type);
 	void buttonSign(Ref* pSender, Widget::TouchEventType type);
 
-	void buttonSocialActivity( Ref* pSender,Widget::TouchEventType type );					// µã»÷Éç½»°´Å¥»Øµ÷
+	void buttonSocialActivity( Ref* pSender,Widget::TouchEventType type );					// ç‚¹å‡»ç¤¾äº¤æŒ‰é’®å›è°ƒ
 	void buttonCompetition( Ref* pSender,Widget::TouchEventType type );
 	void buttonFragment( Ref* pSender ,Widget::TouchEventType type);
 	void buttonFate( Ref* pSender ,Widget::TouchEventType type);
@@ -226,20 +251,20 @@ public:
 	/************************ dely *********************/
 	static bool update_chat(const Game_Logic::Game_Event& gm_evt);	
 	/************************ dely *********************/
-	void RefreshMainUIInfo();														  // Ë¢ĞÂÖ÷½çÃæÉÏUIĞÅÏ¢
+	void RefreshMainUIInfo();														  // åˆ·æ–°ä¸»ç•Œé¢ä¸ŠUIä¿¡æ¯
 
-	//¶ş¼¶½çÃæÏÔÊ¾º¯Êı
-	void visibleHeartMethodCombine(int character_id);   //ĞÄ·¨ºÏ³É½çÃæ
-	void visibleHeartMethodQualityUp(uint64 item_id);  //ĞÄ·¨ÉıÆ·½çÃæ
-	void visibleEquipmentQualityUp(uint64 item_id);    //×°±¸ÉıÆ·½çÃæ
-	void visibleSecondaryInstance(int area_id);		//¸±±¾Ğ¡µØÍ¼½çÃæ
+	//äºŒçº§ç•Œé¢æ˜¾ç¤ºå‡½æ•°
+	void visibleHeartMethodCombine(int character_id);   //å¿ƒæ³•åˆæˆç•Œé¢
+	void visibleHeartMethodQualityUp(uint64 item_id);  //å¿ƒæ³•å‡å“ç•Œé¢
+	void visibleEquipmentQualityUp(uint64 item_id);    //è£…å¤‡å‡å“ç•Œé¢
+	void visibleSecondaryInstance(int area_id);		//å‰¯æœ¬å°åœ°å›¾ç•Œé¢
 	void visibleRoleQualityUp();
 	void visibleExchange();
 	void visibleLoginAward();
-	void visibleDailyMission();			//Ã¿ÈÕÈÎÎñ½çÃæ
-//	void visibleFragmentCombine();		//ËéÆ¬ºÏ³É½çÃæ
-//	void visibleResidualPage();			//²ĞÒ³½çÃæ
-	void visibleSkillUpLayer( bool visible, int skillId = 0, int characterId=0 );			//ÕĞÊ½Éı¼¶½çÃæ
+	void visibleDailyMission();			//æ¯æ—¥ä»»åŠ¡ç•Œé¢
+//	void visibleFragmentCombine();		//ç¢ç‰‡åˆæˆç•Œé¢
+//	void visibleResidualPage();			//æ®‹é¡µç•Œé¢
+	void visibleSkillUpLayer( bool visible, int skillId = 0, int characterId=0 );			//æ‹›å¼å‡çº§ç•Œé¢
 	void visibleFuncOpen( int iconNameId, int iconOpenId  );
 	void visibleSweepDescLayer(int ui_instance_elite);
 	void visibleEquipmentInlayLayer();
@@ -314,7 +339,7 @@ private:
 	UI_Shop_Center_Layer*				m_pShopCenterLayer;
 //	UI_Activity_Layer*					m_activity_layer;
 
-	//¶ş¼¶½çÃæ
+	//äºŒçº§ç•Œé¢
 //	UI_HeartMethod_Combine_Layer*		m_pHeartMethodCombineLayer;
 //	UI_HeartMethod_Quality_Up_Layer*	m_pHeartMethodQualityUpLayer;
 //	UI_Secondary_Instance_Layer*		m_pSecondaryInstanceLayer;
@@ -333,7 +358,7 @@ private:
     
 	static UI_MainMenu_Layer*			m_instance_;
 
-	//½çÃæ¿ÉÔË¶¯µÄ12¸ö°´Å¥
+	//ç•Œé¢å¯è¿åŠ¨çš„12ä¸ªæŒ‰é’®
 	cocos2d::ui::Button*					_sports[sNum];
 	Vec2									_sportsPosition[sNum];
 	Vec2									_sportsDestination;
@@ -350,20 +375,20 @@ private:
 	int _campaignState = 1;						
 	int _sportsState = 1;						
 
-	/**********************************ÍË³ö¶Ô»°¿ò µÄ È·¶¨°´Å¥*************************************************/
+	/**********************************é€€å‡ºå¯¹è¯æ¡† çš„ ç¡®å®šæŒ‰é’®*************************************************/
 	void btnCallBackExit();
 	/**********************************************************************************************/
 
 	
 	LabelAtlas*				vip_level_label_;
-//	ProgressTimer*			m_pPercentVisible;	//¾­ÑéÌõ
-	//cocos2d::Sprite*					m_effect_login_reward;  //ÌØĞ§
-    //cocos2d::Sprite*					m_effect_activity;		//ÌØĞ§
+//	ProgressTimer*			m_pPercentVisible;	//ç»éªŒæ¡
+	//cocos2d::Sprite*					m_effect_login_reward;  //ç‰¹æ•ˆ
+    //cocos2d::Sprite*					m_effect_activity;		//ç‰¹æ•ˆ
 
-	/*******************  Ö¸ÒıÍ¼±ê  ********************/
+	/*******************  æŒ‡å¼•å›¾æ ‡  ********************/
 	Joiner_Guidance*			juniorGuide;
 
-	//float					pointPosArray[7][2];	//¼ÇÂ¼×ø±êµã
+	//float					pointPosArray[7][2];	//è®°å½•åæ ‡ç‚¹
 	int						m_nOpenActNum;
 
 public:
@@ -371,22 +396,22 @@ public:
 	int							recordNum;
 
 public:
-	//---CoCostudio¿Ø¼ş---//
-	cocos2d::ui::ImageView*			m_pImgFindWay;		//×Ô¶¯Ñ°Â·Í¼±ê
-	ui::Text*						m_pLabFindWayFont;					// ×Ô¶¯Ñ°Â· 
+	//---CoCostudioæ§ä»¶---//
+	cocos2d::ui::ImageView*			m_pImgFindWay;		//è‡ªåŠ¨å¯»è·¯å›¾æ ‡
+	ui::Text*						m_pLabFindWayFont;					// è‡ªåŠ¨å¯»è·¯ 
 
-	ui::ImageView*					m_pImgFontShadow;					// ÎÄ×ÖÒõÓ°
+	ui::ImageView*					m_pImgFontShadow;					// æ–‡å­—é˜´å½±
 																		   
-	ui::Button*						m_pBtnFindPath;						// ×Ô¶¯Ñ°Â·
-	ui::Button*						m_pBtnChatBoard;					// ÁÄÌì°´Å¥
-	ui::Button*						_emailButton;					// ÁÄÌì°´Å¥
-	ui::Button*						m_pBtnGiftBag;						// ÉÌ³Ç°´Å¥
+	ui::Button*						m_pBtnFindPath;						// è‡ªåŠ¨å¯»è·¯
+	ui::Button*						m_pBtnChatBoard;					// èŠå¤©æŒ‰é’®
+	ui::Button*						_emailButton;					// èŠå¤©æŒ‰é’®
+	ui::Button*						m_pBtnGiftBag;						// å•†åŸæŒ‰é’®
 																		   															   
-	ui::TextAtlas*					m_lab_fighting_capacity;			// Õ½Á¦
+	ui::TextAtlas*					m_lab_fighting_capacity;			// æˆ˜åŠ›
 																		   
-	ui::CheckBox*					m_pBtnToggle;						// Õ¹¿ªÍ¼±ê°´Å¥
-	ui::CheckBox*					_sportsDestinationCbx;				// Õ¹¿ªÍ¼±ê°´Å¥
-	ui::CheckBox*					_campaignDestinationCbx;			// Õ¹¿ªÍ¼±ê°´Å¥
+	ui::CheckBox*					m_pBtnToggle;						// å±•å¼€å›¾æ ‡æŒ‰é’®
+	ui::CheckBox*					_sportsDestinationCbx;				// å±•å¼€å›¾æ ‡æŒ‰é’®
+	ui::CheckBox*					_campaignDestinationCbx;			// å±•å¼€å›¾æ ‡æŒ‰é’®
 
 private:
 	enum guide_step
@@ -441,6 +466,14 @@ private:
 		XF_QUA_UP_STEP_0 = 300,			// clear no test
 		XF_QUA_UP_STEP_1 = 301,
 	};
+public:
+    static std::map<int, std::map<std::string, GuideData>> levelGuide;
+    static int oldLevel;
+    static bool showMissionFinish;
+    cocos2d::Sprite *tipBg;
+    cocos2d::Label *tipLabel;
+    void hidePop();
+    void popTip(std::string content);
 	/*====================================   dely   ====================================*/
 private:
 	void initJoystick();
@@ -448,8 +481,8 @@ public:
 	void hideCampaign(int index);
 	void hideButtons(int index);
 	void hideSports(int index);
-	//---ÎŞ¾¡ËşÏà¹Ø·½·¨---//
-	void btnEndlessTowerCallback(Ref* pSender, Widget::TouchEventType type);								// ÎŞ¾¡Ëş°´Å¥µã»÷»Øµ÷
-	void SendMsgRequestChallengeEndlessTower();																// ·¢ËÍÏûÏ¢ÇëÇóÌôÕ½ÎŞ¾¡Ëş
+	//---æ— å°½å¡”ç›¸å…³æ–¹æ³•---//
+	void btnEndlessTowerCallback(Ref* pSender, Widget::TouchEventType type);								// æ— å°½å¡”æŒ‰é’®ç‚¹å‡»å›è°ƒ
+	void SendMsgRequestChallengeEndlessTower();																// å‘é€æ¶ˆæ¯è¯·æ±‚æŒ‘æˆ˜æ— å°½å¡”
 };
 #endif //_UI_BUTTON_LAYER_

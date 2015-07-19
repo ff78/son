@@ -640,7 +640,7 @@ bool Account_Msg_Proc::on_player_enter_scene(Game_Logic::Game_Interface& gm_inte
     body_ms >> offline_fight_count;
     body_ms >> buy_offline_fight_count;
     body_ms >> offline_fight_rank_reward_count;
-    body_ms >> general_id;
+//    body_ms >> general_id;
     body_ms >> banks_exchange_count;
     body_ms >> function_open_id;
     body_ms >> name;

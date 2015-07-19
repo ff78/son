@@ -275,9 +275,10 @@ public:
 	//ÆÁÄ»Õð¶¯
 	static void createShake(int id);
 #endif
+public:
+    CityLayer* get_actor_layer();
 private:
 #if 1
-	CityLayer* get_actor_layer();
 	UI::Message_Layer *  get_Message_Layer();
 #else
 	UI::Actor_Layer*    get_actor_layer();

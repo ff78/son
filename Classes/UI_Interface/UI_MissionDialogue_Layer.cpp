@@ -264,7 +264,7 @@ int UI_MissionDialogue_Layer::displayer_quest_award(Game_Data::quest_data& qd)
 		m_pMoneyNum->setString(txt);
 	}
 
-	//µÀ¾ß½±Àø
+	//é“å…·å¥–åŠ±
 	para.clear();
 	Game_Element_Parse::instance()->get_para_from_require_element( "awarditem", award_list, para);
 	if( para.size() > 1 )
@@ -344,20 +344,20 @@ int UI_MissionDialogue_Layer::display_npc_dialog( Game_Data::quest_data& qd, con
 		char txt[1024];
 		if (NS_Mission_Compeleted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ÐÅÏ¢ÄÚÈÝ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_OVER, txt);
 			m_pMissionName[i]->setString(txt);
 		}
 		else if (NS_Mission_CanBeAccepted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ÐÅÏ¢ÄÚÈÝ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_ACCEPT, txt);
 			m_pMissionName[i]->setString(txt);
 			CCLog("open new icon !!!");
 		}
 		else if (NS_Mission_Uncompelted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ÐÅÏ¢ÄÚÈÝ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_DOITNOW, txt);
 			m_pMissionName[i]->setString(txt);
 		}
@@ -506,15 +506,15 @@ switch (type)
 				setVisible( false );
 			}
 			break;
-		case NS_Mission_Compeleted: //Íê³ÉÈÎÎñ
+		case NS_Mission_Compeleted: //å®Œæˆä»»åŠ¡
 			{
 				//m_pScrollView->getInnerContainer()->setSize(Size(600,50*4));
 				//m_pScrollView->getInnerContainer()->setPosition(Vec2(0,0));
 				updateDetail();
 			}
 			break;
-		case NS_Mission_CanBeAccepted: //½ÓÊÜÈÎÎñ
-		case NS_Mission_Uncompelted: //Î´Íê³É£¨ÂíÉÏÇ°È¥£©
+		case NS_Mission_CanBeAccepted: //æŽ¥å—ä»»åŠ¡
+		case NS_Mission_Uncompelted: //æœªå®Œæˆï¼ˆé©¬ä¸Šå‰åŽ»ï¼‰
 			{
 				//m_pScrollView->getInnerContainer()->setSize(Size(600,50*4));
 				//m_pScrollView->getInnerContainer()->setPosition(Vec2(0,0));
@@ -565,7 +565,7 @@ switch (type)
 					FUNCTION_OPEN_LOGIC::instance()->submit_quest_open(role_id,refData.nID);
 
 					if( awardGoodId_ != 0 )
-					{//ÏÔÊ¾ »ñµÃÐÅÏ¢µÄÌáÊ¾	
+					{//æ˜¾ç¤º èŽ·å¾—ä¿¡æ¯çš„æç¤º	
 						const char* gain = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(ALERT_U_GAIN);
 						std::string strGain(gain);
 						const char* gainCont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(ALERT_GAIN_INFO);
@@ -760,7 +760,7 @@ void UI_MissionDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //×°±¸ÉýÆ·
+		else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //è£…å¤‡å‡å“
 		{
 			if(para.size() > 0)
 			{
@@ -769,7 +769,7 @@ void UI_MissionDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_book_level") == 0) //ÐÄ·¨ºÏ³É
+		else if(strcmp(element.get_command(), "up_book_level") == 0) //å¿ƒæ³•åˆæˆ
 		{
 			if( para.size() > 0 )
 			{
@@ -781,7 +781,7 @@ void UI_MissionDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if (strcmp(element.get_command(),"up_player_quality") == 0) //ÈËÎïÉýÆ·   playerqaup(1)  1£ºÉýÆ·´ÎÊý
+		else if (strcmp(element.get_command(),"up_player_quality") == 0) //äººç‰©å‡å“   playerqaup(1)  1ï¼šå‡å“æ¬¡æ•°
 		{
 			if (para.size() > 0)
 			{
@@ -797,7 +797,7 @@ void UI_MissionDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_book_quality") == 0) //ÐÄ·¨ÉýÆ·    equipbookqaup(0,1,140)
+		else if(strcmp(element.get_command(), "up_book_quality") == 0) //å¿ƒæ³•å‡å“    equipbookqaup(0,1,140)
 		{
 			if (para.size() > 0)
 			{

@@ -58,48 +58,48 @@ bool UI_Mission_Layer::init()
 	cocos2d::ui::Button* close_button = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pMissionWidget,"btn_close"));
 	close_button->addTouchEventListener(this,toucheventselector(UI_Mission_Layer::buttonCloseCallback));
 
-	//ÒÑ½ÓÈÎÎñ°´Å¥
+	//å·²æ¥ä»»åŠ¡æŒ‰é’®
 	mission_already_accept = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pMissionWidget,"btn_accept"));
 	mission_already_accept->addTouchEventListener(this,toucheventselector(UI_Mission_Layer::buttonMissionAlreadyAccept));
 
-	//¿É½ÓÈÎÎñ°´Å¥
+	//å¯æ¥ä»»åŠ¡æŒ‰é’®
 	mission_able_accept = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pMissionWidget,"btn_wait"));
 	mission_able_accept->addTouchEventListener(this,toucheventselector(UI_Mission_Layer::buttonMissionAbleAccept));
 
-	//Ã¿ÈÕÈÎÎñ°´Å¥
+	//æ¯æ—¥ä»»åŠ¡æŒ‰é’®
 	daily_mission = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(m_pMissionWidget,"btn_everyday"));
 	daily_mission->addTouchEventListener(this,toucheventselector(UI_Mission_Layer::buttonDailyMission));
 
 	char szUIName[32];
 	for (int i = 0; i < MISSION_NUM_PER_PAGE; i++)
 	{
-		//ÈÎÎñËµÃ÷
+		//ä»»åŠ¡è¯´æ˜
 		SPRINTF(szUIName,"lab_mission_intr_%d",i+1);
 		m_UI[i].m_plab_mission_introducetext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* tempmissioninroduce=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_INTRODUCE);
 		m_UI[i].m_plab_mission_introducetext->setString(tempmissioninroduce);
-		//·¢²¼npc
+		//å‘å¸ƒnpc
 		SPRINTF(szUIName,"lab_publish_npc_%d",i+1);
 		m_UI[i].m_plab_mission_publish_npctext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* temppublishnpc=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_PUBLISH_NPC);
 		m_UI[i].m_plab_mission_publish_npctext->setString(temppublishnpc);
-		//Íê³Énpc
+		//å®Œæˆnpc
 		SPRINTF(szUIName,"lab_complete_%d",i+1);
 		m_UI[i].m_plab_mission_over_npctext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* textnameover=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_OVER_NPC);
 		m_UI[i].m_plab_mission_over_npctext->setString(textnameover);
-		//ÈÎÎñ½±Àø
+		//ä»»åŠ¡å¥–åŠ±
 		SPRINTF(szUIName,"lab_award_experice_%d",i+1);
 		m_UI[i].m_plab_mission_rewordtext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* textreword=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_REWORD);
 		m_UI[i].m_plab_mission_rewordtext->setString(textreword);
 
-		//¾­Ñé
+		//ç»éªŒ
 		SPRINTF(szUIName,"lab_jingyan_%d",i+1);
 		m_UI[i].m_plab_mission_experiencetext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* textexp=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_EXPERIENCE);
 		m_UI[i].m_plab_mission_experiencetext->setString(textexp);
-		//½ğ±Ò
+		//é‡‘å¸
 		SPRINTF(szUIName,"lab_gold_coin_%d",i+1);
 		m_UI[i].m_plab_mission_goldtext=dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 		const char* goldtext=DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(MISSION_GOLD);
@@ -152,11 +152,11 @@ bool UI_Mission_Layer::init()
 		SPRINTF(szUIName, "lab_goods_num_%d", i+1);
 		m_UI[i].m_pLabAwardIconNum = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 
-		//ÈÎÎñÃû³Æ
+		//ä»»åŠ¡åç§°
 		SPRINTF(szUIName,"lab_mission_name_%d",i+1);
 		m_UI[i].m_pMissionName = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 
-		//ÈÎÎñ±êÊ¶
+		//ä»»åŠ¡æ ‡è¯†
 		SPRINTF(szUIName,"lab_mission_count_%d",i+1);
 		m_UI[i].m_pMissionMark = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pMissionWidget,szUIName));
 
@@ -197,7 +197,7 @@ m_pBtnPageDown->setTag( Page_Down );
 
 	m_nCurrentPage = 0;
 
-	//´´½¨ÎïÆ·ĞÅÏ¢ÏÔÊ¾¿ò function init()
+	//åˆ›å»ºç‰©å“ä¿¡æ¯æ˜¾ç¤ºæ¡† function init()
 	m_pLayerIconInfo = UI_Icon_Info_Layer::create();
 	this->addChild(m_pLayerIconInfo,THISLAYERZORDERE,THISLAYERTAG);
 	m_pLayerIconInfo->setVisible(false);
@@ -223,10 +223,10 @@ void UI_Mission_Layer::setVisible(bool visible)
 		refreshUI();
 		for (int i = 0; i < MISSION_NUM_PER_PAGE; i++)
 		{
-			//Á¢¼´Ç°Íù°´Å¥
+			//ç«‹å³å‰å¾€æŒ‰é’®
 			m_UI[i].m_pBtnGoNow->setVisible(true);
 			m_UI[i].m_pBtnGoNow->setTouchEnabled(true);
-			//½ÓÈ¡ÈÎÎñ°´Å¥
+			//æ¥å–ä»»åŠ¡æŒ‰é’®
 			m_UI[i].m_pBtnAcceptMission->setVisible(false);
 			m_UI[i].m_pBtnAcceptMission->setTouchEnabled(false);
 		}
@@ -250,10 +250,10 @@ switch (type)
 	setVisible(true);
 	for (int i = 0; i < MISSION_NUM_PER_PAGE; i++)
 	{
-		//Á¢¼´Ç°Íù°´Å¥
+		//ç«‹å³å‰å¾€æŒ‰é’®
 		m_UI[i].m_pBtnGoNow->setVisible(true);
 		m_UI[i].m_pBtnGoNow->setTouchEnabled(true);
-		//½ÓÈ¡ÈÎÎñ°´Å¥
+		//æ¥å–ä»»åŠ¡æŒ‰é’®
 		m_UI[i].m_pBtnAcceptMission->setVisible(false);
 		m_UI[i].m_pBtnAcceptMission->setTouchEnabled(false);
 	}
@@ -281,10 +281,10 @@ switch (type)
 	setVisible(true);
 	for (int i = 0; i < MISSION_NUM_PER_PAGE; i++)
 	{
-		//Á¢¼´Ç°Íù°´Å¥
+		//ç«‹å³å‰å¾€æŒ‰é’®
 		m_UI[i].m_pBtnGoNow->setVisible(false);
 		m_UI[i].m_pBtnGoNow->setTouchEnabled(false);
-		//½ÓÈ¡ÈÎÎñ°´Å¥
+		//æ¥å–ä»»åŠ¡æŒ‰é’®
 		m_UI[i].m_pBtnAcceptMission->setVisible(true);
 		m_UI[i].m_pBtnAcceptMission->setTouchEnabled(true);
 	}
@@ -523,7 +523,7 @@ switch (type)
 					break;
 				}
 			}
-			else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //×°±¸ÉıÆ·
+			else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //è£…å¤‡å‡å“
 			{
 				if(para.size() > 0)
 				{
@@ -532,7 +532,7 @@ switch (type)
 					break;
 				}
 			}
-			else if(strcmp(element.get_command(), "up_book_level") == 0) //ĞÄ·¨ºÏ³É
+			else if(strcmp(element.get_command(), "up_book_level") == 0) //å¿ƒæ³•åˆæˆ
 			{
 				if( para.size() > 0 )
 				{
@@ -544,7 +544,7 @@ switch (type)
 					break;
 				}
 			}
-			else if (strcmp(element.get_command(),"up_player_quality") == 0) //ÈËÎïÉıÆ·   playerqaup(1)  1£ºÉıÆ·´ÎÊı
+			else if (strcmp(element.get_command(),"up_player_quality") == 0) //äººç‰©å‡å“   playerqaup(1)  1ï¼šå‡å“æ¬¡æ•°
 			{
 				if (para.size() > 0)
 				{
@@ -559,7 +559,7 @@ switch (type)
 					break;
 				}
 			}
-			else if(strcmp(element.get_command(), "up_book_quality") == 0) //ĞÄ·¨ÉıÆ·    equipbookqaup(0,1,140)
+			else if(strcmp(element.get_command(), "up_book_quality") == 0) //å¿ƒæ³•å‡å“    equipbookqaup(0,1,140)
 			{
 				if (para.size() > 0)
 				{
@@ -647,7 +647,7 @@ switch (type)
         return;
 	missionID = vecDataCanAccept[index].get_quest_id();
 
-	//¸ù¾İÈÎÎñ id ²é¿´ ÊôÓÚÄÄ¸ö NPC  »ñÈ¡NPC Ä£ĞÍID
+	//æ ¹æ®ä»»åŠ¡ id æŸ¥çœ‹ å±äºå“ªä¸ª NPC  è·å–NPC æ¨¡å‹ID
 	//  	int npcID = 0;
 	//  	UI_MainMenu_Layer::get_instance()->showNpcDialogue(npcID);
 
@@ -734,7 +734,7 @@ switch (type)
 				refreshAcceptableMissionUI();
 			else
 			{
-				//Ë¢ĞÂÃ¿ÈÕÈÎÎñ½çÃæ
+				//åˆ·æ–°æ¯æ—¥ä»»åŠ¡ç•Œé¢
 			}
 		}
 	}
@@ -749,7 +749,7 @@ switch (type)
 				refreshAcceptableMissionUI();
 			else
 			{
-				//Ë¢ĞÂÃ¿ÈÕÈÎÎñ½çÃæ
+				//åˆ·æ–°æ¯æ—¥ä»»åŠ¡ç•Œé¢
 			}
 		}
 	}
@@ -978,7 +978,7 @@ UI::NPC* UI_Mission_Layer::getNPCByIndex(int index)
 	return NULL;
 }
 #endif
-//¿É½Ó µ«ÊÇ Ã»ÓĞ½ÓÊÜµÄÈÎÎñÏÔÊ¾
+//å¯æ¥ ä½†æ˜¯ æ²¡æœ‰æ¥å—çš„ä»»åŠ¡æ˜¾ç¤º
 void UI_Mission_Layer::refreshAcceptableMissionUI()
 {
 	for(int i=0; i<MISSION_NUM_PER_PAGE; ++i)
@@ -1053,7 +1053,7 @@ void UI_Mission_Layer::commonUIPart(Game_Data::quest_data* qd,int index)
 		m_UI[index].m_pLabGoldCoin->setString(txt);
 	}
 
-	//½±ÀøÍ¼±ê
+	//å¥–åŠ±å›¾æ ‡
 	para.clear();
 	Game_Element_Parse::instance()->get_para_from_require_element("awarditem", ele_list, para);
 	if( para.size() > 1 )
@@ -1097,7 +1097,7 @@ void UI_Mission_Layer::commonUIPart(Game_Data::quest_data* qd,int index)
         m_UI[index].m_pImgAwardIconBack->setTouchEnabled(false);
     }
 
-	//npcÃû×Ö
+	//npcåå­—
 	ele_cont.reset();
 	qd->get_quest_accept(ele_cont); 
 	m_UI[index].m_pLabPublishNPCName->setString(get_npc_name(ele_cont, "npctalk"));
@@ -1108,7 +1108,7 @@ void UI_Mission_Layer::commonUIPart(Game_Data::quest_data* qd,int index)
 	m_UI[index].m_pLabSubmitNpcName->setString(get_npc_name(ele_cont,"npctalk"));
 
 
-	//¼ÆÊıÆ÷
+	//è®¡æ•°å™¨
 	ele_cont.reset();
 	qd->get_quest_content(ele_cont);
 
@@ -1138,7 +1138,7 @@ void UI_Mission_Layer::commonUIPart(Game_Data::quest_data* qd,int index)
 	m_UI[index].m_pImgBkg->setVisible(true);
 }
 
-//bug : (int)ele_cont.get_count() ĞèÒªĞŞ¸ÄÕâ¸öÖµ£¨È¥±³°ü»ñÈ¡ÊıÁ¿£©
+//bug : (int)ele_cont.get_count() éœ€è¦ä¿®æ”¹è¿™ä¸ªå€¼ï¼ˆå»èƒŒåŒ…è·å–æ•°é‡ï¼‰
 int UI_Mission_Layer::get_counter_name(Game_Data::Game_Element& ele_cont,  char* txt)
 {
 	vector<uint> para;

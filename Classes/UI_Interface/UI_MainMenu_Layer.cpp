@@ -72,6 +72,7 @@
 #include "Junior_Guide_System/Junior_Guide_Config_Data.h"
 #include "Junior_Guide_System/Junior_Guide_Mgr.h"
 #include "Function_Open_System/Function_Open_Logic.h"
+#include "ClientLogic/Utils/GameReader.h"
 
 #include "UI_Exchange_Code_Layer.h"
 #include "UI_Banks_Layer.h"
@@ -89,7 +90,9 @@
 #include "../Fate_System/Fate_Client.h"
 #include "../Arena_System/Arena_Client.h"
 
+#include "../ClientLogic/GameScene/CityLayer.h"
 #include "../ClientLogic/GameScene/ResultLayer.h"
+#include "../ClientLogic/Actor/City_Player.h"
 #include "../DataModule/Little.h"
 #include "../Task_System/Task_Client.h"
 #include "../Pet_System/Pet_Client.h"
@@ -105,8 +108,12 @@ using namespace std;
 using namespace cocos2d;
 using namespace UI;
 using namespace Game_Data;
+using namespace cocostudio;
 
 UI_MainMenu_Layer* UI_MainMenu_Layer::m_instance_ = NULL;
+std::map<int, std::map<std::string, GuideData>> UI_MainMenu_Layer::levelGuide;
+int UI_MainMenu_Layer::oldLevel = 0;
+bool UI_MainMenu_Layer::showMissionFinish= false;
 
 UI_MainMenu_Layer::UI_MainMenu_Layer(void)
 :m_pBagInfo(NULL),
@@ -191,7 +198,7 @@ UI_MainMenu_Layer::~UI_MainMenu_Layer(void)
 bool UI_MainMenu_Layer::init()
 {
 	if ( !cocos2d::Layer::init() )
-		return false;	
+		return false;
 	_rootWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("town/town.ExportJson");
 	addChild(_rootWidget);
 
@@ -211,6 +218,7 @@ bool UI_MainMenu_Layer::init()
 	_titleImg->setTouchEnabled(true);
 	_titleImg->addTouchEventListener( CC_CALLBACK_2(UI_MainMenu_Layer::onClickTitleCallback,this) );
 
+    
 //	_sports[sArena] = dynamic_cast<cocos2d::ui::Button*>(Helper::seekWidgetByName(_rootWidget, "Btn_Arena"));
 //	_sports[sArena]->setVisible(true);
 //	_sports[sArena]->setTouchEnabled(true);
@@ -398,6 +406,58 @@ bool UI_MainMenu_Layer::init()
 	btnBack = dynamic_cast<ImageView*>(Helper::seekWidgetByName(_rootWidget,"pad"));
 	btnBack->setVisible(false);
 	this->addChild(joySkin);
+    
+    //ff >>>
+    if (levelGuide.size()==0) {
+        oldLevel = player->get_character_level();
+//        ui::TextAtlas* role_level = (ui::TextAtlas*)cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "level");
+//        int nLevel = player->get_character_level();
+//        role_level->setString(CCString::createWithFormat("%d", nLevel)->getCString());
+
+        auto doc = GameReader::getDocInstance("GameData/scene_guide.json");
+        if (doc->IsArray()){
+            int size = doc->Size();
+            for (int i = 0; i < size; i++) {
+                const rapidjson::Value &dic = DICTOOL->getSubDictionary_json((*doc), i);
+                int guideLevel = DICTOOL->getIntValue_json(dic, "level");
+                if (guideLevel <= player->get_character_level()) {
+                    continue;
+                }
+                GuideData guideData;
+                guideData.level = guideLevel;
+                guideData.itemName = DICTOOL->getStringValue_json(dic, "itemName");
+                guideData.armStr = DICTOOL->getStringValue_json(dic, "arm");
+                guideData.tableId = DICTOOL->getIntValue_json(dic, "ID");
+                guideData.destItmeName = DICTOOL->getStringValue_json(dic, "destItemName");
+                guideData.offX = DICTOOL->getFloatValue_json(dic, "offx");
+                guideData.offY = DICTOOL->getFloatValue_json(dic, "offy");
+                guideData.scaleX = DICTOOL->getFloatValue_json(dic, "scaleX");
+                guideData.scaleY = DICTOOL->getFloatValue_json(dic, "scaleY");
+                guideData.moveX = DICTOOL->getFloatValue_json(dic, "moveX");
+                guideData.moveY = DICTOOL->getFloatValue_json(dic, "moveY");
+                guideData.nextStepId = DICTOOL->getIntValue_json(dic, "next");
+                guideData.tipStr = DICTOOL->getStringValue_json(dic, "tips");
+                if (guideData.destItmeName != "null") {
+                    guideData.operateType = OperateType::OP_DRAG;
+                } else if (guideData.moveX * guideData.moveY != 0) {
+                    guideData.operateType = OP_MOVE;
+                } else {
+                    guideData.operateType = OP_CLICK;
+                }
+                levelGuide[guideLevel][guideData.itemName] = guideData;
+            }
+        }
+    }
+    auto s = Director::getInstance()->getWinSize();
+    tipBg = Sprite::create("img/battle/notblue.png");
+    tipLabel = Label::createWithSystemFont("", "arial", 16);
+    tipLabel->setPosition(tipBg->getContentSize().width/2, tipBg->getContentSize().height/2);
+    tipLabel->setColor(Color3B::WHITE);
+    tipBg->addChild(tipLabel);
+    tipBg->setPosition(s.width/2, s.height/2);
+    addChild(tipBg);
+    tipBg->setVisible(false);
+    //ff <<<
 
 	reg_event_update_ui("update_main_ui_info", UI_MainMenu_Layer::update_main_ui_info, Game_Logic::Game_Event::EVENT_TYPE_UI_MIAN);
 	reg_event_update_ui("update_item_ui_info", UI_MainMenu_Layer::update_item_ui_info, Game_Logic::Game_Event::EVENT_TYPE_UI_ITEM);
@@ -659,6 +719,7 @@ void UI_MainMenu_Layer::toggleFunctionalBtns(Ref* pSender, Widget::TouchEventTyp
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 	{
+        dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 		player_id = Account_Data_Mgr::instance()->get_current_role_id();
 		player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 		if (!player)
@@ -711,7 +772,7 @@ void UI_MainMenu_Layer::campaignToggle(Ref* pSender, Widget::TouchEventType type
 {
 	if (type != cocos2d::ui::Widget::TouchEventType::ENDED)
 		return;
-
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	for (int i = 0; i < int(cNum); i++)
 	{
 		_campaign[i]->setVisible(true);
@@ -876,6 +937,7 @@ void UI_MainMenu_Layer::buttonChatBoard(Ref* pSender, Widget::TouchEventType typ
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 	{
+        dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 		m_pBtnChatBoard->stopAllActions();
 		m_pBtnChatBoard->setVisible(true);
 		m_pChatBoard->setVisible(true);
@@ -897,6 +959,7 @@ void UI_MainMenu_Layer::buttonBagInfo(Ref* pSender, Widget::TouchEventType type)
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
+            dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 		player_id = Account_Data_Mgr::instance()->get_current_role_id();
 		player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 		if (!player)
@@ -1041,6 +1104,7 @@ void UI_MainMenu_Layer::buttonSkillInfo(Ref* pSender, Widget::TouchEventType typ
 	if (type != Widget::TouchEventType::ENDED)
 		return;
 
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	SkillView * pLayer = SkillView::create();
 	pLayer->setTag(998);
 	addChild(pLayer);
@@ -1123,6 +1187,7 @@ void UI_MainMenu_Layer::buttonSetting(Ref* pSender, Widget::TouchEventType type)
 	// 潘杰（01.26）
 	if (type != Widget::TouchEventType::ENDED)
 		return;
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	std::string pop( Little::pops[1].name );
 	UI_ModalDialogue_Layer::DoModal("", pop.c_str(), UI_ModalDialogue_Layer::DT_YES_NO, [=]()
 	{
@@ -1167,6 +1232,8 @@ void UI_MainMenu_Layer::buttonRankingList(Ref* pSender, Widget::TouchEventType t
 	if (type != Widget::TouchEventType::ENDED)
 		return;
 
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
+    
 	UI_Ranking_List_Layer * pLayer = UI_Ranking_List_Layer::create();
 	addChild(pLayer);
 
@@ -1200,7 +1267,7 @@ void UI_MainMenu_Layer::buttonAssist(Ref* pSender, Widget::TouchEventType type)
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
-
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	SECRETARY_VIEW * assist = SECRETARY_VIEW::create();
 	addChild(assist);
 }
@@ -1210,6 +1277,7 @@ void UI_MainMenu_Layer::buttonReward(Ref* pSender, Widget::TouchEventType type)
 	if (type != Widget::TouchEventType::ENDED)
 		return;
 
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	REWARD_VIEW * reward = REWARD_VIEW::create();
 	addChild(reward);
 }
@@ -1219,6 +1287,7 @@ void UI_MainMenu_Layer::buttonSign(Ref* pSender, Widget::TouchEventType type)
 	if (type != Widget::TouchEventType::ENDED)
 		return;
 
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	SIGN_VIEW * reward = SIGN_VIEW::create();
 	addChild(reward);
 }
@@ -1266,6 +1335,8 @@ void UI_MainMenu_Layer::buttonFragment(Ref* pSender, Widget::TouchEventType type
 
 void UI_MainMenu_Layer::buttonFate(Ref* pSender, Widget::TouchEventType type)
 {
+    auto dest = Helper::seekWidgetByName(_rootWidget, "Btn_Fate");
+    dest->removeChildByTag(1000);
 	int player_id;
 	Game_Data::Player* player;
 	switch (type)
@@ -1581,6 +1652,7 @@ void UI_MainMenu_Layer::buttonPathFinding(Ref* pSender, Widget::TouchEventType t
 		Game_Logic::Game_Content_Interface::instance()->exec_interface("send_load_skill", para);*/
 		//////////////////////////////////////////////////////////////////////////
 
+        dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 		player_id = Account_Data_Mgr::instance()->get_current_role_id();
 		player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 		if (!player)
@@ -1673,6 +1745,31 @@ void UI_MainMenu_Layer::buttonMission(Ref* pSender, Widget::TouchEventType type)
 		break;
 	}
 }
+void UI_MainMenu_Layer::hidePop()
+{
+    tipBg->setVisible(false);
+}
+void UI_MainMenu_Layer::popTip(std::string content)
+{
+    tipBg->stopAllActions();
+    tipLabel->setString(content);
+    tipBg->setScale(0.1, 0.1);
+    tipBg->setVisible(true);
+    Vector<FiniteTimeAction *> actionVec;
+    auto scale1 = ScaleTo::create(0.2, 1.2);
+    auto scale2 = ScaleTo::create(0.2, 1.0);
+    
+    auto func = CallFunc::create(CC_CALLBACK_0(UI_MainMenu_Layer::hidePop, this));
+    actionVec.pushBack(scale1);
+    actionVec.pushBack(scale2);
+    actionVec.pushBack(DelayTime::create(0.5));
+    actionVec.pushBack(func);
+    auto seq = Sequence::create(actionVec);
+    seq->setTag(TIP_TIMEOUT_TAG);
+    tipBg->runAction(seq);
+    
+}
+
 
 void UI_MainMenu_Layer::RefreshMainUIInfo()
 {
@@ -1702,8 +1799,44 @@ void UI_MainMenu_Layer::RefreshMainUIInfo()
 
 	// 3. 设置主界面角色等级属性
 	ui::TextAtlas* role_level = (ui::TextAtlas*)cocos2d::ui::Helper::seekWidgetByName(_rootWidget, "level");
-	role_level->setColor(ccc3(255, 255, 255));
+	role_level->setColor(Color3B(255, 255, 255));
 	int nLevel = player->get_character_level();
+//    role_level->getString()
+//    int rLevel = atoi(role_level->getString().c_str());
+    if (oldLevel != nLevel) {
+        log("up level from %d to %d", oldLevel, nLevel);
+        oldLevel = nLevel;
+        std::string tip("null");
+        for(auto obj : levelGuide[nLevel]){
+            
+//            for (auto data : obj) {
+//                
+//            }
+            std::string path("armature/");
+            std::string jsonPath = path + obj.second.armStr+".ExportJson";
+            ArmatureDataManager::getInstance()->addArmatureFileInfo(jsonPath);
+            auto tipArmature = Armature::create(obj.second.armStr);
+//            tipArmature->setAnchorPoint(Vec2(0, 0));
+            tipArmature->setScaleX(obj.second.scaleX);
+            tipArmature->setScaleY(obj.second.scaleY);
+            
+            tipArmature->getAnimation()->playWithIndex(0);
+            auto dest = Helper::seekWidgetByName(_rootWidget, obj.second.itemName);
+            tipArmature->setPosition(Vec2(dest->getContentSize().width/2+obj.second.offX, dest->getContentSize().height/2+obj.second.offY));
+            dest->addChild(tipArmature, 0, 1000);
+            if (obj.second.tipStr != "null") {
+                tip = obj.second.tipStr;
+            }
+        }
+        if (tip!="null") {
+            popTip(tip);
+        }
+        
+        levelGuide[nLevel].clear();
+        levelGuide.erase(nLevel);
+        
+        Game_Utils::instance()->get_actor_layer()->player->levelup();
+    }
 	role_level->setString(CCString::createWithFormat("%d", nLevel)->getCString());
     
     // 4. 设置金币数量
@@ -3191,6 +3324,7 @@ void UI_MainMenu_Layer::btnEndlessTowerCallback(Ref* pSender, Widget::TouchEvent
 		return;
  //   Joiner_Guidance::hideGuide();
 	//SendMsgRequestChallengeEndlessTower();
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto endless = ENDLESS_VIEW::create();
 	addChild(endless);
 }
@@ -3261,6 +3395,8 @@ void UI_MainMenu_Layer::openPropertyCallback(cocos2d::Ref*pSender, cocos2d::ui::
 		break;
 	case Widget::TouchEventType::ENDED:
 	{
+        dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
+        
 		player_id = Account_Data_Mgr::instance()->get_current_role_id();
 		player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 		if (!player)
@@ -3319,6 +3455,7 @@ void UI_MainMenu_Layer::onClickTitleCallback(Ref* pSender, Widget::TouchEventTyp
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto titleLayer = TITLE_VIEW::create();
 	addChild(titleLayer);
 
@@ -3336,6 +3473,7 @@ void UI_MainMenu_Layer::onClickFateCallback(cocos2d::Ref* pSender, cocos2d::ui::
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto fateLayer = FATE_VIEW::create();
 	addChild(fateLayer);
 }
@@ -3346,6 +3484,7 @@ void UI_MainMenu_Layer::onClickArenaCallback(cocos2d::Ref* pSender, cocos2d::ui:
 		return;
 	//auto taskLayer = TASK_VIEW::create(); taskLayer->setVisible(true);
 	//addChild(taskLayer);
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto arenaLayer = ARENA_VIEW::create();
 	addChild(arenaLayer);
 }
@@ -3354,6 +3493,7 @@ void UI_MainMenu_Layer::onClickRobCallback(cocos2d::Ref* pSender, cocos2d::ui::W
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto god = GOD_VIEW::create();
 	addChild(god);
 }
@@ -3408,6 +3548,7 @@ void UI_MainMenu_Layer::onClickPetCallback(cocos2d::Ref* pSender, cocos2d::ui::W
 {
 	if (type != Widget::TouchEventType::ENDED)
 		return;
+    dynamic_cast<Widget *>(pSender)->removeChildByTag(1000);
 	auto petLayer = PET_VIEW::create(); petLayer->setVisible(true);
 	addChild(petLayer, 10000);
 

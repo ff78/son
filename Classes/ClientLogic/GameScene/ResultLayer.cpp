@@ -472,9 +472,11 @@ void ResultLayer::eventBackMainCity()
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+    auto battle = BattleField::instance();
+
 	vector<uint64> para;
 	para.clear();
 	para.push_back(player_id);
-	para.push_back(ResultLayer::sCurInstanceId);
+	para.push_back(battle->getSceneId());
 	Game_Logic::Game_Content_Interface::instance()->exec_interface("sendbackmaincity", para);
 }

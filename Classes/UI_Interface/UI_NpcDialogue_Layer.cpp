@@ -76,17 +76,17 @@ bool UI_NpcDialogue_Layer::init()
 	m_pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile("ui/talk.json");
 	addChild(m_pWidget);
 
-	// ¹Ø±Õ°´Å¥
+	// å…³é—­æŒ‰é’®
 	m_pBtnClose = (cocos2d::ui::Button*)cocos2d::ui::Helper::seekWidgetByName(m_pWidget,"btn_close");
 	m_pBtnClose->addTouchEventListener(this,toucheventselector(UI_NpcDialogue_Layer::btnCallback_Close));
 
-	// »¬¶¯²ã
+	// æ»‘åŠ¨å±‚
 	m_pScrollView = dynamic_cast<cocos2d::ui::ScrollView*>(Helper::seekWidgetByName(m_pWidget,"scr_scrollView"));
 
-	// ÈÎÎñÃèÊö
+	// ä»»åŠ¡æè¿°
 	m_pTxtDialogue = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget,"tea_info"));
 
-	// ½±Àø²ã
+	// å¥–åŠ±å±‚
 	m_pAwardPanel = dynamic_cast<cocos2d::ui::Layout*>(Helper::seekWidgetByName(m_pWidget,"pan_award_info"));
 
 	// award experience num
@@ -205,16 +205,16 @@ void UI_NpcDialogue_Layer::btnCallback_Close( Ref* pSender ,Widget::TouchEventTy
 
 void UI_NpcDialogue_Layer::showDialogueWithNpcTypeID( int nTypeID )
 {
-	// 1. ¼ÇÂ¼µ±Ç°ÓëÍæ¼Ò»¥¶¯µÄNpcID
+	// 1. è®°å½•å½“å‰ä¸ç©å®¶äº’åŠ¨çš„NpcID
 	m_nNpcID = nTypeID;
 
-	// 2. ÇĞ»»µ±Ç°µÄ×´Ì¬Îª¶Ô»°×´Ì¬
+	// 2. åˆ‡æ¢å½“å‰çš„çŠ¶æ€ä¸ºå¯¹è¯çŠ¶æ€
 	m_State = DS_NpcDialogue;
 
-	// 3. ³õÊ¼»¯¼ÇÂ¼µÄNpcÉÏµÄÊı¾İ
+	// 3. åˆå§‹åŒ–è®°å½•çš„Npcä¸Šçš„æ•°æ®
 	m_vecServiceData.clear();
 
-	// 4. ÉèÖÃNpcµÄÃû×Ö
+	// 4. è®¾ç½®Npcçš„åå­—
 	ui::Text* pName = dynamic_cast<cocos2d::ui::Text*>(Helper::seekWidgetByName(m_pWidget,"lab_role_name"));
 
 	City_NPC* npc = Game_Utils::instance()->get_npc_by_id(m_nNpcID);
@@ -223,7 +223,7 @@ void UI_NpcDialogue_Layer::showDialogueWithNpcTypeID( int nTypeID )
 		pName->setString(npc->getCityActor()->getName());
 	}
 
-	// 5. Ë¢ĞÂ½çÃæ
+	// 5. åˆ·æ–°ç•Œé¢
 	updateDetail();
 }
 
@@ -251,7 +251,7 @@ void UI_NpcDialogue_Layer::updateDetail()
 		//quest
 		proc_quest_select_list();
 
-		// ÉèÖÃÈÎÎñÃèÊö
+		// è®¾ç½®ä»»åŠ¡æè¿°
 		City_NPC* npc = Game_Utils::instance()->get_npc_by_id(m_nNpcID);
 		if (npc)
 		{
@@ -353,7 +353,7 @@ int UI_NpcDialogue_Layer::displayer_quest_award(Game_Data::quest_data& qd)
 		m_pMoneyNum->setString(txt);
 	}
 
-	//µÀ¾ß½±Àø
+	//é“å…·å¥–åŠ±
 	para.clear();
 	Game_Element_Parse::instance()->get_para_from_require_element( "awarditem", award_list, para);
 	if( para.size() > 1 )
@@ -429,20 +429,20 @@ int UI_NpcDialogue_Layer::display_npc_dialog( Game_Data::quest_data& qd, const S
 		char txt[1024];
 		if (NS_Mission_Compeleted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ĞÅÏ¢ÄÚÈİ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_OVER, txt);
 			m_pMissionName[i]->setString(txt);
 		}
 		else if (NS_Mission_CanBeAccepted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ĞÅÏ¢ÄÚÈİ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_ACCEPT, txt);
 			m_pMissionName[i]->setString(txt);
 			CCLog("open new icon !!!");
 		}
 		else if (NS_Mission_Uncompelted==refData.nType)
 		{
-			//ÉèÖÃÌáÊ¾ĞÅÏ¢ÄÚÈİ
+			//è®¾ç½®æç¤ºä¿¡æ¯å†…å®¹
 			get_npc_dialog_quest_state_txt(qd, MISSION_DOITNOW, txt);
 			m_pMissionName[i]->setString(txt);
 		}
@@ -473,17 +473,17 @@ int UI_NpcDialogue_Layer::get_npc_dialog_quest_state_txt(Game_Data::quest_data& 
 int UI_NpcDialogue_Layer::proc_quest_select_list( void )
 {
 	// 
-	// 1. »ñÈ¡Íæ¼ÒID
+	// 1. è·å–ç©å®¶ID
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 
-	// 2. »ñÈ¡NpcID
+	// 2. è·å–NpcID
 	int npc_static_id = Game_Utils::instance()->get_npc_static_id( m_nNpcID );
 
-	// 3. »ñÈ¡¸ÃNpcÉíÉÏËùÓĞµÄÇëÇóÊı¾İÁĞ±í
+	// 3. è·å–è¯¥Npcèº«ä¸Šæ‰€æœ‰çš„è¯·æ±‚æ•°æ®åˆ—è¡¨
 	Game_Data::npc_bind_quest::npc_bind_quest_vec_t npc_quest_lst;
 	Game_Data::quest_data_mgr::instance()->get_player_npc_quest_bind_data( player_id, npc_quest_lst );
 
-	// 4. ±éÀúÇëÇóÊı¾İÁĞ±í,È»ºó·ÖÀà²¢½øĞĞ´æ´¢
+	// 4. éå†è¯·æ±‚æ•°æ®åˆ—è¡¨,ç„¶ååˆ†ç±»å¹¶è¿›è¡Œå­˜å‚¨
 	std::vector<uint32> vecQuest;
 	Game_Data::npc_bind_quest::npc_bind_quest_vec_t::iterator itn;
 	for( itn = npc_quest_lst.begin(); itn != npc_quest_lst.end(); ++ itn )
@@ -491,7 +491,7 @@ int UI_NpcDialogue_Layer::proc_quest_select_list( void )
 		if( (*itn).get_npc_id() != npc_static_id )
 			continue;
 
-		// 4_1. »ñÈ¡¿É½ÓÈÎÎñµÄÊı¾İ
+		// 4_1. è·å–å¯æ¥ä»»åŠ¡çš„æ•°æ®
 		vecQuest.clear();
 		(*itn).get_accept_quest_list(vecQuest);
 		if (vecQuest.size() != 0)
@@ -499,7 +499,7 @@ int UI_NpcDialogue_Layer::proc_quest_select_list( void )
 			proc_quest_select(NS_Mission_CanBeAccepted, vecQuest);
 		}
 
-		// 4_2. »ñÈ¡Íê³Éµ«Ã»Ìá½»µÄÈÎÎñÊı¾İ
+		// 4_2. è·å–å®Œæˆä½†æ²¡æäº¤çš„ä»»åŠ¡æ•°æ®
 		vecQuest.clear();
 		(*itn).get_submit_quest_list(vecQuest);
 		if (vecQuest.size() != 0)
@@ -507,7 +507,7 @@ int UI_NpcDialogue_Layer::proc_quest_select_list( void )
 			proc_quest_select(NS_Mission_Compeleted, vecQuest);
 		}
 		
-		// 4_3. »ñÈ¡Ã»ÓĞÍê³ÉµÄÈÎÎñÊı¾İ
+		// 4_3. è·å–æ²¡æœ‰å®Œæˆçš„ä»»åŠ¡æ•°æ®
 		vecQuest.clear();
 		(*itn).get_inprocess_quest_list(vecQuest);
 		if (vecQuest.size() != 0)
@@ -523,10 +523,10 @@ int UI_NpcDialogue_Layer::proc_quest_select_list( void )
 int UI_NpcDialogue_Layer::proc_quest_select(NpcServiceType Type,std::vector<uint32> vecQuest)
 {
 	/************************************************************************/
-	// ¸ù¾İNpc·şÎñÀàĞÍ½øĞĞ´æ´¢
+	// æ ¹æ®NpcæœåŠ¡ç±»å‹è¿›è¡Œå­˜å‚¨
 	std::vector<uint32>::iterator it = vecQuest.begin();
 
-	// ±éÀúÁĞ±í»ñÈ¡ÇëÇóµÄÃû×Ö,²¢½«½á¹¹ÌåÊı¾İ´æ´¢
+	// éå†åˆ—è¡¨è·å–è¯·æ±‚çš„åå­—,å¹¶å°†ç»“æ„ä½“æ•°æ®å­˜å‚¨
 	for ( it ; it!=vecQuest.end(); it++)
 	{
 		Game_Data::quest_data* qd = Game_Data::quest_data_mgr::instance()->get_org_quest_data( (*it));
@@ -542,11 +542,11 @@ int UI_NpcDialogue_Layer::proc_quest_select(NpcServiceType Type,std::vector<uint
 int UI_NpcDialogue_Layer::get_quest_name( Game_Data::quest_data& qd, char* txt )
 {
 	/************************************************************************/
-	// »ñÈ¡ÇëÇóµÄÃû×Ö
-	// 1. »ñÈ¡Íæ¼ÒID
+	// è·å–è¯·æ±‚çš„åå­—
+	// 1. è·å–ç©å®¶ID
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 
-	// 2. »ñÈ¡ÇëÇóµÄÃû×Ö
+	// 2. è·å–è¯·æ±‚çš„åå­—
 	char count[256] = {0};
 	if (game_data_exchange_client::instance()->get_quest_act_txt(player_id, qd.get_quest_id(), count) == 0)
 	{
@@ -610,15 +610,15 @@ if (DS_NpcDialogue == m_State)
 					setVisible(false);
 	}
 		break;
-	case NS_Mission_Compeleted: //Íê³ÉÈÎÎñ
+	case NS_Mission_Compeleted: //å®Œæˆä»»åŠ¡
 	{
 									//m_pScrollView->getInnerContainer()->setSize(Size(600,50*4));
 									//m_pScrollView->getInnerContainer()->setPosition(Vec2(0,0));
 									updateDetail();
 	}
 		break;
-	case NS_Mission_CanBeAccepted: //½ÓÊÜÈÎÎñ
-	case NS_Mission_Uncompelted: //Î´Íê³É£¨ÂíÉÏÇ°È¥£©
+	case NS_Mission_CanBeAccepted: //æ¥å—ä»»åŠ¡
+	case NS_Mission_Uncompelted: //æœªå®Œæˆï¼ˆé©¬ä¸Šå‰å»ï¼‰
 	{
 									 //m_pScrollView->getInnerContainer()->setSize(Size(600,50*4));
 									 //m_pScrollView->getInnerContainer()->setPosition(Vec2(0,0));
@@ -669,7 +669,7 @@ else if (DS_Mission == m_State)
 									  FUNCTION_OPEN_LOGIC::instance()->submit_quest_open(role_id, refData.nID);
 
 									  if (awardGoodId_ != 0)
-									  {//ÏÔÊ¾ »ñµÃĞÅÏ¢µÄÌáÊ¾	
+									  {//æ˜¾ç¤º è·å¾—ä¿¡æ¯çš„æç¤º	
 										  const char* gain = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(ALERT_U_GAIN);
 										  std::string strGain(gain);
 										  const char* gainCont = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(ALERT_GAIN_INFO);
@@ -857,7 +857,7 @@ void UI_NpcDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //×°±¸ÉıÆ·
+		else if(strcmp(element.get_command(), "up_equipment_quality") == 0) //è£…å¤‡å‡å“
 		{
 			if(para.size() > 0)
 			{
@@ -866,7 +866,7 @@ void UI_NpcDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_book_level") == 0) //ĞÄ·¨ºÏ³É
+		else if(strcmp(element.get_command(), "up_book_level") == 0) //å¿ƒæ³•åˆæˆ
 		{
 			if( para.size() > 0 )
 			{
@@ -878,7 +878,7 @@ void UI_NpcDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if (strcmp(element.get_command(),"up_player_quality") == 0) //ÈËÎïÉıÆ·   playerqaup(1)  1£ºÉıÆ·´ÎÊı
+		else if (strcmp(element.get_command(),"up_player_quality") == 0) //äººç‰©å‡å“   playerqaup(1)  1ï¼šå‡å“æ¬¡æ•°
 		{
 			if (para.size() > 0)
 			{
@@ -893,7 +893,7 @@ void UI_NpcDialogue_Layer::executeTask(int missionId)
 				break;
 			}
 		}
-		else if(strcmp(element.get_command(), "up_book_quality") == 0) //ĞÄ·¨ÉıÆ·    equipbookqaup(0,1,140)
+		else if(strcmp(element.get_command(), "up_book_quality") == 0) //å¿ƒæ³•å‡å“    equipbookqaup(0,1,140)
 		{
 			if (para.size() > 0)
 			{
