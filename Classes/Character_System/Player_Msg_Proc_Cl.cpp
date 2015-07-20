@@ -319,7 +319,7 @@ bool Player_Msg_Proc::on_get_main_city_player(Game_Logic::Game_Interface& gm_int
 	else
 	{
 		//const char* exitInfo = DICTIONARY_CONFIG_MGR::instance()->get_string_by_id(SERVER_DISCONNECT);
-		UI_ModalDialogue_Layer::DoModal("", "Your are so pool", UI_ModalDialogue_Layer::DT_OK, []()
+		UI_ModalDialogue_Layer::DoModal("", "Error city id", UI_ModalDialogue_Layer::DT_OK, []()
 		{
 			Account_Logic::releaseData();
 

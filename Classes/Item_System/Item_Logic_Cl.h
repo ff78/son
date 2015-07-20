@@ -23,6 +23,7 @@ namespace Game_Data
         void load_book_fragment();
         void tidy_item();
         bool equip_equipment(int character_id,uint64 container_id);
+        Game_Data::Item* can_change_equip(uint64 container_id); //ff
         void take_off_equipmen(int character_id,uint64 item_id);
         bool equip_book(int character_id,uint64 container_id);
         void take_off_book(int character_id,uint64 item_id);

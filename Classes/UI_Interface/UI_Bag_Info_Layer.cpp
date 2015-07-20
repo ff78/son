@@ -309,8 +309,12 @@ void UI_Bag_Info_Layer::sellEquipCallback(Ref*pSender, Widget::TouchEventType ty
 
 										  /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
 										  compare->setVisible(false);*/
-										  auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-										  Pnl_Compare->setVisible(false);
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(false);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(false);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(false);
 
 										  /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
 										  right->setVisible(false);*/
@@ -376,8 +380,13 @@ void UI_Bag_Info_Layer::closeCompareCallback(Ref*pSender, Widget::TouchEventType
 
 										  /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
 										  compare->setVisible(false);*/
-										  auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-										  Pnl_Compare->setVisible(false);
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(false);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(false);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(false);
+
 
 										  /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
 										  right->setVisible(false);*/
@@ -490,8 +499,12 @@ void UI_Bag_Info_Layer::closeBagCallBack(Ref*pSender, Widget::TouchEventType typ
 
 										  /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
 										  compare->setVisible(false);*/
-										  auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-										  Pnl_Compare->setVisible(false);
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(false);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(false);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(false);
 
 										  auto cursor = dynamic_cast<ImageView*>(Helper::seekWidgetByName(root, "Image_116_0"));
 										  cursor->setPosition(Vec2(116, 458));
@@ -578,58 +591,77 @@ void UI_Bag_Info_Layer::cellEquCallback(Ref*pSender, Widget::TouchEventType type
 	{
 	case Widget::TouchEventType::ENDED:
 	{
-										  /*auto left = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer"));
-										  left->setVisible(false);*/
+        
+        /*auto left = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer"));
+        left->setVisible(false);*/
 
-										  auto left_refine = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Refine_Left"));
-										  left_refine->setVisible(false);
+        auto left_refine = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Refine_Left"));
+        left_refine->setVisible(true);
 
-										  auto left_UnWear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Unwear"));
-										  left_UnWear->setVisible(false);
+        auto left_UnWear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Unwear"));
+        left_UnWear->setVisible(true);
 
 
-										  auto left_Sell = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Sell"));
-										  left_Sell->setVisible(true);
+        auto left_Sell = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Sell"));
+        left_Sell->setVisible(true);
 
-										  auto left_Wear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Wear"));
-										  left_Wear->setVisible(true);
+        auto left_Wear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Wear"));
+        left_Wear->setVisible(true);
 
-										  auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
-										  Pnl_Equip_Bar->setVisible(false);
+        auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
+        Pnl_Equip_Bar->setVisible(false);
 
-										  /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
-										  anotherLeft->setVisible(false);*/
-										  auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
-										  Pnl_Use->setVisible(false);
+        /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
+        anotherLeft->setVisible(false);*/
+        auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
+        Pnl_Use->setVisible(false);
 
-										  /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
-										  compare->setVisible(true);*/
-										  auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-										  Pnl_Compare->setVisible(true);
+        /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
+        compare->setVisible(true);*/
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(true);
 
-										  /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
-										  right->setVisible(false);*/
-										  auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
-										  Pnl_Bag->setVisible(false);
+        /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
+        right->setVisible(false);*/
+        auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
+        Pnl_Bag->setVisible(true);
 
-										  /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
-										  right1->setVisible(false);*/
-										  auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
-										  Pnl_Property->setVisible(false);
+        /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
+        right1->setVisible(false);*/
+        auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
+        Pnl_Property->setVisible(false);
 
-										  int curRole = Account_Data_Mgr::instance()->get_current_role_id();
-										  auto imgv = dynamic_cast<cocos2d::ui::ImageView*>(pSender);
-										  int idx = imgv->getTag();
-										  mCurIndex = idx;
-										  //uint64 container_id = m_bag_container_id[idx];
-										  //mCurItemId = m_bag_container_id[idx];
-										  mCurItemId = m_bag_equip_id[idx];
-										  //std::vector<uint64> para;
-										  mPara.clear();
-										  mPara.push_back(curRole);
-										  mPara.push_back(m_bag_container_id[idx]);
-										  //ITEM_LOGIC::instance()->equip_equipment(curRole, idx);
+        int curRole = Account_Data_Mgr::instance()->get_current_role_id();
+        auto imgv = dynamic_cast<cocos2d::ui::ImageView *>(pSender);
+        int idx = imgv->getTag();
+        mCurIndex = idx;
+        //uint64 container_id = m_bag_container_id[idx];
+        //mCurItemId = m_bag_container_id[idx];
+        mCurItemId = m_bag_equip_id[idx];
+        //std::vector<uint64> para;
+        mPara.clear();
+        mPara.push_back(curRole);
+        mPara.push_back(m_bag_container_id[idx]);
+        
 
+        //ITEM_LOGIC::instance()->equip_equipment(curRole, idx);
+        auto Pnl_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Left->setVisible(true);
+        auto Pnl_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Game_Data::Item* equip=ITEM_LOGIC::instance()->can_change_equip(m_bag_container_id[idx]);
+        if (equip == nullptr) {
+            Pnl_Right->setVisible(false);
+        }else{
+            Pnl_Right->setVisible(true);
+        }
+        
+        
+        m_nCurrentEquipTag = equip->bar_pos;										 // 记录玩家身上当前装备的Pos
+//        uint64 bar_id = m_bar_ids[idx];
+//        
+//        mCurIndex = idx;
+//        //uint64 bar_id = m_bar_ids[mCurIndex];
+//        mCurItemId = m_bar_ids[mCurIndex];
 	}
 		break;
 	default:
@@ -649,11 +681,11 @@ void UI_Bag_Info_Layer::cellMaterialCallback(Ref*pSender, Widget::TouchEventType
 	{
 	case Widget::TouchEventType::ENDED:
 	{
-										  auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
-										  Pnl_Equip_Bar->setVisible(true);
+        auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
+        Pnl_Equip_Bar->setVisible(true);
 
-										  auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
-										  Pnl_Use->setVisible(true);
+        auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
+        Pnl_Use->setVisible(true);
 	}
 		break;
 	default:
@@ -671,60 +703,65 @@ void UI_Bag_Info_Layer::cellBarCallback(Ref*pSender, Widget::TouchEventType type
 										  left->setVisible(false);*/
 
 
-										  auto left_refine = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Refine_Left"));
-										  left_refine->setVisible(true);
+        auto left_refine = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Refine_Left"));
+        left_refine->setVisible(true);
 
-										  auto left_UnWear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Unwear"));
-										  left_UnWear->setVisible(true);
+        auto left_UnWear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Unwear"));
+        left_UnWear->setVisible(true);
 
-										  auto left_Sell = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Sell"));
-										  left_Sell->setVisible(false);
+        auto left_Sell = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Sell"));
+        left_Sell->setVisible(false);
 
-										  auto left_Wear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Wear"));
-										  left_Wear->setVisible(false);
+        auto left_Wear = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Btn_Wear"));
+        left_Wear->setVisible(false);
 
 
-										  auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
-										  Pnl_Equip_Bar->setVisible(false);
+        auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
+        Pnl_Equip_Bar->setVisible(false);
 
-										  /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
-										  anotherLeft->setVisible(false);*/
-										  auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
-										  Pnl_Use->setVisible(false);
+        /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
+        anotherLeft->setVisible(false);*/
+        auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
+        Pnl_Use->setVisible(false);
 
-										  ////auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
-										  ////compare->setVisible(true);
-										  /*auto panel_right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right"));
-										  panel_right->setVisible(true);*/
-										  auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-										  Pnl_Compare->setVisible(true);
-										  ////auto panel_right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right_1"));
-										  ////panel_right1->setVisible(true);
+        ////auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
+        ////compare->setVisible(true);
+        /*auto panel_right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right"));
+        panel_right->setVisible(true);*/
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(true);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(true);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(true);
 
-										  /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
-										  right->setVisible(false);*/
-										  auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
-										  Pnl_Bag->setVisible(false);
+        ////auto panel_right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right_1"));
+        ////panel_right1->setVisible(true);
 
-										  /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
-										  right1->setVisible(false);*/
-										  auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
-										  Pnl_Property->setVisible(false);
+        /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
+        right->setVisible(false);*/
+        auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
+        Pnl_Bag->setVisible(false);
 
-										  int curRole = Account_Data_Mgr::instance()->get_current_role_id();
-										  auto imgv = dynamic_cast<cocos2d::ui::ImageView*>(pSender);
-										  int idx = imgv->getTag();
-										  m_nCurrentEquipTag = idx;										 // 记录玩家身上当前装备的Pos
-										  uint64 bar_id = m_bar_ids[idx];
+        /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
+        right1->setVisible(false);*/
+        auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
+        Pnl_Property->setVisible(false);
 
-										  mCurIndex = idx;
-										  //uint64 bar_id = m_bar_ids[mCurIndex];
-										  mCurItemId = m_bar_ids[mCurIndex];
+        int curRole = Account_Data_Mgr::instance()->get_current_role_id();
+        auto imgv = dynamic_cast<cocos2d::ui::ImageView*>(pSender);
+        int idx = imgv->getTag();
+        m_nCurrentEquipTag = idx;										 // 记录玩家身上当前装备的Pos
+        uint64 bar_id = m_bar_ids[idx];
 
-										  //std::vector<uint64> para;
-										  mPara.clear();
-										  mPara.push_back(curRole);
-										  mPara.push_back(mCurItemId);
+        mCurIndex = idx;
+        //uint64 bar_id = m_bar_ids[mCurIndex];
+        mCurItemId = m_bar_ids[mCurIndex];
+
+        //std::vector<uint64> para;
+        mPara.clear();
+        mPara.push_back(curRole);
+        mPara.push_back(mCurItemId);
 	}
 		break;
 	default:
@@ -743,31 +780,36 @@ void UI_Bag_Info_Layer::wearCallback(Ref*pSender, Widget::TouchEventType type)
 		break;
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 	{
-													   ITEM_LOGIC::instance()->equip_equipment(mPara[0], mPara[1]);
-													   /*auto left = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer"));
-													   left->setVisible(true);*/
-													   auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
-													   Pnl_Equip_Bar->setVisible(true);
+        ITEM_LOGIC::instance()->equip_equipment(mPara[0], mPara[1]);
+        /*auto left = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer"));
+        left->setVisible(true);*/
+        auto Pnl_Equip_Bar = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Equip_Bar"));
+        Pnl_Equip_Bar->setVisible(true);
 
-													   /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
-													   anotherLeft->setVisible(false);*/
-													   auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
-													   Pnl_Use->setVisible(false);
+        /*auto anotherLeft = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_1"));
+        anotherLeft->setVisible(false);*/
+        auto Pnl_Use = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Use"));
+        Pnl_Use->setVisible(false);
 
-													   /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
-													   compare->setVisible(false);*/
-													   auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-													   Pnl_Compare->setVisible(false);
+        /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
+        compare->setVisible(false);*/
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(false);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(false);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(false);
 
-													   /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
-													   right->setVisible(false);*/
-													   auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
-													   Pnl_Property->setVisible(false);
 
-													   /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
-													   right1->setVisible(true);*/
-													   auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
-													   Pnl_Bag->setVisible(true);
+        /*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer_1"));
+        right->setVisible(false);*/
+        auto Pnl_Property = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Property"));
+        Pnl_Property->setVisible(false);
+
+        /*auto right1 = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
+        right1->setVisible(true);*/
+        auto Pnl_Bag = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Bag"));
+        Pnl_Bag->setVisible(true);
 
 	}
 		break;
@@ -798,8 +840,12 @@ void UI_Bag_Info_Layer::unwearCallback(Ref*pSender, Widget::TouchEventType type)
 
 													   /*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
 													   compare->setVisible(false);*/
-													   auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-													   Pnl_Compare->setVisible(false);
+//        auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//        Pnl_Compare->setVisible(false);
+        auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+        Pnl_Compare_Left->setVisible(false);
+        auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+        Pnl_Compare_Right->setVisible(false);
 
 													   /*auto panel_right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Panel_Right"));
 													   panel_right->setVisible(true);
@@ -839,8 +885,13 @@ void UI_Bag_Info_Layer::refineCallback(Ref*pSender, Widget::TouchEventType type)
 
 	/*auto compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "left_layer_2"));
 	compare->setVisible(true);*/
-	auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
-	Pnl_Compare->setVisible(false);
+//	auto Pnl_Compare = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "Pnl_Compare"));
+//	Pnl_Compare->setVisible(false);
+    auto Pnl_Compare_Left = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Left"));
+    Pnl_Compare_Left->setVisible(false);
+    auto Pnl_Compare_Right = dynamic_cast<Layout *>(Helper::seekWidgetByName(root, "Panel_Right"));
+    Pnl_Compare_Right->setVisible(false);
+
 
 	/*auto right = dynamic_cast<Widget*>(Helper::seekWidgetByName(root, "right_layer"));
 	right->setVisible(false);*/

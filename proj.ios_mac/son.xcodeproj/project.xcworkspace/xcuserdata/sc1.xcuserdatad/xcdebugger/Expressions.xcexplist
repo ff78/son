@@ -60,15 +60,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SkillView::initScrollView():SkillView.cpp">
-      </ContextState>
-      <ContextState
          contextName = "ResultLayer::upCardsCallback2(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):ResultLayer.cpp">
          <PersistentStrings>
+            <PersistentString
+               value = "itemIds">
+            </PersistentString>
             <PersistentString
                value = "sUpWhere">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SkillView::initScrollView():SkillView.cpp">
       </ContextState>
       <ContextState
          contextName = "Game_View::PetLayer::onUpgradeCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):Pet_Client.cpp">
@@ -118,6 +121,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Player_Msg_Proc::on_get_main_city_player(Game_Logic::Game_Interface&amp;):Player_Msg_Proc_Cl.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Game_Data::quest_data_mgr::get_player_npc_quest_bind_data(unsigned int, std::__1::vector&lt;Game_Data::npc_bind_quest, std::__1::allocator&lt;Game_Data::npc_bind_quest&gt; &gt;&amp;):quest_data_mgr.cpp">
+      </ContextState>
+      <ContextState
          contextName = "UI_MainMenu_Layer::RefreshMainUIInfo():UI_MainMenu_Layer.cpp">
          <PersistentStrings>
             <PersistentString
@@ -129,13 +138,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UI_MainMenu_Layer::buttonPathFinding(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):UI_MainMenu_Layer.cpp">
-      </ContextState>
-      <ContextState
          contextName = "cocostudio::Armature::init(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;):CCArmature.cpp">
       </ContextState>
       <ContextState
-         contextName = "Game_Data::quest_data_mgr::get_player_npc_quest_bind_data(unsigned int, std::__1::vector&lt;Game_Data::npc_bind_quest, std::__1::allocator&lt;Game_Data::npc_bind_quest&gt; &gt;&amp;):quest_data_mgr.cpp">
+         contextName = "UI_MainMenu_Layer::buttonPathFinding(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType):UI_MainMenu_Layer.cpp">
       </ContextState>
       <ContextState
          contextName = "Effect::initWithArmatureAR(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, float):Effect.cpp">

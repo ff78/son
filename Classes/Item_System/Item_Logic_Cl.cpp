@@ -106,6 +106,37 @@ namespace Game_Data
         vector<uint64> para;
         Game_Logic::Game_Content_Interface::instance()->exec_interface("send_tidy_item", para);
     }
+    //ff >>>>
+    Game_Data::Item* Item_Logic::can_change_equip(uint64 container_id)
+    {
+        int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+        Player* player = dynamic_cast<Player*>(CHARACTER_MGR::instance()->get_character(player_id));
+        if (!player)
+        {
+            return nullptr;
+        }
+        Item_Container* container = ITEM_CONTAINER_MGR::instance()->get_item_container(container_id);
+        if (!container)
+        {
+            return nullptr;
+        }
+        
+        Game_Data::Item* item = ITEM_MGR::instance()->get_item(container->item_id);
+        if (item == NULL)
+        {
+            return nullptr;
+        }
+        
+        Game_Data::Item* equipment = player->get_item_from_equipment_bar(item->bar_pos);
+        if (!equipment)
+        {
+            return nullptr;
+        }
+        
+        return equipment;
+    }
+    
+    //ff <<<<
 
     bool Item_Logic::equip_equipment(int character_id,uint64 container_id)
     {
