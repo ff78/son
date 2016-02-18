@@ -883,7 +883,7 @@ int GameScene::decodeJoyStick(float delta)
 
 void GameScene::update(float delta)
 {
-    battle->waitPacket();
+//    battle->waitPacket();
     
     switch (gameMode) {
         case Game_Scene_State_Dialogue:
@@ -1549,7 +1549,7 @@ void GameScene::runOut(Ref *pSender, cocos2d::ui::Widget::TouchEventType type)
                                     {
                                         log("exiting");
                                         battle->setFightResult(false);
-                                        battle->NotifyServerResult();
+//                                        battle->NotifyServerResult();
                                         battle->setLoseDialogId(-1);
                                         battle->setWinDialogId(-1);
                                         resetGameMode(Game_Scene_State_Result);

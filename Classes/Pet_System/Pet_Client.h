@@ -46,6 +46,12 @@ namespace Game_Model
 		bool isEquiped;
 	};
 
+    struct GET_PET_CFG
+    {
+        int petId;
+        int levelLimit;
+    };
+    
 	class PetData
 	{
 	public:
@@ -62,7 +68,8 @@ namespace Game_Model
 
 		void load();
 
-
+        int get_create_pet_id(int player_lv);
+        std::map<int, GET_PET_CFG> m_map_get_pet;
 	private:
         PetData():
         _currentPetId(-1),

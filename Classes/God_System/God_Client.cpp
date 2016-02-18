@@ -286,28 +286,36 @@ bool GOD_NET::on_load(Game_Logic::Game_Interface& gm_interface)
 
 bool GOD_NET::send_upgrade(Game_Logic::Game_Interface& gm_interface)
 {
-	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
+//
+//	char body[256] = { 0 };
+//	message_stream body_ms( body, sizeof(body) );
+//	body_ms << C2S_GOD_WEAPON_LEVEL_UP;
+//	body_ms << player_id;
+//
+//	CNetManager::GetMe()->send_msg(body_ms);
 
-	char body[256] = { 0 };
-	message_stream body_ms( body, sizeof(body) );
-	body_ms << C2S_GOD_WEAPON_LEVEL_UP;
-	body_ms << player_id;
-
-	CNetManager::GetMe()->send_msg(body_ms);
-
+    Game_Logic::Game_Interface temp;
+    GOD_NET::on_upgrade(temp);
 	return true;
 
 }
 
 bool GOD_NET::on_upgrade(Game_Logic::Game_Interface& gm_interface)
 {
-	char body[256] = { 0 };
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
-	int		 player_id;
+//	char body[256] = { 0 };
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
+//	int		 player_id;
 	int		 god_id;
-	body_ms>>player_id;
-	body_ms>>god_id;
+//	body_ms>>player_id;
+//	body_ms>>god_id;
+    god_id = GOD_MODEL::getInstance()->getCurrentGodId();
+    auto config = GOD_WEAPON_CONFIG_MGR::instance()->get_god_weapon_config_data(god_id);
+    if(config->level_up_id != 0)
+    {
+        god_id = config->level_up_id;
+    }
 
 	GOD_MODEL::getInstance()->setCurrentGodId(god_id);
 	int role_id = Account_Data_Mgr::instance()->get_current_role_id();

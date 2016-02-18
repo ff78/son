@@ -64,13 +64,13 @@ bool Account_Logic::connect_to_gate_server(Game_Logic::Game_Interface& gm_interf
     para.clear();
     para.push_back(sld.get_server_port());
 	//CCLog("--------------------->%d",sld.get_server_port());
-    if(Game_Logic::Game_Content_Interface::instance()->exec_interface("doconnectgate", para, sld.get_server_ip()))
-    {
+//    if(Game_Logic::Game_Content_Interface::instance()->exec_interface("doconnectgate", para, sld.get_server_ip()))
+//    {
         //CCLOG( "---------------------->connect to gate succesful" );
         para.clear();
 
 		RecentlyServer::addServer(sld);
-		CCLog("----------------------RecentlyServer::addServer(sld);");
+		log("----------------------RecentlyServer::addServer(sld);");
 #if(CC_TARGET_PLATFORM==CC_PLATFORM_WIN32||CC_TARGET_PLATFORM==CC_PLATFORM_IOS||CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
         para.push_back(sld.get_next_ui());
         Game_Logic::Game_Content_Interface::instance()->exec_interface("shownextui", para);
@@ -80,9 +80,9 @@ bool Account_Logic::connect_to_gate_server(Game_Logic::Game_Interface& gm_interf
 #endif
 	
         return true;
-    }
-	//CCLog("----------------------------end connect_to_gate_server");
-    return false;
+//    }
+//	//CCLog("----------------------------end connect_to_gate_server");
+//    return false;
 }
 
 bool Account_Logic::on_finish_load_scene( const Game_Logic::Game_Event& gm_evt )

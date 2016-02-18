@@ -69,6 +69,8 @@
 #include "../Pet_System/Pet_Client.h"
 //#define LITTLE_PATH "GameData/little/little"
 
+#include "TouchSkill/SkillMsgProc.h"
+
 Login_Scene* Login_Scene::instance_=0;
 
 Login_Scene::Login_Scene()
@@ -135,12 +137,12 @@ bool Login_Scene::init()
 void Login_Scene::removeLogo(float dt)
 {
 #if(USELOGO==1)
-	//½«logo´ÓsceneÖĞÒÆ³ı,ÒªÈ·±£Õâ¸ö²ã´æÔÚ
+	//å°†logoä»sceneä¸­ç§»é™¤,è¦ç¡®ä¿è¿™ä¸ªå±‚å­˜åœ¨
 	this->removeChildByTag(UI_LOGO_LAYER);
-	//Ìí¼Ólogin²ã
+	//æ·»åŠ loginå±‚
 	UI_LoginLayer* login=UI_LoginLayer::create();
 	this->addChild(login,1,UI_LOGIN_LAYER);
-	//µ¯³öµÇÂ¼µÄ½çÃæ
+	//å¼¹å‡ºç™»å½•çš„ç•Œé¢
 	#if(CC_TARGET_PLATFORM==CC_PLATFORM_WIN32||CC_TARGET_PLATFORM==CC_PLATFORM_IOS||CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
 		vector<uint64> para2;
 		para2.clear();
@@ -185,8 +187,8 @@ void Login_Scene::update(float dt)
 	messageQueue.pop_front();
 	if(eventtype==EVENT_TYPE_LOGIN_SUCCEED)
 	{
-		CCLog("--------------------------------login succeed£¡");
-		//µÇÂ¼³É¹¦£¬¼ì²é¸üĞÂ
+		CCLog("--------------------------------login succeedï¼");
+		//ç™»å½•æˆåŠŸï¼Œæ£€æŸ¥æ›´æ–°
 		UI_LoginLayer* login=(UI_LoginLayer*)(this->getChildByTag(UI_LOGIN_LAYER));
 		if(login)
 		{
@@ -199,7 +201,7 @@ void Login_Scene::update(float dt)
 	}
 	else if(eventtype==EVENT_TYPE_NO_UPDATE)
 	{
-		//Ã»ÓĞ¸üĞÂ
+		//æ²¡æœ‰æ›´æ–°
 		UI_LoginLayer* login=(UI_LoginLayer*)(this->getChildByTag(UI_LOGIN_LAYER));
 		if(login)
 		{
@@ -225,12 +227,12 @@ void Login_Scene::update(float dt)
 
 		}
 
-		//ÓĞ¸üĞÂ£¬¿ªÊ¼¸üĞÂ
+		//æœ‰æ›´æ–°ï¼Œå¼€å§‹æ›´æ–°
 		bool isWifiConnected=false;
 		isWifiConnected=Dependence::isWiFiConnected();
 		if(isWifiConnected)
 		{
-			//µ±Ç°»·¾³ÊÇWIFI»·¾³£¬Ö±½Ó½øÈë¸üĞÂ
+			//å½“å‰ç¯å¢ƒæ˜¯WIFIç¯å¢ƒï¼Œç›´æ¥è¿›å…¥æ›´æ–°
 
 		
 		MessageInfo *msg=new MessageInfo();
@@ -240,7 +242,7 @@ void Login_Scene::update(float dt)
 		}
 		else
 		{
-			//µ±Ç°»·¾³Îª·ÇWIFI»·¾³,ÌáÊ¾ÓÃ»§ĞèÒªÏûºÄÁ÷Á¿
+			//å½“å‰ç¯å¢ƒä¸ºéWIFIç¯å¢ƒ,æç¤ºç”¨æˆ·éœ€è¦æ¶ˆè€—æµé‡
 			UI_LoginLayer* login=(UI_LoginLayer*)(this->getChildByTag(UI_LOGIN_LAYER));
 			if(login)
 			{
@@ -255,11 +257,11 @@ void Login_Scene::update(float dt)
 		vector<uint64> para2;
 		para2.clear();
 		Game_Logic::Game_Content_Interface::instance()->exec_interface("send_ask_partition_info",para2);
-		//ÕıÔÚ»ñÈ¡·şÎñÆ÷ĞÅÏ¢
+		//æ­£åœ¨è·å–æœåŠ¡å™¨ä¿¡æ¯
 	}
 	else if(eventtype==EVENT_TYPE_GOT_SERVER_FAILED)
 	{
-		//»ñÈ¡·ÖÇø·şÎñÆ÷Ê§°Ü°¡
+		//è·å–åˆ†åŒºæœåŠ¡å™¨å¤±è´¥å•Š
 		UI_LoginLayer* login=(UI_LoginLayer*)(this->getChildByTag(UI_LOGIN_LAYER));
 		if(login)
 		{
@@ -306,7 +308,8 @@ void Login_Scene::loadTwo()
 	//FIGHTNPC_MGR::instance()->initialize();
 	//TECHNICAL_MGR::instance()->initialize();
 	//Job_Skill_Config_mgr::instance()->initialize();
-	Relation_Manager::instance()->initialize();
+    Game_Logic::Game_Interface temp;
+
 	Rank_Manager::instance()->initialize();
 	//DialogueManager::instance()->initialize();
 	DICTIONARY_CONFIG_MGR::instance()->initialize();
@@ -381,7 +384,6 @@ void Login_Scene::loadNine()
 
 void Login_Scene::loadTen()
 {
-	FACTION_CONFIG_MGR::instance()->initialize();
 	//Buff_Manager::instance()->initialize();
 	FACTION_CONFIG_MGR::instance()->initialize();
 	GOD_WEAPON_CONFIG_MGR::instance()->initialize();
@@ -396,6 +398,7 @@ void Login_Scene::LoadEleven()
 	vector<uint64> para2;
 	para2.clear();
 	Game_Logic::Game_Content_Interface::instance()->exec_interface("send_ask_partition_info", para2);
+
 }
 
 #endif

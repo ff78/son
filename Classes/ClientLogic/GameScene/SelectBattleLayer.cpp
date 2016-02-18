@@ -356,6 +356,7 @@ void SelectBattleLayer::pressStart(Ref *pSender, Widget::TouchEventType type)
             vector<uint64> param;
             param.push_back(instance_id_send);
             param.push_back(0);
+            param.push_back(_bigId);
             Game_Logic::Game_Content_Interface::instance()->exec_interface("selectinstance", param);
 
         }
@@ -568,18 +569,21 @@ void SelectBattleLayer::updateSmall(int bigId)
 	list<int> instance_lst = auc->list_instance_id;
 
 	current_instance_data cid;
+    
 	int instanceId = 0;
 	int instanceScore = 0;
 	int focusStage = -1;
 	bool first_instance = true;
 	for (auto incId : instance_lst)
 	{
-		cid.reset();
+        cid.reset();
 		cid.set_instance_id(incId);
-
+        INSTANCE_DATA_MGR::instance()->get_player_instance_from_list(player_id, cid);
+        
 		// 判断当前关卡是不是玩家已经通关的关卡
-		if ((Account_Data_Mgr::instance()->get_is_show_all_stage() == 0) && (-1 == INSTANCE_DATA_MGR::instance()->get_player_instance_from_list(player_id, cid)))
-		{
+//		if ((Account_Data_Mgr::instance()->get_is_show_all_stage() == 0) && (-1 == INSTANCE_DATA_MGR::instance()->get_player_instance_from_list(player_id, cid)))
+        if ((Account_Data_Mgr::instance()->get_is_show_all_stage() == 0) && (cid.get_instance_state() != current_instance_data::INSTANCE_STATE_SUC))
+        {
 			if (first_instance)
 			{
 				instanceId = cid.get_instance_id();

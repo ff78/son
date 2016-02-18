@@ -141,6 +141,7 @@ namespace Game_Logic
         reg_interface("doconnectgate",								 CNetManager::connetect_to_gate);
 
         //player account
+        reg_interface("save_player",                                Account_Msg_Proc::on_save_player);
         reg_interface("send_player_login",							Account_Msg_Proc::send_player_login);
         reg_interface("send_player_start_game",						Account_Msg_Proc::send_player_start_game);
         reg_interface("connecttogate",								Account_Logic::connect_to_gate_server);
@@ -215,8 +216,8 @@ namespace Game_Logic
         reg_interface("sendrequireallstage",						Client_Instance_Msg_Proc::send_require_all_stage);
         reg_interface("sendbegininstancetimer",						Client_Instance_Msg_Proc::send_begin_instance_timer);
         reg_interface("sendinstanceplayerdie",						Client_Instance_Msg_Proc::send_instance_player_die );
-		reg_interface("sendrequirechallengenext",					Client_Instance_Msg_Proc::send_require_challenge_next_instance);// Íæ¼ÒÇëÇóÌôÕ½ÏÂÒ»¹Ø
-		reg_interface("next_instance_msg_been_received",			ResultLayer::NextInstanceDataBeenReceived);// Íæ¼Ò½øÈë¸±±¾µÄÏûÏ¢ÒÑ¾­±»½ÓÊÕ
+		reg_interface("sendrequirechallengenext",					Client_Instance_Msg_Proc::send_require_challenge_next_instance);// ç©å®¶è¯·æ±‚æŒ‘æˆ˜ä¸‹ä¸€å…³
+		reg_interface("next_instance_msg_been_received",			ResultLayer::NextInstanceDataBeenReceived);// ç©å®¶è¿›å…¥å‰¯æœ¬çš„æ¶ˆæ¯å·²ç»è¢«æ¥æ”¶
 
         // player
 
@@ -270,7 +271,7 @@ namespace Game_Logic
 		reg_interface("send_buy_item",								Shop_Msg_Proc::send_buy_item);
 
         //quest
-        reg_interface("procupdatequest",							quest_logic_client::proc_update_quest);					  // Íæ¼Òµã»÷½ÓÊÜÈÎÎñ,·şÎñÆ÷·µ»ØÏûÏ¢Ö®ºó×¢²áµÄ·½·¨
+        reg_interface("procupdatequest",							quest_logic_client::proc_update_quest);					  // ç©å®¶ç‚¹å‡»æ¥å—ä»»åŠ¡,æœåŠ¡å™¨è¿”å›æ¶ˆæ¯ä¹‹åæ³¨å†Œçš„æ–¹æ³•
         reg_interface("isquestdone",								quest_logic_client::is_quest_done);
         reg_interface("sendacceptquest",							quest_msg_proc_client::send_accept_quest);
         reg_interface("sendsubmitquest",							quest_msg_proc_client::send_submit_quest);

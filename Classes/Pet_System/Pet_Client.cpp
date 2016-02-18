@@ -19,11 +19,14 @@ void Game_Model::PetData::load()
 {
 	_petConfigMap.clear();
 	_petAttrMap.clear();
+    m_map_get_pet.clear();
 
 	rapidjson::Document doc;
 	rapidjson::Document doc1;
+    rapidjson::Document doc2;
 	auto str = FileUtils::getInstance()->getStringFromFile("game_data/guard_beast_system/guard_beast_data.json");
 	auto str1 = FileUtils::getInstance()->getStringFromFile("game_data/guard_beast_system/guard_beast_att.json");
+    auto str2 = FileUtils::getInstance()->getStringFromFile("game_data/guard_beast_system/get_guard_beast.json");
 	
 	doc.Parse<0>(str.c_str());
 	if (doc.IsArray())
@@ -95,6 +98,19 @@ void Game_Model::PetData::load()
 		}
 
 	}
+    doc2.Parse<0>(str2.c_str());
+    if (doc2.IsArray())
+    {
+        for (int i = 0; i < doc2.Size(); i++)
+        {
+            GET_PET_CFG cfg;
+            const rapidjson::Value& v = doc2[i];
+            cfg.petId = DICTOOL->getIntValue_json(v, "id");
+            cfg.levelLimit = DICTOOL->getIntValue_json(v, "level_limit");
+            m_map_get_pet[cfg.petId] = cfg;
+        }
+        
+    }
 }
 
 void PET_MODEL::eventChangeData()
@@ -627,16 +643,18 @@ void PET_VIEW::onClickCellCallback(cocos2d::Ref* pSender, cocos2d::ui::Widget::T
 
 bool PET_NET::on_load(Game_Logic::Game_Interface& gm_interface)
 {
-	char body[256] = { 0 };
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
+//	char body[256] = { 0 };
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
 
-	int			player_id;
+//	int			player_id;
 	int			pet_id;
 	uint64		pet_guid;
-	body_ms >> player_id;
-	body_ms >> pet_id;
-	body_ms >> pet_guid;
+//	body_ms >> player_id;
+//	body_ms >> pet_id;
+//	body_ms >> pet_guid;
+    vector<uint64> para = gm_interface.get_para();
+    pet_id = pet_guid = (int)para[0];
 
 	int role_id = Account_Data_Mgr::instance()->get_current_role_id();
 	auto player = CHARACTER_MGR::instance()->get_character(role_id);
@@ -667,31 +685,41 @@ bool PET_NET::send_upgrade(Game_Logic::Game_Interface& gm_interface)
             break;
 		}
 	}
-	char body[256] = { 0 };
-	message_stream body_ms( body, sizeof(body) );
-	body_ms << C2S_GUARD_BEAST_LV_UP;
-	body_ms << player_id;
-	body_ms << guid;
-
-	CNetManager::GetMe()->send_msg(body_ms);
+//	char body[256] = { 0 };
+//	message_stream body_ms( body, sizeof(body) );
+//	body_ms << C2S_GUARD_BEAST_LV_UP;
+//	body_ms << player_id;
+//	body_ms << guid;
+//
+//	CNetManager::GetMe()->send_msg(body_ms);
+    Game_Logic::Game_Interface temp;
+    vector<uint64> para;
+    para.push_back(pet_id);
+    auto pet = PET_MODEL::getInstance()->_petConfigMap[pet_id];
+    para.push_back(pet->quality_up_id);
+    temp.set_para(para);
+    on_upgrade(temp);
 	return true;
 
 }
 
 bool PET_NET::on_upgrade(Game_Logic::Game_Interface& gm_interface)
 {
-	char body[256] = { 0 };
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
+//	char body[256] = { 0 };
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
 
-	int player_id;
+//	int player_id;
 	int old_pet_id;
 	int new_pet_id;
-	int exp;
-	body_ms >> player_id;
-	body_ms >> old_pet_id;
-	body_ms >> new_pet_id;
-	body_ms >> exp;
+//	int exp = 0;
+//	body_ms >> player_id;
+//	body_ms >> old_pet_id;
+//	body_ms >> new_pet_id;
+//	body_ms >> exp;
+    vector<uint64> para = gm_interface.get_para();
+    old_pet_id = (int)para[0];
+    new_pet_id = (int)para[1];
 
 	if ( !new_pet_id || (old_pet_id == new_pet_id) )
         return false;
@@ -736,30 +764,31 @@ bool PET_NET::send_change_state(Game_Logic::Game_Interface& gm_interface)
 			guid = (*it).guid;
 		}
 	}
-	char body[256] = { 0 };
-	message_stream body_ms(body, sizeof(body));
-	body_ms << C2S_GUARD_BEAST_CHANGE_STATE;
-	body_ms << player_id;
-	body_ms << guid;
+//	char body[256] = { 0 };
+//	message_stream body_ms(body, sizeof(body));
+//	body_ms << C2S_GUARD_BEAST_CHANGE_STATE;
+//	body_ms << player_id;
+//	body_ms << guid;
+//
+//	CNetManager::GetMe()->send_msg(body_ms);
+//
+//	//Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(EVENT_CHANGE_DATA, nullptr);
 
-	CNetManager::GetMe()->send_msg(body_ms);
-
-	//Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(EVENT_CHANGE_DATA, nullptr);
-
+    on_change_state(gm_interface);
 	return true;
 }
 
 bool PET_NET::on_change_state(Game_Logic::Game_Interface& gm_interface)
 {
-	char body[256] = { 0 };
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
+//	char body[256] = { 0 };
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
 
 	int			player_id;
 	int			result;
 
-	body_ms >> player_id;
-	body_ms >> result;
+//	body_ms >> player_id;
+//	body_ms >> result;
 
 	if (result)
 	{
@@ -778,4 +807,19 @@ bool PET_NET::on_change_state(Game_Logic::Game_Interface& gm_interface)
 
 	return true;
 
+}
+
+int PET_MODEL::get_create_pet_id(int player_lv)
+{
+    int result = 0;
+    auto _iter = m_map_get_pet.begin();
+    for (; _iter != m_map_get_pet.end(); _iter++) {
+        if (_iter->second.levelLimit <= player_lv) {
+            result = _iter->second.petId;
+        }else{
+            break;
+        }
+    }
+    return result;
+    
 }

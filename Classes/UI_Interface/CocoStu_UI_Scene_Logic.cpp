@@ -77,7 +77,7 @@ bool CocoStu_UI_Scene_Logic::exec_UI_Scene( Game_Logic::Game_Interface& gm_inter
 	pLayer->setTag(-9999);
 	cocos2d::ui::Widget* pWidget = cocostudio::GUIReader::getInstance()->widgetFromJsonFile(name);
 	pLayer->addChild( pWidget );
-	// 创建版本信息
+	// 鍒涘缓鐗堟湰淇℃伅
 	std::string str_version = Account_Data_Mgr::instance()->get_version();
 	LabelTTF *lable_version = LabelTTF::create(str_version.c_str(),"Thonburi",30.f);
 	lable_version->setAnchorPoint( Vec2(0,1) );

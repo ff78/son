@@ -239,6 +239,8 @@ namespace Game_Data
 
         int get_vip_lv(){ return m_vip_level = 0; }
         void set_vip_lv(int lv){ m_vip_level = lv; }
+        
+        std::map<uint64, int> get_pets();
     protected:
         int				            m_database_id;                      //  ˝æ›ø‚ID
         int                         m_static_id;                        // æ≤Ã¨ ˝æ›ID

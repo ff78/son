@@ -261,23 +261,23 @@ void ResultLayer::upCardsCallback2(cocos2d::Ref*pSender, cocos2d::ui::Widget::To
 void ResultLayer::nextCallback(cocos2d::Ref*pSender, cocos2d::ui::Widget::TouchEventType type)
 {
 	/************************************************************************/
-	// µã»÷ÏÂÒ»¹Ø°´Å¥·½·¨»Øµ÷
+	// ç‚¹å‡»ä¸‹ä¸€å…³æŒ‰é’®æ–¹æ³•å›è°ƒ
 	if (type != Widget::TouchEventType::ENDED)
 		return;
 
-	// Èç¹û²»¿ÉÒÔÌôÕ½ÏÂÒ»¹Ø
+	// å¦‚æœä¸å¯ä»¥æŒ‘æˆ˜ä¸‹ä¸€å…³
 	//sendNext();//send get awards packet
 	if (!INSTANCE_DATA_MGR::instance()->RequestChallengeNextInstance())
 	{
 		return;
-		// Ìî³öÌáÊ¾¿òÌáÊ¾Íæ¼ÒÌôÕ½ÏÂÒ»¹ØÊ§°Ü
+		// å¡«å‡ºæç¤ºæ¡†æç¤ºç©å®¶æŒ‘æˆ˜ä¸‹ä¸€å…³å¤±è´¥
 		// ...
 
-		// ·µ»ØÖ÷³Ç,ÒÔºó»¹ĞèÒªÌí¼ÓÅĞ¶ÏÕóÈİÒÔ¼°µÈ¼¶
+		// è¿”å›ä¸»åŸ,ä»¥åè¿˜éœ€è¦æ·»åŠ åˆ¤æ–­é˜µå®¹ä»¥åŠç­‰çº§
 		// ...
 		vector<uint64> para;
 		para.clear();
-		para.push_back(1);
+		para.push_back(1001);
 		Game_Logic::Game_Content_Interface::instance()->exec_interface("enterscene", para);
 	}
 }
@@ -286,7 +286,7 @@ void ResultLayer::nextCallback(cocos2d::Ref*pSender, cocos2d::ui::Widget::TouchE
 bool ResultLayer::NextInstanceDataBeenReceived(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ÏÂÒ»¹Ø¸±±¾Êı¾İÒÑ¾­±»½ÓÊÕ
+	// ä¸‹ä¸€å…³å‰¯æœ¬æ•°æ®å·²ç»è¢«æ¥æ”¶
 	std::vector<uint64> para;
 	gm_interface.get_para(para);
 	int scene_id = para[1];

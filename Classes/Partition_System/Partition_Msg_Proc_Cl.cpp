@@ -37,16 +37,16 @@ bool Partition_Msg_Proc_Cl::on_ask_partition_info( Game_Logic::Game_Interface& g
 {
 
 	CCLog("-------------------------------on_ask_partition_info");
-	std::string partition_server_list;
+//	std::string partition_server_list;
+//
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
+//	body_ms >> partition_server_list;
 
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
-	body_ms >> partition_server_list;
-
-	vector<uint64> para;
-	Game_Logic::Game_Content_Interface::instance()->exec_interface("closeserver", para, "partition");
-
-	Account_Data_Mgr::instance()->load_server_list_from_str(partition_server_list.c_str(), partition_server_list.size());
+//	vector<uint64> para;
+//	Game_Logic::Game_Content_Interface::instance()->exec_interface("closeserver", para, "partition");
+//
+//	Account_Data_Mgr::instance()->load_server_list_from_str(partition_server_list.c_str(), partition_server_list.size());
 	Director* pDirector = Director::getInstance();
 	if (!pDirector)
 	{
@@ -65,31 +65,34 @@ bool Partition_Msg_Proc_Cl::on_ask_partition_info( Game_Logic::Game_Interface& g
 
 bool Partition_Msg_Proc_Cl::send_ask_partition_info( Game_Logic::Game_Interface& gm_interface )
 {
-	std::string ip = Account_Data_Mgr::instance()->partition_server_ip();
-	int port = Account_Data_Mgr::instance()->partition_server_port();
-
-	vector<uint64> para;
-	para.push_back(port);
-	if(!Game_Logic::Game_Content_Interface::instance()->exec_interface("connecttogame", para, ip.data()))
-	{
-		Login_Scene* ls=Login_Scene::sharedInstance();
-		if(ls)
-		{
-			ls->sendMessage(Login_Scene::EVENT_TYPE_GOT_SERVER_FAILED);
-		}
-	}
-	vector<uint64> para2;
-	gm_interface.get_para(para2);
-	if( para2.size() < 0)
-	{
-		return false;
-	}
-
-	char body[256] = {0};
-	message_stream body_ms(body, sizeof(body));
-	body_ms << C2S_ASK_PARTITION_SERVER_LIST;
-
-	CNetManager::GetMe()->send_msg( body_ms );
+//	std::string ip = Account_Data_Mgr::instance()->partition_server_ip();
+//	int port = Account_Data_Mgr::instance()->partition_server_port();
+//
+//	vector<uint64> para;
+//	para.push_back(port);
+//	if(!Game_Logic::Game_Content_Interface::instance()->exec_interface("connecttogame", para, ip.data()))
+//	{
+//		Login_Scene* ls=Login_Scene::sharedInstance();
+//		if(ls)
+//		{
+//			ls->sendMessage(Login_Scene::EVENT_TYPE_GOT_SERVER_FAILED);
+//		}
+//	}
+//	vector<uint64> para2;
+//	gm_interface.get_para(para2);
+//	if( para2.size() < 0)
+//	{
+//		return false;
+//	}
+//
+//	char body[256] = {0};
+//	message_stream body_ms(body, sizeof(body));
+//	body_ms << C2S_ASK_PARTITION_SERVER_LIST;
+//
+//	CNetManager::GetMe()->send_msg( body_ms );
+    
+    Game_Logic::Game_Interface temp;
+    on_ask_partition_info(temp);
 	return true;
 }
 

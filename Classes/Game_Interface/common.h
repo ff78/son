@@ -29,10 +29,10 @@ using namespace std;
 #define ID_ENGINE_COEFFICIENT       0x100000000
 #define ID_MASK                     0xFFFFFFFF
 
-#define _MAX_MSGSIZE 16 * 1024      // Ôİ¶¨Ò»¸öÏûÏ¢×î´óÎª16k  
-#define BLOCKSECONDS    5          // INITº¯Êı×èÈûÊ±¼ä  
-#define INBUFSIZE   (64*1024)       //? ¾ßÌå³ß´ç¸ù¾İÆÊÃæ±¨¸æµ÷Õû  ½ÓÊÕÊı¾İµÄ»º´æ  
-#define OUTBUFSIZE  (2*1024)        //? ¾ßÌå³ß´ç¸ù¾İÆÊÃæ±¨¸æµ÷Õû¡£ ·¢ËÍÊı¾İµÄ»º´æ£¬µ±²»³¬¹ı8KÊ±£¬FLUSHÖ»ĞèÒªSENDÒ»´Î  
+#define _MAX_MSGSIZE 16 * 1024      // æš‚å®šä¸€ä¸ªæ¶ˆæ¯æœ€å¤§ä¸º16k  
+#define BLOCKSECONDS    5          // INITå‡½æ•°é˜»å¡æ—¶é—´  
+#define INBUFSIZE   (64*1024)       //? å…·ä½“å°ºå¯¸æ ¹æ®å‰–é¢æŠ¥å‘Šè°ƒæ•´  æ¥æ”¶æ•°æ®çš„ç¼“å­˜  
+#define OUTBUFSIZE  (2*1024)        //? å…·ä½“å°ºå¯¸æ ¹æ®å‰–é¢æŠ¥å‘Šè°ƒæ•´ã€‚ å‘é€æ•°æ®çš„ç¼“å­˜ï¼Œå½“ä¸è¶…è¿‡8Kæ—¶ï¼ŒFLUSHåªéœ€è¦SENDä¸€æ¬¡  
 
 #define MAX_QUEST_BYTES           400
 #if defined(YN_WINDOWS)
@@ -105,18 +105,18 @@ typedef int                 INT;
 typedef unsigned int        UINT;
 typedef unsigned int        *PUINT;
 ///////////////////////////////////////////////////////////////////////
-//±ê×¼Êı¾İÀàĞÍ¶¨Òå
+//æ ‡å‡†æ•°æ®ç±»å‹å®šä¹‰
 ///////////////////////////////////////////////////////////////////////
-#define VOID			void			//±ê×¼¿Õ
-typedef unsigned char	UCHAR;			//±ê×¼ÎŞ·ûºÅCHAR
-typedef char			CHAR;			//±ê×¼CHAR
-typedef unsigned int	UINT;			//±ê×¼ÎŞ·ûºÅINT
-typedef int				INT;			//±ê×¼INT
-typedef unsigned short	USHORT;			//±ê×¼ÎŞ·ûºÅshort
-typedef short			SHORT;			//±ê×¼short
-typedef unsigned long	ULONG;			//±ê×¼ÎŞ·ûºÅLONG(²»ÍÆ¼öÊ¹ÓÃ)
-typedef long			LONG;			//±ê×¼LONG(²»ÍÆ¼öÊ¹ÓÃ)
-typedef float			FLOAT;			//±ê×¼float
+#define VOID			void			//æ ‡å‡†ç©º
+typedef unsigned char	UCHAR;			//æ ‡å‡†æ— ç¬¦å·CHAR
+typedef char			CHAR;			//æ ‡å‡†CHAR
+typedef unsigned int	UINT;			//æ ‡å‡†æ— ç¬¦å·INT
+typedef int				INT;			//æ ‡å‡†INT
+typedef unsigned short	USHORT;			//æ ‡å‡†æ— ç¬¦å·short
+typedef short			SHORT;			//æ ‡å‡†short
+typedef unsigned long	ULONG;			//æ ‡å‡†æ— ç¬¦å·LONG(ä¸æ¨èä½¿ç”¨)
+typedef long			LONG;			//æ ‡å‡†LONG(ä¸æ¨èä½¿ç”¨)
+typedef float			FLOAT;			//æ ‡å‡†float
 
 typedef UCHAR			uchar;
 typedef USHORT			ushort;
@@ -130,19 +130,19 @@ typedef UCHAR			BYTE;
 typedef SHORT	ID_t;
 typedef USHORT	SMUID_t;
 typedef	ULONG	SM_KEY;
-typedef UINT	ObjID_t;			//³¡¾°ÖĞ¹Ì¶¨µÄËùÓĞOBJÓµÓĞ²»Í¬µÄObjID_t
-typedef ID_t			SceneID_t;			//³¡¾°ID
-typedef ID_t			SkillID_t;			//¼¼ÄÜ
+typedef UINT	ObjID_t;			//åœºæ™¯ä¸­å›ºå®šçš„æ‰€æœ‰OBJæ‹¥æœ‰ä¸åŒçš„ObjID_t
+typedef ID_t			SceneID_t;			//åœºæ™¯ID
+typedef ID_t			SkillID_t;			//æŠ€èƒ½
 typedef ID_t            BuffID_t;           //Buff
-typedef ID_t			ActionID_t;			//¶¯×÷µÄID
-typedef ID_t			ImpactID_t;			//Ğ§¹ûID
-typedef ID_t			ImpactClassID_t;	//Ğ§¹û·Ö×éID
+typedef ID_t			ActionID_t;			//åŠ¨ä½œçš„ID
+typedef ID_t			ImpactID_t;			//æ•ˆæœID
+typedef ID_t			ImpactClassID_t;	//æ•ˆæœåˆ†ç»„ID
 
 
-typedef UINT			GUID_t;	//32Î»Î¨Ò»±àºÅ¡£
+typedef UINT			GUID_t;	//32ä½å”¯ä¸€ç¼–å·ã€‚
 
 
-//ÓÃÀ´¶¨ÒåÔÚÊÀ½çµÄ¸¡µãÎ»ÖÃ
+//ç”¨æ¥å®šä¹‰åœ¨ä¸–ç•Œçš„æµ®ç‚¹ä½ç½®
 struct WORLD_POS
 {
 

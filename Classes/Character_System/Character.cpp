@@ -484,7 +484,12 @@ namespace Game_Data
 		}
 
 	}
-
+    
+    std::map<uint64, int> Character::get_pets()
+    {
+        return m_pet_list;
+    }
+    
 	void Character::add_pet(uint64 database_id, int id)
 	{
 		int _size = (int)m_pet_list.size();

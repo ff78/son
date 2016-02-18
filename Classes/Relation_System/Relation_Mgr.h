@@ -9,61 +9,61 @@ public:
 	Relation_Manager();
 	~Relation_Manager();
 
-	int								initialize();																// ³õÊ¼»¯Relation_Manager
+	int								initialize();																// åˆå§‹åŒ–Relation_Manager
 	static Relation_Manager*		instance();
 
 private:
-	//---³ÉÔ±±äÁ¿---//
-	int								m_nCurrentRoleID;															// µ±Ç°½ÇÉ«ID
+	//---æˆå‘˜å˜é‡---//
+	int								m_nCurrentRoleID;															// å½“å‰è§’è‰²ID
 
-	bool							m_bOwnListIsGot;															// ÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡µ½
-	bool							m_bApplyListIsGot;															// ±»ÉêÇëµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡µ½
-	bool							m_bOwnListChange;															// ÒÑÓĞµÄºÃÓÑÁĞ±í·¢Éú¸Ä±äµÄÏûÏ¢ÊÇ·ñ·µ»Ø
-	bool							m_bApplyListChange;															// ±»ÉêÇëµÄºÃÓÑÁĞ±í·¢Éú¸Ä±äµÄÏûÏ¢ÊÇ·ñ·µ»Ø
+	bool							m_bOwnListIsGot;															// å·²æœ‰çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–åˆ°
+	bool							m_bApplyListIsGot;															// è¢«ç”³è¯·çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–åˆ°
+	bool							m_bOwnListChange;															// å·²æœ‰çš„å¥½å‹åˆ—è¡¨å‘ç”Ÿæ”¹å˜çš„æ¶ˆæ¯æ˜¯å¦è¿”å›
+	bool							m_bApplyListChange;															// è¢«ç”³è¯·çš„å¥½å‹åˆ—è¡¨å‘ç”Ÿæ”¹å˜çš„æ¶ˆæ¯æ˜¯å¦è¿”å›
 
-	Relation_Data*					m_pRelationData;															// ËùÓĞµÄºÃÓÑÊı¾İ£¨°üÀ¨ÒÑÓĞºÍÉêÇë£©
+	Relation_Data*					m_pRelationData;															// æ‰€æœ‰çš„å¥½å‹æ•°æ®ï¼ˆåŒ…æ‹¬å·²æœ‰å’Œç”³è¯·ï¼‰
 
-	std::list<int>					m_pFreeRelationDataIndexList;												// ¿ÕÏĞµÄºÃÓÑÊı¾İË÷ÒıÁĞ±í
+	std::list<int>					m_pFreeRelationDataIndexList;												// ç©ºé—²çš„å¥½å‹æ•°æ®ç´¢å¼•åˆ—è¡¨
 
-	std::map<int , int>				m_pOwnFriendMap;															// ÒÑÓĞµÄºÃÓÑÁĞ±í£¨KeyÊÇRoleID,ValueÊÇË÷Òı£©
-	std::map<int , int>				m_pApplyFriendMap;															// ÉêÇëµÄºÃÓÑÁĞ±í£¨KeyÊÇRoleID,ValueÊÇË÷Òı£©
+	std::map<int , int>				m_pOwnFriendMap;															// å·²æœ‰çš„å¥½å‹åˆ—è¡¨ï¼ˆKeyæ˜¯RoleID,Valueæ˜¯ç´¢å¼•ï¼‰
+	std::map<int , int>				m_pApplyFriendMap;															// ç”³è¯·çš„å¥½å‹åˆ—è¡¨ï¼ˆKeyæ˜¯RoleID,Valueæ˜¯ç´¢å¼•ï¼‰
 
-	CURRENT_FRIEND_LAYER_STATE		m_eCurrentLayerState;														// µ±Ç°µÄÒ³Ãæ×´Ì¬
+	CURRENT_FRIEND_LAYER_STATE		m_eCurrentLayerState;														// å½“å‰çš„é¡µé¢çŠ¶æ€
 public:
-	//---Ïà¹ØÂß¼­´¦Àí---//
-	void							AddFriendToList(const FRIEND_LIST_TYPE eType , Relation_Data * pData);		// Ìí¼ÓºÃÓÑµ½ºÃÓÑÁĞ±íÖĞ
-	void							RemoveFriendFromList(const FRIEND_LIST_TYPE eType, const int nRoleID);		// ´ÓºÃÓÑÁĞ±íÖĞÒÆ³ıºÃÓÑ
-	void							AddFriendFromApplyToOwn();													// ´ÓÉêÇëÁĞ±íÌí¼ÓºÃÓÑµ½ÒÑÓĞºÃÓÑÁĞ±íÖĞ
-
-public:
-	//---½ÇÉ«¼¼ÄÜµÄÏà¹Ø²Ù×÷---//	
+	//---ç›¸å…³é€»è¾‘å¤„ç†---//
+	void							AddFriendToList(const FRIEND_LIST_TYPE eType , Relation_Data * pData);		// æ·»åŠ å¥½å‹åˆ°å¥½å‹åˆ—è¡¨ä¸­
+	void							RemoveFriendFromList(const FRIEND_LIST_TYPE eType, const int nRoleID);		// ä»å¥½å‹åˆ—è¡¨ä¸­ç§»é™¤å¥½å‹
+	void							AddFriendFromApplyToOwn();													// ä»ç”³è¯·åˆ—è¡¨æ·»åŠ å¥½å‹åˆ°å·²æœ‰å¥½å‹åˆ—è¡¨ä¸­
 
 public:
-	//---ÓëÏÔÊ¾²ãµÄ½»»¥---//		
-	int								UIRequestCellCount();														// ÏÔÊ¾²ã´ò¿ªºÃÓÑ½çÃæÇëÇóºÃÓÑ¸öÊı
+	//---è§’è‰²æŠ€èƒ½çš„ç›¸å…³æ“ä½œ---//	
+
+public:
+	//---ä¸æ˜¾ç¤ºå±‚çš„äº¤äº’---//		
+	int								UIRequestCellCount();														// æ˜¾ç¤ºå±‚æ‰“å¼€å¥½å‹ç•Œé¢è¯·æ±‚å¥½å‹ä¸ªæ•°
 	
-	bool							UIRequestFriendRoleID(std::list<int> * pList);								// ÏÔÊ¾²ãÇëÇóºÃÓÑID
-	bool							UIRequestFriendShowInfo(const int nID, TARGET_FRIEND_INFO_FOR_SHOW * pData);// ÏÔÊ¾²ãÇëÇóºÃÓÑµÄÏÔÊ¾ĞÅÏ¢
-	bool							UIRequestEnterTargetLayerState(CURRENT_FRIEND_LAYER_STATE eState);			// ÏÔÊ¾²ãÇëÇó½øÈëÄ¿±ê½çÃæ×´Ì¬
+	bool							UIRequestFriendRoleID(std::list<int> * pList);								// æ˜¾ç¤ºå±‚è¯·æ±‚å¥½å‹ID
+	bool							UIRequestFriendShowInfo(const int nID, TARGET_FRIEND_INFO_FOR_SHOW * pData);// æ˜¾ç¤ºå±‚è¯·æ±‚å¥½å‹çš„æ˜¾ç¤ºä¿¡æ¯
+	bool							UIRequestEnterTargetLayerState(CURRENT_FRIEND_LAYER_STATE eState);			// æ˜¾ç¤ºå±‚è¯·æ±‚è¿›å…¥ç›®æ ‡ç•Œé¢çŠ¶æ€
 
-	void							UIRequestAddFriend(std::string strName);									// ÏÔÊ¾²ãÇëÇóÌí¼ÓºÃÓÑ
-	void							UIRequestDeleteFriend(int nRoleID);											// ÏÔÊ¾²ãÇëÇóÉ¾³ıºÃÓÑ
-	void							UIRequestAddFriendFromApply(int nRoleID);									// ÏÔÊ¾²ãÇëÇó´ÓÉêÇëÁĞ±íÌí¼ÓºÃÓÑ
+	void							UIRequestAddFriend(std::string strName);									// æ˜¾ç¤ºå±‚è¯·æ±‚æ·»åŠ å¥½å‹
+	void							UIRequestDeleteFriend(int nRoleID);											// æ˜¾ç¤ºå±‚è¯·æ±‚åˆ é™¤å¥½å‹
+	void							UIRequestAddFriendFromApply(int nRoleID);									// æ˜¾ç¤ºå±‚è¯·æ±‚ä»ç”³è¯·åˆ—è¡¨æ·»åŠ å¥½å‹
 public:
-	//---Óë·şÎñÆ÷µÄ½»»¥---//	
-	// 1. ¸ø·şÎñÆ÷·¢ËÍÏûÏ¢
-	void							SendMsgRequestOwnFriendList();												// ·¢ËÍÏûÏ¢ÇëÇóºÃÓÑÁĞ±í
-	void							SendMsgRequestApplyFriendList();											// ·¢ËÍÏûÏ¢ÇëÇóÉêÇëºÃÓÑÁĞ±í
-	void							SendMsgRequestAddFriend(std::string strName);								// ·¢ËÍÏûÏ¢ÇëÇóÌí¼ÓºÃÓÑ
-	void							SendMsgRequestDeleteFriendFromOwnList(const int nRoleID);					// ·¢ËÍÏûÏ¢ÇëÇó´ÓÒÑÓĞºÃÓÑÁĞ±íÉ¾³ıºÃÓÑ
-	void							SendMsgRequestDeleteFriendFromApplyList(const int nRoleID);					// ·¢ËÍÏûÏ¢ÇëÇó´ÓÉêÇëºÃÓÑÁĞ±íÉ¾³ıºÃÓÑ
-	void							SendMsgRequestAddFriendFromApplyList(const int nRoleID);					// ·¢ËÍÏûÏ¢ÇëÇó´ÓÉêÇëºÃÓÑÁĞ±íÌí¼ÓºÃÓÑ
+	//---ä¸æœåŠ¡å™¨çš„äº¤äº’---//	
+	// 1. ç»™æœåŠ¡å™¨å‘é€æ¶ˆæ¯
+	void							SendMsgRequestOwnFriendList();												// å‘é€æ¶ˆæ¯è¯·æ±‚å¥½å‹åˆ—è¡¨
+	void							SendMsgRequestApplyFriendList();											// å‘é€æ¶ˆæ¯è¯·æ±‚ç”³è¯·å¥½å‹åˆ—è¡¨
+	void							SendMsgRequestAddFriend(std::string strName);								// å‘é€æ¶ˆæ¯è¯·æ±‚æ·»åŠ å¥½å‹
+	void							SendMsgRequestDeleteFriendFromOwnList(const int nRoleID);					// å‘é€æ¶ˆæ¯è¯·æ±‚ä»å·²æœ‰å¥½å‹åˆ—è¡¨åˆ é™¤å¥½å‹
+	void							SendMsgRequestDeleteFriendFromApplyList(const int nRoleID);					// å‘é€æ¶ˆæ¯è¯·æ±‚ä»ç”³è¯·å¥½å‹åˆ—è¡¨åˆ é™¤å¥½å‹
+	void							SendMsgRequestAddFriendFromApplyList(const int nRoleID);					// å‘é€æ¶ˆæ¯è¯·æ±‚ä»ç”³è¯·å¥½å‹åˆ—è¡¨æ·»åŠ å¥½å‹
 
-	// 2. ´Ó·şÎñÆ÷½ÓÊÕÏûÏ¢
+	// 2. ä»æœåŠ¡å™¨æ¥æ”¶æ¶ˆæ¯
 
 public:
-	//--»ñÈ¡ÓëÉèÖÃ³ÉÔ±±äÁ¿---//
-	// »ñÈ¡ÒÑÓĞºÃÓÑµÄÊıÁ¿
+	//--è·å–ä¸è®¾ç½®æˆå‘˜å˜é‡---//
+	// è·å–å·²æœ‰å¥½å‹çš„æ•°é‡
 	inline int						GetOwnFriendCount()
 	{
 		int nCount = m_pOwnFriendMap.size();
@@ -73,7 +73,7 @@ public:
 		return nCount;
 	}
 
-	// »ñÈ¡ÉêÇëµÄºÃÓÑµÄÊıÁ¿
+	// è·å–ç”³è¯·çš„å¥½å‹çš„æ•°é‡
 	inline int						GetApplyFriendCount()
 	{
 		int nCount = m_pApplyFriendMap.size();
@@ -83,49 +83,49 @@ public:
 		return nCount;
 	}
 
-	// ÉèÖÃÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡×´Ì¬
+	// è®¾ç½®å·²æœ‰çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–çŠ¶æ€
 	inline void						SetOwnFriendListGetState(const bool bValue = false)
 	{
 		m_bOwnListIsGot = bValue;
 	}
 
-	// ÉèÖÃ±»ÉêÇëµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡×´Ì¬
+	// è®¾ç½®è¢«ç”³è¯·çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–çŠ¶æ€
 	inline void						SetApplyFriendListGetState(const bool bValue = false)
 	{
 		m_bApplyListIsGot = bValue;
 	}
 
-	// »ñÈ¡ÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡×´Ì¬
+	// è·å–å·²æœ‰çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–çŠ¶æ€
 	inline bool						GetOwnFriendListGetState()
 	{
 		return m_bOwnListIsGot;
 	}
 
-	// »ñÈ¡ÉêÇëµÄºÃÓÑÁĞ±íÊÇ·ñ»ñÈ¡×´Ì¬
+	// è·å–ç”³è¯·çš„å¥½å‹åˆ—è¡¨æ˜¯å¦è·å–çŠ¶æ€
 	inline bool						GetApplyFriendListGetState()
 	{
 		return m_bApplyListIsGot;
 	}
 
-	// ÉèÖÃÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ¸Ä±äµÄ×´Ì¬
+	// è®¾ç½®å·²æœ‰çš„å¥½å‹åˆ—è¡¨æ˜¯å¦æ”¹å˜çš„çŠ¶æ€
 	inline void						SetOwnFriendListChangeMsgBackState(const bool bValue = false)
 	{
 		m_bOwnListChange = bValue;
 	}
 
-	// ÉèÖÃ±»ÉêÇëµÄºÃÓÑÁĞ±íÊÇ·ñ¸Ä±ä×´Ì¬
+	// è®¾ç½®è¢«ç”³è¯·çš„å¥½å‹åˆ—è¡¨æ˜¯å¦æ”¹å˜çŠ¶æ€
 	inline void						SetApplyFriendListChangeState(const bool bValue = false)
 	{
 		m_bApplyListChange = bValue;
 	}
 
-	// »ñÈ¡ÒÑÓĞµÄºÃÓÑÁĞ±íÊÇ·ñ¸Ä±äµÄ×´Ì¬
+	// è·å–å·²æœ‰çš„å¥½å‹åˆ—è¡¨æ˜¯å¦æ”¹å˜çš„çŠ¶æ€
 	inline bool						GetOwnFriendListChangeState()
 	{
 		return m_bOwnListChange;
 	}
 
-	// »ñÈ¡ÉêÇëµÄºÃÓÑÁĞ±íÊÇ·ñ¸Ä±äµÄ×´Ì¬
+	// è·å–ç”³è¯·çš„å¥½å‹åˆ—è¡¨æ˜¯å¦æ”¹å˜çš„çŠ¶æ€
 	inline bool						GetApplyFriendListChangeState()
 	{
 		return m_bApplyListChange;

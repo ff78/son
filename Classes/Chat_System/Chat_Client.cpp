@@ -27,7 +27,7 @@ Chat_Msg_Proc* Chat_Msg_Proc::getInstance()
 	return instance_;
 };
 
-bool Chat_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, const char* chat)//ÇøÓò
+bool Chat_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, const char* chat)//åŒºåŸŸ
 {
 	//int character_id = (int)para[0];
 	//Game_Data::Character* character = CHARACTER_MGR::instance()->get_character(character_id);
@@ -59,7 +59,7 @@ bool Chat_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, co
 	return true;
 }
 
-bool Chat_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_name, const char* chat)//Ë½ÃÜ
+bool Chat_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_name, const char* chat)//ç§å¯†
 {
 	//vector<uint64> para;
 	//gm_interface.get_para(para);
@@ -87,18 +87,18 @@ bool Chat_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_name
 	return true;
 }
 
-bool Chat_Msg_Proc::send_chat_team_msg(int channel, const char* receiver_name, const char* chat)//×é¶Ó
+bool Chat_Msg_Proc::send_chat_team_msg(int channel, const char* receiver_name, const char* chat)//ç»„é˜Ÿ
 {
 	return false;
 
 }
 
-bool Chat_Msg_Proc::send_chat_friend_msg(int channel, const char* receiver_name, const char* chat)//ºÃÓÑ
+bool Chat_Msg_Proc::send_chat_friend_msg(int channel, const char* receiver_name, const char* chat)//å¥½å‹
 {
 	return false;
 }
 
-bool Chat_Msg_Proc::send_chat_faction_msg(int channel, const char* receiver_name, const char* chat)//¹¤»á
+bool Chat_Msg_Proc::send_chat_faction_msg(int channel, const char* receiver_name, const char* chat)//å·¥ä¼š
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	if (!player_id)
@@ -193,7 +193,7 @@ bool Chat_Msg_Proc::send_chat_area_msg(int channel, const char* receiver_name, c
 }
 
 
-bool Chat_Msg_Proc::on_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//ÇøÓò
+bool Chat_Msg_Proc::on_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//åŒºåŸŸ
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -212,7 +212,7 @@ bool Chat_Msg_Proc::on_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//Ç
 	//	return false;
 
 	CHAT_LOGIC::getInstance()->clear_msg();
-	CHAT_LOGIC::getInstance()->set_channel(2);//2ÊÇall ÔİÊ±×÷ÎªÇøÓòÁÄÌì
+	CHAT_LOGIC::getInstance()->set_channel(2);//2æ˜¯all æš‚æ—¶ä½œä¸ºåŒºåŸŸèŠå¤©
 	CHAT_LOGIC::getInstance()->set_msg_received(chat_content_received);
 
 	Game_Logic::Game_Event_Response::instance()->on_update_chat(player->get_database_character_id());
@@ -221,7 +221,7 @@ bool Chat_Msg_Proc::on_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//Ç
 
 }
 
-bool Chat_Msg_Proc::on_chat_private_msg(Game_Logic::Game_Interface& gm_interface)//Ë½ÃÜ
+bool Chat_Msg_Proc::on_chat_private_msg(Game_Logic::Game_Interface& gm_interface)//ç§å¯†
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -239,7 +239,7 @@ bool Chat_Msg_Proc::on_chat_private_msg(Game_Logic::Game_Interface& gm_interface
 	//	return false;
 
 	CHAT_LOGIC::getInstance()->clear_msg();
-	CHAT_LOGIC::getInstance()->set_channel(3);//3ÊÇË½ÃÜÁÄÌì
+	CHAT_LOGIC::getInstance()->set_channel(3);//3æ˜¯ç§å¯†èŠå¤©
 	CHAT_LOGIC::getInstance()->set_msg_received(chat_content_received);
 
 	Game_Logic::Game_Event_Response::instance()->on_update_chat(player->get_database_character_id());
@@ -247,7 +247,7 @@ bool Chat_Msg_Proc::on_chat_private_msg(Game_Logic::Game_Interface& gm_interface
 	return true;
 }
 
-bool Chat_Msg_Proc::on_chat_team_msg(Game_Logic::Game_Interface& gm_interface)//×é¶Ó
+bool Chat_Msg_Proc::on_chat_team_msg(Game_Logic::Game_Interface& gm_interface)//ç»„é˜Ÿ
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -267,7 +267,7 @@ bool Chat_Msg_Proc::on_chat_team_msg(Game_Logic::Game_Interface& gm_interface)//
 	return true;
 }
 
-bool Chat_Msg_Proc::on_chat_friend_msg(Game_Logic::Game_Interface& gm_interface)//ºÃÓÑ
+bool Chat_Msg_Proc::on_chat_friend_msg(Game_Logic::Game_Interface& gm_interface)//å¥½å‹
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -287,7 +287,7 @@ bool Chat_Msg_Proc::on_chat_friend_msg(Game_Logic::Game_Interface& gm_interface)
 	return true;
 }
 
-bool Chat_Msg_Proc::on_chat_faction_msg(Game_Logic::Game_Interface& gm_interface)//¹¤»á
+bool Chat_Msg_Proc::on_chat_faction_msg(Game_Logic::Game_Interface& gm_interface)//å·¥ä¼š
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -307,7 +307,7 @@ bool Chat_Msg_Proc::on_chat_faction_msg(Game_Logic::Game_Interface& gm_interface
 	return true;
 }
 
-bool Chat_Msg_Proc::on_chat_world_msg(Game_Logic::Game_Interface& gm_interface)//ÊÀ½ç
+bool Chat_Msg_Proc::on_chat_world_msg(Game_Logic::Game_Interface& gm_interface)//ä¸–ç•Œ
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
@@ -330,7 +330,7 @@ bool Chat_Msg_Proc::on_chat_world_msg(Game_Logic::Game_Interface& gm_interface)/
 	//player->set_channel(1);
 
 	CHAT_LOGIC::getInstance()->clear_msg();
-	CHAT_LOGIC::getInstance()->set_channel(1);//1ÊÇÊÀ½çÁÄÌì
+	CHAT_LOGIC::getInstance()->set_channel(1);//1æ˜¯ä¸–ç•ŒèŠå¤©
 	CHAT_LOGIC::getInstance()->set_msg_received(chat_content_received);
 
 	Game_Logic::Game_Event_Response::instance()->on_update_chat(player->get_database_character_id());
@@ -338,7 +338,7 @@ bool Chat_Msg_Proc::on_chat_world_msg(Game_Logic::Game_Interface& gm_interface)/
 	return true;
 }
 
-bool Chat_Msg_Proc::on_chat_area_msg(Game_Logic::Game_Interface& gm_interface)	//ÇøÓò
+bool Chat_Msg_Proc::on_chat_area_msg(Game_Logic::Game_Interface& gm_interface)	//åŒºåŸŸ
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -357,7 +357,7 @@ bool Chat_Msg_Proc::on_chat_area_msg(Game_Logic::Game_Interface& gm_interface)	/
 		return false;
 
 	CHAT_LOGIC::getInstance()->clear_msg();
-	CHAT_LOGIC::getInstance()->set_channel(2);//2ÊÇÇøÓòÁÄÌì
+	CHAT_LOGIC::getInstance()->set_channel(2);//2æ˜¯åŒºåŸŸèŠå¤©
 	CHAT_LOGIC::getInstance()->set_msg_received(chat_content_received);
 
 	Game_Logic::Game_Event_Response::instance()->on_update_chat(player->get_database_character_id());

@@ -134,7 +134,7 @@ int SkillManager::upgradeSkill(int skillId)
         return SKILL_UPGRADE_REQUIRE_PLAYER_LV;
     }
 
-    SkillMsgProc::send_uplevel_skill(skillId);
+    SkillMsgProc::send_uplevel_skill(skillId, skill.getId());
     return SKILL_UPGRADE_WAIT_RESPONSE;
 }
 
@@ -158,6 +158,24 @@ void SkillManager::upgradeSkillResult(int originSkillId, int newSkillId)
         SPSkill = skill;
     }
     
+    //replace origin skill with new skill in selSkills map
+    if (selSkills.find(originSkillId) != selSkills.end()) {
+        //find origin skill pos in showSelSkills vector, replace it with new skill
+        auto itr = showSelSkills.begin();
+        for (; itr != showSelSkills.end(); itr++) {
+            if(itr->getId() == originSkillId)
+            {
+                break;
+            }
+        }
+        if (itr != showSelSkills.end()) {
+            itr = showSelSkills.erase(itr);
+            showSelSkills.insert(itr, skill);
+        }
+        selSkills.erase(selSkills.find(originSkillId));
+        selSkills[newSkillId] = skill;
+    }
+    
     //replace origin skill with new skill in allSkills map
     if (allSkills.find(originSkillId) != allSkills.end()) {
         //find origin skill pos in showSkills vector, replace it with new skill
@@ -176,23 +194,7 @@ void SkillManager::upgradeSkillResult(int originSkillId, int newSkillId)
     }
     allSkills[skill.getId()] = skill;
     
-    //replace origin skill with new skill in selSkills map
-    if (selSkills.find(originSkillId) != selSkills.end()) {
-        //find origin skill pos in showSelSkills vector, replace it with new skill
-        auto itr = showSkills.begin();
-        for (; itr != showSkills.end(); itr++) {
-            if(itr->getId() == originSkillId)
-            {
-                break;
-            }
-        }
-        if (itr != showSelSkills.end()) {
-            itr = showSelSkills.erase(itr);
-            showSelSkills.insert(itr, skill);
-        }
-        selSkills.erase(allSkills.find(originSkillId));
-        selSkills[newSkillId] = skill;
-    }
+
     
     event.setUserData(&skill);
     Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
@@ -232,7 +234,7 @@ bool SkillManager::changeSkill(int posA, int skillId)
 
 void SkillManager::postChanges2Server()
 {
-    SkillMsgProc::send_select_changes(showSelSkills);
+    SkillMsgProc::send_select_changes(showSelSkills, showSkills);
 }
 
 std::vector<LogicSkill> SkillManager::getAllSkills()

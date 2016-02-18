@@ -18,8 +18,8 @@ class SkillMsgProc : public Singleton<SkillMsgProc>
 {
     
 public:
-    static bool send_uplevel_skill(int skillId);
-    static bool send_select_changes(std::vector<LogicSkill> &selSkill);
+    static bool send_uplevel_skill(int skillId, int nextSkillId);
+    static bool send_select_changes(std::vector<LogicSkill> &selSkill, std::vector<LogicSkill> &showSkill);
     
     static bool on_load_skill(Game_Logic::Game_Interface& gm_interface);
     static bool on_uplevel_skill(Game_Logic::Game_Interface& gm_interface);

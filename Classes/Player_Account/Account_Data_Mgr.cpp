@@ -15,7 +15,8 @@ Account_Data_Mgr::Account_Data_Mgr():
 	m_nCurrentSelectIndex(-1),
     m_is_show_all_stage(0),
     m_is_first_login(0),
-	m_version("")
+	m_version(""),
+    select_job(3)
 {
 
 }

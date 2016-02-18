@@ -256,6 +256,7 @@ void BlackActor::initPlayerData()
 //    colossusId = 100002;
 //    guardId = 100001;
     
+    //ff
     TARGET_CHARACTER_BATTLE_SKILL_DATA skillData;
     if(!SkillManager::instance()->GetCharacterBattleSkillData(&skillData))
     {

@@ -11,7 +11,7 @@
 using namespace std;
 namespace Game_Data
 {
-    // Ñ¨Î»²ã¼¶Êı¾İ
+    // ç©´ä½å±‚çº§æ•°æ®
     struct acupoint_level_data
     {
         acupoint_level_data()
@@ -32,14 +32,14 @@ namespace Game_Data
             gold_cost_ = 0;
         }
 
-        int                     cur_attr_;              // µ±Ç°Ôö¼ÓÊôĞÔ
-        int                     total_attr_;             // ÀÛ¼ÆÔö¼ÓÊôĞÔ
-        int                     prestige_cost_;         // ÏûºÄµÄÉùÍû
-        int                     gold_cost_;             // ÏûºÄµÄ½ğ±Ò
-        int                     suc_rate_;               // ³É¹¦ÂÊ
+        int                     cur_attr_;              // å½“å‰å¢åŠ å±æ€§
+        int                     total_attr_;             // ç´¯è®¡å¢åŠ å±æ€§
+        int                     prestige_cost_;         // æ¶ˆè€—çš„å£°æœ›
+        int                     gold_cost_;             // æ¶ˆè€—çš„é‡‘å¸
+        int                     suc_rate_;               // æˆåŠŸç‡
     };
 
-    // Ñ¨Î»ÅäÖÃ
+    // ç©´ä½é…ç½®
     struct acupoint_config
     {
         acupoint_config()
@@ -66,19 +66,19 @@ namespace Game_Data
             level_data_->reset();
         }
 
-        int                     base_id_;                           // ±íID
-        int                     type_;                              // ÂöÂçÀàĞÍ
-        int                     pos_;                               // Ñ¨Î»
-        int                     pos_x_;                             // µãÁÁÍ¼±êX×ø±ê
-        int                     pos_y_;                             // µãÁÁÍ¼±êY×ø±ê
-        int                     name_x_;                            // Ãû×ÖX×ø±ê
-        int                     name_y_;                            // Ãû×ÖY×ø±ê
-        int                     name_;                              // Ñ¨Î»Ãû×Ö
-        int                     attr_type_;                         // ÊôĞÔÀàĞÍ
-        acupoint_level_data     level_data_[VEIN_LEVEL_MAX];        // ²ã¼¶Êı¾İ
+        int                     base_id_;                           // è¡¨ID
+        int                     type_;                              // è„‰ç»œç±»å‹
+        int                     pos_;                               // ç©´ä½
+        int                     pos_x_;                             // ç‚¹äº®å›¾æ ‡Xåæ ‡
+        int                     pos_y_;                             // ç‚¹äº®å›¾æ ‡Yåæ ‡
+        int                     name_x_;                            // åå­—Xåæ ‡
+        int                     name_y_;                            // åå­—Yåæ ‡
+        int                     name_;                              // ç©´ä½åå­—
+        int                     attr_type_;                         // å±æ€§ç±»å‹
+        acupoint_level_data     level_data_[VEIN_LEVEL_MAX];        // å±‚çº§æ•°æ®
     };
 
-    // ÂöÂç²ã¼¶Êı¾İ 
+    // è„‰ç»œå±‚çº§æ•°æ® 
     struct vein_level_data
     {
         vein_level_data()
@@ -98,12 +98,12 @@ namespace Game_Data
             attr_ = 0;
         }
 
-        int                     open_level_;                        // ¿ª·ÅµÈ¼¶
-        int                     attr_type_;                         // ÊôĞÔÀàĞÍ
-        int                     attr_;                              // Ôö¼ÓÊôĞÔ
+        int                     open_level_;                        // å¼€æ”¾ç­‰çº§
+        int                     attr_type_;                         // å±æ€§ç±»å‹
+        int                     attr_;                              // å¢åŠ å±æ€§
     };
 
-    // ÂöÂçÅäÖÃ
+    // è„‰ç»œé…ç½®
     struct vein_config
     {
         vein_config()
@@ -127,10 +127,10 @@ namespace Game_Data
             }
         }
 
-        int                     base_id_;                           // ±íID
-        int                     type_;                              // ÂöÂçÀàĞÍ
-        int                     name_;                              // ÂöÂçÃû×Ö
-        vein_level_data         level_data_[VEIN_LEVEL_MAX];        // ²ã¼¶Êı¾İ
+        int                     base_id_;                           // è¡¨ID
+        int                     type_;                              // è„‰ç»œç±»å‹
+        int                     name_;                              // è„‰ç»œåå­—
+        vein_level_data         level_data_[VEIN_LEVEL_MAX];        // å±‚çº§æ•°æ®
     };
 }
 

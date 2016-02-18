@@ -11,20 +11,20 @@ namespace Game_Data
 {
     enum Role_Attr_Type
     {
-        RAT_HEALTH = 0,                 // 生命
-        RAT_MAGIC,                      // 罡气
-        RAT_ATTACK,                     // 攻击
-        RAT_DEFENSE,                    // 防御
-        RAT_HIT,                        // 命中
-        RAT_DODGE,                      // 闪避
-        RAT_CRIT,                       // 暴击
-        RAT_TENACITY,                   // 坚韧
-        RAT_HURT,                       // 暴击伤害
-        RAT_HP_RECOBER,                 // 生命恢复
-        RAT_MP_RECOBER,                 // 罡气恢复
-        RAT_MAGIC_SUB,                  // 罡气减伤
-        RAT_MAGIC_SPEED,                // 罡气间隔
-        RAT_POW,                        // 心法功力
+        RAT_HEALTH = 0,                 // 鐢熷懡
+        RAT_MAGIC,                      // 缃℃皵
+        RAT_ATTACK,                     // 鏀诲嚮
+        RAT_DEFENSE,                    // 闃插尽
+        RAT_HIT,                        // 鍛戒腑
+        RAT_DODGE,                      // 闂伩
+        RAT_CRIT,                       // 鏆村嚮
+        RAT_TENACITY,                   // 鍧氶煣
+        RAT_HURT,                       // 鏆村嚮浼ゅ
+        RAT_HP_RECOBER,                 // 鐢熷懡鎭㈠
+        RAT_MP_RECOBER,                 // 缃℃皵鎭㈠
+        RAT_MAGIC_SUB,                  // 缃℃皵鍑忎激
+        RAT_MAGIC_SPEED,                // 缃℃皵闂撮殧
+        RAT_POW,                        // 蹇冩硶鍔熷姏
 
         RAT_MAX,                        //
     };

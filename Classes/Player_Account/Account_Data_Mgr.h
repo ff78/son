@@ -72,13 +72,17 @@ public:
 	std::string partition_server_ip( void ) { return partition_server_ip_; }
 
 	int partition_server_port( void ) { return partition_server_port_; }
-	
+    int getJob() { return select_job; }
+    void setJob(int job) {
+        select_job = job;
+    }
 private:
    static Account_Data_Mgr* instance_;
 
    map<int, Server_List_Data> server_list_;
    map<string, Account_Data> account_list_; 
 
+    int select_job;
    int next_ui_config_id_;
    string self_account_;
    int avatar_id_;
@@ -92,6 +96,6 @@ private:
    std::string partition_server_ip_;
    int partition_server_port_;
 
-   std::string m_version; //�ͻ��˰汾��Ϣ
+   std::string m_version; //客户端版本信息
 };
 #endif // !defined(EA_1FBE462B_0C7A_4fee_8DD6_E52E0E0335B7__INCLUDED_)

@@ -22,7 +22,8 @@ class YNBaseUtil {
     
 public:
     static std::vector<std::string> splitString(std::string str, std::string pattern);
-	static std::string randomNameBySexId(int sex);//sex == 0 ÎªÅ®ĞÔÃû 1ÎªÄĞĞÔÃû³Æ
+	static std::string randomNameBySexId(int sex);//sex == 0 ä¸ºå¥³æ€§å 1ä¸ºç”·æ€§åç§°
+//    static void saveToFile(std::string fileName, std::map<std::string, cocos2d::Value> values);
     
     static cocos2d::Size WinSize;
 };

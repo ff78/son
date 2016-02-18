@@ -13,27 +13,27 @@ Server_List_Data RecentlyServer::getRecentlyServerInfomation(int index)
 	ret.reset();
 	if(index>=3)
 		return ret;
-	//»ñÈ¡id
+	//èŽ·å–id
 	char textid[64]={0};
 	SPRINTF(textid,"ID%d",index);
 	ret.set_id(UserDefault::getInstance()->getIntegerForKey(textid,0));
-	//»ñÈ¡servername
+	//èŽ·å–servername
 	char textservername[64]={0};
 	SPRINTF(textservername,"SERVERNAME%d",index);
 	ret.set_server_name(UserDefault::getInstance()->getStringForKey(textservername,std::string("")).c_str());
-	//»ñÈ¡serverip
+	//èŽ·å–serverip
 	char textserverip[64]={0};
 	SPRINTF(textserverip,"SERVERIP%d",index);
 	ret.set_server_ip(UserDefault::getInstance()->getStringForKey(textserverip,std::string("")).c_str());
-	//»ñÈ¡¶Ë¿ÚºÅ
+	//èŽ·å–ç«¯å£å·
 	char textserverport[64]={0};
 	SPRINTF(textserverport,"SERVERPORT%d",index);
 	ret.set_server_port(UserDefault::getInstance()->getIntegerForKey(textserverport,0));
-	//»ñµÃnextui
+	//èŽ·å¾—nextui
 	char textnextui[64]={0};
 	SPRINTF(textnextui,"NEXTUI%d",index);
 	ret.set_next_ui(UserDefault::getInstance()->getIntegerForKey(textnextui,0));
-	//»ñÈ¡·þÎñÆ÷µÄ×´Ì¬
+	//èŽ·å–æœåŠ¡å™¨çš„çŠ¶æ€
 	char textstate[64]={0};
 	SPRINTF(textstate,"SERVERSTATE%d",index);
 	ret.set_state(UserDefault::getInstance()->getIntegerForKey(textstate,-1));
@@ -44,10 +44,10 @@ Server_List_Data RecentlyServer::getRecentlyServerInfomation(int index)
 void RecentlyServer::addServer(Server_List_Data sld)
 {
 
-	//»ñÈ¡server2µÄÊý¾Ý£¬·Åµ½server3ÖÐ
+	//èŽ·å–server2çš„æ•°æ®ï¼Œæ”¾åˆ°server3ä¸­
 	Server_List_Data sld1=getRecentlyServerInfomation(1);
 	
-	//»ñÈ¡server1µÄÊý¾Ý£¬·Åµ½server2ÖÐ
+	//èŽ·å–server1çš„æ•°æ®ï¼Œæ”¾åˆ°server2ä¸­
 	Server_List_Data sld0=getRecentlyServerInfomation(0);
 
 	if(sld.get_id()==sld0.get_id())
@@ -56,7 +56,7 @@ void RecentlyServer::addServer(Server_List_Data sld)
 	}
 	if(sld.get_id()==sld1.get_id())
 	{
-		//µÚÈý¸ö²»±ä
+		//ç¬¬ä¸‰ä¸ªä¸å˜
 		setServerData(0,sld);
 		setServerData(1,sld0);
 
@@ -66,7 +66,7 @@ void RecentlyServer::addServer(Server_List_Data sld)
 
 	setServerData(2,sld1);
 	setServerData(1,sld0);
-	//ÉèÖÃserver1µÄÊý¾Ý
+	//è®¾ç½®server1çš„æ•°æ®
 	setServerData(0,sld);
 
 }
@@ -76,31 +76,31 @@ void RecentlyServer::setServerData(int index,Server_List_Data sld)
 		return;
 
 
-	//ÉèÖÃid
+	//è®¾ç½®id
 	char textid[64]={0};
 	SPRINTF(textid,"ID%d",index);
 	UserDefault::getInstance()->setIntegerForKey(textid,sld.get_id());
-	//ÉèÖÃservername
+	//è®¾ç½®servername
 	char textservername[64]={0};
 	SPRINTF(textservername,"SERVERNAME%d",index);
 	UserDefault::getInstance()->setStringForKey(textservername,sld.get_server_name());
-	//ÉèÖÃserverip
+	//è®¾ç½®serverip
 	char textserverip[64]={0};
 	SPRINTF(textserverip,"SERVERIP%d",index);
 	UserDefault::getInstance()->setStringForKey(textserverip,sld.get_server_ip());
-	//ÉèÖÃ¶Ë¿Ú
+	//è®¾ç½®ç«¯å£
 	char textserverport[64]={0};
 	SPRINTF(textserverport,"SERVERPORT%d",index);
 	UserDefault::getInstance()->setIntegerForKey(textserverport,sld.get_server_port());
-	//ÉèÖÃnextui
+	//è®¾ç½®nextui
 	char textnextui[64]={0};
 	SPRINTF(textnextui,"NEXTUI%d",index);
 	UserDefault::getInstance()->setIntegerForKey(textnextui,sld.get_next_ui());
-	//ÉèÖÃ·þÎñÆ÷×´Ì¬
+	//è®¾ç½®æœåŠ¡å™¨çŠ¶æ€
 	char textstate[64]={0};
 	SPRINTF(textstate,"SERVERSTATE%d",index);
 	UserDefault::getInstance()->setIntegerForKey(textstate,sld.get_state());
-	//Ë¢ÐÂÁ÷
+	//åˆ·æ–°æµ
 	UserDefault::getInstance()->flush();
 
 

@@ -15,6 +15,7 @@ enum
     CLIENT_ENTER_SCENE,
 };
 
+#define CLIENT_SAVE_PLAYER               100008
 #define CLIENT_LOAD_INFO                100009
 #define CLIENT_LIFE_INIT                100010
 #define CLIENT_INVITE_PROBE             100105
@@ -214,8 +215,8 @@ enum
 // all server radiate
 enum 
 {
-	INNER_RADIATE_SYSTEM = 103301,		// ÏµÍ³´¥·¢µÄ¹ã²¥
-	INNER_RADIATE_PLAYER,				// Íæ¼ÒÐÐÎª´¥·¢µÄ¹ã²¥
+	INNER_RADIATE_SYSTEM = 103301,		// ç³»ç»Ÿè§¦å‘çš„å¹¿æ’­
+	INNER_RADIATE_PLAYER,				// çŽ©å®¶è¡Œä¸ºè§¦å‘çš„å¹¿æ’­
 };
 
 // activity
@@ -242,65 +243,65 @@ enum
 //  chat system
 enum
 {
-	C2S_CHAT_AREA_MSG = 104001,		// ÇøÓòÁÄÌì
-	C2S_CHAT_PRIVATE_MSG,			// Ë½ÁÄ
-	C2S_CHAT_TEAM_MSG ,				// ×é¶ÓÁÄÌì
-	C2S_CHAT_FRIEND_MSG,			// ºÃÓÑÁÄÌì
-	C2S_CHAT_FACTION_MSG,			// ¹¤»á£¨°ïÅÉ£©ÁÄÌì
-	C2S_CHAT_WORLD_MSG,				// ÊÀ½çÁÄÌì
+	C2S_CHAT_AREA_MSG = 104001,		// åŒºåŸŸèŠå¤©
+	C2S_CHAT_PRIVATE_MSG,			// ç§èŠ
+	C2S_CHAT_TEAM_MSG ,				// ç»„é˜ŸèŠå¤©
+	C2S_CHAT_FRIEND_MSG,			// å¥½å‹èŠå¤©
+	C2S_CHAT_FACTION_MSG,			// å·¥ä¼šï¼ˆå¸®æ´¾ï¼‰èŠå¤©
+	C2S_CHAT_WORLD_MSG,				// ä¸–ç•ŒèŠå¤©
 };
 
 // friend system
 enum
 {
-	C2S_ON_LOAD_FRIEND = 104501,		// »ñµÃºÃÓÑÐÅÏ¢
-	C2S_APPLY_ADD_FRIEND,				// ÉêÇëÌí¼ÓºÃÓÑ
-	C2S_ADD_FRIEND_OK,					// Ìí¼ÓºÃÓÑ³É¹¦
-	C2S_ADD_FRIEND_REFUSE,				// Ìí¼ÓºÃÓÑÊ§°Ü(¾Ü¾ø)
-	C2S_DEL_FRIEND,						// É¾³ýºÃÓÑ
-	C2S_ADD_BLACK_LIST,					// Ìí¼ÓºÚÃûµ¥Êý¾Ý
-	C2S_DEL_BLACK_LIST,					// É¾³ýºÚÃûµ¥Êý¾Ý
+	C2S_ON_LOAD_FRIEND = 104501,		// èŽ·å¾—å¥½å‹ä¿¡æ¯
+	C2S_APPLY_ADD_FRIEND,				// ç”³è¯·æ·»åŠ å¥½å‹
+	C2S_ADD_FRIEND_OK,					// æ·»åŠ å¥½å‹æˆåŠŸ
+	C2S_ADD_FRIEND_REFUSE,				// æ·»åŠ å¥½å‹å¤±è´¥(æ‹’ç»)
+	C2S_DEL_FRIEND,						// åˆ é™¤å¥½å‹
+	C2S_ADD_BLACK_LIST,					// æ·»åŠ é»‘åå•æ•°æ®
+	C2S_DEL_BLACK_LIST,					// åˆ é™¤é»‘åå•æ•°æ®
 };
 
 // faction system
 enum
 {
-	C2S_CREATE_FACTION = 104701,		// ´´½¨¹¤»á
-	C2S_JOIN_FACTION,					// ¼ÓÈë¹¤»á
-	C2S_SET_JOB_FACTION,				// ÉèÖÃ¹¤»áÖ°Î»
-	C2S_KICK_MEMBER_FACTION,			// ÌßÈË
-	C2S_TOTEMS_UP_FACTION,				// Í¼ÌÚÉý¼¶
-	C2S_SET_MSG_BOARD_FACTION,			// ÉèÖÃÁôÑÔ°å
-	C2S_FACTION_DIGGIN,					// ÍÚ¿ó
-	C2S_FACTION_WORSHIP,				// Ä¤°Ý
-	C2S_FACTION_DEKARON_BOSS,			// ÌôÕ½¹¤»áBOSS
-	C2S_FACTION_KILL_BOSS,				// »÷É±¹¤»áBOSS
-	C2S_FACTION_FIND_BY_NAME,			// ËÑË÷°ïÅÉ(Ãû³Æ)
-	C2S_GET_FACTION_DATA,				// ÉêÇë»ñµÃ°ïÅÉÊý¾Ý
+	C2S_CREATE_FACTION = 104701,		// åˆ›å»ºå·¥ä¼š
+	C2S_JOIN_FACTION,					// åŠ å…¥å·¥ä¼š
+	C2S_SET_JOB_FACTION,				// è®¾ç½®å·¥ä¼šèŒä½
+	C2S_KICK_MEMBER_FACTION,			// è¸¢äºº
+	C2S_TOTEMS_UP_FACTION,				// å›¾è…¾å‡çº§
+	C2S_SET_MSG_BOARD_FACTION,			// è®¾ç½®ç•™è¨€æ¿
+	C2S_FACTION_DIGGIN,					// æŒ–çŸ¿
+	C2S_FACTION_WORSHIP,				// è†œæ‹œ
+	C2S_FACTION_DEKARON_BOSS,			// æŒ‘æˆ˜å·¥ä¼šBOSS
+	C2S_FACTION_KILL_BOSS,				// å‡»æ€å·¥ä¼šBOSS
+	C2S_FACTION_FIND_BY_NAME,			// æœç´¢å¸®æ´¾(åç§°)
+	C2S_GET_FACTION_DATA,				// ç”³è¯·èŽ·å¾—å¸®æ´¾æ•°æ®
 	
 };
 
 // email system
 enum
 {
-	C2S_ON_LOAD_EMAIL = 104801,			// »ñµÃµ±Ç°µÄÓÊ¼þÊý¾Ý(Íæ¼Ò×ÔÉí)
-	C2S_SEND_EMAIL,						// ·¢ËÍÓÊ¼þ
-	C2S_RECEIVE_EMAIL_ITEM,				// »ñµÃÓÊ¼þÀïµÄµÀ¾ß
-	C2S_OPEN_EMAIL,						// ´ò¿ªÓÊ¼þ
-	C2S_DELETE_EMAIL,					// É¾³ýÓÊ¼þ
+	C2S_ON_LOAD_EMAIL = 104801,			// èŽ·å¾—å½“å‰çš„é‚®ä»¶æ•°æ®(çŽ©å®¶è‡ªèº«)
+	C2S_SEND_EMAIL,						// å‘é€é‚®ä»¶
+	C2S_RECEIVE_EMAIL_ITEM,				// èŽ·å¾—é‚®ä»¶é‡Œçš„é“å…·
+	C2S_OPEN_EMAIL,						// æ‰“å¼€é‚®ä»¶
+	C2S_DELETE_EMAIL,					// åˆ é™¤é‚®ä»¶
 };
 
 // guard_beast
 enum
 {
-	C2S_GUARD_BEAST_LV_UP = 104901,		// ÊØ»¤ÊÞÉý¼¶
-	C2S_GUARD_BEAST_CHANGE_STATE,		// ÊØ»¤ÊÞ¸Ä±ä×´Ì¬
+	C2S_GUARD_BEAST_LV_UP = 104901,		// å®ˆæŠ¤å…½å‡çº§
+	C2S_GUARD_BEAST_CHANGE_STATE,		// å®ˆæŠ¤å…½æ”¹å˜çŠ¶æ€
 };
 
 // god weapon
 enum
 {
-	C2S_GOD_WEAPON_LEVEL_UP = 105001,	// Éñ±øÉý¼¶
+	C2S_GOD_WEAPON_LEVEL_UP = 105001,	// ç¥žå…µå‡çº§
 };
 
 // inner server msg
@@ -308,7 +309,7 @@ enum
 #define INNER_AUTH_GE_KEY               200001
 #define INNER_PLAYER_LOGIN              200002
 #define INNER_PLAYER_LOGOUT             200003  // engine notify gate role exit world
-#define GATE_TO_GM_GATEID               200004  // geta serverID(GM·þÎñÆ÷ÓÃÓÚÇø·Ö)
+#define GATE_TO_GM_GATEID               200004  // geta serverID(GMæœåŠ¡å™¨ç”¨äºŽåŒºåˆ†)
 #define PT_PLAYER_LOGOUT                1
 #define PT_PLAYER_CROSS_SVC             2
 #define INNER_KICK_OUT_PLAYER           200004  // gate notify engine to kick out player
@@ -319,12 +320,12 @@ enum
 #define INNER_CHANGE_AC_SETTING         200022
 #define INNER_LOAD_BEAST_INFO           200023
 #define INNER_UPDATE_BEAST_INFO         200024  // add by sheldon 
-#define INNER_PUBLISH_TIPS				200025  // ·¢²¼¹«¸æ
-#define INNER_QUERY_TIPS				200026  // ²éÑ¯¹«¸æ
-#define INNER_CHANGE_TIPS				200027	// ÐÞ¸Ä¹«¸æ
+#define INNER_PUBLISH_TIPS				200025  // å‘å¸ƒå…¬å‘Š
+#define INNER_QUERY_TIPS				200026  // æŸ¥è¯¢å…¬å‘Š
+#define INNER_CHANGE_TIPS				200027	// ä¿®æ”¹å…¬å‘Š
 #define INNER_PLAYER_ENTER_BATTLE       200028
 #define INNER_PLAYER_LEAVE_BATTLE       200029
-#define INNER_REFRESH_DAILY_DATA        200030  // ÁãµãË¢ÐÂ
+#define INNER_REFRESH_DAILY_DATA        200030  // é›¶ç‚¹åˆ·æ–°
 #define INNER_UPDATE_GAME_SERVER_PLAYER_LIST 200031 //when reconnect to gate server send player id list to gate
 #define INNER_PAYMENT_MONEY				200032
 
@@ -628,68 +629,68 @@ enum
 //  chat system
 enum
 {
-	S2C_CHAT_AREA_MSG = 502601,		// ÇøÓòÁÄÌì
-	S2C_CHAT_PRIVATE_MSG,			// Ë½ÁÄ
-	S2C_CHAT_TEAM_MSG,				// ×é¶ÓÁÄÌì
-	S2C_CHAT_FRIEND_MSG,			// ºÃÓÑÁÄÌì
-	S2C_CHAT_FACTION_MSG,			// ¹¤»á£¨°ïÅÉ£©ÁÄÌì
-	S2C_CHAT_WORLD_MSG,				// ÊÀ½çÁÄÌì
+	S2C_CHAT_AREA_MSG = 502601,		// åŒºåŸŸèŠå¤©
+	S2C_CHAT_PRIVATE_MSG,			// ç§èŠ
+	S2C_CHAT_TEAM_MSG,				// ç»„é˜ŸèŠå¤©
+	S2C_CHAT_FRIEND_MSG,			// å¥½å‹èŠå¤©
+	S2C_CHAT_FACTION_MSG,			// å·¥ä¼šï¼ˆå¸®æ´¾ï¼‰èŠå¤©
+	S2C_CHAT_WORLD_MSG,				// ä¸–ç•ŒèŠå¤©
 };
 
 // friend system
 enum
 {
-	S2C_ON_LOAD_FRIEND = 502801,		// »ñµÃºÃÓÑÐÅÏ¢
-	S2C_APPLY_ADD_FRIEND,				// ÉêÇëÌí¼ÓºÃÓÑ
-	S2C_ADD_FRIEND_OK,					// Ìí¼ÓºÃÓÑ³É¹¦
-	S2C_ADD_FRIEND_REFUSE,				// Ìí¼ÓºÃÓÑÊ§°Ü(¾Ü¾ø)
-	S2C_DEL_FRIEND,						// É¾³ýºÃÓÑ
-	S2C_ADD_BLACK_LIST,					// Ìí¼ÓºÚÃûµ¥Êý¾Ý
-	S2C_DEL_BLACK_LIST,					// É¾³ýºÚÃûµ¥Êý¾Ý
+	S2C_ON_LOAD_FRIEND = 502801,		// èŽ·å¾—å¥½å‹ä¿¡æ¯
+	S2C_APPLY_ADD_FRIEND,				// ç”³è¯·æ·»åŠ å¥½å‹
+	S2C_ADD_FRIEND_OK,					// æ·»åŠ å¥½å‹æˆåŠŸ
+	S2C_ADD_FRIEND_REFUSE,				// æ·»åŠ å¥½å‹å¤±è´¥(æ‹’ç»)
+	S2C_DEL_FRIEND,						// åˆ é™¤å¥½å‹
+	S2C_ADD_BLACK_LIST,					// æ·»åŠ é»‘åå•æ•°æ®
+	S2C_DEL_BLACK_LIST,					// åˆ é™¤é»‘åå•æ•°æ®
 };
 
 // faction system
 enum
 {
-	S2C_CREATE_FACTION = 502901,		// ´´½¨¹¤»á
-	S2C_JOIN_FACTION,					// ¼ÓÈë¹¤»á
-	S2C_SET_JOB_FACTION,				// ÉèÖÃ¹¤»áÖ°Î»
-	S2C_SET_NOTICE_FACTION,				// ÉèÖÃ¹¤»á¹«¸æ
-	S2C_SET_JOIN_LINMIT_FACTION,		// ÉèÖÃ¹¤»á¼ÓÈëÌõ¼þ(Õ½¶·Á¦)
-	S2C_SET_TOTEMS_UP_FACTION,			// Éý¼¶¹¤»áÍ¼ÌÚµÈ¼¶
-	S2C_KICK_MEMBER_FACTION,			// ÌßÈË
-	S2C_SET_MSG_BOARD_FACTION,			// ÉèÖÃÁôÑÔ°å
-	S2C_FACTION_DIGGIN,					// ÍÚ¿ó
-	S2C_FACTION_WORSHIP,				// Ä¤°Ý
-	S2C_FACTION_DEKARON_BOSS,			// ÌôÕ½¹¤»áBOSS
-	S2C_FACTION_KILL_BOSS,				// »÷É±¹¤»áBOSS
-	S2C_FACTION_FIND_BY_NAME,			// ²éÕÒ°ïÅÉ
-	S2C_GET_FACTION_DATA,				// »ñµÃ°ïÅÉÊý¾Ý
+	S2C_CREATE_FACTION = 502901,		// åˆ›å»ºå·¥ä¼š
+	S2C_JOIN_FACTION,					// åŠ å…¥å·¥ä¼š
+	S2C_SET_JOB_FACTION,				// è®¾ç½®å·¥ä¼šèŒä½
+	S2C_SET_NOTICE_FACTION,				// è®¾ç½®å·¥ä¼šå…¬å‘Š
+	S2C_SET_JOIN_LINMIT_FACTION,		// è®¾ç½®å·¥ä¼šåŠ å…¥æ¡ä»¶(æˆ˜æ–—åŠ›)
+	S2C_SET_TOTEMS_UP_FACTION,			// å‡çº§å·¥ä¼šå›¾è…¾ç­‰çº§
+	S2C_KICK_MEMBER_FACTION,			// è¸¢äºº
+	S2C_SET_MSG_BOARD_FACTION,			// è®¾ç½®ç•™è¨€æ¿
+	S2C_FACTION_DIGGIN,					// æŒ–çŸ¿
+	S2C_FACTION_WORSHIP,				// è†œæ‹œ
+	S2C_FACTION_DEKARON_BOSS,			// æŒ‘æˆ˜å·¥ä¼šBOSS
+	S2C_FACTION_KILL_BOSS,				// å‡»æ€å·¥ä¼šBOSS
+	S2C_FACTION_FIND_BY_NAME,			// æŸ¥æ‰¾å¸®æ´¾
+	S2C_GET_FACTION_DATA,				// èŽ·å¾—å¸®æ´¾æ•°æ®
 };
 
 // email
 enum
 {
-	S2C_ON_LOAD_EMAIL = 503001,			// »ñµÃµ±Ç°µÄÓÊ¼þÊý¾Ý
-	S2C_SEND_EMAIL_BY_SELF,				// Íæ¼ÒÖ÷¶¯·¢ËÍÓÊ¼þ£¨ÊÇ·ñ³É¹¦£©
-	S2C_SEND_EMAIL_BY_TARGET,			// Íæ¼ÒÊÕµ½ÓÊ¼þ£¨ÊÕ¼þÈË£¬±»¶¯´¥·¢£¬ÓÉ·þÎñÆ÷Ö÷¶¯·¢ËÍ£©
-	S2C_SEND_RECEIVE_EMAIL_ITEM,		// »ñµÃÓÊ¼þÀïµÄµÀ¾ß
-	S2C_SEND_OPEN_EMAIL,				// ´ò¿ªÓÊ¼þ
-	S2C_SEND_DELETE_EMAIL,				// É¾³ýÓÊ¼þ
+	S2C_ON_LOAD_EMAIL = 503001,			// èŽ·å¾—å½“å‰çš„é‚®ä»¶æ•°æ®
+	S2C_SEND_EMAIL_BY_SELF,				// çŽ©å®¶ä¸»åŠ¨å‘é€é‚®ä»¶ï¼ˆæ˜¯å¦æˆåŠŸï¼‰
+	S2C_SEND_EMAIL_BY_TARGET,			// çŽ©å®¶æ”¶åˆ°é‚®ä»¶ï¼ˆæ”¶ä»¶äººï¼Œè¢«åŠ¨è§¦å‘ï¼Œç”±æœåŠ¡å™¨ä¸»åŠ¨å‘é€ï¼‰
+	S2C_SEND_RECEIVE_EMAIL_ITEM,		// èŽ·å¾—é‚®ä»¶é‡Œçš„é“å…·
+	S2C_SEND_OPEN_EMAIL,				// æ‰“å¼€é‚®ä»¶
+	S2C_SEND_DELETE_EMAIL,				// åˆ é™¤é‚®ä»¶
 };
 
 // guard_beast
 enum
 {
-	S2C_ADD_GUARD_BEAST = 504001,		// Ìí¼ÓÐÂµÄÊØ»¤ÊÞ
-	S2C_GUARD_BEAST_LV_UP,				// ÊØ»¤ÊÞÉý¼¶
-	S2C_GUARD_BEAST_STATE_CHANGE,				// ÊØ»¤ÊÞ×´Ì¬¸Ä±ä
+	S2C_ADD_GUARD_BEAST = 504001,		// æ·»åŠ æ–°çš„å®ˆæŠ¤å…½
+	S2C_GUARD_BEAST_LV_UP,				// å®ˆæŠ¤å…½å‡çº§
+	S2C_GUARD_BEAST_STATE_CHANGE,				// å®ˆæŠ¤å…½çŠ¶æ€æ”¹å˜
 };
 
 // god weapon
 enum
 {
-	S2C_ADD_GOD_WEAPON = 504101,		// Ìí¼ÓÉñ±ø
+	S2C_ADD_GOD_WEAPON = 504101,		// æ·»åŠ ç¥žå…µ
 	S2C_GOD_WEAPON_LEVEL_UP,
 };
 

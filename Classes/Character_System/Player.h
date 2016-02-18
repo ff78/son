@@ -323,19 +323,19 @@ namespace Game_Data
         int                                 m_buy_offline_fight_count;
         int                                 m_offline_fight_rank_reward_count;
 
-		int									m_banks_exchange_count;			// Ôª±¦¶Ò»»ÒøÁ½ ¼ÆÊı
+		int									m_banks_exchange_count;			// å…ƒå®å…‘æ¢é“¶ä¸¤ è®¡æ•°
 
         int                                 m_sex;
-        int                                 m_present_token;                // ÓÎÏ·ÄÚÔùËÍµÄÔª±¦
-		int                                 m_recharge_token;				// ³äÖµÔª±¦
+        int                                 m_present_token;                // æ¸¸æˆå†…èµ é€çš„å…ƒå®
+		int                                 m_recharge_token;				// å……å€¼å…ƒå®
         int                                 m_gold;
         int                                 m_exp;
 		char								m_name[MAX_NAME_LEN+1];
 
-        Item_Container_Map                  m_map_bag_item;                 // ±³°ü
-        Item_Container_Map                  m_map_store_item;               // ²Ö¿â
-        Item*                               m_array_equipment_bar[EP_MAX];  // Ö÷½Ç×°±¸À¸
-        Item*                               m_array_book_bar[BP_MAX];       // Ö÷½ÇĞÄ·¨Êé¼®À¸
+        Item_Container_Map                  m_map_bag_item;                 // èƒŒåŒ…
+        Item_Container_Map                  m_map_store_item;               // ä»“åº“
+        Item*                               m_array_equipment_bar[EP_MAX];  // ä¸»è§’è£…å¤‡æ 
+        Item*                               m_array_book_bar[BP_MAX];       // ä¸»è§’å¿ƒæ³•ä¹¦ç±æ 
 
         Item_Map                            m_map_item;
         Item_Map                            m_map_material_fragment;
@@ -347,7 +347,7 @@ namespace Game_Data
 //		Deputy_General_Map                  m_map_deputy_general;
        // Offline_Fight_Record_List           m_list_offline_fight_record;
 
-		int								    m_fight_general_id;    // ³öÕ½µÄ¸±½«Id
+		int								    m_fight_general_id;    // å‡ºæˆ˜çš„å‰¯å°†Id
         int                                 m_guide_id;
         int                                 m_function_open_id;
         int                                 m_last_tidy_item_time;
@@ -356,8 +356,8 @@ namespace Game_Data
         int                                 m_last_role_fighting_capacity;
         int                                 m_last_role_have_gold;
 
-		int									m_main_city_scene_id;		// Ö÷³Ç³¡¾°ID
-		int									m_camp_tag;					// ÕóÓª±ê¼Ç
+		int									m_main_city_scene_id;		// ä¸»åŸåœºæ™¯ID
+		int									m_camp_tag;					// é˜µè¥æ ‡è®°
 
 	};
 

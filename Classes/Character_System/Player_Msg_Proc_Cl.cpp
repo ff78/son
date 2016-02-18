@@ -58,6 +58,11 @@
 #include "../Player_Account/Account_Logic.h"
 #include "God_System/God_Client.h"
 #include "Pet_System/Pet_Client.h"
+#include "ClientLogic/Utils/BaseUtils.h"
+
+#include "TouchSkill/SkillMsgProc.h"
+
+#include "God_System/God_Weapon_Config_Mgr.h"
 
 
 Player_Msg_Proc* Player_Msg_Proc::instance_ = 0;
@@ -257,39 +262,59 @@ bool Player_Msg_Proc::send_player_quality_up(Game_Logic::Game_Interface& gm_inte
 
 bool Player_Msg_Proc::send_get_main_city_player(Game_Logic::Game_Interface& gm_interface)
 {
-	char body[256] = { 0 };
-	message_stream body_ms(body, sizeof(body));
-	body_ms << C2S_GET_MAIN_CITY_PLAYER;
-
-	CNetManager::GetMe()->send_msg(body_ms);
+//	char body[256] = { 0 };
+//	message_stream body_ms(body, sizeof(body));
+//	body_ms << C2S_GET_MAIN_CITY_PLAYER;
+//
+//	CNetManager::GetMe()->send_msg(body_ms);
+    
+    Game_Logic::Game_Interface temp;
+    on_get_main_city_player(temp);
 	return true;
 }
 
 bool Player_Msg_Proc::on_get_main_city_player(Game_Logic::Game_Interface& gm_interface)
 {
-	int count;
+	int count = random()%10;
+    if (count >6 || count < 0) {
+        count = 0;
+    }
 	auto players = CHARACTER_MGR::instance()->_other_player_map;
 	players->clear();
 
-    message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-    body_ms.set_rd_ptr(sizeof(int));
-	body_ms >> count;
+//    message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//    body_ms.set_rd_ptr(sizeof(int));
+//	body_ms >> count;
 
 	for (int i = 0; i < count; i++)
 	{
 		int id, x, y, sex, job, cur_pet_id, cur_god_id;
 		std::string name;
 		std::string title;
-		body_ms >> id;
-		body_ms >> x;
-		body_ms >> y;
-		body_ms >> sex;
-		body_ms >> name;
-		body_ms >> title;
-		body_ms >> job;
-		body_ms >> cur_pet_id;
-		body_ms >> cur_god_id;
-
+//		body_ms >> id;
+//		body_ms >> x;
+//		body_ms >> y;
+//		body_ms >> sex;
+//		body_ms >> name;
+//		body_ms >> title;
+//		body_ms >> job;
+//		body_ms >> cur_pet_id;
+//		body_ms >> cur_god_id;
+        id = 1001+ i + 1;
+        x = 0;
+        y = 0;
+        sex = 0;
+        job = (abs(rand())+i)%2+2;
+        name = YNBaseUtil::randomNameBySexId(job%2);
+        cur_pet_id = 10000+abs(rand())%10+1;
+        if (cur_pet_id > 10003 || cur_pet_id < 10001) {
+            cur_pet_id = 0;
+        }
+        cur_god_id = 1001+abs(rand())%10;
+        if (cur_god_id > 1003 || cur_god_id < 1001) {
+            cur_god_id = 0;
+        }
+        
 		Game_Data::Player* bot = new Game_Data::Player;
 		bot->set_database_character_id(id);
 		bot->set_x(x);
@@ -307,13 +332,15 @@ bool Player_Msg_Proc::on_get_main_city_player(Game_Logic::Game_Interface& gm_int
 	Game_Data::Player* player = (Game_Data::Player*)CHARACTER_MGR::instance()->get_character(player_id_1);
 	vector<uint64> para;
 	para.clear();
-	para.push_back(1);
+	para.push_back(1001);
 
 	auto black = new BlackCity();
 	black->readFile(player->get_main_city_scene_id(), CITY_FILE);
 	bool bEnter = black->canEnter(player->get_character_level(), player->get_camp_tag());
 	if (bEnter)
 	{
+        Game_Logic::Game_Interface temp;
+        SkillMsgProc::on_load_skill(temp);
 		Game_Logic::Game_Content_Interface::instance()->exec_interface("enterscene", para);
 	}
 	else
@@ -491,67 +518,153 @@ bool Player_Msg_Proc::on_gm_command(Game_Logic::Game_Interface& gm_interface)
 
 bool Player_Msg_Proc::on_player_into_main_city(Game_Logic::Game_Interface& gm_interface)
 {
-	auto players = CHARACTER_MGR::instance()->_other_player_map;
-	players->clear();
-
-	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
-	body_ms.set_rd_ptr(sizeof(int));
-
-	int count;
-	body_ms >> count;
-	for (int i = 0; i < count;i++)
-	{
-		int id, x, y, sex, job, cur_pet_id, cur_god_id;
-		std::string name, title;
-		body_ms >> id;
-		body_ms >> x;
-		body_ms >> y;
-		body_ms >> sex;
-		body_ms >> name;
-		body_ms >> title;
-		body_ms >> job;
-		body_ms >> cur_pet_id;
-		body_ms >> cur_god_id;
-
-		Game_Data::Player* bot = new Game_Data::Player;
-		bot->set_database_character_id(id);
-		bot->set_x(x);
-		bot->set_y(y);
-		bot->set_character_name(name.c_str());
-		bot->set_title_name(title);
-		bot->set_job(job);
-		bot->set_cur_pet_id(cur_pet_id);
-		bot->set_cur_god_id(cur_god_id);
-		players->insert(make_pair(id, bot));
-	}
+//	auto players = CHARACTER_MGR::instance()->_other_player_map;
+//	players->clear();
+//
+//	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
+//	body_ms.set_rd_ptr(sizeof(int));
+//
+//	int count;
+//	body_ms >> count;
+//	for (int i = 0; i < count;i++)
+//	{
+//		int id, x, y, sex, job, cur_pet_id, cur_god_id;
+//		std::string name, title;
+//		body_ms >> id;
+//		body_ms >> x;
+//		body_ms >> y;
+//		body_ms >> sex;
+//		body_ms >> name;
+//		body_ms >> title;
+//		body_ms >> job;
+//		body_ms >> cur_pet_id;
+//		body_ms >> cur_god_id;
+//
+//		Game_Data::Player* bot = new Game_Data::Player;
+//		bot->set_database_character_id(id);
+//		bot->set_x(x);
+//		bot->set_y(y);
+//		bot->set_character_name(name.c_str());
+//		bot->set_title_name(title);
+//		bot->set_job(job);
+//		bot->set_cur_pet_id(cur_pet_id);
+//		bot->set_cur_god_id(cur_god_id);
+//		players->insert(make_pair(id, bot));
+//	}
+    int count = random()%10;
+    if (count >6 || count < 0) {
+        count = 0;
+    }
+    auto players = CHARACTER_MGR::instance()->_other_player_map;
+    players->clear();
+    
+    for (int i = 0; i < count; i++)
+    {
+        int id, x, y, sex, job, cur_pet_id, cur_god_id;
+        std::string name;
+        std::string title;
+        //		body_ms >> id;
+        //		body_ms >> x;
+        //		body_ms >> y;
+        //		body_ms >> sex;
+        //		body_ms >> name;
+        //		body_ms >> title;
+        //		body_ms >> job;
+        //		body_ms >> cur_pet_id;
+        //		body_ms >> cur_god_id;
+        id = 1001+ i + 1;
+        x = 0;
+        y = 0;
+        sex = 0;
+        job = (abs(rand())+i)%2+2;
+        name = YNBaseUtil::randomNameBySexId(job%2);
+        cur_pet_id = 10000+abs(rand())%10+1;
+        if (cur_pet_id > 10003 || cur_pet_id < 10001) {
+            cur_pet_id = 0;
+        }
+        cur_god_id = 1001+abs(rand())%10;
+        if (cur_god_id > 1003 || cur_god_id < 1001) {
+            cur_god_id = 0;
+        }
+        
+        Game_Data::Player* bot = new Game_Data::Player;
+        bot->set_database_character_id(id);
+        bot->set_x(x);
+        bot->set_y(y);
+        bot->set_character_name(name.c_str());
+        bot->set_title_name(title);
+        bot->set_job(job);
+        bot->set_cur_pet_id(cur_pet_id);
+        bot->set_cur_god_id(cur_god_id);
+        players->insert( make_pair(id, bot) );
+    }
 
 	int level, exp, gold, energy, pet_id, god_id;
-	body_ms >> level;
-	body_ms >> exp;
-	body_ms >> gold;
-	body_ms >> energy;
-	body_ms >> pet_id;
-	body_ms >> god_id;
+//	body_ms >> level;
+//	body_ms >> exp;
+//	body_ms >> gold;
+//	body_ms >> energy;
+//	body_ms >> pet_id;
+//	body_ms >> god_id;
+    vector<uint64> param = gm_interface.get_para();
+    exp = (int)param[0];
+    gold = (int)param[1];
 
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 	if (!player)return false;
-	player->set_character_level(level);
-	player->set_exp(exp);
-	player->set_gold(gold);
-	player->set_energy(energy);
-	player->set_cur_pet_id(pet_id);
-	player->set_cur_god_id(god_id);
+//	player->set_character_level(level);
+//	player->set_exp(exp);
+//	player->set_gold(gold);
+//	player->set_energy(energy);
+//	player->set_cur_pet_id(pet_id);
+//	player->set_cur_god_id(god_id);
     
-    GOD_MODEL::getInstance()->setCurrentGodId(god_id);
-    GOD_MODEL::getInstance()->load();
+//    GOD_MODEL::getInstance()->setCurrentGodId(god_id);
+//    GOD_MODEL::getInstance()->load();
     //GOD_MODEL::getInstance()->setCurrentGodId(1003);
     
-    PET_MODEL::getInstance()->setCurrentPetId(pet_id);
+//    PET_MODEL::getInstance()->setCurrentPetId(pet_id);
+    int originLevel = player->get_character_level();
+    player->change_exp(exp);
+    int currLevel = player->get_character_level();
+    player->change_gold(gold);
+    if (player->get_cur_god_id() == 0) {
+        god_id = GOD_WEAPON_CONFIG_MGR::instance()->get_create_god_weapon_id(player->get_character_level(), player->get_job());
+        if (god_id != 0)
+        {
+            player->set_cur_god_id(god_id);
+            GOD_MODEL::getInstance()->setCurrentGodId(god_id);
+            GOD_MODEL::getInstance()->load();             
+        }
+    }
+    
+    int cur_pet_id = 0;
+    bool empty = player->get_pets().empty();
+    for (int i = originLevel+1; i<=currLevel; i++) {
+        int getPetId = PET_MODEL::getInstance()->get_create_pet_id(i);
+        Game_Logic::Game_Interface temp;
+        vector<uint64> params;
+        params.push_back(getPetId);
+        temp.set_para(params);
+        PET_NET::on_load(temp);
+        if (cur_pet_id == 0) {
+            cur_pet_id = getPetId;
+        }
+    }
+    if (cur_pet_id != 0 && empty) {
+        player->set_cur_pet_id(cur_pet_id);
+        PET_MODEL::getInstance()->setCurrentPetId(cur_pet_id);
+    }
+//    player->get_cur_pet_id();
+
+    vector<uint64> params;
+    Game_Logic::Game_Content_Interface::instance()->exec_interface("save_player", params);
+    
     
 	vector<uint64> para;
 	para.clear();
-	para.push_back(1);
+	para.push_back(1001);
 	Game_Logic::Game_Content_Interface::instance()->exec_interface("enterscene", para);
 
     current_instance_data cid_new;
@@ -892,7 +1005,7 @@ void Player_Msg_Proc::operate_gm_command_reasult(int cmd_type,GMCResult& result,
 
 /**************************************** dely *************************************/
 /*------------------- send -------------------*/
-bool Player_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, const char* chat)//ÇøÓò
+bool Player_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, const char* chat)//Â«Â¯â€Ãš
 {
 	//int character_id = (int)para[0];
 	//Game_Data::Character* character = CHARACTER_MGR::instance()->get_character(character_id);
@@ -922,7 +1035,7 @@ bool Player_Msg_Proc::send_chat_all_msg(int channel, const char* receiver_name, 
 	return true;
 }
 
-bool Player_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_name, const char* chat)//Ë½ÃÜ
+bool Player_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_name, const char* chat)//Ã€Î©âˆšâ€¹
 {
 	//vector<uint64> para;
 	//gm_interface.get_para(para);
@@ -950,18 +1063,18 @@ bool Player_Msg_Proc::send_chat_private_msg(int channel, const char* receiver_na
 	return true;
 }
 
-bool Player_Msg_Proc::send_chat_team_msg(int channel, const char* receiver_name, const char* chat)//×é¶Ó
+bool Player_Msg_Proc::send_chat_team_msg(int channel, const char* receiver_name, const char* chat)//â—ŠÃˆâˆ‚â€
 {
 	return false;
 
 }
 
-bool Player_Msg_Proc::send_chat_friend_msg(int channel, const char* receiver_name, const char* chat)//ºÃÓÑ
+bool Player_Msg_Proc::send_chat_friend_msg(int channel, const char* receiver_name, const char* chat)//âˆ«âˆšâ€â€”
 {
 	return false;
 }
 
-bool Player_Msg_Proc::send_chat_faction_msg(int channel, const char* receiver_name, const char* chat)//¹¤»á
+bool Player_Msg_Proc::send_chat_faction_msg(int channel, const char* receiver_name, const char* chat)//Ï€Â§ÂªÂ·
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	if (!player_id)
@@ -984,7 +1097,7 @@ bool Player_Msg_Proc::send_chat_faction_msg(int channel, const char* receiver_na
 	return true;
 }
 
-bool Player_Msg_Proc::send_chat_world_msg(int channel, const char* receiver_name, const char* chat)//ÊÀ½ç
+bool Player_Msg_Proc::send_chat_world_msg(int channel, const char* receiver_name, const char* chat)//Â Â¿Î©Ã
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	if (!player_id)
@@ -1005,7 +1118,7 @@ bool Player_Msg_Proc::send_chat_world_msg(int channel, const char* receiver_name
 }
 
 /*------------------- receive -------------------*/
-bool Player_Msg_Proc::receive_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//ÇøÓò
+bool Player_Msg_Proc::receive_chat_all_msg(Game_Logic::Game_Interface& gm_interface)//Â«Â¯â€Ãš
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -1032,7 +1145,7 @@ bool Player_Msg_Proc::receive_chat_all_msg(Game_Logic::Game_Interface& gm_interf
 
 }
 
-bool Player_Msg_Proc::receive_chat_private_msg(Game_Logic::Game_Interface& gm_interface)//Ë½ÃÜ
+bool Player_Msg_Proc::receive_chat_private_msg(Game_Logic::Game_Interface& gm_interface)//Ã€Î©âˆšâ€¹
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -1055,7 +1168,7 @@ bool Player_Msg_Proc::receive_chat_private_msg(Game_Logic::Game_Interface& gm_in
 	return true;
 }
 
-bool Player_Msg_Proc::receive_chat_team_msg(Game_Logic::Game_Interface& gm_interface)//×é¶Ó
+bool Player_Msg_Proc::receive_chat_team_msg(Game_Logic::Game_Interface& gm_interface)//â—ŠÃˆâˆ‚â€
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -1075,7 +1188,7 @@ bool Player_Msg_Proc::receive_chat_team_msg(Game_Logic::Game_Interface& gm_inter
 	return true;
 }
 
-bool Player_Msg_Proc::receive_chat_friend_msg(Game_Logic::Game_Interface& gm_interface)//ºÃÓÑ
+bool Player_Msg_Proc::receive_chat_friend_msg(Game_Logic::Game_Interface& gm_interface)//âˆ«âˆšâ€â€”
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -1095,7 +1208,7 @@ bool Player_Msg_Proc::receive_chat_friend_msg(Game_Logic::Game_Interface& gm_int
 	return true;
 }
 
-bool Player_Msg_Proc::receive_chat_faction_msg(Game_Logic::Game_Interface& gm_interface)//¹¤»á
+bool Player_Msg_Proc::receive_chat_faction_msg(Game_Logic::Game_Interface& gm_interface)//Ï€Â§ÂªÂ·
 {
 	message_stream body_ms((char*)gm_interface.get_buff(), gm_interface.get_buff_size());
 	body_ms.set_rd_ptr(sizeof(int));
@@ -1115,7 +1228,7 @@ bool Player_Msg_Proc::receive_chat_faction_msg(Game_Logic::Game_Interface& gm_in
 	return true;
 }
 
-bool Player_Msg_Proc::receive_chat_world_msg(Game_Logic::Game_Interface& gm_interface)//ÊÀ½ç
+bool Player_Msg_Proc::receive_chat_world_msg(Game_Logic::Game_Interface& gm_interface)//Â Â¿Î©Ã
 {
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));

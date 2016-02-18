@@ -343,7 +343,7 @@ int Instance_Data_Mgr::add_player_instance( int player_id,current_instance_data&
 int Instance_Data_Mgr::add_player_instance( int player_id, int instance_id, int scene_id, int monster_wave)
 {
 	/************************************************************************/
-	// Ìí¼ÓÍæ¼Ò¸±±¾µÄÊı¾İ
+	// æ·»åŠ ç©å®¶å‰¯æœ¬çš„æ•°æ®
 #ifdef YN_LINUX		
         Game_Logic::map_mutex m(&instance_mutex_);
 #endif
@@ -395,7 +395,7 @@ int Instance_Data_Mgr::get_player_instance( int player_id, current_instance_data
 int Instance_Data_Mgr::remove_player_instance_data( int player_id )
 {
 	/************************************************************************/
-	// Çå³ıÍæ¼Ò¸±±¾Êı¾İ
+	// æ¸…é™¤ç©å®¶å‰¯æœ¬æ•°æ®
 #ifdef YN_LINUX		
         Game_Logic::map_mutex m(&instance_mutex_);
 #endif
@@ -665,18 +665,18 @@ int Instance_Data_Mgr::is_current_dialog_empty( void )
 bool Instance_Data_Mgr::RequestChallengeNextInstance()
 {
 	/************************************************************************/
-	// ÇëÇóÌôÕ½ÏÂÒ»¸ö¹Ø¿¨
+	// è¯·æ±‚æŒ‘æˆ˜ä¸‹ä¸€ä¸ªå…³å¡
 	
-	// 1. ÅĞ¶ÏÌõ¼şÊÇ·ñÂú×ãÌôÕ½ÏÂÒ»¹Ø£¨ÌåÁ¦ÊÇ·ñ×ã¹»µÈÏà¹ØÌõ¼ş£©
-	// ÅË½Ü£¨12.05£©
+	// 1. åˆ¤æ–­æ¡ä»¶æ˜¯å¦æ»¡è¶³æŒ‘æˆ˜ä¸‹ä¸€å…³ï¼ˆä½“åŠ›æ˜¯å¦è¶³å¤Ÿç­‰ç›¸å…³æ¡ä»¶ï¼‰
+	// æ½˜æ°ï¼ˆ12.05ï¼‰
 	// ...
 
 
-	// 2. ÅĞ¶Ïµ±Ç°¹Ø¿¨ÊÇ·ñÊôÓÚµ±Ç°ÕÂ½Ú
+	// 2. åˆ¤æ–­å½“å‰å…³å¡æ˜¯å¦å±äºå½“å‰ç« èŠ‚
 	if (!JudgeInstanceBelongTargetState(current_instance_id_, current_insance_stage_id_))
 		return false;
 	
-	// 3. ¸ù¾İÏÂÒ»¹ØID,ÅĞ¶ÏÏÂÒ»²½²Ù×÷
+	// 3. æ ¹æ®ä¸‹ä¸€å…³ID,åˆ¤æ–­ä¸‹ä¸€æ­¥æ“ä½œ
 	vector<uint> param;
 	Formula_Function_Instance::instance()->get_para_list_from_instance_data(current_instance_id_, "instance_attribute", "result_content", "next_instance", param);
 	if (param.size() <= 0)
@@ -684,22 +684,22 @@ bool Instance_Data_Mgr::RequestChallengeNextInstance()
 
 	int nNextInstanceID = -9999;
 	nNextInstanceID		= param[0];
-	// 3_1. Èç¹ûÏÂÒ»¹ØµÄInstanceIDÊÇ0£¨ÆÕÍ¨¹Ø¿¨£©
+	// 3_1. å¦‚æœä¸‹ä¸€å…³çš„InstanceIDæ˜¯0ï¼ˆæ™®é€šå…³å¡ï¼‰
 	bool bValue = false;
 	if (nNextInstanceID == 0)
 	{
-		// ÆÕÍ¨¹Ø¿¨µÄÏÂÒ»¹ØÔİÊ±²»×öÈÎºÎ´¦Àí
+		// æ™®é€šå…³å¡çš„ä¸‹ä¸€å…³æš‚æ—¶ä¸åšä»»ä½•å¤„ç†
 		// ...
 		return false;
 	}
-	// 3_2. Èç¹ûÏÂÒ»¹ØµÄInstanceIDÊÇ-1£¨µ±Ç°¹Ø¿¨ÊÇÎŞ¾¡ËşµÄ×îºóÒ»²ã£©
+	// 3_2. å¦‚æœä¸‹ä¸€å…³çš„InstanceIDæ˜¯-1ï¼ˆå½“å‰å…³å¡æ˜¯æ— å°½å¡”çš„æœ€åä¸€å±‚ï¼‰
 	else if (nNextInstanceID == -1)
 	{
-		// ¸ù¾İĞèÇó,¿´ÒÔºóÊÇ·ñĞèÒªÌáÊ¾Íæ¼ÒÊÇ²»ÊÇ×îºóÒ»²ã
+		// æ ¹æ®éœ€æ±‚,çœ‹ä»¥åæ˜¯å¦éœ€è¦æç¤ºç©å®¶æ˜¯ä¸æ˜¯æœ€åä¸€å±‚
 		// ...
 		return false;
 	}
-	// 3_3. Èç¹ûÏÂÒ»¹ØµÄInstanceID´óÓÚ0£¨ÎŞ¾¡ËşµÄ·Ç×îºóÒ»²ã£©
+	// 3_3. å¦‚æœä¸‹ä¸€å…³çš„InstanceIDå¤§äº0ï¼ˆæ— å°½å¡”çš„éæœ€åä¸€å±‚ï¼‰
 	else if (nNextInstanceID > 0)
 	{
 
@@ -710,7 +710,7 @@ bool Instance_Data_Mgr::RequestChallengeNextInstance()
 	}
 
 	/************************************************************************/
-	// Ìõ¼şÂú×ã,¸ø·şÎñÆ÷·¢ËÍÏûÏ¢ÌôÕ½ÏÂÒ»¹Ø
+	// æ¡ä»¶æ»¡è¶³,ç»™æœåŠ¡å™¨å‘é€æ¶ˆæ¯æŒ‘æˆ˜ä¸‹ä¸€å…³
 	SendMsgRequestInstanceNext(current_instance_id_);
 	return true;
 }
@@ -718,14 +718,14 @@ bool Instance_Data_Mgr::RequestChallengeNextInstance()
 bool Instance_Data_Mgr::JudgeInstanceBelongTargetState(const int nInstanceID, const int nStateID)
 {
 	/************************************************************************/
-	// ÅĞ¶Ïµ±Ç°¹Ø¿¨ÊÇ·ñÊôÓÚÄ¿±êÕÂ½Ú	
-	// 1. ¸ù¾İStateID»ñÈ¡²»Í¬µÄÅäÖÃÎÄ¼ş
+	// åˆ¤æ–­å½“å‰å…³å¡æ˜¯å¦å±äºç›®æ ‡ç« èŠ‚	
+	// 1. æ ¹æ®StateIDè·å–ä¸åŒçš„é…ç½®æ–‡ä»¶
 	Area_UI_Config* pTargetStateConfig = NULL;
 	pTargetStateConfig = INSTANCE_DATA_MGR::instance()->get_area_ui_config(nStateID);
 	if (pTargetStateConfig == NULL)
 		return false;
 
-	// 2. ÅĞ¶Ïµ±Ç°¹Ø¿¨ÊÇ·ñÊôÓÚÄ¿±êÕÂ½Ú	
+	// 2. åˆ¤æ–­å½“å‰å…³å¡æ˜¯å¦å±äºç›®æ ‡ç« èŠ‚	
 	list<int>::iterator iter = pTargetStateConfig->list_instance_id.begin();
 	for (; iter != pTargetStateConfig->list_instance_id.end(); ++iter)
 	{
@@ -741,7 +741,7 @@ bool Instance_Data_Mgr::JudgeInstanceBelongTargetState(const int nInstanceID, co
 void Instance_Data_Mgr::SendMsgRequestInstanceNext(const int nCurrentInstanceID)
 {
 	/************************************************************************/
-	// ÅĞ¶Ïµ±Ç°¹Ø¿¨ÊÇ·ñÊôÓÚÄ¿±êÕÂ½Ú	
+	// åˆ¤æ–­å½“å‰å…³å¡æ˜¯å¦å±äºç›®æ ‡ç« èŠ‚	
 	vector<uint64> para;
 	int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 	para.push_back(player_id);

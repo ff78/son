@@ -119,7 +119,7 @@ bool Formula_Function_Instance_Client::reg_monster_die_envent(Game_Logic::Game_I
 bool Formula_Function_Instance_Client::proc_enter_instance(Game_Logic::Game_Interface& gm_interface)
 {
 	/************************************************************************/
-	// ½ÓÊÕ´ÓClient_Instance_Msg_Proc´¦ÀíµÄ¸±±¾ĞÅÏ¢µÄÏûÏ¢
+	// æ¥æ”¶ä»Client_Instance_Msg_Procå¤„ç†çš„å‰¯æœ¬ä¿¡æ¯çš„æ¶ˆæ¯
     vector<uint64> para;
     gm_interface.get_para(para);
     if( para.size() < 6 )
@@ -142,19 +142,19 @@ bool Formula_Function_Instance_Client::proc_enter_instance(Game_Logic::Game_Inte
     }
 
 	/************************************************************************/
-	// ¶Ô½ÓÊÕµÄÊı¾İ½øĞĞ´æ´¢²¢´¦Àí
-	// 1. Çå³ıÍæ¼Ò¸±±¾Êı¾İ
+	// å¯¹æ¥æ”¶çš„æ•°æ®è¿›è¡Œå­˜å‚¨å¹¶å¤„ç†
+	// 1. æ¸…é™¤ç©å®¶å‰¯æœ¬æ•°æ®
     INSTANCE_DATA_MGR::instance()->remove_player_instance_data( player_id );
 
-	// 2. ÉèÖÃµ±Ç°¸±±¾ID
+	// 2. è®¾ç½®å½“å‰å‰¯æœ¬ID
     INSTANCE_DATA_MGR::instance()->set_current_instance_id(instance_id);
 
-	// 3. Ìí¼ÓÍæ¼Ò¸±±¾µÄ²¿·ÖÊı¾İ£¨¸±±¾ID£¬³¡¾°ID£¬¹ÖÎï²¨Êı£©
+	// 3. æ·»åŠ ç©å®¶å‰¯æœ¬çš„éƒ¨åˆ†æ•°æ®ï¼ˆå‰¯æœ¬IDï¼Œåœºæ™¯IDï¼Œæ€ªç‰©æ³¢æ•°ï¼‰
     INSTANCE_DATA_MGR::instance()->add_player_instance( player_id, instance_id, scene_id, monster_wave);
 
-	// 4. Íæ¼ÒµÚ´Î½øÈë¸±±¾ÖØĞÂ×¢²á¸±±¾ÊÂ¼ş
-	// ÕâÒ»²½²»Ì«¶®
-	// ÅË½Ü£¨12.05£©
+	// 4. ç©å®¶ç¬¬æ¬¡è¿›å…¥å‰¯æœ¬é‡æ–°æ³¨å†Œå‰¯æœ¬äº‹ä»¶
+	// è¿™ä¸€æ­¥ä¸å¤ªæ‡‚
+	// æ½˜æ°ï¼ˆ12.05ï¼‰
 	// ...
 	instance()->reg_instance_event_when_first_enter(player_id, instance_id, scene_id, para);
 
@@ -165,7 +165,7 @@ bool Formula_Function_Instance_Client::proc_enter_instance(Game_Logic::Game_Inte
     }
 
    
-	// 5. ´¦Àí¸±±¾ÆäÓàÊı¾İ
+	// 5. å¤„ç†å‰¯æœ¬å…¶ä½™æ•°æ®
     vector<int>::iterator iti;
     for( iti = monster_wave_list.begin(); iti != monster_wave_list.end(); ++ iti)
     {
@@ -177,7 +177,7 @@ bool Formula_Function_Instance_Client::proc_enter_instance(Game_Logic::Game_Inte
 
     INSTANCE_DATA_MGR::instance()->modi_player_instance(player_id, cid);
 
-	// 6. »ñÈ¡µĞÈËÏà¹ØĞÅÏ¢²¢´æ´¢
+	// 6. è·å–æ•Œäººç›¸å…³ä¿¡æ¯å¹¶å­˜å‚¨
     instance()->proc_monster_wave_when_load_scene( player_id, instance_id, scene_id );
 
     //Runtime::instance()->enter_game_scene(scene_id);
@@ -319,7 +319,7 @@ bool Formula_Function_Instance_Client::proc_instance_fail(Game_Logic::Game_Inter
         Game_Logic::Game_Content_Interface::instance()->exec_interface("oninstancefinish", para);
 
         para.clear();
-        para.push_back(1);
+        para.push_back(1001);
 
         Game_Logic::Game_Content_Interface::instance()->exec_interface("enterscene", para);
 
@@ -677,7 +677,7 @@ void Formula_Function_Instance_Client::get_instance_dialog_data( Game_Data::Play
 int Formula_Function_Instance_Client::proc_monster_wave_when_load_scene( int player_id, int instance_id, int scene_id )
 {
 	/************************************************************************/
-	// »ñÈ¡µĞÈËÏà¹ØĞÅÏ¢²¢´æ´¢
+	// è·å–æ•Œäººç›¸å…³ä¿¡æ¯å¹¶å­˜å‚¨
     current_instance_data cid;
     if( -1 == INSTANCE_DATA_MGR::instance()->get_player_instance( player_id, cid))
     {
@@ -780,6 +780,8 @@ void Formula_Function_Instance_Client::notifyServerLose()
 {
     int player_id = Account_Data_Mgr::instance()->get_current_role_id();
     int instance_id = INSTANCE_DATA_MGR::instance()->get_current_instance_id();
+    //ff
+    int stage_id = INSTANCE_DATA_MGR::instance()->get_current_instance_stage_id();
     current_instance_data cid;
     //if (-1 == INSTANCE_DATA_MGR::instance()->get_player_instance(player_id, cid))
     //{
@@ -793,6 +795,8 @@ void Formula_Function_Instance_Client::notifyServerLose()
     para.clear();
     para.push_back(player_id);//old
     para.push_back(instance_id);//new
+    //ff
+    para.push_back(stage_id);
     
 	para.push_back(current_instance_data::INSTANCE_STATE_FAILE);
     
@@ -803,6 +807,8 @@ void Formula_Function_Instance_Client::notifyServerWin()
 {
     int player_id = Account_Data_Mgr::instance()->get_current_role_id();
     int instance_id = INSTANCE_DATA_MGR::instance()->get_current_instance_id();
+    //ff
+    int stage_id = INSTANCE_DATA_MGR::instance()->get_current_instance_stage_id();
     current_instance_data cid;
     //if (-1 == INSTANCE_DATA_MGR::instance()->get_player_instance(player_id, cid))
     //{
@@ -816,6 +822,8 @@ void Formula_Function_Instance_Client::notifyServerWin()
     para.clear();
     para.push_back(player_id);//old
     para.push_back(instance_id);//new
+    //ff
+    para.push_back(stage_id);
     
     para.push_back(current_instance_data::INSTANCE_STATE_SUC);
     

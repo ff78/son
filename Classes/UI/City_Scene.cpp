@@ -22,6 +22,8 @@
 #include "../Character_System/Character_Mgr.h"
 #include "../Character_System/Player.h"
 
+#include "TouchSkill/SkillMsgProc.h"
+
 using namespace ui;
 
 namespace UI
@@ -84,7 +86,7 @@ namespace UI
 	{
         log("finish load");
 		Loading_Scene::onLoadFinish();
-		//³õÊ¼»¯ÊÂ¼şÏµÍ³
+		//åˆå§‹åŒ–äº‹ä»¶ç³»ç»Ÿ
 		vector<uint64> para;
 		para.clear();
 		Game_Logic::Game_Content_Interface::instance()->exec_interface("loadeventsystemdata", para);
@@ -94,7 +96,7 @@ namespace UI
 
         std::string musicFile("music/city.mp3");
         CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(musicFile.c_str(), true);
-		//ÇëÇó¹«¸æ£º
+		//è¯·æ±‚å…¬å‘Šï¼š
 		if (!Account_Data_Mgr::instance()->get_is_first_login())
 		{
 			vector<uint64> para2;
@@ -135,7 +137,6 @@ namespace UI
 
 	void City_Scene::loadData()
 	{
-
 		int player_id = Account_Data_Mgr::instance()->get_current_role_id();
 		Game_Data::Player* player = dynamic_cast<Game_Data::Player*>(CHARACTER_MGR::instance()->get_character(player_id));
 		if (player)
@@ -201,7 +202,7 @@ namespace UI
 //			return;
 //		}
 
-		// Á¬»÷ÇåÁã
+		// è¿å‡»æ¸…é›¶
 		//player->set_character_combo(0);
 		//Game_Utils::instance()->reset_character(player_id);
 		//Game_Utils::instance()->reset_character(player->get_fight_general_id());

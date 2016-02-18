@@ -30,6 +30,8 @@ public:
     static bool on_player_start_game(Game_Logic::Game_Interface& gm_interface);
     static bool on_player_enter_scene(Game_Logic::Game_Interface& gm_interface);
     static bool on_player_error_msg(Game_Logic::Game_Interface& gm_interface);
+    
+    static bool on_save_player(Game_Logic::Game_Interface& gm_interface);
 
 #if(CC_TARGET_PLATFORM==CC_PLATFORM_ANDROID)
 	static bool send_player_login();

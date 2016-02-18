@@ -9,6 +9,13 @@
 #include "BaseUtils.h"
 
 #include "../../Random_System/Name_Random_Mgr.h"
+//#include "../../cocos2d/external/json/document.h"
+//#include "../../cocos2d/external/json/prettywriter.h"
+//#include "../../cocos2d/external/json/stringbuffer.h"
+
+USING_NS_CC;
+//using namespace rapidjson;
+
 cocos2d::Size YNBaseUtil::WinSize;
 
 std::vector<std::string> YNBaseUtil::splitString(std::string str, std::string pattern)
@@ -51,9 +58,9 @@ std::string YNBaseUtil::randomNameBySexId(int sex)
 	family_name = name_f;
 
 
-	if (0 == sex) //Ëæ»úÅ®ĞÔÃû³Æ
+	if (0 == sex) //éšæœºå¥³æ€§åç§°
 		family_name_called_id = rand() % (1808 - 1500) + 1501;
-	if (1 == sex) //Ëæ»úÄĞĞÔÃû³Æ
+	if (1 == sex) //éšæœºç”·æ€§åç§°
 		family_name_called_id = rand() % (956 - 500) + 501;
 
 	CCLOG("family_name_called_id = %d", family_name_called_id);
@@ -66,3 +73,4 @@ std::string YNBaseUtil::randomNameBySexId(int sex)
 	CCLOG("name = %s", retName.c_str());
 	return retName;
 }
+

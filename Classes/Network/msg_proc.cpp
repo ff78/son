@@ -75,8 +75,8 @@ int Msg_Proc::init( void )
     reg_interface(RETURN_REQUIRE_STAGE_INSTANCE_STATE,  Client_Instance_Msg_Proc::on_player_stage_instance_state);
 	reg_interface(RETURN_INSTANCE_SWEEP,				Client_Instance_Msg_Proc::on_instance_sweep);
 	reg_interface(RETURN_REQUIRE_STAGE,					Client_Instance_Msg_Proc::on_player_stage);
-	reg_interface(RETURN_REQUIRE_STAGE_ALL,				Client_Instance_Msg_Proc::on_player_stage_instance);			// ½ÓÊÕÍæ¼Òµ±Ç°ÕÂ½ÚµÄÏà¹ØĞÅÏ¢
-	reg_interface(RETURN_INSTANCE_NEXT,					Client_Instance_Msg_Proc::on_player_next_instance);				// ½ÓÊÕÍæ¼ÒÎŞ¾¡ËşÏÂÒ»¹ØÏà¹ØĞÅÏ¢
+	reg_interface(RETURN_REQUIRE_STAGE_ALL,				Client_Instance_Msg_Proc::on_player_stage_instance);			// æ¥æ”¶ç©å®¶å½“å‰ç« èŠ‚çš„ç›¸å…³ä¿¡æ¯
+	reg_interface(RETURN_INSTANCE_NEXT,					Client_Instance_Msg_Proc::on_player_next_instance);				// æ¥æ”¶ç©å®¶æ— å°½å¡”ä¸‹ä¸€å…³ç›¸å…³ä¿¡æ¯
 
     // player
     reg_interface(S2C_PLAYER_INTO_MAIN_CITY,            Player_Msg_Proc::on_player_into_main_city);
@@ -157,9 +157,9 @@ int Msg_Proc::init( void )
     reg_interface(S2C_LOAD_BOOK_FRAGMENT,           Item_Msg_Proc::on_load_book_fragment);
     reg_interface(S2C_COMPOUND_MATERIAL_FRAGMENT,   Item_Msg_Proc::on_compound_material_fragment);
     reg_interface(S2C_COMPOUND_BOOK_FRAGMENT,       Item_Msg_Proc::on_compound_book_fragment);
-    reg_interface(S2C_SET_ON_GEM,                   Item_Msg_Proc::on_set_on_gem);									  // ×°±¸±¦Ê¯
-    reg_interface(S2C_SET_OFF_GEM,                  Item_Msg_Proc::on_set_off_gem);									  // Ğ¶ÏÂ±¦Ê¯
-    reg_interface(S2C_GEM_LEVEL_UP,                 Item_Msg_Proc::on_gem_level_up);								  // ºÏ³É±¦Ê¯
+    reg_interface(S2C_SET_ON_GEM,                   Item_Msg_Proc::on_set_on_gem);									  // è£…å¤‡å®çŸ³
+    reg_interface(S2C_SET_OFF_GEM,                  Item_Msg_Proc::on_set_off_gem);									  // å¸ä¸‹å®çŸ³
+    reg_interface(S2C_GEM_LEVEL_UP,                 Item_Msg_Proc::on_gem_level_up);								  // åˆæˆå®çŸ³
 
     reg_interface(S2C_CREATE_ITEM,                  Item_Msg_Proc::on_create_item);
     reg_interface(S2C_CREATE_MATERIAL_FRAGMENT,     Item_Msg_Proc::on_create_material_fragment);
@@ -178,8 +178,8 @@ int Msg_Proc::init( void )
 
     //quest
     reg_interface(RETURN_QUEST_UPDATE,             quest_msg_proc_client::on_quest_update);
-    reg_interface(RETURN_NPC_QUEST_BIND_LIST,      quest_msg_proc_client::on_update_npc_quest_bind_list);			  // ¸üĞÂµ±Ç°NpcµÄÇëÇó½áºÏÁĞ±í
-    reg_interface(RETURN_QUEST_SUBMIT_RESULT,      quest_msg_proc_client::on_quest_submuit_result);					  // ÈÎÎñ½áÊøµ¯³öÈÎÎñ½áÊøµÄ½çÃæ
+    reg_interface(RETURN_NPC_QUEST_BIND_LIST,      quest_msg_proc_client::on_update_npc_quest_bind_list);			  // æ›´æ–°å½“å‰Npcçš„è¯·æ±‚ç»“åˆåˆ—è¡¨
+    reg_interface(RETURN_QUEST_SUBMIT_RESULT,      quest_msg_proc_client::on_quest_submuit_result);					  // ä»»åŠ¡ç»“æŸå¼¹å‡ºä»»åŠ¡ç»“æŸçš„ç•Œé¢
 	
     //shop
     reg_interface(SC_LOAD_SHOPING_RECORD,   Shop_Msg_Proc::on_load_shoping_record);
@@ -257,7 +257,7 @@ int Msg_Proc::init( void )
     reg_interface(S2C_LOAD_ACTIVITY_RECORD,          Activity_Msg_Proc::on_load_activity_record);
     reg_interface(S2C_ACTIVITY_SIX_SECT,             Activity_Msg_Proc::on_activity_six_sect);
 
-    // Ã¿ÈÕÈÎÎñ
+    // æ¯æ—¥ä»»åŠ¡
     reg_interface(S2C_LOAD_DAILY_TASK,						Daily_Task_Msg_Proc::on_load_daily_task);
     reg_interface(S2C_DROP_DAILY_TASK,						Daily_Task_Msg_Proc::on_drop_daily_task);
     reg_interface(S2C_SUBMIT_DAILY_TASK,					Daily_Task_Msg_Proc::on_submit_daily_task);

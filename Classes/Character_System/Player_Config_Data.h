@@ -7,11 +7,11 @@
 #include <list>
 #include "Network_Common/global_macros.h"
  
-#define  PLAYER_MAX_ENERGY              120         // Íæ¼Ò×î´óÌåÁ¦
-#define  PLAYER_BUY_ENERGY_MAX_COUNT    20          // Íæ¼Ò¹ºÂòÌåÁ¦×î´ó´ÎÊı
-#define  PLAYER_BUY_ENERGY_VALUE        20          // Íæ¼Ò¹ºÂòÒ»´ÎÌåÁ¦Ôö¼ÓÁ¿
-#define  PLAYER_REVIVE_COST             50          // Íæ¼Ò¸´»îÔª±¦ÏûºÄ
-#define  PLAYER_UP_LEVEL_RECOVER_ENERGY 30          // Íæ¼ÒÉı¼¶»Ö¸´ÌåÁ¦
+#define  PLAYER_MAX_ENERGY              120         // ç©å®¶æœ€å¤§ä½“åŠ›
+#define  PLAYER_BUY_ENERGY_MAX_COUNT    20          // ç©å®¶è´­ä¹°ä½“åŠ›æœ€å¤§æ¬¡æ•°
+#define  PLAYER_BUY_ENERGY_VALUE        20          // ç©å®¶è´­ä¹°ä¸€æ¬¡ä½“åŠ›å¢åŠ é‡
+#define  PLAYER_REVIVE_COST             50          // ç©å®¶å¤æ´»å…ƒå®æ¶ˆè€—
+#define  PLAYER_UP_LEVEL_RECOVER_ENERGY 30          // ç©å®¶å‡çº§æ¢å¤ä½“åŠ›
 
 
 enum CHAT_CHANNEL_TYPE
@@ -129,23 +129,23 @@ namespace Game_Data
 
 private:
         int                      id;                                 // ID
-		int                      level_id;                           // µÈ¼¶Id
-        int                      name;                               // Ãû×Ö
-		std::string              prefession;                         // Ö°ÒµÃû³Æ
-		std::string				 title;                              // ³ÆºÅ
-		int                      quality;                            // Æ·ÖÊ
-        int                      addition;                           // ¼Ó³É
-		int                      model;                              // ĞÎÏó
-		int                      scale_rate;                         // Ëõ·ÅÂÊ
-		int				         face_mode_id;		                 // Í·ÏñÍ¼±ê
-		int                      sex;                                // ĞÔ±ğ
-		int                      binding_grain_effect_id;            // °ó¶¨Á£×Ó
-		int					     move_speed;                         // Ç°½øËÙ¶È
-		int					     behit_effect;						 // ÊÜ´´ÌØĞ§
-		int					     behit_sound;						 // ÊÜ´´ÒôĞ§
-		int					     max_level;							 // ×î´óµÈ¼¶
-		int                      skill_id[MAX_SKILL_COUNT];          // ¼¼ÄÜId
-		int                      king_skill_id;                      // ±ØÉ±¼¼                     
+		int                      level_id;                           // ç­‰çº§Id
+        int                      name;                               // åå­—
+		std::string              prefession;                         // èŒä¸šåç§°
+		std::string				 title;                              // ç§°å·
+		int                      quality;                            // å“è´¨
+        int                      addition;                           // åŠ æˆ
+		int                      model;                              // å½¢è±¡
+		int                      scale_rate;                         // ç¼©æ”¾ç‡
+		int				         face_mode_id;		                 // å¤´åƒå›¾æ ‡
+		int                      sex;                                // æ€§åˆ«
+		int                      binding_grain_effect_id;            // ç»‘å®šç²’å­
+		int					     move_speed;                         // å‰è¿›é€Ÿåº¦
+		int					     behit_effect;						 // å—åˆ›ç‰¹æ•ˆ
+		int					     behit_sound;						 // å—åˆ›éŸ³æ•ˆ
+		int					     max_level;							 // æœ€å¤§ç­‰çº§
+		int                      skill_id[MAX_SKILL_COUNT];          // æŠ€èƒ½Id
+		int                      king_skill_id;                      // å¿…æ€æŠ€                     
     };
 
 	struct Player_Level_Attr_Config_Data
@@ -233,23 +233,23 @@ private:
 		void set_player_power(int power){this->power = power;}
 	private:
 		int                      id;                                 // ID
-		int                      level;                              // µÈ¼¶
-		int                      levelup_exp;                        // Éı¼¶¾­Ñé
-		int                      max_hp;                             // ÆøÑªÉÏÏŞ
-		int                      hp_recover_speed;		             // ÆøÑª»Ø¸´ËÙ¶È
-		int                      max_mp;						     // Å­ÆøÉÏÏŞ
-		int                      max_gp;							 // î¸ÆøÉÏÏŞ
-		int                      gp_reduce_hurt;					 // î¸Æø¼õÉËÂÊ
-		int                      gp_behit_time;						 // î¸ÆøÊÜÉËºó»Ö¸´¼ä¸ô
-		int                      gp_recover_speed;				     // î¸Æø»Ö¸´ËÙ¶È
-		int                      attack;							 // ¹¥»÷Á¦
-		int                      define;							 // ·ÀÓùÁ¦
-		int                      hit_ratio;							 // ÃüÖĞÖµ
-		int                      avoidance;							 // »Ø±ÜÖµ
-		int                      crit_rate;							 // ±©»÷Öµ
-		int                      tenacity;							 // ¼áÈÍÖµ
-		int                      crit;								 // ±©»÷ÉËº¦¼Ó³É
-		int						 power;							     // ¹¦Á¦
+		int                      level;                              // ç­‰çº§
+		int                      levelup_exp;                        // å‡çº§ç»éªŒ
+		int                      max_hp;                             // æ°”è¡€ä¸Šé™
+		int                      hp_recover_speed;		             // æ°”è¡€å›å¤é€Ÿåº¦
+		int                      max_mp;						     // æ€’æ°”ä¸Šé™
+		int                      max_gp;							 // ç½¡æ°”ä¸Šé™
+		int                      gp_reduce_hurt;					 // ç½¡æ°”å‡ä¼¤ç‡
+		int                      gp_behit_time;						 // ç½¡æ°”å—ä¼¤åæ¢å¤é—´éš”
+		int                      gp_recover_speed;				     // ç½¡æ°”æ¢å¤é€Ÿåº¦
+		int                      attack;							 // æ”»å‡»åŠ›
+		int                      define;							 // é˜²å¾¡åŠ›
+		int                      hit_ratio;							 // å‘½ä¸­å€¼
+		int                      avoidance;							 // å›é¿å€¼
+		int                      crit_rate;							 // æš´å‡»å€¼
+		int                      tenacity;							 // åšéŸ§å€¼
+		int                      crit;								 // æš´å‡»ä¼¤å®³åŠ æˆ
+		int						 power;							     // åŠŸåŠ›
 	};
 }
 

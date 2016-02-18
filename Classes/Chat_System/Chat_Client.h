@@ -14,21 +14,21 @@ public:
 	virtual ~Chat_Msg_Proc();
 	static Chat_Msg_Proc* getInstance();
 
-	static bool send_chat_all_msg(int channel, const char* receiver_name, const char* chat);      //区域
-	static bool send_chat_private_msg(int channel, const char* receiver_name, const char* chat);  //私密
-	static bool send_chat_team_msg(int channel, const char* receiver_name, const char* chat);     //组队
-	static bool send_chat_friend_msg(int channel, const char* receiver_name, const char* chat);   //好友
-	static bool send_chat_faction_msg(int channel, const char* receiver_name, const char* chat);  //工会
-	static bool send_chat_world_msg(int channel, const char* receiver_name, const char* chat);    //世界
+	static bool send_chat_all_msg(int channel, const char* receiver_name, const char* chat);      //鍖哄煙
+	static bool send_chat_private_msg(int channel, const char* receiver_name, const char* chat);  //绉佸瘑
+	static bool send_chat_team_msg(int channel, const char* receiver_name, const char* chat);     //缁勯槦
+	static bool send_chat_friend_msg(int channel, const char* receiver_name, const char* chat);   //濂藉弸
+	static bool send_chat_faction_msg(int channel, const char* receiver_name, const char* chat);  //宸ヤ細
+	static bool send_chat_world_msg(int channel, const char* receiver_name, const char* chat);    //涓栫晫
 	static bool send_chat_area_msg(int channel, const char* receiver_name, const char* chat);
 
-	static bool on_chat_all_msg(Game_Logic::Game_Interface& gm_interface);                        //综合
-	static bool on_chat_private_msg(Game_Logic::Game_Interface& gm_interface);                    //私密
-	static bool on_chat_team_msg(Game_Logic::Game_Interface& gm_interface);                       //组队
-	static bool on_chat_friend_msg(Game_Logic::Game_Interface& gm_interface);                     //好友
-	static bool on_chat_faction_msg(Game_Logic::Game_Interface& gm_interface);                    //工会
-	static bool on_chat_world_msg(Game_Logic::Game_Interface& gm_interface);                      //世界
-	static bool on_chat_area_msg(Game_Logic::Game_Interface& gm_interface);                       //区域
+	static bool on_chat_all_msg(Game_Logic::Game_Interface& gm_interface);                        //缁煎悎
+	static bool on_chat_private_msg(Game_Logic::Game_Interface& gm_interface);                    //绉佸瘑
+	static bool on_chat_team_msg(Game_Logic::Game_Interface& gm_interface);                       //缁勯槦
+	static bool on_chat_friend_msg(Game_Logic::Game_Interface& gm_interface);                     //濂藉弸
+	static bool on_chat_faction_msg(Game_Logic::Game_Interface& gm_interface);                    //宸ヤ細
+	static bool on_chat_world_msg(Game_Logic::Game_Interface& gm_interface);                      //涓栫晫
+	static bool on_chat_area_msg(Game_Logic::Game_Interface& gm_interface);                       //鍖哄煙
 
 private:
 	static Chat_Msg_Proc* instance_;

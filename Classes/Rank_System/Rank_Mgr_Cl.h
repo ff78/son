@@ -11,69 +11,69 @@ public:
 	Rank_Manager();
 	~Rank_Manager();
 
-	int											initialize();																					// ³õÊ¼»¯Rank_Manager
+	int											initialize();																					// åˆå§‹åŒ–Rank_Manager
 	static Rank_Manager*						instance();
 
 private:
-	//---³ÉÔ±±äÁ¿---//
-	bool										m_bPVPRankTypeListIsGet;																		// ¾º¼¼³¡ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±íÊÇ·ñ¸Ä±ä
-	bool										m_bLevelRankTypeListIsGet;																		// µÈ¼¶ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±íÊÇ·ñ¸Ä±ä
-	bool										m_bFightingPowerRankTypeListIsGet;																// Õ½¶·Á¦ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±íÊÇ·ñ¸Ä±ä
-	bool										m_bMoneyRankTypeListIsGet;																		// ½ğÇ®ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±íÊÇ·ñ¸Ä±ä
-	bool										m_bRenownRankTypeListIsGet;																		// ÉùÍûÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±íÊÇ·ñ¸Ä±ä
+	//---æˆå‘˜å˜é‡---//
+	bool										m_bPVPRankTypeListIsGet;																		// ç«æŠ€åœºç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨æ˜¯å¦æ”¹å˜
+	bool										m_bLevelRankTypeListIsGet;																		// ç­‰çº§ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨æ˜¯å¦æ”¹å˜
+	bool										m_bFightingPowerRankTypeListIsGet;																// æˆ˜æ–—åŠ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨æ˜¯å¦æ”¹å˜
+	bool										m_bMoneyRankTypeListIsGet;																		// é‡‘é’±ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨æ˜¯å¦æ”¹å˜
+	bool										m_bRenownRankTypeListIsGet;																		// å£°æœ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨æ˜¯å¦æ”¹å˜
 
-	bool										m_bCurrentRankTypeListIsChange;																	// µ±Ç°ÅÅĞĞ°ñÀàĞÍµÄÊı¾İÊÇ·ñ¸Ä±ä
+	bool										m_bCurrentRankTypeListIsChange;																	// å½“å‰æ’è¡Œæ¦œç±»å‹çš„æ•°æ®æ˜¯å¦æ”¹å˜
 
-	Rank_Type									m_eCurrentRankType;																				// µ±Ç°µÄÅÅĞĞ°ñÀàĞÍ
+	Rank_Type									m_eCurrentRankType;																				// å½“å‰çš„æ’è¡Œæ¦œç±»å‹
 
-	TARGET_RANKING_DATA *						m_pPVPRankingDataList;																			// ¾º¼¼³¡ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	TARGET_RANKING_DATA *						m_pLevelRankingDataList;																		// µÈ¼¶ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	TARGET_RANKING_DATA *						m_pFightingPowerRankingDataList;																// Õ½¶·Á¦ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	TARGET_RANKING_DATA *						m_pMoneyRankingDataList;																		// ½ğÇ®ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	TARGET_RANKING_DATA *						m_pRenownRankingDataList;																		// ÉùÍûÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
+	TARGET_RANKING_DATA *						m_pPVPRankingDataList;																			// ç«æŠ€åœºç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	TARGET_RANKING_DATA *						m_pLevelRankingDataList;																		// ç­‰çº§ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	TARGET_RANKING_DATA *						m_pFightingPowerRankingDataList;																// æˆ˜æ–—åŠ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	TARGET_RANKING_DATA *						m_pMoneyRankingDataList;																		// é‡‘é’±ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	TARGET_RANKING_DATA *						m_pRenownRankingDataList;																		// å£°æœ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
 
-	std::map<Rank_Type, int>					m_pRankingListCountMap;																			// ¸÷ÖÖÀàĞÍÅÅĞĞ°ñÁĞ±í¸öÊı
-	std::map<Rank_Type, int>					m_pMyRankingMap;																				// ¸÷ÖÖÀàĞÍÅÅĞĞ°ñÁĞ±íÍæ¼ÒµÄÃû´Î
-
-public:
-	//---Ïà¹ØÂß¼­´¦Àí---//
-	int											GetMyRankingInTargetRankType(const Rank_Type eType);											// »ñÈ¡ÎÒÔÚÄ¿±êÅÅĞĞ°ñÀàĞÍÖĞµÄÅÅÃû
-
-	bool										JudgeCurrentRankTypeListIsGet();																// ÅĞ¶Ïµ±Ç°µÄÅÅĞĞ°ñÁĞ±íÊÇ·ñ»ñÈ¡
-	bool										JudgeTargetIndexIsError(const int nIndex);														// ÅĞ¶ÏÄ¿±êË÷ÒıÊÇ·ñÒì³£
-
-	void										RequestTargetRankTypeList();																	// »ñÈ¡µ±Ç°µÄÅÅĞĞ°ñÁĞ±í
-
-	TARGET_RANKING_DATA *						GetTargetIndexRankingData(const int nIndex);													// »ñÈ¡Ä¿±êË÷ÒıµÄÅÅĞĞ°ñÊı¾İ
+	std::map<Rank_Type, int>					m_pRankingListCountMap;																			// å„ç§ç±»å‹æ’è¡Œæ¦œåˆ—è¡¨ä¸ªæ•°
+	std::map<Rank_Type, int>					m_pMyRankingMap;																				// å„ç§ç±»å‹æ’è¡Œæ¦œåˆ—è¡¨ç©å®¶çš„åæ¬¡
 
 public:
-	//---½ÇÉ«¼¼ÄÜµÄÏà¹Ø²Ù×÷---//	
+	//---ç›¸å…³é€»è¾‘å¤„ç†---//
+	int											GetMyRankingInTargetRankType(const Rank_Type eType);											// è·å–æˆ‘åœ¨ç›®æ ‡æ’è¡Œæ¦œç±»å‹ä¸­çš„æ’å
+
+	bool										JudgeCurrentRankTypeListIsGet();																// åˆ¤æ–­å½“å‰çš„æ’è¡Œæ¦œåˆ—è¡¨æ˜¯å¦è·å–
+	bool										JudgeTargetIndexIsError(const int nIndex);														// åˆ¤æ–­ç›®æ ‡ç´¢å¼•æ˜¯å¦å¼‚å¸¸
+
+	void										RequestTargetRankTypeList();																	// è·å–å½“å‰çš„æ’è¡Œæ¦œåˆ—è¡¨
+
+	TARGET_RANKING_DATA *						GetTargetIndexRankingData(const int nIndex);													// è·å–ç›®æ ‡ç´¢å¼•çš„æ’è¡Œæ¦œæ•°æ®
 
 public:
-	//---ÓëÏÔÊ¾²ãµÄ½»»¥---//		
-	int											UIRequestCurrentRankTypeCount();																// ÏÔÊ¾²ãÇëÇóµ±Ç°ÅÅĞĞ°ñÀàĞÍµÄÅÅĞĞ°ñ¸öÊı
-
-	bool										UIRequestEnterTargetRankLayer(const Rank_Type eType);											// ÏÔÊ¾²ãÇëÇó½øÈëÄ¿±êÅÅĞĞ°ñ½çÃæ
-	bool										UIRequestTargetIndexShowInfo(const int nIndex, TARGET_INDEX_INFO_FOR_SHOW *pInfo);				// ÏÔÊ¾²ãÇëÇóÄ¿±êË÷ÒıµÄÏÔÊ¾ĞÅÏ¢
-	bool										UIRequestTargetIndexSimpleShowInfo(const int nIndex, TARGET_INDEX_SIMPLE_INFO_FOR_SHOW *pInfo);	// ÏÔÊ¾²ãÇëÇóÄ¿±êË÷Òı¼òµ¥µÄÏÔÊ¾ĞÅÏ¢
-	bool										UIRequestPlayerRankingSimpleShowInfo(TARGET_INDEX_SIMPLE_INFO_FOR_SHOW *pInfo);					// ÏÔÊ¾²ãÇëÇóÍæ¼Ò±¾Éí¼òµ¥µÄÏÔÊ¾ĞÅÏ¢
-
-	void										UIRequestCloseRankingListLayer();																// ÏÔÊ¾²ãÇëÇó¹Ø±ÕÅÅĞĞ°ñ½çÃæ
+	//---è§’è‰²æŠ€èƒ½çš„ç›¸å…³æ“ä½œ---//	
 
 public:
-	//---Óë·şÎñÆ÷µÄ½»»¥---//	
-	// 1. ·¢ËÍÏûÏ¢µ½·şÎñÆ÷
-	void										SendMsgRequestTargetTypeRankingList(const Rank_Type eType);										// ·¢ËÍÏûÏ¢ÇëÇóÄ¿±êÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
+	//---ä¸æ˜¾ç¤ºå±‚çš„äº¤äº’---//		
+	int											UIRequestCurrentRankTypeCount();																// æ˜¾ç¤ºå±‚è¯·æ±‚å½“å‰æ’è¡Œæ¦œç±»å‹çš„æ’è¡Œæ¦œä¸ªæ•°
 
-	// 2. ´Ó·şÎñÆ÷½ÓÊÕÏûÏ¢
-	void										LoadPVPRankingDataList(message_stream& ms);														// ½ÓÊÕ¾º¼¼³¡ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	void										LoadLevelRankingDataList(message_stream& ms);													// ½ÓÊÕµÈ¼¶ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	void										LoadFightingPowerRankingDataList(message_stream& ms);											// ½ÓÊÕÕ½¶·Á¦ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	void										LoadMoneyRankingDataList(message_stream& ms);													// ½ÓÊÕ½ğÇ®ÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
-	void										LoadRenownRankingDataList(message_stream& ms);													// ½ÓÊÕÉùÍûÀàĞÍÅÅĞĞ°ñÊı¾İÁĞ±í
+	bool										UIRequestEnterTargetRankLayer(const Rank_Type eType);											// æ˜¾ç¤ºå±‚è¯·æ±‚è¿›å…¥ç›®æ ‡æ’è¡Œæ¦œç•Œé¢
+	bool										UIRequestTargetIndexShowInfo(const int nIndex, TARGET_INDEX_INFO_FOR_SHOW *pInfo);				// æ˜¾ç¤ºå±‚è¯·æ±‚ç›®æ ‡ç´¢å¼•çš„æ˜¾ç¤ºä¿¡æ¯
+	bool										UIRequestTargetIndexSimpleShowInfo(const int nIndex, TARGET_INDEX_SIMPLE_INFO_FOR_SHOW *pInfo);	// æ˜¾ç¤ºå±‚è¯·æ±‚ç›®æ ‡ç´¢å¼•ç®€å•çš„æ˜¾ç¤ºä¿¡æ¯
+	bool										UIRequestPlayerRankingSimpleShowInfo(TARGET_INDEX_SIMPLE_INFO_FOR_SHOW *pInfo);					// æ˜¾ç¤ºå±‚è¯·æ±‚ç©å®¶æœ¬èº«ç®€å•çš„æ˜¾ç¤ºä¿¡æ¯
+
+	void										UIRequestCloseRankingListLayer();																// æ˜¾ç¤ºå±‚è¯·æ±‚å…³é—­æ’è¡Œæ¦œç•Œé¢
 
 public:
-	//--»ñÈ¡ÓëÉèÖÃ³ÉÔ±±äÁ¿---//
+	//---ä¸æœåŠ¡å™¨çš„äº¤äº’---//	
+	// 1. å‘é€æ¶ˆæ¯åˆ°æœåŠ¡å™¨
+	void										SendMsgRequestTargetTypeRankingList(const Rank_Type eType);										// å‘é€æ¶ˆæ¯è¯·æ±‚ç›®æ ‡ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+
+	// 2. ä»æœåŠ¡å™¨æ¥æ”¶æ¶ˆæ¯
+	void										LoadPVPRankingDataList(message_stream& ms);														// æ¥æ”¶ç«æŠ€åœºç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	void										LoadLevelRankingDataList(message_stream& ms);													// æ¥æ”¶ç­‰çº§ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	void										LoadFightingPowerRankingDataList(message_stream& ms);											// æ¥æ”¶æˆ˜æ–—åŠ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	void										LoadMoneyRankingDataList(message_stream& ms);													// æ¥æ”¶é‡‘é’±ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+	void										LoadRenownRankingDataList(message_stream& ms);													// æ¥æ”¶å£°æœ›ç±»å‹æ’è¡Œæ¦œæ•°æ®åˆ—è¡¨
+
+public:
+	//--è·å–ä¸è®¾ç½®æˆå‘˜å˜é‡---//
 	inline bool									GetCurrentRankTypeIsChangeState()
 	{
 		return m_bCurrentRankTypeListIsChange;

@@ -81,9 +81,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 //	//register_assetsmanager_test_sample(lua_stack);
 //#endif
 //	pEngine->executeScriptFile("");
-
+    
     //initialize network
-
+    
     CNetManager* netmgr = new CNetManager;
     // initialize director
     auto director = Director::getInstance();
@@ -122,30 +122,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     // this can make sure that the resource's height could fit for the height of design resolution.
 
     // if the frame's height is larger than the height of medium resource size, select large resource.
-#if 0
-	if (frameSize.height > mediumResource.size.height)
-	{
-        searchPath.push_back(mediumResource.directory);
-
-       // director->setContentScaleFactor(MIN(largeResource.size.height/designResolutionSize.height, largeResource.size.width/designResolutionSize.width));
-	}
-    // if the frame's height is larger than the height of small resource size, select medium resource.
-    else if (frameSize.height > smallResource.size.height)
-    {
-        searchPath.push_back(mediumResource.directory);
-        
-       // director->setContentScaleFactor(MIN(mediumResource.size.height/designResolutionSize.height, mediumResource.size.width/designResolutionSize.width));
-    }
-    // if the frame's height is smaller than the height of medium resource size, select small resource.
-	else
-    {
-        searchPath.push_back(mediumResource.directory);
-
-    //   director->setContentScaleFactor(MIN(smallResource.size.height/designResolutionSize.height, smallResource.size.width/designResolutionSize.width));
-    }
-    // set searching path
-    FileUtils::getInstance()->setSearchPaths(searchPath);
-#endif
     
     FileUtils::getInstance()->setSearchPaths(searchPath);
     log("writablePath ====== %s",FileUtils::getInstance()->getWritablePath().c_str());
@@ -156,7 +132,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 //    director->setAnimationInterval(1.0 / 30);
 
 	// create a scene. it's an autorelease object
-	Director::getInstance()->setContentScaleFactor(1.f);
+//	Director::getInstance()->setContentScaleFactor(1.f);
 
 	//start();
 	ITEM_CONFIG_MGR::instance()->initialize();
@@ -174,66 +150,66 @@ bool AppDelegate::applicationDidFinishLaunching()
 	return true;
 }
 
-void AppDelegate::init_game_system()
-{
-    CNetManager::GetMe()->Initial(NULL);
-    Msg_Proc::instance()->init();
-
-	//initialize game play system 
-//	SKILL_MGR::instance()->initialize();
-//	Buff_Manager::instance()->initialize();
-	PLAYER_MGR::instance()->initialize();
-    FIGHTNPC_MGR::instance()->initialize();
-//    TECHNICAL_MGR::instance()->initialize();
-	DICTIONARY_CONFIG_MGR::instance()->initialize();
-	Name_Random_Mgr::get_instance()->initialize();
-	Junior_Guide_Mgr::get_instance()->initialize();
-	CommonNpc_Config_MGR::instance()->initialize();
-	SHOP_CONFIG_MGR::instance()->initialize();
-//   ACTIVITY_CONFIG_MGR::instance()->initialize();
-   DAILY_TASK_CONFIG_MGR::instance()->initialize();
-	CocoStudio::CocoStu_UI_Scene_Config_Mgr::get_instance()->init();
-	//Shake_Manager::sharedInstance()->init();
-	UI_Json_Manager::get_instance()->init();
-	Game_Data::UI_Config_Data_Mgr::instance()->init();
-	Game_Logic::Game_Content_Interface::instance()->init();
-	UI_Logic::instance()->init_UI_system();
-   // AI_Controller::instance()->initialize();
-	Effect_Cfg_Data_Mgr::instance()->load_config();
-    //FIGHT_CONFIG_MGR::instance()->initialize();
-    ACUPOINT_CONFIG_MGR::instance()->initialize();
-    COOL_TIME_CONFIG_MGR::instance()->initialize();
-   FUNCTION_OPEN_CONFIG_MGR::instance()->initialize();
-    LOGIN_REWARD_CONFIG_MGR::instance()->initialize();
-    //Monster_Cfg_Data_Mgr::instance()->initialize();
-	ShieldManager::sharedShieldManager()->init();
-
-    Account_Data_Mgr::instance()->init();
-
-    //init instance_system
-    INSTANCE_DATA_MGR::instance()->initialize();
-
-    Formula_Logic::instance()->init_formula_system();
-
-    vector<uint64> para;
-    para.clear();
-    Game_Logic::Game_Content_Interface::instance()->exec_interface("createcontainer", para);
-
-    para.clear();
-    Game_Logic::Game_Content_Interface::instance()->exec_interface("loadformuladata", para);
-
-    Game_Data::quest_data_mgr::instance()->init("");
-
-
-
-    //Monster_Wave_Cfg_Data_Mgr::shared_instance()->load_config();
-
-	Audio_Manager::shared_Audio_Manager()->preload_audio();
-
-    //gameplay_ctrl_db_proc::instance()->load_activity_data();
-
-    
-}
+//void AppDelegate::init_game_system()
+//{
+//    CNetManager::GetMe()->Initial(NULL);
+//    Msg_Proc::instance()->init();
+//
+//	//initialize game play system 
+////	SKILL_MGR::instance()->initialize();
+////	Buff_Manager::instance()->initialize();
+//	PLAYER_MGR::instance()->initialize();
+//    FIGHTNPC_MGR::instance()->initialize();
+////    TECHNICAL_MGR::instance()->initialize();
+//	DICTIONARY_CONFIG_MGR::instance()->initialize();
+//	Name_Random_Mgr::get_instance()->initialize();
+//	Junior_Guide_Mgr::get_instance()->initialize();
+//	CommonNpc_Config_MGR::instance()->initialize();
+//	SHOP_CONFIG_MGR::instance()->initialize();
+////   ACTIVITY_CONFIG_MGR::instance()->initialize();
+//   DAILY_TASK_CONFIG_MGR::instance()->initialize();
+//	CocoStudio::CocoStu_UI_Scene_Config_Mgr::get_instance()->init();
+//	//Shake_Manager::sharedInstance()->init();
+//	UI_Json_Manager::get_instance()->init();
+//	Game_Data::UI_Config_Data_Mgr::instance()->init();
+//	Game_Logic::Game_Content_Interface::instance()->init();
+//	UI_Logic::instance()->init_UI_system();
+//   // AI_Controller::instance()->initialize();
+//	Effect_Cfg_Data_Mgr::instance()->load_config();
+//    //FIGHT_CONFIG_MGR::instance()->initialize();
+//    ACUPOINT_CONFIG_MGR::instance()->initialize();
+//    COOL_TIME_CONFIG_MGR::instance()->initialize();
+//   FUNCTION_OPEN_CONFIG_MGR::instance()->initialize();
+//    LOGIN_REWARD_CONFIG_MGR::instance()->initialize();
+//    //Monster_Cfg_Data_Mgr::instance()->initialize();
+//	ShieldManager::sharedShieldManager()->init();
+//
+//    Account_Data_Mgr::instance()->init();
+//
+//    //init instance_system
+//    INSTANCE_DATA_MGR::instance()->initialize();
+//
+//    Formula_Logic::instance()->init_formula_system();
+//
+//    vector<uint64> para;
+//    para.clear();
+//    Game_Logic::Game_Content_Interface::instance()->exec_interface("createcontainer", para);
+//
+//    para.clear();
+//    Game_Logic::Game_Content_Interface::instance()->exec_interface("loadformuladata", para);
+//
+//    Game_Data::quest_data_mgr::instance()->init("");
+//
+//
+//
+//    //Monster_Wave_Cfg_Data_Mgr::shared_instance()->load_config();
+//
+//	Audio_Manager::shared_Audio_Manager()->preload_audio();
+//
+//    //gameplay_ctrl_db_proc::instance()->load_activity_data();
+//
+//    
+//}
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {

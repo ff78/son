@@ -13,8 +13,8 @@ public:
 	RecentlyServer(void);
 	~RecentlyServer(void);
 	/************************************************************************/
-	/* ´Ó0¿ªÊ¼
-	//»ñÈ¡ºóÊ×ÏÈÅĞ¶Ïid£¬idÎª0µÄ»°¾Í²»´æÔÚ
+	/* ä»0å¼€å§‹
+	//è·å–åé¦–å…ˆåˆ¤æ–­idï¼Œidä¸º0çš„è¯å°±ä¸å­˜åœ¨
 	/************************************************************************/
 	static Server_List_Data getRecentlyServerInfomation(int index);
 	static void addServer(Server_List_Data sld);

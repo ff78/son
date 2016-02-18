@@ -121,7 +121,7 @@ bool UI_Function_Instance::enter_game( Game_Logic::Game_Interface& gm_interface 
     CHARACTER_MGR::instance()->insert_character(player);
 
     para.clear();
-    para.push_back(1);
+    para.push_back(1001);
     Game_Logic::Game_Content_Interface::instance()->exec_interface("enterscene", para);
     CCLOG("-----------UI_Function_Instance::enter game 3");
 #endif

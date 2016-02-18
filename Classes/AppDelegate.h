@@ -35,7 +35,7 @@ public:
     */
     virtual void applicationWillEnterForeground();
 private:
-	void init_game_system();
+//	void init_game_system();
     bool is_first_;
 };
 

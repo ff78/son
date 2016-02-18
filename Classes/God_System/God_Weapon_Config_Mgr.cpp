@@ -205,15 +205,19 @@ namespace Game_Data
 
 	int God_Weapon_Config_Mgr::get_create_god_weapon_id(int player_lv, int player_job)
 	{
-		get_god_weapon_config_iter _iter = m_map_get_god_weapon.find(player_job);
-		if (_iter != m_map_get_god_weapon.end())
-		{
-			if ((*_iter).second->level_limit <= player_lv)
-			{
-				return (*_iter).second->id;
-			}
-		}
-		return 0;
+        int result = 0;
+        get_god_weapon_config_iter _iter = m_map_get_god_weapon.begin();
+        for (; _iter != m_map_get_god_weapon.end(); _iter++) {
+            if (_iter->second->job != player_job) {
+                continue;
+            }
+            if (_iter->second->level_limit <= player_lv) {
+                result = (*_iter).second->id;
+            }else{
+                break;
+            }
+        }
+		return result;
 
 	}
 

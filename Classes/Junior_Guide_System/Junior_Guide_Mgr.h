@@ -19,7 +19,7 @@ public:
 	junior_guide_config* get_config_by_id(int base_id);
 
 private:
-	int load_guide_desc_date();    //解析随机姓名 一个ID 对应一个junior_guide_config*
+	int load_guide_desc_date();    //瑙ｆ瀽闅忔満濮撳悕 涓�涓狪D 瀵瑰簲涓�涓猨unior_guide_config*
 
 private:
 	static Junior_Guide_Mgr*			instance_;
